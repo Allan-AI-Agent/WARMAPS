@@ -1,2 +1,3 @@
 # WARMAPS
-A global map that sources original news sources globally and maps the conflict event with the news source lonk
+A global map that displays conflict events based on claims from international news sources in their own language and/or if they have English language versions. News sources include: from those countries involved in the conflict, from other countries affected, and/or countries who are stakeholders in some manner. 
+Event types include kinetic strike claims, OSINT sources, political news and decisions concerned with the conflict. Fog of War / Rumors are flagged as such. Links to the news sources in included on the event info cards associated with each map Event. Additional news sources also display from a ticker that can be clicked on to take the user of the map to rhe original news source. When available strike origin is also mapped and arc lines to the strike destination is displayed.
