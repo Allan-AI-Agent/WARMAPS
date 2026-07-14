@@ -1,5 +1,6 @@
 // ══════════════════════════════════════════════════════════════════
-//  warmaps-data.js  —  WarMaps v01.08.07  (data file)
+//  warmaps-data.js  —  WarMaps v01.08.08  (data file)
+//  DATA UPDATE: July 13, 2026 — events 285-297 added (Days 100-135, Hormuz Crisis)
 // ══════════════════════════════════════════════════════════════════
 //  Split out of the monolithic single-file HTML per WARMAPS_REFACTOR_SPEC
 //  (Drive id 1O36iM2nXNTQKvvRMddJ-EVjrSg-XMTQ0), build session June 20 2026.
@@ -4050,7 +4051,7 @@ const strikes = [
     id: 283, type: 'isr',
     city: 'Dahiyeh, Beirut — IDF Strikes Hezbollah Command Center (10 One-Ton Bombs)',
     country: 'Lebanon', lat: 33.8556, lng: 35.5044,
-    date: 'June 7, 2026', time: 'Day 99 (TODAY)',
+    date: 'June 7, 2026', time: 'Day 99',
     attacker: 'IDF / Israeli Air Force',
     target: 'Hezbollah command center in Dahiyeh, southern Beirut',
     weapon: 'At least 10 one-ton bombs on one command center; reports of a second target',
@@ -4077,6 +4078,208 @@ const strikes = [
 
 
 
+
+  // ══════════════════════════════════════════════════════════════════
+  // UPDATE July 13, 2026 — Days 100-135 — Hormuz Crisis / Ceasefire Collapse
+  // ══════════════════════════════════════════════════════════════════
+
+  // ── BRIDGE: June framework deal + blockade lift (Days ~108-110) ──
+  {
+    id: 285, type: 'political',
+    city: 'Doha — US-Iran Framework Deal', country: 'Qatar',
+    lat: 25.286, lng: 51.533,
+    date: 'June 15-18, 2026', time: 'Day 107-110',
+    attacker: 'N/A — Diplomatic',
+    weapon: 'Memorandum of Understanding',
+    weaponCap: 'N/A',
+    target: 'Framework to reopen Strait of Hormuz and wind down the war',
+    structuralDmg: 'N/A',
+    humanCasualties: 'N/A',
+    launchOrigin: 'Doha, Qatar — indirect talks',
+    misc: 'US-Iran memorandum of understanding signed seeking to reopen the Strait of Hormuz and end the war. US lifted its blockade of Iranian ports June 18 (in place since April 13). Iran continued to insist on approving transit routes and collecting fees — the fault line that would collapse the deal within three weeks. Source: https://www.britannica.com/event/2026-Iran-war',
+  },
+
+  // ── Day 128 (July 6): Khamenei funeral + Hormuz vessel attacks ──
+  {
+    id: 286, type: 'political',
+    city: 'Tehran — Khamenei Funeral', country: 'Iran',
+    lat: 35.699, lng: 51.338,
+    date: 'July 6, 2026', time: 'Day 128',
+    attacker: 'N/A — State funeral',
+    weapon: 'N/A',
+    weaponCap: 'N/A',
+    target: 'N/A',
+    structuralDmg: 'N/A',
+    humanCasualties: 'N/A',
+    launchOrigin: 'N/A',
+    misc: 'Funeral procession for slain Supreme Leader Ali Khamenei (killed Feb 28) and family members moved through mourners toward Azadi Tower, Tehran. Body arrived in Qom July 7. Mojtaba Khamenei succeeded as Supreme Leader; advisor Mohsen Rezaei warned Iran "fully prepared" for more US strikes. Source: https://www.foxnews.com/live-news/us-iran-khamenei-funeral-july-7-2026',
+  },
+  {
+    id: 287, type: 'iran',
+    city: 'Strait of Hormuz — 3 Vessels Struck', country: 'Oman (waters)',
+    lat: 26.35, lng: 56.65,
+    date: 'July 6-7, 2026', time: '~21:19 UTC / Day 128-129',
+    attacker: 'Iran (IRGC Navy)',
+    weapon: 'Anti-ship missiles + drones',
+    weaponCap: 'IRGC coastal anti-ship cruise missiles and one-way attack UAVs; at least two missiles fired at commercial traffic transiting the strait.',
+    target: 'Three commercial vessels in/near the Strait of Hormuz: Qatari-flagged LNG tanker al-Rakiyat, a Saudi-flagged crude tanker, and a third merchant ship',
+    structuralDmg: 'Tanker fire off Oman coast (UKMTO). Two vessels significantly damaged. Al-Rakiyat struck "passing near" the strait per Qatar FM.',
+    humanCasualties: 'No casualties reported.',
+    launchOrigin: 'IRGC coastal batteries, southern Iran',
+    misc: 'Iran accused ships of transiting without its permission — a "gross violation" of the June MoU per US officials. Attacks came hours after a one-week strait truce expired and as Trump departed for NATO summit in Ankara. Trigger event for the entire July escalation. Source: https://www.cnn.com/2026/07/07/middleeast/hormuz-tanker-iran-attack-intl-hnk',
+  },
+
+  // ── Day 129 (July 7): US retaliation wave 1 — truce declared over ──
+  {
+    id: 288, type: 'us',
+    city: 'Strait of Hormuz — 80+ Targets', country: 'Iran',
+    lat: 27.10, lng: 56.30,
+    date: 'July 7, 2026', time: 'Early hours / Day 129',
+    attacker: 'United States (CENTCOM)',
+    weapon: 'Fighter aircraft + naval fires + one-way attack air AND sea drones (first use)',
+    weaponCap: 'First confirmed CENTCOM combat use of one-way attack sea drones (USVs) alongside aerial OWA drones, fighters, and naval vessels — precision munitions against coastal targets.',
+    target: '80+ targets: Iranian air defense systems, command-and-control, coastal radar sites, anti-ship missile capabilities, and 60+ IRGC small boats around the Strait of Hormuz',
+    structuralDmg: 'CENTCOM: dozens of locations hit "to degrade Iran\'s ability to continue attacking international shipping." IRGC claimed a US MQ-9 drone shot down over southern Iran.',
+    humanCasualties: 'Several injured by shrapnel at Sirik commercial pier (Iranian state media).',
+    launchOrigin: 'US naval assets + regional air bases',
+    misc: 'Trump declared the June truce "over" the same day (later softened, saying exchange would not lead to long-term military action). Explosions reported in Sirik, Qeshm, Bandar Abbas vicinity. Source: https://www.aljazeera.com/news/2026/7/7/us-says-strikes-launched-as-explosions-heard-in-southern-iran',
+  },
+
+  // ── Day 130 (July 8): US wave 2 — wider scope; Iran hits Bahrain/Kuwait ──
+  {
+    id: 289, type: 'us',
+    city: 'Bandar Abbas / Qeshm / Sirik / Jask', country: 'Iran',
+    lat: 27.18, lng: 56.28,
+    date: 'July 8, 2026', time: 'Overnight / Day 130',
+    attacker: 'United States (CENTCOM)',
+    weapon: 'Precision munitions — wider scope than July 7 wave',
+    weaponCap: 'Strikes against fixed coastal infrastructure: radar systems, communication towers, IRGC docks and speedboats, drone sites, ammunition depots.',
+    target: 'Bandar Abbas (8 explosions), Sirik port (2 projectiles), Jask port (2), Qeshm Island (6 explosions), Hengam Island, Chabahar, Konarak, Lavan Island; air defenses activated over Kish Island',
+    structuralDmg: 'Chabahar: power lines cut (2 of 3 restored next day), shrapnel struck Imam Ali Hospital. Bandar Abbas: Panj Pleh fishing dock hit — several civilian fishing boats/dhows sank. Bushehr province explosions; no damage to nuclear plant per Nour News.',
+    humanCasualties: 'Civilian collateral reported by residents; injuries from shrapnel.',
+    launchOrigin: 'US naval + air assets, CENTCOM',
+    misc: 'Trump on Truth Social: "This is a response to Iran offensive against ships on Tuesday. If it happens again, the response will be much harsher." Source: https://iranwire.com/en/features/154710-us-strikes-irans-southern-coast-after-hormuz-attacks-residents-say-civilian-livelihoods-destroyed/',
+  },
+  {
+    id: 290, type: 'iran',
+    city: 'Bahrain + Kuwait — 85 US Sites Targeted', country: 'Bahrain/Kuwait',
+    lat: 27.5, lng: 49.5,
+    date: 'July 8, 2026', time: 'Day 130',
+    attacker: 'Iran (IRGC)',
+    weapon: 'Ballistic missiles + one-way attack drones',
+    weaponCap: 'Mixed ballistic missile and drone salvo across two Gulf states — Tehran claimed 85 US military sites targeted.',
+    target: 'US military facilities in Bahrain (5th Fleet HQ region) and Kuwait',
+    structuralDmg: 'Sirens across Kuwait and Bahrain; Kuwaiti air defenses engaged "hostile" missile and drone attacks.',
+    humanCasualties: 'Not confirmed.',
+    launchOrigin: 'Iranian territory',
+    misc: 'Tehran framed the salvo as direct response to US strikes on its southern coast. Largest claimed Iranian counter-strike since the spring campaign. Source: https://www.jpost.com/middle-east/iran-news/article-901804',
+  },
+
+  // ── Day 131 (July 9): US wave 3 — 1 killed; Iran expands to Gulf states ──
+  {
+    id: 291, type: 'us',
+    city: 'Bushehr / Chabahar / Bandar Abbas / Jask', country: 'Iran',
+    lat: 28.92, lng: 50.83,
+    date: 'July 9, 2026', time: 'Day 131',
+    attacker: 'United States (CENTCOM)',
+    weapon: 'Precision munitions',
+    weaponCap: 'Continued suppression campaign against coastal military infrastructure across four southern port regions.',
+    target: 'Military installations across Bushehr, Chabahar, Bandar Abbas, and Jask',
+    structuralDmg: 'Blasts across southern Iran; continued degradation of coastal defense network.',
+    humanCasualties: 'One killed (Iranian reports).',
+    launchOrigin: 'US naval + air assets',
+    misc: 'Third consecutive night of US strikes. Came as Tehran attacked Gulf states hosting US forces. Source: https://www.aljazeera.com/news/liveblog/2026/7/9/iran-war-live-one-killed-as-us-bombs-bushehr-chabahar-bandar-abbas-jask',
+  },
+
+  // ── Day 133 (July 11): GFS Galaxy hit — IRGC declares Hormuz CLOSED ──
+  {
+    id: 292, type: 'iran',
+    city: 'Strait of Hormuz — M/V GFS Galaxy', country: 'International waters',
+    lat: 26.45, lng: 56.55,
+    date: 'July 11, 2026', time: 'Day 133',
+    attacker: 'Iran (IRGC Navy)',
+    weapon: 'Missile fire ("warning shot" then direct hit per IRGC)',
+    weaponCap: 'IRGC claims vessel used an "unauthorized route" and switched off transponder systems; struck and "brought to a halt."',
+    target: 'Cyprus-flagged container ship M/V GFS Galaxy transiting the Strait of Hormuz',
+    structuralDmg: 'Onboard fire, significant engine room damage — vessel unable to continue journey (CENTCOM).',
+    humanCasualties: 'One civilian crew member missing.',
+    launchOrigin: 'IRGC naval/coastal assets',
+    misc: 'Hours after the strike the IRGC declared the Strait of Hormuz CLOSED "until further notice and until the end of US interventions." Same day, Oman-mediated talks in Muscat produced a proposal to reopen both shipping lanes — Iran delegation took it back to Tehran without approval. The closure declaration defied a US ultimatum issued Friday demanding Iran publicly guarantee safe passage. Source: https://www.rferl.org/a/centcom-iran-strikes-hormuz-shipping-irgc/33801945.html',
+  },
+  {
+    id: 293, type: 'political',
+    city: 'Strait of Hormuz — DECLARED CLOSED', country: 'Iran',
+    lat: 26.60, lng: 56.25,
+    date: 'July 11, 2026', time: 'Day 133',
+    attacker: 'N/A — IRGC declaration',
+    weapon: 'N/A',
+    weaponCap: 'N/A',
+    target: 'All maritime traffic — "no vessel will be allowed to pass"',
+    structuralDmg: 'N/A',
+    humanCasualties: 'N/A',
+    launchOrigin: 'IRGC Navy statement via IRIB',
+    misc: 'IRGC: strait "closed until further notice and until the end of the American interventions in this area." ~20% of global oil transits Hormuz. Declaration collapsed the June MoU framework and triggered the heaviest week of strikes since spring. Source: https://www.axios.com/2026/07/11/iran-strikes-cargo-ship-in-strait-of-hormuz-defying-us-ultimatum',
+  },
+
+  // ── Day 134 (July 12): US wave 4; Iran hits 5 Gulf nations + Jordan ──
+  {
+    id: 294, type: 'us',
+    city: 'Hormuz Coast — Third Round Strikes', country: 'Iran',
+    lat: 26.95, lng: 56.45,
+    date: 'July 12, 2026', time: 'Early hours / Day 134',
+    attacker: 'United States (CENTCOM)',
+    weapon: 'Precision munitions — "new wave" aimed at degrading military',
+    weaponCap: 'Strikes on missile and air-defense systems and IRGC small boats around the Strait of Hormuz.',
+    target: 'Iranian military assets threatening strait traffic, in response to GFS Galaxy attack and closure declaration',
+    structuralDmg: '"Imposing a heavy cost by continuing to degrade Iran\'s ability to attack civilian mariners" — CENTCOM.',
+    humanCasualties: 'Not confirmed.',
+    launchOrigin: 'US naval + air assets, ordered by Trump',
+    misc: 'Third US strike round of the week. Trump rejected Iran\'s claim the strait was closed on NBC Meet the Press. Source: https://www.aljazeera.com/news/2026/7/12/us-launches-new-wave-of-strikes-against-iran-aimed-at-degrading-military',
+  },
+  {
+    id: 295, type: 'iran',
+    city: 'Qatar / UAE / Jordan / Kuwait / Oman', country: 'Gulf states',
+    lat: 26.0, lng: 51.2,
+    date: 'July 12, 2026', time: 'Day 134',
+    attacker: 'Iran (IRGC)',
+    weapon: 'Ballistic missiles + drones',
+    weaponCap: 'Multi-country salvo — escalation in pace and range (Reuters). Tasnim: three ballistic missiles struck a US base in Kuwait, smoke visible from Iraq-Kuwait border area.',
+    target: 'US facilities across five Gulf nations + Jordan air base. Kuwait: 3 northern border posts struck, Kuwait Oil Company offshore drilling platform hit by drone, HIMARS launchers at a base targeted',
+    structuralDmg: 'Kuwait border posts damaged ("criminal and aggressive attack" — Kuwaiti armed forces); oil platform damaged.',
+    humanCasualties: 'One oil platform worker injured.',
+    launchOrigin: 'Iranian territory',
+    misc: 'Widest geographic spread of Iranian retaliation in the July cycle — Tehran warned Gulf neighbors against cooperating with Washington and threatened to add Israel to the target list if US strikes persisted. Source: https://www.aljazeera.com/news/2026/7/12/iran-attacks-five-gulf-nations-shuts-hormuz-after-us-bombing-all-to-know',
+  },
+
+  // ── Day 135 (July 13, TODAY): US hits 4 provinces; Trump blockade + 20% fee ──
+  {
+    id: 296, type: 'us',
+    city: 'Khuzestan / Hormozgan / Markazi / Sistan', country: 'Iran',
+    lat: 30.55, lng: 49.18,
+    date: 'July 13, 2026', time: 'Overnight / Day 135 (TODAY)',
+    attacker: 'United States (CENTCOM)',
+    weapon: 'Precision munitions — dozens of targets (140+ across weekend)',
+    weaponCap: 'Deep strike set spanning four provinces — beyond the coastal belt for the first time in the July cycle.',
+    target: 'Military targets across Hormozgan, Khuzestan (8 locations), Markazi, and Sistan-Baluchestan provinces',
+    structuralDmg: 'Projectile hit an agricultural water-pumping station in Mahshahr, Khuzestan.',
+    humanCasualties: 'At least 2 killed (IRNA): 1 killed + 4 injured at Mahshahr pumping station.',
+    launchOrigin: 'US naval + air assets',
+    misc: 'US hit 140+ Iranian military targets across the weekend per aggregated reports. Iran FM spokesman: June framework deal "in crisis." Iran refused IAEA visits to nuclear sites bombed in 2025 where HEU stockpile believed entombed. Source: https://www.aljazeera.com/news/2026/7/13/new-iran-strikes-on-gulf-as-us-attacks-escalate-what-we-know',
+  },
+  {
+    id: 297, type: 'political',
+    city: 'Washington — Blockade + 20% Hormuz Fee', country: 'USA',
+    lat: 38.897, lng: -77.036,
+    date: 'July 13, 2026', time: 'Day 135 (TODAY)',
+    attacker: 'N/A — Policy declaration',
+    weapon: 'N/A',
+    weaponCap: 'N/A',
+    target: 'Iranian port traffic + all Hormuz cargo transit',
+    structuralDmg: 'N/A',
+    humanCasualties: 'N/A',
+    launchOrigin: 'Truth Social / White House',
+    misc: 'Trump: "We are reinstating THE IRANIAN BLOCKADE" (effective July 14, 4pm ET — previous blockade ran Apr 13–Jun 18) and US will charge 20% fee "on all cargo shipped" as "GUARDIAN OF THE HORMUZ STRAIT" — contradicting prior US position that strait tolls violate international law. IMO: "stands firmly against" transit fees. Iran FM Araghchi mocked: "20% is of course too much. We will be fair." Oil prices surged, stocks fell. IRGC same day struck Bahrain, Jordan, Kuwait, Oman again. Source: https://www.cnbc.com/2026/07/13/trump-iran-hormuz-strait-charge-reimburse.html',
+  },
 
 ];
 
