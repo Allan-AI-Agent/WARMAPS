@@ -1,5 +1,5 @@
 // ══════════════════════════════════════════════════════════════════
-//  warmaps-data.js  —  WarMaps v01.08.08  (data file)
+//  warmaps-data.js  —  WarMaps v01.08.09  (data file)
 //  DATA UPDATE: July 13, 2026 — events 285-297 added (Days 100-135, Hormuz Crisis)
 // ══════════════════════════════════════════════════════════════════
 //  Split out of the monolithic single-file HTML per WARMAPS_REFACTOR_SPEC
