@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.07 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.08 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1507,7 +1507,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.07">v01.08.07</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.08">v01.08.08</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1602,8 +1602,8 @@
   <div class="timeline-range-wrap">
     <div class="timeline-track"></div>
     <div class="timeline-fill" id="tl-fill"></div>
-    <input type="range" id="tl-min" min="-3" max="50" value="-3" step="1">
-    <input type="range" id="tl-max" min="-3" max="50" value="50" step="1">
+    <input type="range" id="tl-min" min="-3" max="140" value="-3" step="1">
+    <input type="range" id="tl-max" min="-3" max="140" value="140" step="1">
     <div class="timeline-ticks" id="tl-ticks"></div>
   </div>
 </div>
@@ -1740,7 +1740,7 @@
 </div>
 
 <!-- WarMaps v01.07.1 — built Apr 2, 2026 — SINGLE FILE EDITION -->
-<!-- WarMaps v01.08.07 — built July 5, 2026 — SPLIT EDITION (data/HTML separated) -->
+<!-- WarMaps v01.08.08 — built July 13, 2026 — SPLIT EDITION (data/HTML separated) -->
 <script>
 // ══════════════════════════════════════════════════════════════════
 //  CONFLICT CONFIGURATION  (stays in index.html — spec: "WARMAPS_CONFIG
@@ -1759,7 +1759,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.07',
+  versionFull:  'v01.08.08',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -1776,7 +1776,7 @@ const WARMAPS_CONFIG = {
   // Timeline slider range — Day numbers relative to conflict start
   // Negative = pre-war intel. Increase maxDay as conflict progresses.
   minDay: -3,
-  maxDay: 50,
+  maxDay: 140,
 
   // The two sides of the conflict (used in stat box labels)
   sideA: 'US + Israel',
@@ -4449,7 +4449,7 @@ async function fetchUpdates() {
 
     } else {
       // ── TRY CLAUDE.AI ARTIFACT MODE (no key needed) ──
-      // v01.08.07: only attempt inside claude.ai artifact contexts —
+      // v01.08.08: only attempt inside claude.ai artifact contexts —
       // on Cloudflare/GitHub Pages/local this call is guaranteed to fail CORS.
       const inArtifact = /claude\.ai$|claudeusercontent\.com$/.test(location.hostname);
       if (!inArtifact) throw new Error('static mode (no API key configured)');
@@ -4512,7 +4512,7 @@ async function fetchUpdates() {
 //  INIT
 // ──────────────────────────────────────────────
 
-// NASA FIRMS active fire overlay — v01.08.07 rewrite
+// NASA FIRMS active fire overlay — v01.08.08 rewrite
 // The old CSV endpoint is CORS-blocked in browsers and the previous key was
 // invalid/hardcoded in source. Now: WMS tile layer (image tiles bypass CORS),
 // key supplied by the user via settings and stored in localStorage only.
@@ -4765,7 +4765,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.07';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.08';
   vEl.textContent = full;
 })();
 
