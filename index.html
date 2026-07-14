@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.08 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.09 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +61,8 @@
     background: var(--bg);
     color: var(--text-primary);
     font-family: 'Oswald', sans-serif;
-    height: 100vh;
+    height: 100vh; /* fallback for old browsers */
+    height: 100dvh; /* dynamic viewport height — excludes mobile browser chrome */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -1257,7 +1258,7 @@
 
   /* help reference panel */
   #help-panel {
-    position: fixed; top: 0; left: -360px; width: 340px; height: 100vh;
+    position: fixed; top: 0; left: -360px; width: 340px; height: 100vh; height: 100dvh; /* dvh — excludes mobile browser chrome */
     background: rgba(5,9,20,0.98);
     border-right: 1px solid rgba(255,238,0,0.35);
     z-index: 99997; overflow-y: auto;
@@ -1360,7 +1361,8 @@
     position: fixed;
     top: 0; left: -360px;
     width: 340px;
-    height: 100vh;
+    height: 100vh; /* fallback for old browsers */
+    height: 100dvh; /* dynamic viewport height — excludes mobile browser chrome */
     background: #070d14;
     border-right: 1px solid #1a2535;
     box-shadow: 4px 0 24px rgba(0,0,0,0.7);
@@ -1507,7 +1509,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.08">v01.08.08</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.09">v01.08.09</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1740,7 +1742,7 @@
 </div>
 
 <!-- WarMaps v01.07.1 — built Apr 2, 2026 — SINGLE FILE EDITION -->
-<!-- WarMaps v01.08.08 — built July 13, 2026 — SPLIT EDITION (data/HTML separated) -->
+<!-- WarMaps v01.08.09 — built July 14, 2026 — SPLIT EDITION (data/HTML separated) -->
 <script>
 // ══════════════════════════════════════════════════════════════════
 //  CONFLICT CONFIGURATION  (stays in index.html — spec: "WARMAPS_CONFIG
@@ -1759,7 +1761,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.08',
+  versionFull:  'v01.08.09',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -1904,6 +1906,7 @@ let isSatellite = false;
 const map = L.map('map', {
   center: [31.5, 50.0],
   zoom: 5,
+  preferCanvas: true,
   zoomControl: false,
   attributionControl: false,
   // Prevent world tile duplication when zoomed out
@@ -1915,6 +1918,65 @@ const map = L.map('map', {
   zoomDelta: 0.25,
   zoomSnap: 0.25,
   wheelPxPerZoomLevel: 120,
+});
+
+// ── FIX 2 (R1 repair): clamp + drag for info-card popups ─────────
+// autoPan is disabled on all bindPopup() calls in this file, so a
+// popup anchored to a northern marker can render partly/fully above
+// the viewport with no built-in way to bring it back. These helpers
+// clamp the popup into the visible viewport on open and add a drag
+// handle (Pointer Events — mouse + touch) on the popup header so it
+// can be moved manually. Clamping re-applies after drag ends.
+function wmClampPopup(popupEl) {
+  if (!popupEl) return;
+  var pad = 8;
+  var rect = popupEl.getBoundingClientRect();
+  var dx = 0, dy = 0;
+  if (rect.top < pad) dy = pad - rect.top;
+  if (rect.bottom > window.innerHeight - pad) dy = Math.min(dy, (window.innerHeight - pad) - rect.bottom);
+  if (rect.left < pad) dx = pad - rect.left;
+  if (rect.right > window.innerWidth - pad) dx = Math.min(dx, (window.innerWidth - pad) - rect.right);
+  if (dx || dy) {
+    var m = new DOMMatrixReadOnly(window.getComputedStyle(popupEl).transform);
+    popupEl.style.transform = 'translate3d(' + (m.m41 + dx) + 'px,' + (m.m42 + dy) + 'px,0)';
+  }
+  var content = popupEl.querySelector('.leaflet-popup-content');
+  if (content) {
+    content.style.maxHeight = 'calc(100dvh - 16px)';
+    content.style.overflowY = 'auto';
+  }
+}
+function wmMakePopupDraggable(popupEl) {
+  if (!popupEl) return;
+  var handle = popupEl.querySelector('.popup-header');
+  if (!handle || handle.dataset.wmDragBound) return;
+  handle.dataset.wmDragBound = '1';
+  handle.style.cursor = 'move';
+  handle.style.touchAction = 'none';
+  var dragging = false, startX, startY, origX, origY;
+  handle.addEventListener('pointerdown', function(ev) {
+    dragging = true;
+    startX = ev.clientX; startY = ev.clientY;
+    var m = new DOMMatrixReadOnly(window.getComputedStyle(popupEl).transform);
+    origX = m.m41; origY = m.m42;
+    handle.setPointerCapture(ev.pointerId);
+    ev.preventDefault();
+  });
+  handle.addEventListener('pointermove', function(ev) {
+    if (!dragging) return;
+    var dx = ev.clientX - startX, dy = ev.clientY - startY;
+    popupEl.style.transform = 'translate3d(' + (origX + dx) + 'px,' + (origY + dy) + 'px,0)';
+  });
+  function endDrag() { if (dragging) { dragging = false; wmClampPopup(popupEl); } }
+  handle.addEventListener('pointerup', endDrag);
+  handle.addEventListener('pointercancel', endDrag);
+}
+map.on('popupopen', function(e) {
+  var popupEl = e.popup && e.popup._container;
+  requestAnimationFrame(function() {
+    wmClampPopup(popupEl);
+    wmMakePopupDraggable(popupEl);
+  });
 });
 
 L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -4449,7 +4511,7 @@ async function fetchUpdates() {
 
     } else {
       // ── TRY CLAUDE.AI ARTIFACT MODE (no key needed) ──
-      // v01.08.08: only attempt inside claude.ai artifact contexts —
+      // v01.08.09: only attempt inside claude.ai artifact contexts —
       // on Cloudflare/GitHub Pages/local this call is guaranteed to fail CORS.
       const inArtifact = /claude\.ai$|claudeusercontent\.com$/.test(location.hostname);
       if (!inArtifact) throw new Error('static mode (no API key configured)');
@@ -4512,7 +4574,7 @@ async function fetchUpdates() {
 //  INIT
 // ──────────────────────────────────────────────
 
-// NASA FIRMS active fire overlay — v01.08.08 rewrite
+// NASA FIRMS active fire overlay — v01.08.09 rewrite
 // The old CSV endpoint is CORS-blocked in browsers and the previous key was
 // invalid/hardcoded in source. Now: WMS tile layer (image tiles bypass CORS),
 // key supplied by the user via settings and stored in localStorage only.
@@ -4765,7 +4827,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.08';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.09';
   vEl.textContent = full;
 })();
 
