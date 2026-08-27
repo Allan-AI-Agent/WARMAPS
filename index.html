@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.09 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.10 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1509,7 +1509,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.09">v01.08.09</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.10">v01.08.09</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1761,7 +1761,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.09',
+  versionFull:  'v01.08.10',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -1777,8 +1777,8 @@ const WARMAPS_CONFIG = {
 
   // Timeline slider range — Day numbers relative to conflict start
   // Negative = pre-war intel. Increase maxDay as conflict progresses.
-  minDay: -3,
-  maxDay: 140,
+  minDay: -30,
+  maxDay: 180,
 
   // The two sides of the conflict (used in stat box labels)
   sideA: 'US + Israel',
@@ -2899,19 +2899,41 @@ const arcLayerGroup  = L.layerGroup().addTo(map);
 const launchIconGroup = L.layerGroup().addTo(map);
 
 const warStart = new Date(2026, 1, 28);
+const WARMAPS_MONTHS = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,sept:8,oct:9,nov:10,dec:11,
+  january:0,february:1,march:2,april:3,june:5,july:6,august:7,september:8,october:9,november:10,december:11};
+const WARMAPS_DATE_ERRORS = [];
+// v01.08.10 repair: full month names, real year (was hardcoded 2026), day-number guard,
+// and NULL on failure instead of a silent Day 1. A date we cannot read must be loud, not invisible.
 function parseWarDay(dateStr) {
-  const cleaned = dateStr.replace(/–/g,'-').split('-')[0].trim().replace(/,\s*$/,'');
-  const m = cleaned.match(/(\w+)\s+(\d+)/);
-  if (!m) return 1;
-  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11,January:0,February:1,March:2,June:5};
-  const mon = months[m[1]];
-  if (mon === undefined) return 1;
-  return Math.round((new Date(2026,mon,parseInt(m[2])) - warStart) / 86400000) + 1;
+  if (!dateStr) return null;
+  const full = String(dateStr);
+  const cleaned = full.replace(/[\u2013\u2014]/g,'-').split('-')[0].trim().replace(/,\s*$/,'');
+  let mon, day, year;
+  // preferred: month + day + year together (handles "June 22, 2025 ... / Feb 22, 2026")
+  let m = cleaned.match(/([A-Za-z]+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s*((?:19|20)\d{2})/);
+  if (m) { mon = WARMAPS_MONTHS[m[1].toLowerCase()]; day = parseInt(m[2],10); year = parseInt(m[3],10); }
+  else {
+    m = cleaned.match(/([A-Za-z]+)\s+(\d{1,2})\b/);
+    if (!m) return null;
+    mon = WARMAPS_MONTHS[m[1].toLowerCase()]; day = parseInt(m[2],10);
+    const ym = full.match(/\b((?:19|20)\d{2})\b/);
+    year = ym ? parseInt(ym[1],10) : 2026;
+  }
+  if (mon === undefined || !(day >= 1 && day <= 31)) return null;
+  const d = new Date(year, mon, day);
+  if (d.getMonth() !== mon || d.getDate() !== day) return null;   // reject rollover
+  return Math.round((d - warStart) / 86400000) + 1;
 }
 
 // strikeDays: maps event id → war day number; built here before strikes.forEach
 const strikeDays = {};
-strikes.forEach(s => { strikeDays[s.id] = parseWarDay(s.date); });
+strikes.forEach(s => {
+  const d = parseWarDay(s.date);
+  if (d === null) { WARMAPS_DATE_ERRORS.push({id:s.id, date:s.date});
+    console.error('[WarMaps] UNREADABLE DATE — event will not render. id ' + s.id + ' : "' + s.date + '"'); }
+  strikeDays[s.id] = d;
+});
+if (WARMAPS_DATE_ERRORS.length) console.error('[WarMaps] ' + WARMAPS_DATE_ERRORS.length + ' event(s) have unreadable dates:', WARMAPS_DATE_ERRORS);
 
 const markerMap = {};
 const navalMarkers = {};  // moved earlier — TDZ fix v01.08.06 (was declared after the timeline IIFE's first updateSlider() call, which references it via updateNavalMarkersForDay)
@@ -4827,7 +4849,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.09';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.10';
   vEl.textContent = full;
 })();
 
