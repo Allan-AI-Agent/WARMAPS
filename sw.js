@@ -1,34 +1,21 @@
-/* WarMaps service worker — v01.08.11
-   Deliberately conservative: network-first for the shell and data so a push is
-   picked up on next load, with cache only as an offline fallback. A cache-first
-   worker would serve stale builds after every deploy, which is the classic PWA trap. */
-const CACHE = 'warmaps-v01-08-13';
-const SHELL = ['./', './index.html', './warmaps-data.js', './manifest.json'];
-
-self.addEventListener('install', e => {
-  self.skipWaiting();
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).catch(() => {}));
+/* WarMaps service worker — KILL SWITCH (v01.08.14)
+   The v01.08.11-13 worker caused version REGRESSION on at least one device
+   (tablet fell from v01.08.12 back to v01.08.09). Network-first still falls back
+   to cache on any slow/failed request, which on a constrained device means the
+   stale copy wins routinely. Not worth it for fullscreen.
+   This worker deletes every cache, unregisters itself, and reloads open clients. */
+self.addEventListener('install', function () { self.skipWaiting(); });
+self.addEventListener('activate', function (e) {
+  e.waitUntil((async function () {
+    try {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(function (k) { return caches.delete(k); }));
+    } catch (_) {}
+    try { await self.registration.unregister(); } catch (_) {}
+    try {
+      const cs = await self.clients.matchAll({ type: 'window' });
+      cs.forEach(function (c) { try { c.navigate(c.url); } catch (_) {} });
+    } catch (_) {}
+  })());
 });
-
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    ).then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener('fetch', e => {
-  const url = new URL(e.request.url);
-  if (e.request.method !== 'GET') return;
-  if (url.origin !== self.location.origin) return;   // never touch map tiles / APIs
-  e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy)).catch(() => {});
-        return res;
-      })
-      .catch(() => caches.match(e.request).then(r => r || caches.match('./index.html')))
-  );
-});
+/* Deliberately NO fetch handler — every request goes straight to the network. */
