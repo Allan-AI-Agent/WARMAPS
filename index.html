@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.18 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.19 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1519,10 +1519,11 @@
 })();
 </script>
 <style id="wm-mobile-overrides">
-/* v01.08.18 — isolated. Previously appended into an existing <style>,
-   but this file contains the literal text </style> inside a JS string,
-   so block boundaries cannot be detected reliably. Own element = no
-   ambiguity. Backticks removed: they triggered a JS SyntaxError. */
+/* v01.08.18 - isolated element. Previously this CSS was appended into an
+   existing style block, but the file contains style-closing-tag TEXT inside a
+   JS string, so boundaries cannot be detected reliably. Own element = no
+   ambiguity. NOTE: never write literal markup tag text inside CSS comments -
+   the parser closes the element there. Backticks also removed (JS SyntaxError). */
 /* ══════════════════════════════════════════════════════════════════════
    v01.08.11 — MOBILE BATCH A  (appended overrides; existing rules untouched)
    Rule 5 compliance: no substring edits to existing declarations.
@@ -1631,7 +1632,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.18">v01.08.18</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.19">v01.08.19</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1883,7 +1884,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.18',
+  versionFull:  'v01.08.19',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4973,7 +4974,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.18';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.19';
   vEl.textContent = full;
 })();
 
