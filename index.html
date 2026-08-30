@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.14 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.15 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1513,7 +1513,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.14">v01.08.09</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.15">v01.08.09</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1765,7 +1765,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.14',
+  versionFull:  'v01.08.15',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4037,31 +4037,25 @@ function makeLaunchIcon(wtype) {
   #sidebar-toggle-btn { z-index: 99990 !important; }
 }
 
-/* ---- 4. PERFORMANCE (v01.08.12b) ----
-   CORRECTION: the previous rule targeted `filter`, but the glow is animated
-   box-shadow driven by ~27 infinite @keyframes. `filter:none` was a no-op.
-   Freezing the ANIMATIONS inside map panes removes per-frame compositing for
-   every marker while LEAVING THE GLOW ITSELF INTACT (final keyframe state
-   persists via animation-play-state). UI chrome — ticker, spinner, blink — is
-   deliberately untouched; only the map panes are frozen. */
+/* ---- 4. PERFORMANCE (v01.08.15) — SELECTIVE, NOT BLANKET ----
+   Cost scales with COUNT, not with how elaborate an animation is. ~297 strike
+   markers each running an infinite pulse is the expense; the ~12 launch origins
+   running missile-exhaust and drone-orbit animations cost almost nothing and
+   carry most of the visual character. So: freeze the many, keep the few.
+   Exempt classes are the launch/drone animation carriers:
+     missile exhaust : .mex .mexB .mexS .mexr .mexbr .mexsr
+     drone orbits    : .dof .dw .db .dof2 .dw2 .db2                        */
 @media (pointer: coarse) {
-  .leaflet-marker-pane *, .leaflet-marker-pane,
-  .leaflet-overlay-pane *, .leaflet-overlay-pane,
-  .leaflet-marker-icon, .leaflet-marker-icon * {
+  .leaflet-marker-pane *, .leaflet-overlay-pane * {
     animation-play-state: paused !important;
-    animation-iteration-count: 1 !important;
   }
-  .leaflet-marker-icon, .leaflet-marker-icon * {
-    will-change: auto !important;
-    transition: none !important;
+  .mex, .mexB, .mexS, .mexr, .mexbr, .mexsr,
+  .dof, .dw, .db, .dof2, .dw2, .db2 {
+    animation-play-state: running !important;
   }
+  .leaflet-marker-icon { will-change: auto !important; }
 }
 
-</style>`,
-    iconSize: [w, h],
-    iconAnchor: [w/2, h/2],
-  });
-}
 
 // arcLayerGroup/launchIconGroup — moved to before strikes.forEach (v01.07.11 TDZ fix)
 
@@ -4918,7 +4912,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.14';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.15';
   vEl.textContent = full;
 })();
 
