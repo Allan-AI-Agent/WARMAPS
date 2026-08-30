@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.10 | OPERATION ROARING LION / EPIC FURY</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#070d14">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.11 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1509,7 +1513,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.10">v01.08.09</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.11">v01.08.09</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1761,7 +1765,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.10',
+  versionFull:  'v01.08.11',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -3988,7 +3992,58 @@ function makeLaunchIcon(wtype) {
     <style>
       @keyframes launchIconPulse{from{filter:drop-shadow(0 0 3px ${c});} to{filter:drop-shadow(0 0 10px ${sat?iBlue:c}) drop-shadow(0 0 18px ${sat?'rgba(30,144,255,0.55)':'rgba(255,100,100,0.5)'});}}
       @keyframes satIconPulse{0%{width:${w}px;height:${h}px;opacity:0.85;background:rgba(255,30,30,0.18);}100%{width:${w*4}px;height:${h*4}px;opacity:0;background:rgba(255,30,30,0);}}
-    </style>`,
+    
+/* ══════════════════════════════════════════════════════════════════════
+   v01.08.11 — MOBILE BATCH A  (appended overrides; existing rules untouched)
+   Rule 5 compliance: no substring edits to existing declarations.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ---- 1. TOUCH TARGETS (all pointer:coarse devices, any orientation) ---- */
+@media (pointer: coarse) {
+  #tl-min::-webkit-slider-thumb, #tl-max::-webkit-slider-thumb {
+    width: 34px !important; height: 34px !important;
+    border-radius: 50% !important; cursor: grab;
+    border: 2px solid #070d14 !important;
+    box-shadow: 0 0 0 2px rgba(255,238,0,0.55) !important;
+  }
+  #tl-min::-moz-range-thumb, #tl-max::-moz-range-thumb {
+    width: 34px !important; height: 34px !important;
+    border-radius: 50% !important; border: 2px solid #070d14 !important;
+  }
+  /* taller invisible hit strip so a fingertip catches the track */
+  #tl-min, #tl-max { height: 44px !important; }
+
+  #sidebar-toggle-btn {
+    min-width: 44px !important; min-height: 64px !important;
+    font-size: 20px !important; opacity: 0.92 !important;
+  }
+  .filter-btn, .tl-preset, .toggle-switch { min-height: 34px !important; }
+}
+
+/* ---- 2. LANDSCAPE PHONE: reclaim vertical space ---- */
+@media (orientation: landscape) and (max-height: 500px) {
+  .header-sub, .subtitle-text, #breaking-ticker, .ticker-wrap { display: none !important; }
+  .header, #header, .topbar { padding-top: 2px !important; padding-bottom: 2px !important; }
+  .header-title { font-size: 13px !important; }
+  #sidebar { max-width: 42vw !important; }
+  .timeline-ticks, .timeline-tick { display: none !important; }
+}
+
+/* ---- 3. NARROW SCREENS: sidebar must not eat the map ---- */
+@media (max-width: 820px) {
+  #sidebar { max-width: 78vw !important; }
+  #sidebar-toggle-btn { z-index: 99990 !important; }
+}
+
+/* ---- 4. PERFORMANCE: drop glow filters on coarse-pointer devices ---- */
+@media (pointer: coarse) {
+  .strike-marker, .origin-icon, .leaflet-marker-icon {
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
+}
+
+</style>`,
     iconSize: [w, h],
     iconAnchor: [w/2, h/2],
   });
@@ -4849,7 +4904,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.10';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.11';
   vEl.textContent = full;
 })();
 
@@ -5964,6 +6019,17 @@ map.on('click', function() {
   window.addEventListener('resize', position);
   setTimeout(position, 120);   /* after initial layout settles */
 })();
+</script>
+
+<script>
+/* v01.08.11 PWA registration — fullscreen install reclaims browser chrome on mobile */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function (e) {
+      console.warn('[WarMaps] service worker registration failed:', e);
+    });
+  });
+}
 </script>
 </body>
 </html>
