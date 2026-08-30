@@ -4038,13 +4038,10 @@ function makeLaunchIcon(wtype) {
 }
 
 /* ---- 4. PERFORMANCE (v01.08.15) — SELECTIVE, NOT BLANKET ----
-   Cost scales with COUNT, not with how elaborate an animation is. ~297 strike
-   markers each running an infinite pulse is the expense; the ~12 launch origins
-   running missile-exhaust and drone-orbit animations cost almost nothing and
-   carry most of the visual character. So: freeze the many, keep the few.
-   Exempt classes are the launch/drone animation carriers:
-     missile exhaust : .mex .mexB .mexS .mexr .mexbr .mexsr
-     drone orbits    : .dof .dw .db .dof2 .dw2 .db2                        */
+   Cost scales with COUNT. ~297 strike markers each running an infinite pulse is
+   the expense; the ~12 launch origins running missile-exhaust and drone-orbit
+   animations cost almost nothing and carry most of the visual character.
+   Freeze the many, keep the few. */
 @media (pointer: coarse) {
   .leaflet-marker-pane *, .leaflet-overlay-pane * {
     animation-play-state: paused !important;
@@ -4056,6 +4053,11 @@ function makeLaunchIcon(wtype) {
   .leaflet-marker-icon { will-change: auto !important; }
 }
 
+</style>`,
+    iconSize: [w, h],
+    iconAnchor: [w/2, h/2],
+  });
+}
 
 // arcLayerGroup/launchIconGroup — moved to before strikes.forEach (v01.07.11 TDZ fix)
 
