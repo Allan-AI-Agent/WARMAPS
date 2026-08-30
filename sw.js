@@ -2,7 +2,7 @@
    Deliberately conservative: network-first for the shell and data so a push is
    picked up on next load, with cache only as an offline fallback. A cache-first
    worker would serve stale builds after every deploy, which is the classic PWA trap. */
-const CACHE = 'warmaps-v01-08-12';
+const CACHE = 'warmaps-v01-08-13';
 const SHELL = ['./', './index.html', './warmaps-data.js', './manifest.json'];
 
 self.addEventListener('install', e => {
