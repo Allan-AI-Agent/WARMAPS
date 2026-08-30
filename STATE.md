@@ -1,61 +1,82 @@
 # WARMAPS — STATE OF RECORD
 
-**Last verified:** 2026-07-30 21:15 UTC — **Day 152**
-**Verified by:** direct fetch of the live repo (not from memory, docs, or Drive)
-**Update rule:** rewrite this file at every push. It is the single answer to "where am I?"
+**Last verified:** 2026-08-30 07:15 UTC — **Day 184**
+**Verified by:** live fetch of the deployed build + on-device confirmation by Allan (tablet)
+**Update rule:** rewrite this file at every push. Trust it over memory, project
+instructions, or Drive documents. If they disagree, this file wins.
 
 ---
 
-## DEPLOYMENT
+## STATUS: FIRST FULLY VERIFIED BUILD SINCE ~v01.08.05
+
+The split architecture (v01.08.06) had never been confirmed working end-to-end on a
+device until 2026-08-30. It now has been.
+
 | Field | Value |
 |---|---|
-| repo | `Allan-AI-Agent/WARMAPS` |
-| branch | `main` |
-| live_url | https://allan-ai-agent.github.io/WARMAPS/ |
-| host | GitHub Pages |
-| status | SERVING (HTTP 200) |
+| version | **v01.08.19** |
+| repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC) |
+| live | https://allan-ai-agent.github.io/WARMAPS/  (**case-sensitive**) |
+| index.html | 291,064 bytes |
+| warmaps-data.js | unchanged since v01.08.08 |
+| events | 297, IDs 1–297, no gaps, no duplicates |
+| latest event | 2026-07-13 = Day 136 |
+| minDay / maxDay | **-30 / 180** |
+| slider attrs | `min="-30" max="180"` (SECOND location — see traps) |
+| verified on | Android phone + Amazon Fire tablet, 2026-08-30 |
 
-## BUILD
-| Field | Value |
-|---|---|
-| version | **v01.08.09** |
-| index.html | 291,667 bytes |
-| warmaps-data.js | 352,437 bytes |
-| version strings (index.html) | 8 x v01.08.09 — consistent |
-| version strings (warmaps-data.js) | 1 x v01.08.09 |
-| mobile dvh fix (R1) | PRESENT — 4 x `100dvh` |
+## WHAT WAS FIXED THIS SESSION (v01.08.10 → v01.08.19)
 
-## DATA
-| Field | Value |
-|---|---|
-| events | **297** |
-| id range | 1–297 |
-| duplicate ids | none |
-| id gaps | none |
-| earliest event | 2026-02-18 (id 171, pre-war) |
-| latest event | **2026-07-13 (id 297) = Day 135** |
-| maxDay | **140** |
+1. **parseWarDay repaired.** Full month names, real year parsed (was hardcoded 2026),
+   day-number rollover guard, and NULL-on-failure instead of a silent Day 1.
+   Recovered 12 events (IDs 286–297) that had been rendering on Feb 28 since v01.08.08.
+2. **Timeline bounds.** minDay -3 → -30, maxDay 140 → 180, in BOTH locations.
+3. **Touch targets.** 34px slider thumbs in 44px hit strips; 44x64px sidebar toggle.
+4. **Landscape media query.** Header/ticker/ticks collapse below 500px height.
+5. **Long-press → contextmenu bridge.** Right-click-only features now reachable on touch.
+6. **Marker animations.** Bulk pulses disabled on coarse pointers; missile-exhaust and
+   drone-orbit animations explicitly preserved.
+7. **Service worker removed entirely** (kill switch shipped) — it caused version regression.
+8. **On-screen JS error reporter** installed ahead of app code.
+9. **Version badge no longer lies** — it was hardcoded `v01.08.09` in static HTML.
 
-## COVERAGE
-- **OPEN GAP — Day 136–152 (Jul 14–30):** 17 days, zero events.
-- **THIN — Day 100–127 (Jun 8 – Jul 5):** ~28 days carried by bridge event(s) only, not day-by-day. Decision pending.
+## OPEN ITEMS
 
-## BLOCKING ISSUE FOR NEXT DATA UPDATE
-`maxDay: 140` caps the timeline at **2026-07-18**. Any event dated after that will be
-inserted correctly and **render nowhere**. This is the second occurrence of this bug
-(first: maxDay stuck at 50 / Apr 19, found 2026-07-14).
-**Bump maxDay in the same commit as any event insert. Verify by scrubbing the slider to the end.**
+- **Day-number inconsistency:** `parseWarDay` computes Aug 30 = Day 184, but the missile-wave
+  panel and AI summary display Day 183. Two calculations disagree by one. UNRESOLVED.
+- **Event backfill:** Day 137–184 (Jul 14 – Aug 30) missing. Days 136–152 already researched
+  (44 draft events, IDs 298–341) in Drive `_WORKING_DOCS`. **That brief contains an incorrect
+  day-conversion instruction — ignore it; Feb 28 = Day 1 matches GlobalSecurity exactly.**
+- **Sluggish on Fire tablet** — improved but not resolved. Untested on phone since fix.
+- **CARTO basemap watermark** — external policy change 2026-08-20; needs a free key or a
+  switch to Esri Dark Gray Canvas.
+- **Mobile unusable for real work** — info cards unreadable, screen too small. This is the
+  v01.09 layout work, now evidence-backed rather than speculative.
+- **Right-hand Strike Log slide-out** semi-complete.
+- **fogOfWar referenced 0 times in index.html** — 15 flagged events render nothing.
+- **`verified: false`** ambiguous on 25 events; 84 events unlabelled; 121 lack `perspective`.
+- **Repo is PUBLIC** but README says DO NOT DISTRIBUTE. Cloudflare Pages decision parked.
 
-## DRIVE STATUS
-`Projects/WARMAPS/WMv01.08-Fable/CURRENT/` still holds **v01.08.07 (Jul 5)** — two versions
-behind live. **Drive is NOT authoritative for code or data.** The repo is.
-Drive holds governance, handoffs, research, and roadmap only.
+## PERMANENT TRAPS (violating these has cost days)
 
-## NEXT — v01.08.10
-1. Add events Days 136–152 (Jul 14–30), each with source URL in `misc` per the sourcing standard.
-2. Bump `maxDay` to ~160.
-3. Bump version in BOTH files.
-4. Validate (id dedup, gaps, bracket balance, version-string consistency).
-5. Push, then smoke-test on phone against the live URL.
+1. **maxDay lives in TWO places** — `WARMAPS_CONFIG.maxDay` AND the hardcoded `min`/`max`
+   attributes on `#tl-min` / `#tl-max`. Patching one silently does nothing.
+2. **Never append into an existing `<style>` or `<script>`.** This file contains the literal
+   text `</style>` inside a JS string, so block boundaries cannot be detected reliably.
+   New CSS goes in its own element.
+3. **Never write literal markup tag text inside a CSS comment.** The parser closes the
+   element there and dumps the rest as page text.
+4. **No backticks in comments.** They caused `SyntaxError: Unexpected identifier`.
+5. **Blank panels + dead clock + placeholder timeline + blank AUTHOR = a JS exception**,
+   not a cache problem. Check the error banner first.
+6. **Validate BEFORE pushing, never after.** Tag balance + `node --check` on every build.
+7. **No service worker** without a version-check-and-force-update mechanism.
+8. **URL is case-sensitive:** `/WARMAPS/` not `/warmaps/`.
+9. **Day 1 = Feb 28, 2026** is canonical, matching the app and GlobalSecurity.org.
+10. **TDZ rule** and **`_rebuildOriginIcons` mirror rule** still apply (see handoff doc).
 
-**Parked (do not bundle into .10):** Cloudflare Pages migration; June backfill depth.
+## NEXT
+v01.08.x: graphics standardization, tablet performance, Strike Log slide-out completion.
+v01.09.0: snap-ins, pin-to-slot, side-by-side, **mobile-usable layout**, schema
+(`dateISO` + `claimStatus` + `origin`), About/method panel.
+v02.00.0: steady state.
