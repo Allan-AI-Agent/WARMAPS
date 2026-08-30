@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.15 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.16 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1513,7 +1513,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.15">v01.08.09</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.16">v01.08.09</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1765,7 +1765,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.15',
+  versionFull:  'v01.08.16',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4043,13 +4043,26 @@ function makeLaunchIcon(wtype) {
    animations cost almost nothing and carry most of the visual character.
    Freeze the many, keep the few. */
 @media (pointer: coarse) {
+  /* v01.08.16: `paused` froze animations MID-KEYFRAME, leaving blocky
+     rectangular glow artifacts. `animation: none` resets each element to its
+     un-animated base state instead — clean, and cheaper still. */
   .leaflet-marker-pane *, .leaflet-overlay-pane * {
-    animation-play-state: paused !important;
+    animation: none !important;
   }
-  .mex, .mexB, .mexS, .mexr, .mexbr, .mexsr,
-  .dof, .dw, .db, .dof2, .dw2, .db2 {
-    animation-play-state: running !important;
-  }
+  /* launch + drone animations restored explicitly (animation:none above would
+     otherwise strip them). Re-declared with their original timings. */
+  .mex   { animation: mExh   0.9s ease-in-out infinite !important; }
+  .mexB  { animation: mExhB  2.7s ease-in-out infinite !important; }
+  .mexS  { animation: mExhS  2.1s ease-in-out infinite !important; }
+  .mexr  { animation: mExhR  0.9s ease-in-out infinite !important; }
+  .mexbr { animation: mExhBR 2.7s ease-in-out infinite !important; }
+  .mexsr { animation: mExhSR 2.1s ease-in-out infinite !important; }
+  .dof   { animation: dOrbFull  4.2s ease-in-out infinite !important; }
+  .dof2  { animation: dOrbFull2 4.2s ease-in-out infinite !important; }
+  .dw    { animation: dWht  5.8s ease-in-out infinite !important; }
+  .dw2   { animation: dWht2 5.8s ease-in-out infinite !important; }
+  .db    { animation: dBlu  7.1s ease-in-out infinite !important; animation-delay: -2.3s !important; }
+  .db2   { animation: dBlu2 7.1s ease-in-out infinite !important; animation-delay: -2.3s !important; }
   .leaflet-marker-icon { will-change: auto !important; }
 }
 
@@ -4914,7 +4927,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.15';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.16';
   vEl.textContent = full;
 })();
 
