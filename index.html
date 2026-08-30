@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.11 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.12 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1513,7 +1513,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.11">v01.08.09</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.12">v01.08.09</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1765,7 +1765,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.11',
+  versionFull:  'v01.08.12',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4029,9 +4029,11 @@ function makeLaunchIcon(wtype) {
   .timeline-ticks, .timeline-tick { display: none !important; }
 }
 
-/* ---- 3. NARROW SCREENS: sidebar must not eat the map ---- */
+/* ---- 3. NARROW SCREENS ----
+   REVERTED v01.08.12: the max-width:78vw rule is the prime suspect for the
+   portrait-layout collapse reported 2026-08-29 (app rendered into a small
+   upper-left box). Only the z-index survives; it cannot affect layout. */
 @media (max-width: 820px) {
-  #sidebar { max-width: 78vw !important; }
   #sidebar-toggle-btn { z-index: 99990 !important; }
 }
 
@@ -4904,7 +4906,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.11';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.12';
   vEl.textContent = full;
 })();
 
@@ -6030,6 +6032,46 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+</script>
+
+<script>
+/* v01.08.12 — LONG-PRESS => CONTEXTMENU bridge.
+   Several features were bound to right-click only (stat-box perspective cycling,
+   clock timezone cycling, ticker source links, the author-name animation) and were
+   therefore unreachable on touch devices. A ~550ms press with <10px of movement
+   dispatches a synthetic contextmenu event at the same coordinates, so every
+   existing handler works unchanged. Leaflet map panning is excluded. */
+(function () {
+  if (!('ontouchstart' in window)) return;
+  var t = null, sx = 0, sy = 0, target = null, fired = false;
+  var HOLD = 550, SLOP = 10;
+  function clear() { if (t) { clearTimeout(t); t = null; } target = null; }
+  document.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) { clear(); return; }
+    var el = e.target;
+    if (el.closest && el.closest('.leaflet-container') && !el.closest('.leaflet-marker-icon')) return;
+    fired = false; sx = e.touches[0].clientX; sy = e.touches[0].clientY; target = el;
+    t = setTimeout(function () {
+      fired = true;
+      var ev = new MouseEvent('contextmenu', {
+        bubbles: true, cancelable: true, view: window,
+        clientX: sx, clientY: sy, button: 2, buttons: 2
+      });
+      if (target) target.dispatchEvent(ev);
+      if (navigator.vibrate) { try { navigator.vibrate(18); } catch (_) {} }
+    }, HOLD);
+  }, { passive: true });
+  document.addEventListener('touchmove', function (e) {
+    if (!t || !e.touches.length) return;
+    if (Math.abs(e.touches[0].clientX - sx) > SLOP ||
+        Math.abs(e.touches[0].clientY - sy) > SLOP) clear();
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (fired) { e.preventDefault && e.preventDefault(); fired = false; }
+    clear();
+  });
+  document.addEventListener('touchcancel', clear);
+})();
 </script>
 </body>
 </html>
