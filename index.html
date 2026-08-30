@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.17 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.18 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1518,6 +1518,85 @@
   });
 })();
 </script>
+<style id="wm-mobile-overrides">
+/* v01.08.18 — isolated. Previously appended into an existing <style>,
+   but this file contains the literal text </style> inside a JS string,
+   so block boundaries cannot be detected reliably. Own element = no
+   ambiguity. Backticks removed: they triggered a JS SyntaxError. */
+/* ══════════════════════════════════════════════════════════════════════
+   v01.08.11 — MOBILE BATCH A  (appended overrides; existing rules untouched)
+   Rule 5 compliance: no substring edits to existing declarations.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ---- 1. TOUCH TARGETS (all pointer:coarse devices, any orientation) ---- */
+@media (pointer: coarse) {
+  #tl-min::-webkit-slider-thumb, #tl-max::-webkit-slider-thumb {
+    width: 34px !important; height: 34px !important;
+    border-radius: 50% !important; cursor: grab;
+    border: 2px solid #070d14 !important;
+    box-shadow: 0 0 0 2px rgba(255,238,0,0.55) !important;
+  }
+  #tl-min::-moz-range-thumb, #tl-max::-moz-range-thumb {
+    width: 34px !important; height: 34px !important;
+    border-radius: 50% !important; border: 2px solid #070d14 !important;
+  }
+  /* taller invisible hit strip so a fingertip catches the track */
+  #tl-min, #tl-max { height: 44px !important; }
+
+  #sidebar-toggle-btn {
+    min-width: 44px !important; min-height: 64px !important;
+    font-size: 20px !important; opacity: 0.92 !important;
+  }
+  .filter-btn, .tl-preset, .toggle-switch { min-height: 34px !important; }
+}
+
+/* ---- 2. LANDSCAPE PHONE: reclaim vertical space ---- */
+@media (orientation: landscape) and (max-height: 500px) {
+  .header-sub, .subtitle-text, #breaking-ticker, .ticker-wrap { display: none !important; }
+  .header, #header, .topbar { padding-top: 2px !important; padding-bottom: 2px !important; }
+  .header-title { font-size: 13px !important; }
+  #sidebar { max-width: 42vw !important; }
+  .timeline-ticks, .timeline-tick { display: none !important; }
+}
+
+/* ---- 3. NARROW SCREENS ----
+   REVERTED v01.08.12: the max-width:78vw rule is the prime suspect for the
+   portrait-layout collapse reported 2026-08-29 (app rendered into a small
+   upper-left box). Only the z-index survives; it cannot affect layout. */
+@media (max-width: 820px) {
+  #sidebar-toggle-btn { z-index: 99990 !important; }
+}
+
+/* ---- 4. PERFORMANCE (v01.08.15) — SELECTIVE, NOT BLANKET ----
+   Cost scales with COUNT. ~297 strike markers each running an infinite pulse is
+   the expense; the ~12 launch origins running missile-exhaust and drone-orbit
+   animations cost almost nothing and carry most of the visual character.
+   Freeze the many, keep the few. */
+@media (pointer: coarse) {
+  /* v01.08.16: paused froze animations MID-KEYFRAME, leaving blocky
+     rectangular glow artifacts. animation: none resets each element to its
+     un-animated base state instead — clean, and cheaper still. */
+  .leaflet-marker-pane *, .leaflet-overlay-pane * {
+    animation: none !important;
+  }
+  /* launch + drone animations restored explicitly (animation:none above would
+     otherwise strip them). Re-declared with their original timings. */
+  .mex   { animation: mExh   0.9s ease-in-out infinite !important; }
+  .mexB  { animation: mExhB  2.7s ease-in-out infinite !important; }
+  .mexS  { animation: mExhS  2.1s ease-in-out infinite !important; }
+  .mexr  { animation: mExhR  0.9s ease-in-out infinite !important; }
+  .mexbr { animation: mExhBR 2.7s ease-in-out infinite !important; }
+  .mexsr { animation: mExhSR 2.1s ease-in-out infinite !important; }
+  .dof   { animation: dOrbFull  4.2s ease-in-out infinite !important; }
+  .dof2  { animation: dOrbFull2 4.2s ease-in-out infinite !important; }
+  .dw    { animation: dWht  5.8s ease-in-out infinite !important; }
+  .dw2   { animation: dWht2 5.8s ease-in-out infinite !important; }
+  .db    { animation: dBlu  7.1s ease-in-out infinite !important; animation-delay: -2.3s !important; }
+  .db2   { animation: dBlu2 7.1s ease-in-out infinite !important; animation-delay: -2.3s !important; }
+  .leaflet-marker-icon { will-change: auto !important; }
+}
+
+</style>
 </head>
 <body>
 
@@ -1552,7 +1631,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.17">v01.08.17</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.18">v01.08.17</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1804,7 +1883,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.17',
+  versionFull:  'v01.08.18',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4032,78 +4111,6 @@ function makeLaunchIcon(wtype) {
       @keyframes launchIconPulse{from{filter:drop-shadow(0 0 3px ${c});} to{filter:drop-shadow(0 0 10px ${sat?iBlue:c}) drop-shadow(0 0 18px ${sat?'rgba(30,144,255,0.55)':'rgba(255,100,100,0.5)'});}}
       @keyframes satIconPulse{0%{width:${w}px;height:${h}px;opacity:0.85;background:rgba(255,30,30,0.18);}100%{width:${w*4}px;height:${h*4}px;opacity:0;background:rgba(255,30,30,0);}}
     
-/* ══════════════════════════════════════════════════════════════════════
-   v01.08.11 — MOBILE BATCH A  (appended overrides; existing rules untouched)
-   Rule 5 compliance: no substring edits to existing declarations.
-   ══════════════════════════════════════════════════════════════════════ */
-
-/* ---- 1. TOUCH TARGETS (all pointer:coarse devices, any orientation) ---- */
-@media (pointer: coarse) {
-  #tl-min::-webkit-slider-thumb, #tl-max::-webkit-slider-thumb {
-    width: 34px !important; height: 34px !important;
-    border-radius: 50% !important; cursor: grab;
-    border: 2px solid #070d14 !important;
-    box-shadow: 0 0 0 2px rgba(255,238,0,0.55) !important;
-  }
-  #tl-min::-moz-range-thumb, #tl-max::-moz-range-thumb {
-    width: 34px !important; height: 34px !important;
-    border-radius: 50% !important; border: 2px solid #070d14 !important;
-  }
-  /* taller invisible hit strip so a fingertip catches the track */
-  #tl-min, #tl-max { height: 44px !important; }
-
-  #sidebar-toggle-btn {
-    min-width: 44px !important; min-height: 64px !important;
-    font-size: 20px !important; opacity: 0.92 !important;
-  }
-  .filter-btn, .tl-preset, .toggle-switch { min-height: 34px !important; }
-}
-
-/* ---- 2. LANDSCAPE PHONE: reclaim vertical space ---- */
-@media (orientation: landscape) and (max-height: 500px) {
-  .header-sub, .subtitle-text, #breaking-ticker, .ticker-wrap { display: none !important; }
-  .header, #header, .topbar { padding-top: 2px !important; padding-bottom: 2px !important; }
-  .header-title { font-size: 13px !important; }
-  #sidebar { max-width: 42vw !important; }
-  .timeline-ticks, .timeline-tick { display: none !important; }
-}
-
-/* ---- 3. NARROW SCREENS ----
-   REVERTED v01.08.12: the max-width:78vw rule is the prime suspect for the
-   portrait-layout collapse reported 2026-08-29 (app rendered into a small
-   upper-left box). Only the z-index survives; it cannot affect layout. */
-@media (max-width: 820px) {
-  #sidebar-toggle-btn { z-index: 99990 !important; }
-}
-
-/* ---- 4. PERFORMANCE (v01.08.15) — SELECTIVE, NOT BLANKET ----
-   Cost scales with COUNT. ~297 strike markers each running an infinite pulse is
-   the expense; the ~12 launch origins running missile-exhaust and drone-orbit
-   animations cost almost nothing and carry most of the visual character.
-   Freeze the many, keep the few. */
-@media (pointer: coarse) {
-  /* v01.08.16: `paused` froze animations MID-KEYFRAME, leaving blocky
-     rectangular glow artifacts. `animation: none` resets each element to its
-     un-animated base state instead — clean, and cheaper still. */
-  .leaflet-marker-pane *, .leaflet-overlay-pane * {
-    animation: none !important;
-  }
-  /* launch + drone animations restored explicitly (animation:none above would
-     otherwise strip them). Re-declared with their original timings. */
-  .mex   { animation: mExh   0.9s ease-in-out infinite !important; }
-  .mexB  { animation: mExhB  2.7s ease-in-out infinite !important; }
-  .mexS  { animation: mExhS  2.1s ease-in-out infinite !important; }
-  .mexr  { animation: mExhR  0.9s ease-in-out infinite !important; }
-  .mexbr { animation: mExhBR 2.7s ease-in-out infinite !important; }
-  .mexsr { animation: mExhSR 2.1s ease-in-out infinite !important; }
-  .dof   { animation: dOrbFull  4.2s ease-in-out infinite !important; }
-  .dof2  { animation: dOrbFull2 4.2s ease-in-out infinite !important; }
-  .dw    { animation: dWht  5.8s ease-in-out infinite !important; }
-  .dw2   { animation: dWht2 5.8s ease-in-out infinite !important; }
-  .db    { animation: dBlu  7.1s ease-in-out infinite !important; animation-delay: -2.3s !important; }
-  .db2   { animation: dBlu2 7.1s ease-in-out infinite !important; animation-delay: -2.3s !important; }
-  .leaflet-marker-icon { will-change: auto !important; }
-}
 
 </style>`,
     iconSize: [w, h],
@@ -4966,7 +4973,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.17';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.18';
   vEl.textContent = full;
 })();
 
