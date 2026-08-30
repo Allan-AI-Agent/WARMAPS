@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.16 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.17 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1479,6 +1479,45 @@
   .launch-hidden { opacity: 0 !important; pointer-events: none !important; }
 
 </style>
+<script>
+/* v01.08.17 — EARLY ERROR REPORTER.
+   The static header badge previously read v01.08.09 while the file was much
+   newer, which disguised a JS execution failure as a cache problem for hours.
+   This handler installs BEFORE app code and paints the first error into a fixed
+   banner, so a device with no dev tools can still report what actually broke. */
+(function () {
+  var shown = false;
+  function paint(msg) {
+    if (shown) return; shown = true;
+    try {
+      var d = document.createElement('div');
+      d.setAttribute('id','wm-js-error');
+      d.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:2147483647;'
+        + 'background:#3a0000;color:#ffdede;font:12px/1.45 monospace;padding:8px 10px;'
+        + 'border-top:2px solid #ff1111;max-height:38vh;overflow:auto;white-space:pre-wrap;';
+      d.textContent = 'WarMaps JS ERROR — app did not initialise\n' + msg
+        + '\n\n(tap and hold to select/copy)';
+      (document.body || document.documentElement).appendChild(d);
+    } catch (_) {}
+  }
+  window.addEventListener('error', function (e) {
+    paint((e.message || 'unknown') + '\n  at ' + (e.filename || '?') + ':' + (e.lineno || '?') + ':' + (e.colno || '?'));
+  });
+  window.addEventListener('unhandledrejection', function (e) {
+    paint('unhandled promise rejection: ' + (e.reason && (e.reason.stack || e.reason.message) || e.reason));
+  });
+  /* If init never runs, say so rather than sitting on stale placeholders. */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var v = document.getElementById('wm-version');
+      if (v && /LOADING CURRENT TIME/i.test(document.body.textContent || '')) {
+        paint('No exception captured, but init did not complete '
+            + '(clock still shows LOADING). Likely an early return or a blocked resource.');
+      }
+    }, 6000);
+  });
+})();
+</script>
 </head>
 <body>
 
@@ -1513,7 +1552,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.16">v01.08.09</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.17">v01.08.17</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1765,7 +1804,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.16',
+  versionFull:  'v01.08.17',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4927,7 +4966,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.16';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.17';
   vEl.textContent = full;
 })();
 
