@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.13 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.14 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1513,7 +1513,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.13">v01.08.09</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.14">v01.08.09</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1765,7 +1765,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.13',
+  versionFull:  'v01.08.14',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4918,7 +4918,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.13';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.14';
   vEl.textContent = full;
 })();
 
@@ -6036,13 +6036,18 @@ map.on('click', function() {
 </script>
 
 <script>
-/* v01.08.11 PWA registration — fullscreen install reclaims browser chrome on mobile */
+/* v01.08.14 — SERVICE WORKER REMOVAL.
+   The worker introduced in v01.08.11 caused version regression (a device fell
+   from v01.08.12 back to v01.08.09). Actively unregister any worker and purge
+   every cache on load, so no client can be pinned to a stale build. */
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('sw.js').catch(function (e) {
-      console.warn('[WarMaps] service worker registration failed:', e);
-    });
-  });
+  navigator.serviceWorker.getRegistrations()
+    .then(function (rs) { rs.forEach(function (r) { r.unregister(); }); })
+    .catch(function () {});
+}
+if (window.caches && caches.keys) {
+  caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); })
+    .catch(function () {});
 }
 </script>
 
