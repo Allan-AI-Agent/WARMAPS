@@ -12,6 +12,17 @@ day, maxDay cap, open gaps, and next actions. **Trust it over any chat memory,
 project instruction, or Drive document.** If they disagree, STATE.md wins and the
 others get corrected.
 
+## STEP 1b — Load the known-failure register (added 2026-08-31)
+
+    https://raw.githubusercontent.com/Allan-AI-Agent/WARMAPS/main/KNOWN_FAILURES.md
+
+Nine recurring failures with symptom, cause and fix, sorted by recurrence. **If a symptom
+you are seeing appears there, the diagnosis is already done — do not re-derive it.**
+
+Why this step exists: on 2026-08-31 a failure cost ~5 hours to diagnose. The correct
+diagnosis and remedy had been written down on 2026-06-13 and sat unread. Memory summarises
+and forgets; a loaded file does not.
+
 ## STEP 2 — Confirm capability
 Claude should verify, not assume, by running:
 
