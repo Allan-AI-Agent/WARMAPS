@@ -72,6 +72,31 @@ claims:
 
 > **If you are reading this because the app is blank: the answer is in the error banner. Go read it.**
 
+### F-001 source documents — TWO independent correct diagnoses, both unread when it recurred
+
+| Doc | Date | Location | What it already contained |
+|---|---|---|---|
+| `BUGNOTE_v01.08.05_partial_init_failure.txt` | 2026-06-12 | `_ARCHIVE/WARMAPS [Archive]/` (id `1L8WsAkiZUL_Oj0QOrIIPQUTbrm1amgJT`) | Exact symptom list · correct diagnosis (one exception after marker-build kills downstream init) · ranked suspects · differential-test method · **specified the on-page `window.onerror` banner** |
+| `BUGNOTE_v3.1_version_header_is_red_herring.txt` | 2026-06-13 | `WARMAPS/_WORKING_DOCS/` (id `1dTaOViK0W3HZBsDSVIR11b9-pIesFxok`) | Same diagnosis · **correctly dismissed the version string as a red herring** · again specified the error banner |
+
+Both were correct. Both were written down. Neither was consulted on 2026-08-31, when the
+failure recurred and cost ~5 hours — including hours spent on the version string that v3.1
+had explicitly ruled out, before building the banner both documents had already specified.
+
+**The knowledge was never missing. It was unindexed.** That is why this register exists and
+why it loads at bootstrap.
+
+### Two techniques from those bugnotes, worth reusing
+
+- **Differential test.** Open the previous version the same way. Works → the bug is in the
+  delta. Fails → the problem is older and the hunt widens. Two minutes, and it halves the
+  search space before any code is read.
+- **Static validation is not sign-off.** Bracket counts and tag balance prove a file is
+  *well-formed*, never that it *runs*. Written 2026-06-12; independently re-derived
+  2026-08-31 after two broken builds went live. A runtime smoke test in a real browser is
+  the only thing that proves the app works — this is the argument for the headless-browser
+  pre-push gate requested of OSIRIS in COLLAB-REQ-002.
+
 ## F-002 — Timeline bounds live in two places · recurred 2 times
 
 | | |
@@ -143,4 +168,9 @@ README, hit anyway.
 3. **When the user reports something impossible** — a version going backwards, a symptom that
    contradicts the model — **the report is the signal.** Do not repeat prior advice.
 4. **Search this file and Drive before debugging anything that feels familiar.** It felt
-   familiar in August because it *was* familiar; the answer was already written.
+   familiar in August because it *was* familiar; the answer was already written — twice.
+5. **Static validation is not sign-off.** Well-formed is not the same as working. Nothing
+   ships on bracket counts alone.
+6. **Knowledge about an ACTIVE failure never goes to ARCHIVE.** `BUGNOTE_v01.08.05` was
+   archived while F-001 was still recurring, which put the answer out of reach. Archive
+   retires *versions*, not *live lessons*.
