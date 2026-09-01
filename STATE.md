@@ -16,7 +16,7 @@ device until 2026-08-30. It now has been.
 |---|---|
 | version | **v01.08.19** |
 | repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC) |
-| live | https://allan-ai-agent.github.io/WARMAPS/  (**case-sensitive**) |
+| live | https://warmaps.allan-ai-agent.workers.dev/ (Cloudflare Workers) |
 | index.html | 291,064 bytes |
 | warmaps-data.js | unchanged since v01.08.08 |
 | events | 297, IDs 1–297, no gaps, no duplicates |
@@ -66,7 +66,7 @@ on with them out of habit rather than choosing them again on merit.
 |---|---|---|---|
 | **Site hosting / deploy path** | Cloudflare Pages via GitHub App. The app holds read+write on administration, checks, code, deployments and PRs for the WARMAPS repo. Scope is one repo; permission set is not narrowable | **Self-hosted deploy from OSIRIS** via `wrangler pages deploy`, using a Cloudflare API token Allan scopes himself. The GitHub App is then revoked entirely and deployment moves to a machine Allan controls | OSIRIS has wrangler + a scoped CF API token. Allan flagged this 2026-08-31 specifically because it could be continued by habit |
 | **Basemap** | Esri World Dark Gray, no key, maxZoom 16 | Confirm 16 is enough at conflict-map scale; CARTO with a free key remains the fallback | After on-device use |
-| **Repo visibility** | PUBLIC while README says DO NOT DISTRIBUTE | Private, once Cloudflare serves reliably | Cloudflare verified |
+| **Repo visibility** | PUBLIC while README says DO NOT DISTRIBUTE | Private | **BLOCKED — going private breaks the bootstrap.** `SESSION_BOOTSTRAP.md` fetches STATE.md and KNOWN_FAILURES.md from `raw.githubusercontent.com` with no credential; private returns 404 and every session starts blind. The OSIRIS mirror script also clones without a token. Both must authenticate first. COLLAB-REQ-002 tells Sol the repo is public — amend it too |
 
 ## PERMANENT TRAPS (violating these has cost days)
 
