@@ -1,20 +1,44 @@
 # WARMAPS — STATE OF RECORD
 
-**Last verified:** 2026-08-30 07:15 UTC — **Day 184**
+**Last verified:** 2026-09-01 05:20 UTC — **Day 186**
 **Verified by:** live fetch of the deployed build + on-device confirmation by Allan (tablet)
 **Update rule:** rewrite this file at every push. Trust it over memory, project
 instructions, or Drive documents. If they disagree, this file wins.
 
 ---
 
-## STATUS: FIRST FULLY VERIFIED BUILD SINCE ~v01.08.05
+## STATUS: v01.09.00 — PHASE-ISOLATED INIT SHIPPED
+
+Milestone series opened. Hosting migrated to Cloudflare Workers; GitHub Pages unpublished.
+
+### v01.08.20 → v01.09.00 (2026-08-31 / 09-01)
+- **v01.08.20** CARTO basemap retired (API-key policy change) → Esri World Dark Gray, no key
+- **v01.08.21** tile-only CSS filter to restore near-black ground the palette was designed for
+- **v01.08.22** full-screen toggle as a Leaflet control, 44px on touch
+- **v01.09.00** phase-isolated init completed — 10 subsystem guards + on-screen init health
+  summary (amber banner naming failed subsystems; guards previously logged to console only,
+  invisible on a device with no dev tools)
+
+### IMPORTANT CORRECTION — what phase isolation does and does not fix
+F-001 has **two variants** and they need different defences:
+
+| Variant | Prevented by | Caught by |
+|---|---|---|
+| **Parse error** (the 2026-08-31 SyntaxError) | validate-before-push | red error banner |
+| **Runtime exception** | — | phase isolation; app survives, amber banner |
+
+`try/catch` cannot catch a SyntaxError, because the script block never executes. Earlier
+notes called phase isolation "the permanent cure for F-001" — that was **wrong**, it cures
+the runtime variant only.
+
+## PRIOR STATUS: FIRST FULLY VERIFIED BUILD SINCE ~v01.08.05
 
 The split architecture (v01.08.06) had never been confirmed working end-to-end on a
 device until 2026-08-30. It now has been.
 
 | Field | Value |
 |---|---|
-| version | **v01.08.19** |
+| version | **v01.09.00** |
 | repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC) |
 | live | https://warmaps.allan-ai-agent.workers.dev/ (Cloudflare Workers) |
 | index.html | 291,064 bytes |
