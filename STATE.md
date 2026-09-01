@@ -57,6 +57,17 @@ device until 2026-08-30. It now has been.
 - **`verified: false`** ambiguous on 25 events; 84 events unlabelled; 121 lack `perspective`.
 - **Repo is PUBLIC** but README says DO NOT DISTRIBUTE. Cloudflare Pages decision parked.
 
+## DEFERRED DECISIONS — revisit deliberately, do not continue by default
+
+Items adopted as expedient that have a better end state. Flagged because the risk is drifting
+on with them out of habit rather than choosing them again on merit.
+
+| Item | Current state | Better end state | Revisit when |
+|---|---|---|---|
+| **Site hosting / deploy path** | Cloudflare Pages via GitHub App. The app holds read+write on administration, checks, code, deployments and PRs for the WARMAPS repo. Scope is one repo; permission set is not narrowable | **Self-hosted deploy from OSIRIS** via `wrangler pages deploy`, using a Cloudflare API token Allan scopes himself. The GitHub App is then revoked entirely and deployment moves to a machine Allan controls | OSIRIS has wrangler + a scoped CF API token. Allan flagged this 2026-08-31 specifically because it could be continued by habit |
+| **Basemap** | Esri World Dark Gray, no key, maxZoom 16 | Confirm 16 is enough at conflict-map scale; CARTO with a free key remains the fallback | After on-device use |
+| **Repo visibility** | PUBLIC while README says DO NOT DISTRIBUTE | Private, once Cloudflare serves reliably | Cloudflare verified |
+
 ## PERMANENT TRAPS (violating these has cost days)
 
 1. **maxDay lives in TWO places** — `WARMAPS_CONFIG.maxDay` AND the hardcoded `min`/`max`
