@@ -124,10 +124,14 @@ Removed entirely v01.08.14.
 | **Fix** | New CSS goes in **its own `<style>` element**. Never append into an existing block |
 | **Also** | **No backticks in comments** (caused the SyntaxError). **No literal markup tag text inside a CSS comment** (closes the element and dumps the rest as page text) |
 
-## F-009 — URL case sensitivity · recurred 1 time
+## F-009 — URL case sensitivity · recurred 1 time · **OBSOLETE 2026-09-01**
 
-`/WARMAPS/` not `/warmaps/`. GitHub Pages is case-sensitive. Documented in the README, hit
-anyway.
+Applied to GitHub Pages, which was unpublished 2026-09-01. The live host is now
+`https://warmaps.allan-ai-agent.workers.dev/` — all lowercase, no path segment, so the trap
+no longer exists. **Retained as history, not as an active warning.**
+
+Original: `/WARMAPS/` not `/warmaps/`; GitHub Pages is case-sensitive. Documented in the
+README, hit anyway.
 
 ---
 
