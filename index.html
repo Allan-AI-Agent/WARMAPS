@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.19 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.20 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1632,7 +1632,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.19">v01.08.19</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.20">v01.08.20</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1852,7 +1852,7 @@
     color: #4a6080;
     letter-spacing: 1px;
     margin-left: 24px;
-  ">Map data © OpenStreetMap © CARTO | Intel: CENTCOM · CTP-ISW · ACLED · Alma · OSINT + 30 curated sources</span>
+  ">Map data © Esri © OpenStreetMap contributors | Intel: CENTCOM · CTP-ISW · ACLED · Alma · OSINT + 30 curated sources</span>
 </div>
 
 <!-- TICKER -->
@@ -1884,7 +1884,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.19',
+  versionFull:  'v01.08.20',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -2105,10 +2105,9 @@ map.on('popupopen', function(e) {
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // ── Tile layers for both map styles ─────────────────────────────
-const tileDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '© OpenStreetMap © CARTO',
-  subdomains: 'abcd',
-  maxZoom: 19,
+const tileDark = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+  attribution: '&copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
+  maxZoom: 16,
   noWrap: true,
 });
 
@@ -2123,10 +2122,9 @@ const tileSatLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/s
   pane: 'overlayPane',
 });
 
-const tileCartoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png', {
+const tileCartoLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
   attribution: '',
-  subdomains: 'abcd',
-  maxZoom: 19,
+  maxZoom: 16,
   pane: 'overlayPane',
 });
 
@@ -4974,7 +4972,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.19';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.20';
   vEl.textContent = full;
 })();
 
