@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.20 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.21 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1519,6 +1519,15 @@
 })();
 </script>
 <style id="wm-mobile-overrides">
+/* v01.08.21 — BASEMAP TONE MATCH.
+   Esri World Dark Gray is markedly lighter than the CARTO dark canvas the marker
+   palette and glow halos were designed against, so colours washed out. Raster tiles
+   cannot be recoloured selectively (there is no land/sea layer to address), but a
+   filter on the tile images alone brings the ground back toward near-black without
+   touching markers, arcs or labels. Adjust brightness to taste: lower = darker. */
+.wm-dark-tiles     { filter: brightness(0.50) contrast(1.18) saturate(0.85); }
+.wm-dark-tiles-ref { filter: brightness(0.72) contrast(1.10); }
+
 /* v01.08.18 - isolated element. Previously this CSS was appended into an
    existing style block, but the file contains style-closing-tag TEXT inside a
    JS string, so boundaries cannot be detected reliably. Own element = no
@@ -1632,7 +1641,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.20">v01.08.20</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.21">v01.08.21</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1884,7 +1893,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.20',
+  versionFull:  'v01.08.21',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -2106,6 +2115,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // ── Tile layers for both map styles ─────────────────────────────
 const tileDark = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+  className: 'wm-dark-tiles',
   attribution: '&copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
   maxZoom: 16,
   noWrap: true,
@@ -2123,6 +2133,7 @@ const tileSatLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/s
 });
 
 const tileCartoLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+  className: 'wm-dark-tiles-ref',
   attribution: '',
   maxZoom: 16,
   pane: 'overlayPane',
@@ -4972,7 +4983,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.20';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.21';
   vEl.textContent = full;
 })();
 
