@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.21 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.08.22 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1519,6 +1519,22 @@
 })();
 </script>
 <style id="wm-mobile-overrides">
+/* v01.08.22 — FULL SCREEN CONTROL.
+   Hides browser chrome (URL bar, tabs) via the Fullscreen API. Real estate matters
+   most on phones, where the address bar costs a meaningful slice of vertical space. */
+.wm-fs-ctl { border: 1px solid #ffee00 !important; box-shadow: 0 0 6px rgba(0,0,0,.6) !important; }
+.wm-fs-ctl a {
+  width: 34px !important; height: 34px !important; line-height: 34px !important;
+  background: rgba(11,17,24,.92) !important; color: #ffee00 !important;
+  font-size: 18px !important; text-align: center; text-decoration: none;
+  display: block; font-family: system-ui, sans-serif;
+}
+.wm-fs-ctl a:hover { background: #16222e !important; }
+.wm-fs-ctl a.wm-fs-on { background: #3a3200 !important; color: #fff6a0 !important; }
+@media (pointer: coarse) {
+  .wm-fs-ctl a { width: 44px !important; height: 44px !important; line-height: 44px !important; font-size: 21px !important; }
+}
+
 /* v01.08.21 — BASEMAP TONE MATCH.
    Esri World Dark Gray is markedly lighter than the CARTO dark canvas the marker
    palette and glow halos were designed against, so colours washed out. Raster tiles
@@ -1641,7 +1657,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.21">v01.08.21</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.22">v01.08.22</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1893,7 +1909,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.08',
-  versionFull:  'v01.08.21',
+  versionFull:  'v01.08.22',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -4983,7 +4999,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.21';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.22';
   vEl.textContent = full;
 })();
 
@@ -6153,6 +6169,55 @@ if (window.caches && caches.keys) {
     clear();
   });
   document.addEventListener('touchcancel', clear);
+})();
+</script>
+
+<script>
+/* v01.08.22 — full-screen toggle, added as a Leaflet control at the map's top-right
+   (zoom occupies bottom-right, so no conflict). Uses the Fullscreen API with webkit
+   fallbacks. invalidateSize() after each transition so Leaflet re-measures. */
+(function () {
+  if (typeof map === 'undefined' || !window.L) return;
+  function fsEl()  { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+  function enter() {
+    var d = document.documentElement;
+    var fn = d.requestFullscreen || d.webkitRequestFullscreen;
+    if (fn) { try { fn.call(d); } catch (e) { console.warn('[WarMaps] fullscreen blocked:', e); } }
+  }
+  function exit() {
+    var fn = document.exitFullscreen || document.webkitExitFullscreen;
+    if (fn) { try { fn.call(document); } catch (e) { console.warn('[WarMaps] exit fullscreen failed:', e); } }
+  }
+  var link = null;
+  var Ctl = L.Control.extend({
+    options: { position: 'topright' },
+    onAdd: function () {
+      var box = L.DomUtil.create('div', 'leaflet-bar wm-fs-ctl');
+      link = L.DomUtil.create('a', '', box);
+      link.href = '#';
+      link.setAttribute('role', 'button');
+      link.setAttribute('aria-label', 'Toggle full screen');
+      link.title = 'Full screen';
+      link.innerHTML = '\u26F6';
+      L.DomEvent.disableClickPropagation(box);
+      L.DomEvent.on(link, 'click', function (e) {
+        L.DomEvent.preventDefault(e);
+        if (fsEl()) { exit(); } else { enter(); }
+      });
+      return box;
+    }
+  });
+  map.addControl(new Ctl());
+  function sync() {
+    var on = !!fsEl();
+    if (link) {
+      link.title = on ? 'Exit full screen' : 'Full screen';
+      if (on) { L.DomUtil.addClass(link, 'wm-fs-on'); } else { L.DomUtil.removeClass(link, 'wm-fs-on'); }
+    }
+    setTimeout(function () { try { map.invalidateSize(); } catch (e) {} }, 150);
+  }
+  document.addEventListener('fullscreenchange', sync);
+  document.addEventListener('webkitfullscreenchange', sync);
 })();
 </script>
 </body>
