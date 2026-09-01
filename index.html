@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.08.22 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.09.00 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1657,7 +1657,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.08.22">v01.08.22</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.00">v01.09.00</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1908,8 +1908,8 @@ const WARMAPS_CONFIG = {
   operations:  'OPERATION ROARING LION / EPIC FURY',
 
   // Version string — short form (hover expands to full version)
-  versionShort: 'v01.08',
-  versionFull:  'v01.08.22',
+  versionShort: 'v01.09',
+  versionFull:  'v01.09.00',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -1970,6 +1970,7 @@ let isSatellite = false;
 //  and builds the airport status panel HTML dynamically.
 //  To update airspace status: edit airspaceData in warmaps-data.js only.
 // ──────────────────────────────────────────────
+try {
 (function buildAirspacePanel() {
   // Group airports by status category
   // 'reduce' is a JavaScript method that loops through an array and
@@ -2019,6 +2020,9 @@ let isSatellite = false;
     container.appendChild(body);
   });
 })();
+} catch (e) {
+  console.error('[WarMaps phase-isolated init] airspace panel failed:', e);
+}
 
 // ──────────────────────────────────────────────
 //  CURATED INTELLIGENCE SOURCES
@@ -4157,7 +4161,11 @@ function buildIranianLaunchLayers() {
 // warStart + parseWarDay moved before strikeDays forEach (TDZ fix v01.07.13)
 
 // ── strikeDays must be initialized before buildIranianLaunchLayers (which reads tgt.strikeId)
-buildIranianLaunchLayers();
+try {
+  buildIranianLaunchLayers();
+} catch (e) {
+  console.error('[WarMaps phase-isolated init] Iranian launch layers failed:', e);
+}
 // ── Zoom % display ─────────────────────────────────
 (function() {
   function updateZoomPct() {
@@ -4999,7 +5007,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.08.22';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.00';
   vEl.textContent = full;
 })();
 
@@ -5051,6 +5059,12 @@ window._sidebarPreset = function(preset) {
 // ──────────────────────────────
 //  INIT
 // ──────────────────────────────
+/* v01.09.00 — phase-isolated init.
+   Each subsystem is wrapped independently so one failure costs one panel, not the
+   whole app. LIMIT WORTH KNOWING: this catches RUNTIME exceptions only. A parse
+   error (SyntaxError) prevents the entire script block from executing, so no
+   try/catch inside it ever runs — that class is caught by the on-screen error
+   reporter and prevented by validate-before-push. See KNOWN_FAILURES.md F-001. */
 try {
   startCountdown();
 } catch (e) {
@@ -6218,6 +6232,44 @@ if (window.caches && caches.keys) {
   }
   document.addEventListener('fullscreenchange', sync);
   document.addEventListener('webkitfullscreenchange', sync);
+})();
+</script>
+
+<script>
+/* v01.09.00 — init health summary. The per-subsystem guards log individually; this
+   reports the aggregate on-screen so a partial failure is visible to the reader
+   rather than silent. Runs after load so every guard has had its chance. */
+(function () {
+  window.WARMAPS_INIT_FAILURES = window.WARMAPS_INIT_FAILURES || [];
+  var origErr = console.error;
+  console.error = function () {
+    try {
+      var first = arguments[0];
+      if (typeof first === 'string' && first.indexOf('[WarMaps phase-isolated init]') === 0) {
+        window.WARMAPS_INIT_FAILURES.push(first.replace('[WarMaps phase-isolated init] ', ''));
+      }
+    } catch (e) {}
+    return origErr.apply(console, arguments);
+  };
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var f = window.WARMAPS_INIT_FAILURES;
+      if (!f || !f.length) return;
+      if (document.getElementById('wm-js-error')) return;   // hard failure already shown
+      try {
+        var d = document.createElement('div');
+        d.id = 'wm-init-warn';
+        d.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:2147483646;'
+          + 'background:#3a2a00;color:#ffe9a8;font:12px/1.45 monospace;padding:7px 10px;'
+          + 'border-top:2px solid #ffaa00;max-height:30vh;overflow:auto;white-space:pre-wrap;';
+        d.textContent = 'WarMaps: ' + f.length + ' subsystem(s) failed to initialise. '
+          + 'The rest of the app is running.\n  - ' + f.join('\n  - ')
+          + '\n(tap to dismiss)';
+        d.addEventListener('click', function () { d.remove(); });
+        (document.body || document.documentElement).appendChild(d);
+      } catch (e) {}
+    }, 4000);
+  });
 })();
 </script>
 </body>
