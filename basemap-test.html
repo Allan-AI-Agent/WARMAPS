@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WarMaps — Basemap Comparison</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  html,body{margin:0;padding:0;background:#070d14;color:#7ec8e3;
+    font-family:'Share Tech Mono',ui-monospace,monospace;}
+  h1{font-size:15px;color:#ffee00;margin:10px 12px 4px;letter-spacing:1px}
+  p{font-size:12px;margin:0 12px 10px;line-height:1.5;color:#9fb8c8}
+  .wrap{display:flex;flex-direction:column;gap:14px;padding:0 8px 20px}
+  .card{border:1px solid #24384a;background:#0b1118}
+  .lab{font-size:12px;padding:7px 10px;color:#ffee00;border-bottom:1px solid #24384a;
+    display:flex;justify-content:space-between;align-items:center}
+  .tag{font-size:10px;padding:2px 6px;border-radius:2px}
+  .ok{background:#123a2a;color:#3fe0a0}.warn{background:#3a2a12;color:#e8a33d}
+  .map{height:44vh;min-height:260px;background:#000}
+  @media(min-width:900px){.wrap{flex-direction:row}.card{flex:1}.map{height:70vh}}
+</style></head><body>
+<h1>BASEMAP COMPARISON — same view, same markers</h1>
+<p>Left/top is what WarMaps uses today. Right/bottom is the no-key alternative.
+Pan and zoom are linked, so both always show the same area.</p>
+<div class="wrap">
+  <div class="card"><div class="lab"><span>CARTO dark_all &mdash; CURRENT</span>
+    <span class="tag warn">API KEY REQUIRED</span></div><div id="a" class="map"></div></div>
+  <div class="card"><div class="lab"><span>Esri World Dark Gray Canvas &mdash; PROPOSED</span>
+    <span class="tag ok">NO KEY, FREE</span></div><div id="b" class="map"></div></div>
+</div>
+<script>
+var C=[27.0,55.5], Z=6;
+var a=L.map('a',{center:C,zoom:Z}), b=L.map('b',{center:C,zoom:Z});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  {maxZoom:19,attribution:'&copy; OSM &copy; CARTO'}).addTo(a);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom:16,attribution:'Esri'}).addTo(b);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom:16,opacity:0.9}).addTo(b);
+// representative WarMaps markers on both, so glow/contrast can be judged fairly
+var pts=[[27.15,56.25,'#ff1111','Bandar Abbas'],[29.37,47.98,'#00e5ff','Kuwait City'],
+         [25.28,51.53,'#ffee00','Doha'],[26.22,50.58,'#ff8800','Bahrain'],
+         [31.95,35.93,'#00ff88','Amman'],[29.30,48.10,'#cc66ff','Ali Al Salem'],
+         [27.83,57.77,'#ff1111','Jask'],[26.53,53.98,'#ffee00','Bandar-e Khamir']];
+function draw(m){pts.forEach(function(p){
+  L.circleMarker([p[0],p[1]],{radius:7,color:p[2],weight:2,fillColor:p[2],fillOpacity:.35})
+   .addTo(m).bindTooltip(p[3],{permanent:false});});}
+draw(a);draw(b);
+var lock=false;
+function sync(src,dst){src.on('move zoom',function(){if(lock)return;lock=true;
+  dst.setView(src.getCenter(),src.getZoom(),{animate:false});lock=false;});}
+sync(a,b);sync(b,a);
+</script></body></html>
