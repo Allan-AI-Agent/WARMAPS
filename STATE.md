@@ -1,13 +1,41 @@
 # WARMAPS — STATE OF RECORD
 
-**Last verified:** 2026-09-01 05:20 UTC — **Day 186**
-**Verified by:** live fetch of the deployed build + on-device confirmation by Allan (tablet)
+**Last verified:** 2026-09-09 — **Day 194**
+**Verified by:** static validation only (node --check on all 9 inline script blocks, tag
+balance, cross-timezone behavioural test). **ON-DEVICE CONFIRMATION PENDING** for v01.09.01.
+Last on-device confirmation was v01.09.00, 2026-08-30, phone + Fire tablet.
 **Update rule:** rewrite this file at every push. Trust it over memory, project
 instructions, or Drive documents. If they disagree, this file wins.
 
 ---
 
-## STATUS: v01.09.00 — PHASE-ISOLATED INIT SHIPPED
+## STATUS: v01.09.01 — DAY-NUMBER CALCULATION UNIFIED
+
+### v01.09.01 (2026-09-09, Day 194)
+Closed the day-number inconsistency. It was a **duplication** defect, not an arithmetic one:
+three independent implementations of "what war day is it", two of which used `Math.floor`
+over a timestamp still carrying a time-of-day component while `parseWarDay` used `Math.round`
+over local midnight. Those disagree by one day under DST — Feb 28 is standard time, Aug 30 is
+daylight, so the wall-clock interval is one hour short of a whole number of days.
+
+- New `warDayNow()` beside `parseWarDay`, sharing the same `warStart` const. Single source of truth.
+- AI-summary fallback (was line 4720) and missile-wave badge (was line 4789) now both call it.
+- Removed two inline `new Date(2026,1,28)` epoch literals.
+- Removed `Math.max(1, ...)` clamps that made pre-war days unrenderable now that minDay is -30.
+- Verified identical output in Phoenix, Denver, New York, London, Tehran, UTC and Sydney:
+  Feb 28 = Day 1, Aug 30 = Day 184, Sep 9 = Day 194, Jan 29 = Day -29.
+
+**Residual, deliberately not fixed:** `showTlTip` still declares a third epoch literal, but it
+is the inverse mapping (day to date) and uses calendar-based `setDate`, which is DST-safe.
+Cosmetic duplication only.
+
+**Unexplained, and left open honestly:** the divergence window is only the first hour after
+local midnight, and only in a DST-observing zone. Phoenix never triggers it. Either the
+2026-08-30 sighting happened in that window on a device not set to Arizona time, or a second
+factor exists that was not found. The unified version is correct in every zone at every hour,
+which makes the question moot rather than outstanding.
+
+## PRIOR STATUS: v01.09.00 — PHASE-ISOLATED INIT SHIPPED
 
 Milestone series opened. Hosting migrated to Cloudflare Workers; GitHub Pages unpublished.
 
@@ -38,16 +66,16 @@ device until 2026-08-30. It now has been.
 
 | Field | Value |
 |---|---|
-| version | **v01.09.00** |
+| version | **v01.09.01** |
 | repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC) |
 | live | https://warmaps.allan-ai-agent.workers.dev/ (Cloudflare Workers) |
-| index.html | 291,064 bytes |
+| index.html | 308,634 bytes |
 | warmaps-data.js | unchanged since v01.08.08 |
 | events | 297, IDs 1–297, no gaps, no duplicates |
 | latest event | 2026-07-13 = Day 136 |
 | minDay / maxDay | **-30 / 180** |
 | slider attrs | `min="-30" max="180"` (SECOND location — see traps) |
-| verified on | Android phone + Amazon Fire tablet, 2026-08-30 |
+| verified on | v01.09.00: Android phone + Fire tablet, 2026-08-30. v01.09.01: static only |
 
 ## WHAT WAS FIXED THIS SESSION (v01.08.10 → v01.08.19)
 
@@ -66,8 +94,6 @@ device until 2026-08-30. It now has been.
 
 ## OPEN ITEMS
 
-- **Day-number inconsistency:** `parseWarDay` computes Aug 30 = Day 184, but the missile-wave
-  panel and AI summary display Day 183. Two calculations disagree by one. UNRESOLVED.
 - **Event backfill:** Day 137–184 (Jul 14 – Aug 30) missing. Days 136–152 already researched
   (44 draft events, IDs 298–341) in Drive `_WORKING_DOCS`. **That brief contains an incorrect
   day-conversion instruction — ignore it; Feb 28 = Day 1 matches GlobalSecurity exactly.**
@@ -109,8 +135,23 @@ on with them out of habit rather than choosing them again on merit.
 8. **URL is case-sensitive:** `/WARMAPS/` not `/warmaps/`.
 9. **Day 1 = Feb 28, 2026** is canonical, matching the app and GlobalSecurity.org.
 10. **TDZ rule** and **`_rebuildOriginIcons` mirror rule** still apply (see handoff doc).
+11. **War-day math lives in ONE place: `warDayNow()` / `parseWarDay`.** Never recompute it
+    inline. Never use `Math.floor` on a timestamp carrying a time-of-day component, and never
+    re-declare the `new Date(2026,1,28)` epoch. Both mistakes shipped and produced a
+    one-day-off display that survived several builds. Same failure family as F-002.
 
 ## NEXT
+**IMMEDIATE — next chat session:** write the Context Cost & Session Hygiene process doc before
+any other work. Content: one work package per chat; why a long chat becomes the most expensive
+object in the workflow (every turn re-sends the whole accumulated context, so cost per turn
+climbs with chat length regardless of how little work is done); STATE.md + SESSION_BOOTSTRAP.md
+as the continuity mechanism that makes short chats safe; model/thinking-level tiering as a
+secondary lever. Destination: `_PROCESS_DESIGN_&_IMPROVE/`. Committed 2026-09-09 by Allan.
+
+**Then:** event backfill Day 137-184. Drafts for Days 136-152 (44 events, IDs 298-341) already
+in Drive `_WORKING_DOCS`; ignore that brief's day-conversion instruction, Feb 28 = Day 1.
+Remember trap 1: bump maxDay in BOTH places in the same commit as any event insert.
+
 v01.08.x: graphics standardization, tablet performance, Strike Log slide-out completion.
 v01.09.0: snap-ins, pin-to-slot, side-by-side, **mobile-usable layout**, schema
 (`dateISO` + `claimStatus` + `origin`), About/method panel.
