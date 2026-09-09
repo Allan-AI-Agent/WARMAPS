@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.09.00 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.09.01 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1657,7 +1657,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.00">v01.09.00</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.01">v01.09.01</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1909,7 +1909,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.09',
-  versionFull:  'v01.09.00',
+  versionFull:  'v01.09.01',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -3075,6 +3075,18 @@ function parseWarDay(dateStr) {
   const d = new Date(year, mon, day);
   if (d.getMonth() !== mon || d.getDate() !== day) return null;   // reject rollover
   return Math.round((d - warStart) / 86400000) + 1;
+}
+
+// v01.09.01 — SINGLE SOURCE OF TRUTH for "what war day is it now".
+// Two display sites previously recomputed this inline with Math.floor over a
+// timestamp that still carried a time-of-day component, while parseWarDay uses
+// Math.round over local midnight. Those disagree by one day under DST, which is
+// the Day 183 vs Day 184 split recorded in STATE.md. Normalise to local midnight
+// and round, exactly as parseWarDay does. Do not reintroduce an inline epoch.
+function warDayNow() {
+  const n = new Date();
+  const today = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  return Math.round((today - warStart) / 86400000) + 1;
 }
 
 // strikeDays: maps event id → war day number; built here before strikes.forEach
@@ -4716,8 +4728,7 @@ async function fetchUpdates() {
   } catch (err) {
     // ── STATIC FALLBACK — dynamically calculated war day ──
     const nowDate = new Date();
-    const warStartDate = new Date(2026, 1, 28); // Feb 28, 2026
-    const warDay = Math.max(1, Math.floor((nowDate - warStartDate) / 86400000) + 1);
+    const warDay = warDayNow();   // v01.09.01 — was an inline floor-based duplicate
     const nowUTC = nowDate.toUTCString().replace('GMT','UTC');
     const totalStrikes = strikes.filter(s => s.type !== 'launch' && s.type !== 'prewar').length;
     const iranStrikes = strikes.filter(s => s.type === 'iran').length;
@@ -4786,7 +4797,7 @@ setInterval(loadFIRMS, 30 * 60 * 1000);
   // Set dynamic war day
   var wdEl = document.getElementById('wave-num');
   if (wdEl) {
-    var wd = Math.max(1, Math.floor((new Date() - new Date(2026,1,28)) / 86400000) + 1);
+    var wd = warDayNow();   // v01.09.01 — was an inline floor-based duplicate
     wdEl.textContent = 'DAY ' + wd;
   }
   setInterval(function() {
@@ -5007,7 +5018,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.00';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.01';
   vEl.textContent = full;
 })();
 
