@@ -1,9 +1,9 @@
 # WARMAPS — STATE OF RECORD
 
-**Last verified:** 2026-09-09 — **Day 194**
-**Verified by:** static validation only (node --check on all 9 inline script blocks, tag
-balance, cross-timezone behavioural test). **ON-DEVICE CONFIRMATION PENDING** for v01.09.01.
-Last on-device confirmation was v01.09.00, 2026-08-30, phone + Fire tablet.
+**Last verified:** 2026-09-15 — **Day 200**
+**Verified by:** static validation (node --check on all 9 inline script blocks, tag balance,
+7-timezone behavioural test) PLUS on-device confirmation by Allan on 2026-09-15: version badge
+reads v01.09.01 after a hard refresh, missile-wave badge reads Day 200 (correct).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
 instructions, or Drive documents. If they disagree, this file wins.
 
@@ -11,7 +11,7 @@ instructions, or Drive documents. If they disagree, this file wins.
 
 ## STATUS: v01.09.01 — DAY-NUMBER CALCULATION UNIFIED
 
-### v01.09.01 (2026-09-09, Day 194)
+### v01.09.01 (built 2026-09-10/11, Days 195-196; verified on device 2026-09-15, Day 200)
 Closed the day-number inconsistency. It was a **duplication** defect, not an arithmetic one:
 three independent implementations of "what war day is it", two of which used `Math.floor`
 over a timestamp still carrying a time-of-day component while `parseWarDay` used `Math.round`
@@ -23,7 +23,7 @@ daylight, so the wall-clock interval is one hour short of a whole number of days
 - Removed two inline `new Date(2026,1,28)` epoch literals.
 - Removed `Math.max(1, ...)` clamps that made pre-war days unrenderable now that minDay is -30.
 - Verified identical output in Phoenix, Denver, New York, London, Tehran, UTC and Sydney:
-  Feb 28 = Day 1, Aug 30 = Day 184, Sep 9 = Day 194, Jan 29 = Day -29.
+  Feb 28 = Day 1, Aug 30 = Day 184, Sep 15 = Day 200, Jan 29 = Day -29.
 
 **Residual, deliberately not fixed:** `showTlTip` still declares a third epoch literal, but it
 is the inverse mapping (day to date) and uses calendar-based `setDate`, which is DST-safe.
@@ -75,7 +75,7 @@ device until 2026-08-30. It now has been.
 | latest event | 2026-07-13 = Day 136 |
 | minDay / maxDay | **-30 / 180** |
 | slider attrs | `min="-30" max="180"` (SECOND location — see traps) |
-| verified on | v01.09.00: Android phone + Fire tablet, 2026-08-30. v01.09.01: static only |
+| verified on | v01.09.01: Fire tablet 2026-09-15 (version badge, hard refresh). v01.09.00: phone + tablet 2026-08-30 |
 
 ## WHAT WAS FIXED THIS SESSION (v01.08.10 → v01.08.19)
 
@@ -139,6 +139,23 @@ on with them out of habit rather than choosing them again on merit.
     inline. Never use `Math.floor` on a timestamp carrying a time-of-day component, and never
     re-declare the `new Date(2026,1,28)` epoch. Both mistakes shipped and produced a
     one-day-off display that survived several builds. Same failure family as F-002.
+12. **NEVER STATE THE EXPECTED VALUE BEFORE ASKING FOR A VERIFICATION.** Give the instruction
+    ("read the badge and tell me what it says"), take the raw reading, THEN compare. On
+    2026-09-11 Claude said "it should read Day 194", Allan reported 194, and it was recorded as
+    verified. The device would have shown 196 under EITHER build. The check carried zero
+    information. Two corollaries, both learned the hard way on 2026-09-15:
+    (a) **On-device checks require a HARD REFRESH.** The Worker sends
+    `cache-control: public, max-age=0, must-revalidate`; mobile browsers honour that loosely and
+    serve a stored copy on open tabs, back-forward navigation, or flaky revalidation. Allan's
+    tablet showed v01.09.00 while the edge was serving v01.09.01. Any past "on-device check"
+    without a hard refresh may have tested the PREVIOUS build. FIX PENDING: send `no-store` for
+    the HTML shell, or version-stamp the data file via query string.
+    (b) **In a non-DST timezone the day number cannot distinguish v01.09.00 from v01.09.01.**
+    Arizona never triggers the DST divergence, so both builds print the same day. Use the
+    VERSION BADGE as the discriminator, not the day number.
+13. **Verify the date from the clock at the start of every session.** Claude misdated an entire
+    session by two days (2026-09-09 for what was 2026-09-10/11), corrupting STATE.md entries and
+    the verification above. Never infer the date from context or memory.
 
 ## NEXT
 **IMMEDIATE — next chat session:** write the Context Cost & Session Hygiene process doc before
