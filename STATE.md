@@ -3,10 +3,10 @@
 **Last verified:** 2026-09-17 — **Day 202**
 **Verified by:** static validation only (node --check on all 9 inline script blocks, tag
 balance style 9/9 script 11/11 div 466/466, event-ID continuity 1-341 no gaps/dupes).
-**NOT yet verified on-device.** Per Trap 12, do not assume the badge reads v01.09.02 until
-someone reads it on a device WITHOUT being told the expected value first, AND does a true
-hard-refresh (this session shipped the no-store fix that should make that unnecessary going
-forward, but the fix itself is unverified — see Open Items).
+**PARTIALLY verified on-device 2026-09-18, Day 203** (see new entry below, "v01.09.02
+partial on-device check"). Day-number cross-check passed under Trap 12 discipline. Version
+BADGE TEXT, the `_headers` no-store fix, and the two layout collisions remain unverified — do
+not assume any of those three until separately checked.
 **Update rule:** rewrite this file at every push. Trust it over memory, project
 instructions, or Drive documents. If they disagree, this file wins.
 
@@ -62,6 +62,28 @@ index.html" finding). The 7 fog-of-war-flagged events from the brief (IDs 301, 3
 text**, matching how existing disputed/unconfirmed events in the file already handle this
 (e.g. id 289's Trump quote, id 292's disputed vessel routing). This is a workaround, not a
 fix — the underlying `fogOfWar` field gap is still open (see below).
+
+## v01.09.02 partial on-device check — 2026-09-18, Day 203
+
+Performed under Trap 12 discipline in a separate chat: Allan was asked to read the missile-wave
+badge and the AI Intelligence panel **without being told the expected value first**. He reported
+**Day 203** from both. Claude had independently derived Day 203 beforehand (Feb 28 2026 = Day 1)
+and held that number until after Allan's report, per Trap 12. Match confirmed.
+
+**What this DOES verify:** the two on-screen day-number displays agree with each other and with
+an independent calculation, on the live v01.09.02 deploy, on this date. The Sep 11 "194 vs
+expected 195/196" scare (see Trap 12's origin) does not recur here — no priming occurred this
+time.
+
+**What this does NOT verify (still open, unchanged from prior NEXT list):**
+- The version BADGE TEXT itself (whether it displays the string "v01.09.02") — not read/reported.
+- Whether the `_headers` no-store fix is actually effective — no hard-refresh-vs-stale-cache test
+  was performed this check.
+- The two layout collisions (header text overlap; IRAN MISSILE WAVES card overlapping AIRSPACE
+  STATUS) — not looked at.
+
+A full on-device session (all three remaining items) is still required before this line of NEXT
+can be closed.
 
 ## Open items from this session, in addition to those carried forward
 
@@ -148,7 +170,7 @@ F-001 has **two variants** and they need different defences:
 
 | Field | Value |
 |---|---|
-| version | **v01.09.02** (unverified on-device — see Open items) |
+| version | **v01.09.02** (day-number cross-check verified on-device 2026-09-18, Day 203; badge text / `_headers` fix / layout collisions still unverified — see Open items) |
 | repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC) |
 | live | https://warmaps.allan-ai-agent.workers.dev/ (Cloudflare Pages/Workers) |
 | index.html | 308,634 bytes (unchanged — all edits this session were same-length substitutions) |
@@ -199,8 +221,10 @@ F-001 has **two variants** and they need different defences:
 why):** the Context Cost & Session Hygiene process doc, committed 2026-09-09.
 
 **Immediate, next WARMAPS session:**
-1. On-device verification (hard-refresh, cold read, Trap 12 discipline) — confirm v01.09.02
-   badge, confirm `_headers` no-store fix works, confirm/deny the two layout collisions.
+1. On-device verification, remaining scope (hard-refresh, cold read, Trap 12 discipline) —
+   day-number cross-check already passed 2026-09-18 (Day 203, both displays, see above). Still
+   needed: confirm the version BADGE TEXT reads v01.09.02, confirm `_headers` no-store fix
+   works, confirm/deny the two layout collisions.
 2. If layout collisions are confirmed real: diagnose (likely CSS, not yet attempted).
 3. Stat-box figure updates (US wounded 427, Iran/Israel/Lebanon cumulative figures, Brent
    $88.10 reference).
