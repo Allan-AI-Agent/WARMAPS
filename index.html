@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.09.01 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.09.02 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1657,7 +1657,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.01">v01.09.01</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.02">v01.09.02</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1909,7 +1909,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.09',
-  versionFull:  'v01.09.01',
+  versionFull:  'v01.09.02',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -5018,7 +5018,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.01';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.02';
   vEl.textContent = full;
 })();
 
