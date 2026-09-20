@@ -1,7 +1,7 @@
 {
-  "name": "WarMaps — Iran vs US-Israel 2026",
-  "short_name": "WarMaps",
-  "description": "Interactive conflict intelligence map. Claims, sources, and timeline.",
+  "name": "WARMAPS — çatışma panosu",
+  "short_name": "WARMAPS",
+  "description": "Kaynak gösterimli, gecikmeli çatışma haberleri ve haritası.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "fullscreen",
