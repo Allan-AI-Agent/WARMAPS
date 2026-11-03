@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.09.02 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.09.03 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1657,7 +1657,7 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.02">v01.09.02</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.03">v01.09.03</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
@@ -1909,7 +1909,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.09',
-  versionFull:  'v01.09.02',
+  versionFull:  'v01.09.03',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -1924,7 +1924,9 @@ const WARMAPS_CONFIG = {
   mapZoom:   5,
 
   // Timeline slider range — Day numbers relative to conflict start
-  // Negative = pre-war intel. Increase maxDay as conflict progresses.
+  // Negative = pre-war intel.
+  // maxDay: NOT READ by any code. Timeline end is set dynamically from
+  // warDayNow() at load (v01.09.03). Kept only for RU-fork config parity.
   minDay: -30,
   maxDay: 220,
 
@@ -3098,6 +3100,35 @@ strikes.forEach(s => {
   strikeDays[s.id] = d;
 });
 if (WARMAPS_DATE_ERRORS.length) console.error('[WarMaps] ' + WARMAPS_DATE_ERRORS.length + ' event(s) have unreadable dates:', WARMAPS_DATE_ERRORS);
+
+// v01.09.03 - DYNAMIC TIMELINE END (retires the F-002 / Trap 1 re-bump cycle).
+// Slider max is set from warDayNow() at load, so today is always reachable.
+// WARMAPS_CONFIG.maxDay was never read by any code - every consumer reads the
+// slider max attribute - so this is now the single live source. The static HTML
+// max attributes on tl-min / tl-max remain only as a fallback if this fails.
+// Floor: never below the latest event day, so a wrong device clock cannot hide data.
+(function setDynamicTimelineEnd() {
+  try {
+    var slMinD = document.getElementById('tl-min');
+    var slMaxD = document.getElementById('tl-max');
+    if (!slMinD || !slMaxD) return;
+    var latestEvt = 1;
+    Object.keys(strikeDays).forEach(function (id) {
+      var d = strikeDays[id];
+      if (typeof d === 'number' && d > latestEvt) latestEvt = d;
+    });
+    var mx = Math.max(warDayNow(), latestEvt);
+    if (!(mx > 0)) return;
+    var wasAtEnd = parseInt(slMaxD.value, 10) >= parseInt(slMaxD.getAttribute('max'), 10);
+    slMinD.setAttribute('max', String(mx));
+    slMaxD.setAttribute('max', String(mx));
+    if (wasAtEnd || parseInt(slMaxD.value, 10) > mx) slMaxD.value = String(mx);
+    if (parseInt(slMinD.value, 10) > mx) slMinD.value = String(mx);
+    window.WARMAPS_TIMELINE_END = mx;
+  } catch (e) {
+    console.error('[WarMaps] dynamic timeline end failed - static fallback in use', e);
+  }
+})();
 
 const markerMap = {};
 const navalMarkers = {};  // moved earlier — TDZ fix v01.08.06 (was declared after the timeline IIFE's first updateSlider() call, which references it via updateNavalMarkersForDay)
@@ -5018,7 +5049,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.02';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.03';
   vEl.textContent = full;
 })();
 
