@@ -23,25 +23,34 @@ Why this step exists: on 2026-08-31 a failure cost ~5 hours to diagnose. The cor
 diagnosis and remedy had been written down on 2026-06-13 and sat unread. Memory summarises
 and forgets; a loaded file does not.
 
-## STEP 2 — Confirm capability
-Claude should verify, not assume, by running:
+## STEP 2 — Confirm capability (updated 2026-11-02)
+Verify, do not assume. In a Claude Code cloud session, push access is the real test:
+create a throwaway branch, commit an empty file, push it, then delete the branch.
 
-    git --version; curl -s -o /dev/null -w "%{http_code}" -H "User-Agent: warmaps" https://api.github.com/rate_limit
+Push works only if the Claude account is linked to GitHub user **`Allan-AI-Agent`**
+(fixed 2026-11-02; it had been linked to Allan's old account `sanceau`, which has no rights
+on the repo). Check with `gh api user --jq .login`. If it shows any other name, relink at
+https://claude.ai/connect-github while the browser is signed in to GitHub as
+`Allan-AI-Agent`. On a phone, use Chrome "Desktop site" mode.
 
-Expect `200`. If this fails, the session cannot push and should be used for research
-or planning only.
+If push fails, the session is research/planning only. **Do not ask Allan for a token.**
 
 ## STEP 3 — Work
 Code and data edits happen against files pulled fresh from the repo, never from Drive.
 
-## STEP 4 — Push
-Requires Allan's fine-grained PAT (scope: `Allan-AI-Agent/WARMAPS` only, Contents:
-Read and write). GitHub REST API pattern: GET the file's blob SHA, then PUT with
-base64 content plus that SHA.
+## STEP 4 — Push (updated 2026-11-02)
+1. Work on a branch, never directly on `main`.
+2. Before pushing, run the validators:
+   - `git show main:index.html > /tmp/base.html`
+   - `node tools/validate.js . /tmp/base.html`
+   - `node tools/test-timeline.js .`
+   Both must exit 0 (Trap 6).
+3. Push, open a PR to `main`, and merge only on Allan's OK. Cloudflare deploys `main` within
+   about a minute.
 
-Token location on GitHub (buried — this is the hard-to-find page):
-**Settings > Developer settings > Personal access tokens > Fine-grained tokens**
-(a separate tab from the classic token list).
+**The PAT flow is retired.** No personal access token is pasted into chats. The old method
+(fine-grained PAT plus the REST blob-SHA PUT) remains a last-resort fallback only, if the
+GitHub link is ever broken and cannot be fixed.
 
 ## STEP 5 — Close out
 Rewrite STATE.md with the new numbers and push it in the same session.
