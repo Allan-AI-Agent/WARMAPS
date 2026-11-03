@@ -281,8 +281,8 @@ F-001 has **two variants** and they need different defences:
   pass 2". That date has passed; do it with pass 2.
 - **Stat-box refresh** (`statPerspectives[]`), not touched. The pass-1 brief has a ready table:
   - US KIA 18.
-  - US wounded: **CONFLICT** between 624 (CNN, Jul 26) and 687 (GlobalSecurity, Aug 7). Allan
-    to pick one with its date, or show both.
+  - US wounded: **687 (GlobalSecurity, as of Aug 7)**. Allan's ruling 2026-11-02: use the
+    later-dated figure (the other was 624, CNN, Jul 26). Show the as-of date with it.
   - Israeli military KIA 32+.
   - Iran: HRANA 3,636; Foundation of Martyrs 3,468.
   - Lebanon 4,219+.
@@ -308,7 +308,7 @@ F-001 has **two variants** and they need different defences:
 
 1. Layout pass: the two collisions plus the slider-handle issue, on a verified-fresh load.
 2. Pass-2 backfill research (Day 171 onward), in a fresh session.
-3. Stat-box refresh, once Allan picks the US-wounded figure.
+3. Stat-box refresh (US wounded decided: 687 as of Aug 7).
 
 v01.09.0 remaining: snap-ins, pin-to-slot, side-by-side, mobile-usable layout, schema REV B
 (`dateISO` + `claimStatus` + `origin` + `tier`), About/method panel, real `fogOfWar` field.
