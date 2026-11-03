@@ -1,15 +1,22 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-02 (MST). War-day number withheld here until the cold read (Trap 12).
+**Last updated:** 2026-11-02 (MST), **Day 248**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
-validator agent and re-run by the lead session (see "Validation evidence"). **NOT yet verified
-on-device.** A Trap 12 cold read is pending after merge.
+validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
 instructions, or Drive documents. If they disagree, this file wins.
 
-> **Trap 12 notice:** This file deliberately does NOT state the expected version-badge text or
-> the expected timeline end day. Allan's cold read happens first; the values are recorded here
-> only after his report.
+### Trap 12 cold read, 2026-11-02 (Day 248): PASSED
+PR #2 merged as `4ab6e46`. The live site served the new `index.html` (same sha256) within ~40 s
+of the merge, checked by fetching the live page. Allan then opened the live site on his phone in
+a fresh tab and read the values **without being told them first**:
+
+| Check | Allan reported | Computed beforehand | Result |
+|---|---|---|---|
+| Version badge | v01.09.03 (leading zero confirmed) | v01.09.03 | match |
+| Timeline last day | 248 | 248 (Nov 2 2026; Feb 28 = Day 1; same in 4 TZs) | match |
+
+This also closes v01.09.02's open item "confirm badge text on a cold load".
 
 ---
 
@@ -77,8 +84,8 @@ and the session now pushes directly, with no PAT pasted into a chat.
   extra div, bad id, wrong day, added backtick, floor removed).
 - Faked-clock behavioral test (real code, TZ = UTC, Phoenix, New York, Tehran, identical
   results): today's date, Feb 28 2027, and a wrong clock of Mar 1 2026 — **all three PASS**,
-  including the wrong-clock case being floored to the latest event day. **The numeric results
-  are withheld here until Allan's cold read (Trap 12).** They are printed by
+  including the wrong-clock case being floored to the latest event day: Nov 2 2026 -> 248,
+  Feb 28 2027 -> 366, wrong clock Mar 1 2026 -> 170 (latest event day). Printed by
   `node tools/test-timeline.js .`.
 
 ### New finding: pre-existing day-label drift (NOT introduced by this build)
@@ -209,7 +216,7 @@ F-001 has **two variants** and they need different defences:
 
 | Field | Value |
 |---|---|
-| version | Branch `v01.09.03`, commit `bd5a669`. Badge text **withheld until the Trap 12 cold read** |
+| version | **v01.09.03** (main `4ab6e46`, PR #2). Badge and timeline end verified on-device 2026-11-02 |
 | repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC). **One repo for all theaters** (ruling 2026-11-02): Russia-Ukraine folds into this repo later; no other repos |
 | live | https://warmaps.allan-ai-agent.workers.dev/ (Cloudflare Pages/Workers) |
 | GitHub access | Claude account linked to GitHub `Allan-AI-Agent` (relinked 2026-11-02; was `sanceau`). Cloud sessions push directly; no PAT needed |
@@ -261,10 +268,11 @@ F-001 has **two variants** and they need different defences:
 
 ## OPEN ITEMS
 
-- **Trap 12 cold read (next, after merge).** Allan opens the live site in a fresh tab and
-  reports the version badge and the timeline's last day, without being told the expected values.
-  Also still open from v01.09.02: confirm the `_headers` no-store fix works, and look at the two
-  layout collisions.
+- **Still open from v01.09.02:** confirm the `_headers` no-store fix works (the cold read used
+  a fresh tab, so it does not prove this), and look at the two layout collisions.
+- **[NEW 2026-11-02] Timeline slider handles (OBSERVED by Allan on phone):** the drag circles
+  are very large and sit below the track line. INFERRED: probably default range-input styling on
+  Android Chrome, never custom-styled for touch. Undiagnosed; group with the layout collisions.
 - **Backfill Day 171 (Aug 17) through today (Nov 2): about 11 weeks, not researched.** Pass 2 starts at
   Day 171. The brief already carries 3 items for it: *Minoan Dignity* overnight Aug 17-18; the
   *AMARA* seizure Aug 17 (likely milestone, verify); and the Iran-Oman temporary route (Aug 26).
@@ -298,7 +306,7 @@ F-001 has **two variants** and they need different defences:
 
 ## NEXT
 
-1. Merge the PR, then the Trap 12 cold read (badge + timeline end), then record the values here.
+1. Layout pass: the two collisions plus the slider-handle issue, on a verified-fresh load.
 2. Pass-2 backfill research (Day 171 onward), in a fresh session.
 3. Stat-box refresh, once Allan picks the US-wounded figure.
 
