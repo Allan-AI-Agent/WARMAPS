@@ -1,18 +1,94 @@
 # WARMAPS — STATE OF RECORD
 
-**Last verified:** 2026-09-17 — **Day 202**
-**Verified by:** static validation only (node --check on all 9 inline script blocks, tag
-balance style 9/9 script 11/11 div 466/466, event-ID continuity 1-341 no gaps/dupes).
-**PARTIALLY verified on-device 2026-09-18, Day 203** (see new entry below, "v01.09.02
-partial on-device check"). Day-number cross-check passed under Trap 12 discipline. Version
-BADGE TEXT, the `_headers` no-store fix, and the two layout collisions remain unverified — do
-not assume any of those three until separately checked.
+**Last updated:** 2026-11-02 (MST). War-day number withheld here until the cold read (Trap 12).
+**Verified by:** static validation + faked-clock behavioral test, run by an independent
+validator agent and re-run by the lead session (see "Validation evidence"). **NOT yet verified
+on-device.** A Trap 12 cold read is pending after merge.
 **Update rule:** rewrite this file at every push. Trust it over memory, project
 instructions, or Drive documents. If they disagree, this file wins.
 
+> **Trap 12 notice:** This file deliberately does NOT state the expected version-badge text or
+> the expected timeline end day. Allan's cold read happens first; the values are recorded here
+> only after his report.
+
 ---
 
-## STATUS: v01.09.02 — BACKFILL DAYS 137-153 + maxDay/no-store fixes
+## STATUS: DYNAMIC TIMELINE END + PASS-1 BACKFILL (Days 152-170)
+
+### Built 2026-11-02, Claude Code cloud session, branch `v01.09.03`
+
+**Context:** the build was staged on 2026-09-28 (Drive recipe
+`STAGED_BUILD_v01.09.03_rebuild-recipe_(2026-09-28).md`, id `126dhHXq4PwVS3OstjdnAj5AbiK8BLd9d`)
+but never pushed: that chat had no GitHub write path. The static `maxDay` 220 cap was passed on
+Oct 5 (Day 220), so from then until this merge the live timeline could not reach today (F-002
+manifesting). This session first fixed GitHub access: Claude was linked to Allan's old GitHub
+account `sanceau`, which has no rights on the repo. Allan relinked Claude to `Allan-AI-Agent`,
+and the session now pushes directly, with no PAT pasted into a chat.
+
+**What shipped, in commit order (branch `v01.09.03`, PR to `main`):**
+1. `p0-access-check` branch, commit `7c9820c` — empty `tools/.p0-access-check`. Proved push
+   access (P0). Throwaway branch; not merged.
+2. `index.html` (`bd5a669`) — dynamic timeline end, applied **exactly** from the Drive recipe.
+   Result sha256 `d4e4b1e105533e09b944e417305adc84959e82019632a6bcc18bd5e5c3907287`, 310,138
+   bytes: **matches the recipe's expected hash byte for byte.** Base was main at sha256
+   `bdf6361f...a0d`, 308,634 bytes, also matching the recipe.
+   - Version bumped in all 4 Rule-8 locations (title, `#wm-version` div, `versionFull`,
+     hover-IIFE fallback).
+   - New `setDynamicTimelineEnd()` IIFE, run right after `strikeDays` is built. It sets the
+     `#tl-min` / `#tl-max` max attributes to the larger of `warDayNow()` and the latest event
+     day, so (a) today is always reachable, and (b) a wrong device clock cannot hide data.
+     Exposes `window.WARMAPS_TIMELINE_END`. Wrapped in try/catch, so on failure the static HTML
+     attributes remain as the fallback.
+   - `WARMAPS_CONFIG.maxDay` is documented in-file as NOT READ by any code (it never was: every
+     consumer reads the slider attribute). Kept only for theater-config parity.
+   - **This retires Trap 1 / F-002's recurring re-bump.** The static slider attributes (220)
+     are now only a fallback.
+3. `warmaps-data.js` (`c5e0968`) — **44 events, IDs 342-385**, from Drive
+   `WARMAPS_RESEARCH_Days152-170_backfill-pass1_(2026-09-28).md` (id
+   `1LfNlb0cC1NsXeJvZ6PYS0iSkxQX2OE_K`).
+   - Day numbers computed in code from each date (Feb 28 2026 = Day 1). They match the brief's
+     own headers.
+   - Inserted on the `const strikes = [` anchor (F-004), with a check that the anchor is the
+     terminator of that array.
+   - Existing schema kept. The brief's REV B fields (`dateISO`, `origin`, `claimStatus`, `tier`)
+     were **not** added; they wait for the schema migration and stay in the Drive brief.
+   - The 11 fog-of-war items (342, 345, 352, 357, 363, 364, 366, 371, 375, 381, 385) carry an
+     inline `FOG OF WAR:` caveat in `misc`, the same workaround as v01.09.02.
+   - **Coordinates are Claude-assigned approximations** of each named place; the brief gave
+     none. Sea and region events use representative points.
+   - The brief's 3 "milestone" events (349 Trump cancels the energy campaign, 367 Mecca Joint
+     Defence Agreement, 374 high-command rebuild) were **not** added to `keyStrikeIds`. That is
+     an editorial call for Allan.
+4. `tools/` (`92cb64e`) — reusable validators, written by an independent agent that did not
+   write the edits:
+   - `node tools/validate.js . <baseline-index.html>` checks syntax, tag balance against the
+     baseline, event-ID continuity, 'Day N' vs date, and backtick count (Trap 4).
+   - `node tools/test-timeline.js .` extracts the real `parseWarDay` / `warDayNow` /
+     `setDynamicTimelineEnd` code from index.html and runs it under faked clocks in 4 time zones.
+   - **Run both before every push.** Get the baseline with `git show main:index.html`.
+
+### Validation evidence (independent agent; re-run by the lead session, both exit 0)
+- `node --check` equivalent: warmaps-data.js plus all **9** inline script blocks — PASS.
+- Tag balance: style 9/9, script 11/11, div 466/466, **unchanged** from v01.09.02 — PASS.
+- Event IDs **1-385** continuous, no gaps, no duplicates — PASS.
+- 'Day N' vs date: all 44 new events match — PASS.
+- Backticks in index.html: 82, unchanged from baseline — PASS.
+- Mutation test: the validators correctly FAILED on deliberately broken copies (syntax error,
+  extra div, bad id, wrong day, added backtick, floor removed).
+- Faked-clock behavioral test (real code, TZ = UTC, Phoenix, New York, Tehran, identical
+  results): today's date, Feb 28 2027, and a wrong clock of Mar 1 2026 — **all three PASS**,
+  including the wrong-clock case being floored to the latest event day. **The numeric results
+  are withheld here until Allan's cold read (Trap 12).** They are printed by
+  `node tools/test-timeline.js .`.
+
+### New finding: pre-existing day-label drift (NOT introduced by this build)
+The validator found **45 older events whose `time: 'Day N'` label is one lower than their date
+implies**: ids 112-122 (which look like a Feb 28 = Day 0 convention) and 238-295. Example: id 238
+says Day 65, but its date, May 4, is Day 66. This affects only the display label; the timeline
+places events by `parseWarDay(date)`, not by `time`. It was already on main and is **not fixed
+here**. Open item below.
+
+## PRIOR STATUS: v01.09.02 — BACKFILL DAYS 137-153 + maxDay/no-store fixes
 
 ### v01.09.02 (built 2026-09-17, Day 202)
 
@@ -54,7 +130,7 @@ eyeballed).
 
 **Total events: 341** (was 297). **Latest event: Day 153 (Jul 30, 2026)**, was Day 136.
 
-### Schema note discovered this session
+### Schema note (v01.09.02 session)
 The event object schema (see any entry in `warmaps-data.js`) has **no working `fogOfWar`
 field** — confirmed again this session (matches the prior "referenced 0 times in
 index.html" finding). The 7 fog-of-war-flagged events from the brief (IDs 301, 306, 310,
@@ -63,7 +139,7 @@ text**, matching how existing disputed/unconfirmed events in the file already ha
 (e.g. id 289's Trump quote, id 292's disputed vessel routing). This is a workaround, not a
 fix — the underlying `fogOfWar` field gap is still open (see below).
 
-## v01.09.02 partial on-device check — 2026-09-18, Day 203
+### v01.09.02 partial on-device check — 2026-09-18, Day 203
 
 Performed under Trap 12 discipline in a separate chat: Allan was asked to read the missile-wave
 badge and the AI Intelligence panel **without being told the expected value first**. He reported
@@ -85,44 +161,6 @@ time.
 A full on-device session (all three remaining items) is still required before this line of NEXT
 can be closed.
 
-## Open items from this session, in addition to those carried forward
-
-- **Two on-device checks are now required and have NOT been done:**
-  1. Hard-refresh on a device, read the version badge cold (no expected value stated first,
-     per Trap 12) — confirm it shows v01.09.02, confirm the no-store `_headers` fix actually
-     stops stale-shell serving.
-  2. Confirm whether the two layout collisions seen in Allan's phone screenshot (header text
-     overlap; IRAN MISSILE WAVES card overlapping AIRSPACE STATUS) are real current-build
-     bugs or were an artifact of a non-hard-refreshed tab. **Neither is diagnosed. Neither
-     is in the Known Failures register (F-001 through F-009).** If confirmed real on a
-     verified-fresh load, they are new entries, not recurrences.
-- **Stat-box figures are stale.** The brief flagged: US wounded should read 427 (was
-  reading an older number), Iran cumulative casualty estimates need updating (HRANA 3,636 /
-  Foundation of Martyrs 3,468 / US-Israeli estimates 6,000+), Israeli ~57 cumulative deaths,
-  Lebanon 4,219+ since Mar 2, Brent $88.10 (Jul 17 reference point). **Not touched this
-  session** — these are separate from the strikes[] array (likely in `statPerspectives[]`
-  or similar) and were out of scope for "safe, ready-to-insert" work.
-- **Jul 19-20 and Jul 25 remain thin/gapped** within the newly inserted range. The brief's
-  author recommended adding a "consecutive night campaign" arc event spanning Jul 19-25
-  rather than leaving bare gaps. **Deliberately not added this session** — it would mean
-  inventing a new event beyond the 44 already drafted and reviewed, which was outside the
-  "safe, ready" scope Allan asked for. Flagged for a future backfill session.
-- **fogOfWar field is schema-absent**, not just unused — confirmed again (see schema note
-  above). If this is meant to become real (a filterable/visual indicator), it needs actual
-  implementation, not just inline text caveats. Not scoped this session.
-- **Event backfill remaining: Day 154-202 (Jul 31 - Sep 17), 49 days, NOT researched.**
-  This is the next work package — per Allan's instruction, deferred to a fresh chat after
-  the usage window resets. Recommend chunking into 2-3 week research passes rather than one
-  49-day sweep, consistent with the one-work-package-per-chat rule.
-- **The Context Cost & Session Hygiene process doc commitment (2026-09-09, Allan) is STILL
-  not written.** It was carried in this STATE.md's own NEXT section from the 2026-09-15
-  version and was not addressed this session either — Allan's own closing instruction for
-  the prior session did not mention it, creating a real gap between what STATE.md commits to
-  and what actually happens session to session. Not resolved here; flagged explicitly rather
-  than dropped silently a second time.
-- **GitHub PAT handling:** this session required Allan to paste a PAT mid-conversation
-  because the fresh chat started without one. Consistent with existing practice (PAT is
-  pasted per session, not stored) — no change needed, just noting the mechanism worked.
 
 ## PRIOR STATUS: v01.09.01 — DAY-NUMBER CALCULATION UNIFIED
 
@@ -166,24 +204,29 @@ F-001 has **two variants** and they need different defences:
 
 `try/catch` cannot catch a SyntaxError, because the script block never executes.
 
+
 ## KEY FIELDS
 
 | Field | Value |
 |---|---|
-| version | **v01.09.02** (day-number cross-check verified on-device 2026-09-18, Day 203; badge text / `_headers` fix / layout collisions still unverified — see Open items) |
-| repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC) |
+| version | Branch `v01.09.03`, commit `bd5a669`. Badge text **withheld until the Trap 12 cold read** |
+| repo | `Allan-AI-Agent/WARMAPS` branch `main` (PUBLIC). **One repo for all theaters** (ruling 2026-11-02): Russia-Ukraine folds into this repo later; no other repos |
 | live | https://warmaps.allan-ai-agent.workers.dev/ (Cloudflare Pages/Workers) |
-| index.html | 308,634 bytes (unchanged — all edits this session were same-length substitutions) |
-| warmaps-data.js | 381,963 bytes (was 352,437) |
-| events | **341**, IDs 1-341, no gaps, no duplicates |
-| latest event | 2026-07-30 = **Day 153** |
-| minDay / maxDay | -30 / **220** (was -30/180) |
-| _headers | **new this session** — no-store on `/` and `/index.html` |
+| GitHub access | Claude account linked to GitHub `Allan-AI-Agent` (relinked 2026-11-02; was `sanceau`). Cloud sessions push directly; no PAT needed |
+| index.html | 310,138 bytes, sha256 `d4e4b1e1...7287` (was 308,634) |
+| warmaps-data.js | 418,656 bytes (was 381,963) |
+| events | **385**, IDs 1-385, no gaps, no duplicates |
+| latest event | 2026-08-16 = **Day 170** |
+| timeline end | **Dynamic** (`setDynamicTimelineEnd`). Static fallback in HTML: -30 / 220. `WARMAPS_CONFIG.maxDay` is not read |
+| validators | `tools/validate.js`, `tools/test-timeline.js` |
 
-## PERMANENT TRAPS (violating these has cost days) — unchanged from prior version, all still apply
+## PERMANENT TRAPS (violating these has cost days)
 
-1. **maxDay lives in TWO places** — `WARMAPS_CONFIG.maxDay` AND the hardcoded `min`/`max`
-   attributes on `#tl-min` / `#tl-max`. Patching one silently does nothing.
+1. **[UPDATED 2026-11-02] Timeline end is now dynamic.** `setDynamicTimelineEnd()` sets the
+   slider max at load from `warDayNow()`, floored at the latest event day. **Do not re-bump
+   maxDay for new events.** If the timeline ever stops short of today, the IIFE failed: check
+   the console for "[WarMaps] dynamic timeline end failed". The old two-places rule (config +
+   `#tl-min`/`#tl-max` attributes) applies only to the static fallback.
 2. **Never append into an existing `<style>` or `<script>`.** This file contains the literal
    text `</style>` inside a JS string, so block boundaries cannot be detected reliably.
    New CSS goes in its own element.
@@ -215,25 +258,50 @@ F-001 has **two variants** and they need different defences:
     rather than assuming the erratum's "+1" rule transfers correctly by inspection alone.
     Worth keeping as practice for future backfill briefs.
 
+
+## OPEN ITEMS
+
+- **Trap 12 cold read (next, after merge).** Allan opens the live site in a fresh tab and
+  reports the version badge and the timeline's last day, without being told the expected values.
+  Also still open from v01.09.02: confirm the `_headers` no-store fix works, and look at the two
+  layout collisions.
+- **Backfill Day 171 (Aug 17) through today (Nov 2): about 11 weeks, not researched.** Pass 2 starts at
+  Day 171. The brief already carries 3 items for it: *Minoan Dignity* overnight Aug 17-18; the
+  *AMARA* seizure Aug 17 (likely milestone, verify); and the Iran-Oman temporary route (Aug 26).
+  Chunk into 2-3 week passes. **No maxDay bump is needed any more.**
+- **Re-check the 11 fog-of-war items** (342 ... 385), which the brief scheduled for "Oct 5 with
+  pass 2". That date has passed; do it with pass 2.
+- **Stat-box refresh** (`statPerspectives[]`), not touched. The pass-1 brief has a ready table:
+  - US KIA 18.
+  - US wounded: **CONFLICT** between 624 (CNN, Jul 26) and 687 (GlobalSecurity, Aug 7). Allan
+    to pick one with its date, or show both.
+  - Israeli military KIA 32+.
+  - Iran: HRANA 3,636; Foundation of Martyrs 3,468.
+  - Lebanon 4,219+.
+  - Brent path to $79.47 (Aug 4 low).
+  - Hormuz transits 17% of normal (Aug 15).
+- **`fogOfWar` field** is still schema-absent. events carry inline `FOG OF WAR:` text (32 occurrences in
+  warmaps-data.js after pass 1, which added 11). A real field and UI marker are still needed.
+- **Layout collisions** (header text overlap; IRAN MISSILE WAVES card over AIRSPACE STATUS):
+  undiagnosed, carried from v01.09.02.
+- **Day-label drift on 45 older events** (ids 112-122, 238-295; see the finding above). The
+  fix is mechanical (recompute `time` from `date`), but changes the displayed labels. Allan to OK
+  it first.
+- **Key Strikes panel:** consider adding the 3 pass-1 milestones (349, 367, 374) to
+  `keyStrikeIds`. Editorial call.
+- **Context Cost & Session Hygiene process doc** (committed 2026-09-09): **still not written.**
+  Carried a third time; flagged, not dropped.
+- **v2 plan files on Drive:** not reviewed or reconciled with this file this session. Open.
+- **SESSION_BOOTSTRAP.md is stale** on push mechanics: STEP 4 still describes the PAT flow.
+  Cloud sessions linked to `Allan-AI-Agent` now push directly. Update it next session.
+- **`p0-access-check` branch** can be deleted after merge.
+
 ## NEXT
 
-**Still outstanding, carried forward and NOT resolved this session (see Open Items above for
-why):** the Context Cost & Session Hygiene process doc, committed 2026-09-09.
+1. Merge the PR, then the Trap 12 cold read (badge + timeline end), then record the values here.
+2. Pass-2 backfill research (Day 171 onward), in a fresh session.
+3. Stat-box refresh, once Allan picks the US-wounded figure.
 
-**Immediate, next WARMAPS session:**
-1. On-device verification, remaining scope (hard-refresh, cold read, Trap 12 discipline) —
-   day-number cross-check already passed 2026-09-18 (Day 203, both displays, see above). Still
-   needed: confirm the version BADGE TEXT reads v01.09.02, confirm `_headers` no-store fix
-   works, confirm/deny the two layout collisions.
-2. If layout collisions are confirmed real: diagnose (likely CSS, not yet attempted).
-3. Stat-box figure updates (US wounded 427, Iran/Israel/Lebanon cumulative figures, Brent
-   $88.10 reference).
-
-**Then, in chunked sessions:** Day 154-202 backfill (49 days), recommend 2-3 week research
-passes rather than one sweep. Remember Trap 1/F-002: bump maxDay in BOTH places in the same
-commit as any event insert.
-
-v01.09.0 remaining: snap-ins, pin-to-slot, side-by-side, mobile-usable layout, schema
-(`dateISO` + `claimStatus` + `origin`), About/method panel, real `fogOfWar` field
-implementation (currently absent from schema — see this session's schema note).
+v01.09.0 remaining: snap-ins, pin-to-slot, side-by-side, mobile-usable layout, schema REV B
+(`dateISO` + `claimStatus` + `origin` + `tier`), About/method panel, real `fogOfWar` field.
 v02.00.0: steady state.
