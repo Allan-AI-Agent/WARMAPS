@@ -280,7 +280,7 @@ F-001 has **two variants** and they need different defences:
   - Lebanon 4,219+.
   - Brent path to $79.47 (Aug 4 low).
   - Hormuz transits 17% of normal (Aug 15).
-- **`fogOfWar` field** is still schema-absent. events carry inline `FOG OF WAR:` text (32 occurrences in
+- **`fogOfWar` field** is still schema-absent. Events carry inline `FOG OF WAR:` text (32 occurrences in
   warmaps-data.js after pass 1, which added 11). A real field and UI marker are still needed.
 - **Layout collisions** (header text overlap; IRAN MISSILE WAVES card over AIRSPACE STATUS):
   undiagnosed, carried from v01.09.02.
