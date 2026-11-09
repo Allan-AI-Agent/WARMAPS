@@ -40,8 +40,15 @@ No code change to `index.html`; version stays v01.09.03.
 
 **Research files (scratchpad, to be filed to Drive _RESEARCH):** per-block JSON with tiers, sources and verifier verdicts.
 
+**Stat boxes refreshed 2026-11-09 (PR "stat boxes"), per the Sep 28 latest-figure ruling:**
+targets struck 13,000+ (CENTCOM, Apr 7); Iran naval assets hit 155+ (CENTCOM, Apr 7); US 21 + IDF 40 = 61 dead (Pentagon Oct 15; IDF Aug 5);
+Iran missiles + drones ~5,200+ (through Mar 25); Iran civilian dead 1,701+ (HRANA, Apr 7); Lebanon dead (all) 4,383 (Health Ministry, Sep 10);
+Israel civilian 26 (Ynet/JINSA, Aug 5); US aircraft lost or damaged 81 (CRS, Oct 5). Each value carries a source comment in warmaps-data.js.
+**Unchanged, for Allan:** Iran military dead 1,937+ (only alternatives: IDF claim 6,000+ via Wikipedia, or HRANA 1,221); US bases/ISR sites 40+,
+Iran aircraft 51, Iran naval vessels 27 (no newer figures found). Several totals stop in March-April although strikes resumed Jul 7.
+US wounded 865 (Pentagon, Oct 15) found; not shown in any stat box.
+
 **NOT done in this pass (open)**
-- **Stat boxes NOT refreshed.** The figures agent stopped at the usage limit before writing them. Next step.
 - Key Strikes panel: no new IDs added (editorial call for Allan; candidates = the 22 milestones).
 - The 45 older day-label warnings (ids 112-122, 238-295): still awaiting Allan's OK.
 - Remaining 87 standard events: optional second verification pass.

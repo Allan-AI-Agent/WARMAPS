@@ -8757,28 +8757,28 @@ const statPerspectives = [
     // P0 — US/ISR claimed results against Iran
     label:   'US/ISR PERSPECTIVE',
     kills:   { val: '1,937+', lbl: 'Iran Military Dead'              },
-    strikes: { val: '5,000+', lbl: 'Targets Struck Inside Iran'      },
-    targets: { val: '130+',   lbl: 'Iranian Naval Assets Destroyed'   },
+    strikes: { val: '13,000+', lbl: 'Targets Struck Inside Iran'     },  // CENTCOM claim, Apr 7 2026
+    targets: { val: '155+',   lbl: 'Iran Naval Assets Hit'            },  // CENTCOM claim (damaged or destroyed), Apr 7 2026
   },
   {
     // P1 — Iran claimed results against US/ISR/region
     label:   'IRAN PERSPECTIVE',
-    kills:   { val: '19+',    lbl: 'US / Allied Forces Dead'          },
-    strikes: { val: '~2,500', lbl: 'Iran Missiles + Drones Launched'  },
+    kills:   { val: '61',     lbl: 'US (21) + IDF (40) Dead'          },  // Pentagon DCAS Oct 15 2026; IDF Aug 5 2026
+    strikes: { val: '~5,200+', lbl: 'Iran Missiles + Drones Launched' },  // Gulf MoDs + ISW-CTP via ThePrint, through Mar 25 2026
     targets: { val: '40+',    lbl: 'US Bases + ISR Sites Struck'      },
   },
   {
     // P2 — Civilian toll, all sides
     label:   'CIVILIAN TOLL',
-    kills:   { val: '1,444+', lbl: 'Iran Civilian Dead'               },
-    strikes: { val: '1,200+', lbl: 'Lebanon Civilian Dead'            },
-    targets: { val: '24+',    lbl: 'Israel Civilian Dead'             },
+    kills:   { val: '1,701+', lbl: 'Iran Civilian Dead'               },  // HRANA civilians, Apr 7 2026 (total dead 3,636)
+    strikes: { val: '4,383',  lbl: 'Lebanon Dead (all)'               },  // Lebanese Health Ministry, Sep 10 2026
+    targets: { val: '26',     lbl: 'Israel Civilian Dead'             },  // Ynet / JINSA tallies, Aug 5 2026
   },
   {
-    // P3 — Equipment losses (all causes) — source: globalmilitary.net Apr 3 2026
+    // P3 — Equipment losses. Iran rows: globalmilitary.net Apr 3 2026 (no newer figure found Nov 9). US row: CRS Oct 5 2026
     label:   'EQUIPMENT LOSSES',
     kills:   { val: '51',     lbl: 'Iran Aircraft Lost (all causes)'  },
-    strikes: { val: '10',     lbl: 'US Aircraft Lost (all causes)'    },
+    strikes: { val: '81',     lbl: 'US Aircraft Lost or Damaged'      },  // Congressional Research Service, Oct 5 2026
     targets: { val: '27',     lbl: 'Iran Naval Vessels Lost'          },
   },
 ];
