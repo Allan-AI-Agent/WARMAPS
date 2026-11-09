@@ -1,0 +1,31 @@
+# Runs the WARMAPS validators on every pull request to main and every push to main.
+# Same checks as SESSION_BOOTSTRAP.md STEP 4; a red X means do not merge.
+name: validate
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Baseline index.html
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git fetch --depth=1 origin "${{ github.base_ref }}"
+            git show FETCH_HEAD:index.html > /tmp/base.html
+          else
+            git show HEAD~1:index.html > /tmp/base.html || cp index.html /tmp/base.html
+          fi
+      - run: node tools/validate.js . /tmp/base.html
+      - run: node tools/test-timeline.js .

@@ -1,0 +1,314 @@
+{
+ "version": "0.2",
+ "note": "Starter set tested 2026-09-30; moved into the repo 2026-11-09. Superseded later by the S1 Source & Feed Registry.",
+ "feeds": [
+  {
+   "id": "aljazeera",
+   "name": "Al Jazeera",
+   "url": "https://www.aljazeera.com/xml/rss/all.xml",
+   "origin": "intl-broadcaster (Qatar)",
+   "home": "global",
+   "fallback": false
+  },
+  {
+   "id": "bbc_world",
+   "name": "BBC World",
+   "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+   "origin": "intl-broadcaster (UK)",
+   "home": "global",
+   "fallback": false
+  },
+  {
+   "id": "bbc_mideast",
+   "name": "BBC Middle East",
+   "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+   "origin": "intl-broadcaster (UK)",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "bbc_europe",
+   "name": "BBC Europe",
+   "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml",
+   "origin": "intl-broadcaster (UK)",
+   "home": "russia-ukraine",
+   "fallback": false
+  },
+  {
+   "id": "bbc_asia",
+   "name": "BBC Asia",
+   "url": "https://feeds.bbci.co.uk/news/world/asia/rss.xml",
+   "origin": "intl-broadcaster (UK)",
+   "home": "east-asia",
+   "fallback": false
+  },
+  {
+   "id": "bbc_latam",
+   "name": "BBC Latin America",
+   "url": "https://feeds.bbci.co.uk/news/world/latin_america/rss.xml",
+   "origin": "intl-broadcaster (UK)",
+   "home": "caribbean",
+   "fallback": false
+  },
+  {
+   "id": "guardian_world",
+   "name": "The Guardian World",
+   "url": "https://www.theguardian.com/world/rss",
+   "origin": "europe (UK press)",
+   "home": "global",
+   "fallback": false
+  },
+  {
+   "id": "guardian_mideast",
+   "name": "The Guardian Middle East",
+   "url": "https://www.theguardian.com/world/middleeast/rss",
+   "origin": "europe (UK press)",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "guardian_ukraine",
+   "name": "The Guardian Ukraine",
+   "url": "https://www.theguardian.com/world/ukraine/rss",
+   "origin": "europe (UK press)",
+   "home": "russia-ukraine",
+   "fallback": false
+  },
+  {
+   "id": "guardian_americas",
+   "name": "The Guardian Americas",
+   "url": "https://www.theguardian.com/world/americas/rss",
+   "origin": "europe (UK press)",
+   "home": "caribbean",
+   "fallback": false
+  },
+  {
+   "id": "un_news",
+   "name": "UN News",
+   "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+   "origin": "ngo-igo",
+   "home": "global",
+   "fallback": false
+  },
+  {
+   "id": "centcom",
+   "name": "CENTCOM press",
+   "url": "https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?max=10&ContentType=1&Site=808",
+   "origin": "us-official",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "jpost",
+   "name": "Jerusalem Post",
+   "url": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+   "origin": "israel-independent",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "ynet_en",
+   "name": "Ynet News",
+   "url": "https://www.ynetnews.com/Integration/StoryRss3082.xml",
+   "origin": "israel-independent",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "iranintl",
+   "name": "Iran International",
+   "url": "https://www.iranintl.com/en/feed",
+   "origin": "iran-opposition-exile",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "thenational",
+   "name": "The National (UAE)",
+   "url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/?outputType=xml",
+   "origin": "gulf-state (UAE)",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "arabnews",
+   "name": "Arab News",
+   "url": "https://www.arabnews.com/rss.xml",
+   "origin": "gulf-state (Saudi)",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "middleeasteye",
+   "name": "Middle East Eye",
+   "url": "https://www.middleeasteye.net/rss",
+   "origin": "regional-independent (UK-based)",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "mondoweiss",
+   "name": "Mondoweiss",
+   "url": "https://mondoweiss.net/feed/",
+   "origin": "palestine-advocacy (US-based)",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "electronicintifada",
+   "name": "Electronic Intifada",
+   "url": "https://electronicintifada.net/rss.xml",
+   "origin": "palestine-advocacy",
+   "home": "iran-war",
+   "fallback": false
+  },
+  {
+   "id": "dawn",
+   "name": "Dawn (Pakistan)",
+   "url": "https://www.dawn.com/feeds/home",
+   "origin": "pakistan",
+   "home": "global",
+   "fallback": false
+  },
+  {
+   "id": "kyivindependent",
+   "name": "Kyiv Independent",
+   "url": "https://kyivindependent.com/news-archive/rss/",
+   "origin": "ukraine-independent",
+   "home": "russia-ukraine",
+   "fallback": true
+  },
+  {
+   "id": "ukrinform",
+   "name": "Ukrinform",
+   "url": "https://www.ukrinform.net/rss/block-lastnews",
+   "origin": "ukraine-state",
+   "home": "russia-ukraine",
+   "fallback": true
+  },
+  {
+   "id": "kyivpost",
+   "name": "Kyiv Post",
+   "url": "https://www.kyivpost.com/feed",
+   "origin": "ukraine-independent",
+   "home": "russia-ukraine",
+   "fallback": false
+  },
+  {
+   "id": "tass",
+   "name": "TASS",
+   "url": "https://tass.com/rss/v2.xml",
+   "origin": "russia-state",
+   "home": "russia-ukraine",
+   "fallback": false
+  },
+  {
+   "id": "meduza_en",
+   "name": "Meduza",
+   "url": "https://meduza.io/rss/en/all",
+   "origin": "russia-independent-exile",
+   "home": "russia-ukraine",
+   "fallback": false
+  },
+  {
+   "id": "moscowtimes",
+   "name": "The Moscow Times",
+   "url": "https://www.themoscowtimes.com/rss/news",
+   "origin": "russia-independent-exile",
+   "home": "russia-ukraine",
+   "fallback": false
+  },
+  {
+   "id": "yonhap",
+   "name": "Yonhap",
+   "url": "https://en.yna.co.kr/RSS/news.xml",
+   "origin": "south-korea (state-funded wire)",
+   "home": "east-asia",
+   "fallback": true
+  },
+  {
+   "id": "nknews",
+   "name": "NK News",
+   "url": "https://www.nknews.org/feed/",
+   "origin": "korea-specialist-independent",
+   "home": "east-asia",
+   "fallback": true
+  },
+  {
+   "id": "japantimes",
+   "name": "Japan Times",
+   "url": "https://www.japantimes.co.jp/feed/",
+   "origin": "japan-independent",
+   "home": "east-asia",
+   "fallback": false
+  },
+  {
+   "id": "taipeitimes",
+   "name": "Taipei Times",
+   "url": "https://www.taipeitimes.com/xml/index.rss",
+   "origin": "taiwan-independent",
+   "home": "east-asia",
+   "fallback": true
+  },
+  {
+   "id": "scmp_world",
+   "name": "SCMP",
+   "url": "https://www.scmp.com/rss/91/feed",
+   "origin": "hong-kong (Alibaba-owned)",
+   "home": "east-asia",
+   "fallback": false
+  },
+  {
+   "id": "globaltimes",
+   "name": "Global Times",
+   "url": "https://www.globaltimes.cn/rss/outbrain.xml",
+   "origin": "china-state",
+   "home": "east-asia",
+   "fallback": false
+  },
+  {
+   "id": "cibercuba",
+   "name": "CiberCuba",
+   "url": "https://www.cibercuba.com/rss.xml",
+   "origin": "cuba-independent-exile (es)",
+   "home": "caribbean",
+   "fallback": true
+  },
+  {
+   "id": "14ymedio",
+   "name": "14ymedio",
+   "url": "https://www.14ymedio.com/rss/",
+   "origin": "cuba-independent (es)",
+   "home": "caribbean",
+   "fallback": true
+  },
+  {
+   "id": "efectococuyo",
+   "name": "Efecto Cocuyo",
+   "url": "https://efectococuyo.com/feed/",
+   "origin": "venezuela-independent (es)",
+   "home": "caribbean",
+   "fallback": true
+  },
+  {
+   "id": "elpitazo",
+   "name": "El Pitazo",
+   "url": "https://elpitazo.net/feed/",
+   "origin": "venezuela-independent (es)",
+   "home": "caribbean",
+   "fallback": true
+  }
+ ],
+ "not_usable": {
+  "timesofisrael": "robots.txt disallows the honest UA: human-only",
+  "haaretz": "403: human-only",
+  "lorientlejour": "403: human-only",
+  "almayadeen_en": "403: human-only",
+  "pravda_ua_en": "robots.txt 403: skipped",
+  "presstv": "feed URL serves an HTML page",
+  "irna_en,tasnim_en,mehr_en,tehrantimes,ifpnews": "unreachable from the Claude sandbox; retry from GitHub Actions",
+  "focustaiwan": "404",
+  "wafa_en": "404/timeout",
+  "gdelt": "429"
+ }
+}
