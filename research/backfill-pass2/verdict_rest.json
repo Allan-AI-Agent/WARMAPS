@@ -1,0 +1,536 @@
+[
+ {
+  "vid": 3,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror (criticalthreats.org) confirms Aug 17 Houthi claim near Mocha and Yemeni sources saying target was AMIR KHAN"
+ },
+ {
+  "vid": 13,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Reuters headline (via internazionale/other search results) Aug 20 confirms Houthi claim; claim-only, fog correct"
+ },
+ {
+  "vid": 14,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Tasnim and AP syndication: Rezaei TV interview aired Sat Aug 22, 'act of war' remark followed; AP Aug 23-24"
+ },
+ {
+  "vid": 18,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Search results show AP-syndicated 'strikes in Gaza kill 4 incl 2 children' headlines around Aug 24; AP page 404, 4-year-old detail seen only in snippets/other titles"
+ },
+ {
+  "vid": 20,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror confirms Trump Aug 25 mine-clearing claim, two US officials confirmed TSS cleared, Axios ~2% of 500+ ships"
+ },
+ {
+  "vid": 22,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Press TV/AA Aug 26 headlines confirm Iran army doctrine shift to offensive/preemptive; ISW page not retrievable"
+ },
+ {
+  "vid": 24,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "JPost-syndicated Reuters Aug 27: Greek-operated Patriot engaged drone swarm near Yanbu per Greek security sources"
+ },
+ {
+  "vid": 26,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Only search headlines (Tribune Aug 28 'three killed in Gaza'); AP count of 5 and brothers detail not verified, low confidence"
+ },
+ {
+  "vid": 27,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Aug 28 and Asharq Al-Awsat headlines confirm 3 killed in Jenin airstrike, Israel said Hamas operative"
+ },
+ {
+  "vid": 28,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "IMO six-month statement (6,000 seafarers, ~400 ships) confirmed by several outlets, dated Aug 28-31; '19 killed' and '70 attacks' not seen in snippets"
+ },
+ {
+  "vid": 29,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Aug 28: Mojtaba Telegram, Pezeshkian address, Intelligence Ministry 30 arrests all confirmed"
+ },
+ {
+  "vid": 35,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "IRGC mine claim and CENTCOM denial confirmed by multiple Aug 31 headlines (APA, Ynet, L'Orient)"
+ },
+ {
+  "vid": 36,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Asharq Al-Awsat headline 'Iraq PM rejects proposal to maintain coalition troops beyond Sept 30'; militia conditions seen in Shafaq/AAWSAT headlines; date approx"
+ },
+ {
+  "vid": 40,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror: FT reported Sep 1 Russia helped Iran cruise-missile tech since ~Nov 2023; other outlets carried it Sep 2"
+ },
+ {
+  "vid": 42,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 2 and L'Orient headlines: two teens (16, 19) killed in al-Mughayyir raid"
+ },
+ {
+  "vid": 45,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 3 headline 'Israel kills 3 in Gaza as far-right minister plans removals' matches"
+ },
+ {
+  "vid": 46,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Sep 3: Kurdistan CTS said coalition intercepted 10 drones over Erbil; security sources said not aimed at consulate/bases"
+ },
+ {
+  "vid": 47,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Iran International Sep 4: Al Arabiya reported missiles intercepted over northern Jordan; ISW says Iran claimed attacks on US bases in Jordan Sep 3-4; US denial per AA headline; fog correct"
+ },
+ {
+  "vid": 48,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "4 killed, 32 wounded (Lebanese Health Ministry, per AFP Sep 5; earlier count 23 wounded)"
+  },
+  "note": "AFP Sep 5 (Khaleej Times): 4 killed, 32 wounded in Friday Sep 4 strikes; AP Sep 4 confirms the 4 prisoner release; the cited Reuters link is a Sep 6 story (7 killed, evac warning issued) so misc source is mismatched"
+ },
+ {
+  "vid": 49,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 3 and Asharq Al-Awsat headlines confirm intensified Houthi-government fighting in Taiz/west coast; casualty numbers unspecified as stated"
+ },
+ {
+  "vid": 52,
+  "verdict": "DROP",
+  "fix": {},
+  "note": "Duplicate of vid 48: same Sep 4-5 overnight Israeli strikes (Euronews 3 killed then AFP 4 killed, IDF citing attempted Hezbollah attack)"
+ },
+ {
+  "vid": 53,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 6 and ISW mirror: SABA/ROYG military media claimed Hays district Sep 5; CTP-ISW could not confirm; fog correct"
+ },
+ {
+  "vid": 57,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-09-06"
+  },
+  "note": "BBC dated Sep 6: Ghalibaf said it 'on Sunday' (Sep 6) after US tanker strikes on Sep 5; Wikipedia lists it under Sep 7 (report date)"
+ },
+ {
+  "vid": 62,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Migflug: CENTCOM struck five tankers Tue Sep 8 and same-day Treasury sanctions on 27 airlines + 9 service providers; ISW page not retrievable"
+ },
+ {
+  "vid": 63,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia timeline Sep 8: Iran claims MQ-1 downed and Dive-LD seized; Baird/Reuters headline: Pentagon cites glitch; fog correct"
+ },
+ {
+  "vid": 64,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 8 live blog dated Sep 8; IBTimes headline 'Qatar warns of industrial catastrophe' matches; blog body not read"
+ },
+ {
+  "vid": 72,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Sep 11: Pezeshkian at BRICS New Delhi met Modi; Sep 12 UAE meeting not checked"
+ },
+ {
+  "vid": 73,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia timeline 12 Sep: US limited guaranteed air-defence cover to two time windows a day"
+ },
+ {
+  "vid": 74,
+  "verdict": "FIX",
+  "fix": {
+   "misc": "FOG OF WAR: IRGC and MPF casualty claims differ. IRGC and police raided a Baloch separatist hideout in Saravan, sparking an hours-long gunfight (Sep 12). Separately, on Sep 14 in Zahedan an unknown gunman killed prominent Sunni cleric Molavi Yousef Gargij outside his home. Casualty figures conflict between the IRGC and the militants. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-15-2026/ ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war"
+  },
+  "note": "Wikipedia: Saravan clash Sep 12 (4 separatists + multiple IRGC dead, vs event's 3 IRGC/5 Baloch/9 claim, unverified); Reuters/Tasnim: cleric killed Sep 14-15, not Sep 12, so misc fixed; ISW Sep 15 page not retrievable"
+ },
+ {
+  "vid": 75,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia Hormuz crisis: El Gaia hit Sep 13, 2 crew missing/killed (table says killed), IRGC mine vs US drone; ISW mirror says incident Sep 12; fog correct"
+ },
+ {
+  "vid": 77,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia + Axios/AP headlines Sep 15: US destroyed two boats 'the day before' (Sep 14); Hormozgan governor 'fishing boats' line not verified"
+ },
+ {
+  "vid": 78,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia Kurdistan strikes page cites Rudaw Sep 14: five missiles struck areas in Sulaymaniyah province, no casualties; fog correct"
+ },
+ {
+  "vid": 81,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Reuters headline Sep 15 'Israeli strikes in Gaza kill five including children' found via syndication; details (Sheikh Radwan, Mawasi) not seen"
+ },
+ {
+  "vid": 83,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Sep 16: Araghchi met Wang Yi in Beijing; Hormuz reopening call confirmed"
+ },
+ {
+  "vid": 85,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Sep 16: shops in northwestern Iran on strike on Mahsa Amini anniversary; location approximate as stated"
+ },
+ {
+  "vid": 89,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Sep 17: Taleghan 2 rebuilding at Parchin, Natanz and Pickaxe Mountain hardening"
+ },
+ {
+  "vid": 90,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia Hormuz table: STI Steadfast damaged Sep 18; timeline: UK military 'unknown projectile' Sep 18"
+ },
+ {
+  "vid": 91,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Sep 18 and Wikipedia: 313,000-person Janfada exercise Sep 18"
+ },
+ {
+  "vid": 93,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 19: 4 killed incl son of Munir al-Bursh in Jabalia; matches"
+ },
+ {
+  "vid": 94,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia: Cooper >1bn barrels (Sep 19); ISW mirror: AFP Houthi sources on IRGC tunnels near Mokha Sep 19"
+ },
+ {
+  "vid": 96,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Wikipedia Hormuz table/timeline: Al Maryah Sep 20, tanker attack Sep 21 two crew hurt, LR Stephanie Sep 22"
+ },
+ {
+  "vid": 97,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 20: Palestinian killed near Jenin, settler shot dead near Halamish; matches"
+ },
+ {
+  "vid": 103,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ISW/CTP mirror Sep 24: WSJ reported Sep 23 ~1,300 Chinese air shipments, GPS trackers, flight-control parts"
+ },
+ {
+  "vid": 107,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true,
+   "misc": "The Houthis claimed they fired ballistic missiles, cruise missiles and drones at the Aramco refinery in Yanbu and an unspecified target in Riyadh (Houthi claim, not independently confirmed), while attacking near the Taiz-Aden road, which government forces kept control of. The Saudi Grand Mufti urged forces to defeat the Houthis after the Sep 24 al-Tuwal attack. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-25-2026/"
+  },
+  "note": "ISW/CTP mirror Sep 25 words it as a Houthi claim; Grand Mufti statement Sep 24 confirmed; relabel as claim"
+ },
+ {
+  "vid": 112,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Oct 2 explainer confirms Araghchi in New York at UNGA, 'came to forge peace'; Qatar mediators/7-point plan via GlobalSecurity (blocked), Sep 25 Araghchi/Qatar plan in Wikipedia"
+ },
+ {
+  "vid": 113,
+  "verdict": "FIX",
+  "fix": {
+   "misc": "FOG OF WAR: Iranian state outlet Press TV reported eight US Marines injured in a recent Iranian attack near the Strait of Hormuz. NBC News, citing US officials, later reported (Sep 28) that 8 Marines were injured about two weeks earlier when an Iranian cruise missile hit a vessel they were operating on; the vessel and details remain contested. Same day the IRGC spokesman said Hormuz 'is not open' and had become a 'hunting ground' for US underwater vehicles. Source: GlobalSecurity (Press TV, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-28_index.htm ; Maritime Executive https://maritime-executive.com/article/report-eight-u-s-marines-were-injured-in-iranian-strike-on-a-ship",
+   "humanCasualties": "8 US Marines injured (Press TV; NBC citing US officials), attack ~mid-Sep"
+  },
+  "note": "Search results (Maritime Executive, Ynet, Newsquawk citing NBC) show US officials did confirm the 8 injured ~two weeks earlier, contradicting 'no US confirmation'; kept fog true because vessel/details disputed (TWZ)"
+ },
+ {
+  "vid": 118,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Search results show repeated Houthi claims of 30-52 Saudi strikes per day around Sep 20-29 and rising IOM displacement; exact 35/five-provinces figure not seen; Houthi claim so fog true; globalsecurity (402) blocked; claim checked only via search-result headlines/other outlets"
+ },
+ {
+  "vid": 122,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aggregate of Press TV/UNICEF items (Sep 30-Oct 11) plus unrelated AJ Oct 11 source; weak specificity but not contradicted; globalsecurity (402) blocked; claim checked only via search-result headlines/other outlets"
+ },
+ {
+  "vid": 123,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Press TV/medical sources via GlobalSecurity (blocked); search results show Gaza strikes and ceasefire-violation tallies; low confidence on exact figures; globalsecurity (402) blocked; claim checked only via search-result headlines/other outlets"
+ },
+ {
+  "vid": 124,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Oct 1 / Al-Monitor (Sep path) / Times of Israel: Burnham 'strong indications' Iran involved in RAF Fairford incident; arrest of British-Iranian Oct 1 (MercoPress)"
+ },
+ {
+  "vid": 126,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Russia/China vetoed Iran sanctions Panel of Experts renewal Sep 17 (AJ, Euronews); UN GA meeting record press.un.org ga12792 matches Oct 1 debate"
+ },
+ {
+  "vid": 132,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Gaza toll 73,651 around Sep 6 per libnanews, so 74,243 on Oct 5 plausible; exact figure not seen; globalsecurity (402) blocked; claim checked only via search-result headlines/other outlets"
+ },
+ {
+  "vid": 134,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "gCaptain Oct 14: CENTCOM destroyed Iranian-affiliated dhow Oct 6, crew removed first"
+ },
+ {
+  "vid": 135,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "The National Oct 12 timeline: Oct 6 attacks on Jazan and Najran airports, 3 injured, missile intercepted at Khamis Mushait"
+ },
+ {
+  "vid": 137,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Vance 'cut enrichment to end war' interview widely reported Oct 6-7 (ARY, Citizen, Business Day); Rubio/Murphy details not seen"
+ },
+ {
+  "vid": 141,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Naharnet Oct 9 (Thursday Oct 8): IDF captain killed, three slightly wounded when vehicle overturned in Litani area"
+ },
+ {
+  "vid": 142,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "USNI / La Voce Oct 9: Abraham Lincoln returned to San Diego after 321 days; IRGC items not checked"
+ },
+ {
+  "vid": 143,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Developmentaid/Al-Monitor/ToI Oct 7: >200,000 displaced in Yemen; UNSC briefing wording not seen"
+ },
+ {
+  "vid": 146,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "gCaptain/Khaleej Times: Ocean Molica disabled Oct 10, 4 vessels disabled, 135 turned back since Jul 14; UKMTO tanker struck is Oct 11 per Khaleej live blog; Indian sailors missing not verified"
+ },
+ {
+  "vid": 148,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "IRGC mine claim, unverified, fog true; GlobalSecurity blocked; AJ Oct 11 live blog fetched: date/headline only (body is a closed stub), so claim text not independently read; Khaleej Oct 11 live blog lists 'Tanker struck in Hormuz: UKMTO'"
+ },
+ {
+  "vid": 149,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera/Arab News Oct 11: two men killed in Bint Jbeil district (Froun remnant, Yater shelling); matches"
+ },
+ {
+  "vid": 152,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Press TV/hospital sources via GlobalSecurity (blocked); no independent check; globalsecurity (402) blocked; claim checked only via search-result headlines/other outlets"
+ },
+ {
+  "vid": 158,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Reuters Oct 14-15 via Al-Monitor/Jakarta Post: failure to activate Hormuz fertilizer plan could trigger food crisis"
+ },
+ {
+  "vid": 161,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Houthi-run Health Ministry figure is a party claim; coalition statements on missile facilities Oct 26 AJ; Saada launcher detail not seen; globalsecurity (402) blocked; claim checked only via search-result headlines/other outlets"
+ },
+ {
+  "vid": 165,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Lavrov-in-Tehran Oct 19 not found in search (results were 2025 Lavrov items); AJ blogs dated Oct 18 and Oct 31 only; low confidence but not contradicted"
+ },
+ {
+  "vid": 167,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; Oct 20 headline 'Iran says US attack means destruction'"
+ },
+ {
+  "vid": 170,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; Oct 21 blog about threat of attack; region placeholder coords noted in event"
+ },
+ {
+  "vid": 171,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; explosions in south Lebanon plausible"
+ },
+ {
+  "vid": 172,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; Oct 22 blog 'threat of new US attack grows'"
+ },
+ {
+  "vid": 176,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ Oct 25 blog title 'Trump says no strike today; Qatari mediators visit Tehran' matches"
+ },
+ {
+  "vid": 177,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; same Oct 25 blog; CENTCOM 1.5bn barrels also in Wikipedia (Oct 26)"
+ },
+ {
+  "vid": 180,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Iranian claim, fog true; L'Orient 'Iran's military says oil tanker on fire in Gulf of Oman' consistent with east of Hormuz; AJ slug also mentions a separate ship fire off Iraq"
+ },
+ {
+  "vid": 181,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ Oct 27 blog title 'Putin hosts Moscow talks with Qatari emir, Iran president' matches"
+ },
+ {
+  "vid": 182,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; NNA-sourced Tallousa bombing not independently seen"
+ },
+ {
+  "vid": 185,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Pentagon cost >$47bn reported Oct 28 (Dawn/Daily Maverick/Inquirer); Bessent zero exports line not verified"
+ },
+ {
+  "vid": 187,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Gulf News: Barrack says US-Iran deal 'very close', credits Qatar/Pakistan; AJ Oct 29 blog dated correctly"
+ },
+ {
+  "vid": 189,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; UKMTO projectile on tanker exiting Hormuz not independently seen"
+ },
+ {
+  "vid": 191,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; AJ reported earlier Houthi missile attacks on Aden palace/airport Oct 15-21; Oct 30 repeat unverified"
+ },
+ {
+  "vid": 194,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ Nov 1 blog 'Tehran awaits US response on proposal to reopen Hormuz' matches"
+ },
+ {
+  "vid": 197,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Free Press Journal (PTI) Nov 2: third Basij training centre in Tehran, 1 million volunteers, 1,500 bases"
+ },
+ {
+  "vid": 200,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; Nov 3 headline 'Tehran warns of crushing response if US attacks'"
+ },
+ {
+  "vid": 202,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; Hayfan Houthi missile deaths not found in search"
+ },
+ {
+  "vid": 205,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; al-Shati strike and 74,618 total not found in search"
+ },
+ {
+  "vid": 209,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "IRGC mine claim, fog true; AJ Nov 7 blog dated correctly, body not read"
+ },
+ {
+  "vid": 211,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Houthi casualty claim, fog true; AJ Nov 7 title 'Houthis claim Riyadh attacks; US hits vessel near Hormuz' matches"
+ },
+ {
+  "vid": 213,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ Nov 8 title 'US blamed for Qeshm strikes' supports Iranian-claim framing; Pentagon non-confirmation not independently seen; fog true"
+ },
+ {
+  "vid": 215,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera live-blog fetched: date/headline only (body is a closed stub), so claim text not independently read; Deir al-Balah landslide not found in search, low confidence"
+ }
+]

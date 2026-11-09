@@ -102,6 +102,7 @@
   ],
   "chunk": "A",
   "vid": 3,
+  "verified": "PASS",
   "id": 389
  },
  {
@@ -361,6 +362,7 @@
   ],
   "chunk": "A",
   "vid": 13,
+  "verified": "PASS",
   "id": 399
  },
  {
@@ -386,6 +388,7 @@
   ],
   "chunk": "A",
   "vid": 14,
+  "verified": "PASS",
   "id": 400
  },
  {
@@ -482,14 +485,15 @@
   "structuralDmg": "Not itemized.",
   "humanCasualties": "At least 4 killed incl. 2 children (hospital officials); Gaza Health Ministry: 1,288 killed since Oct ceasefire",
   "launchOrigin": "IDF",
-  "misc": "Israeli strikes across Gaza killed at least four people including a 4-year-old, according to Awda and other hospitals. Source: AP https://apnews.com/article/middle-east-iran-israel-syria-august-24-2026-4c37df8a725b49eae2ab1672b4ae4201",
+  "misc": "FOG OF WAR: Israeli strikes across Gaza killed at least four people including a 4-year-old, according to Awda and other hospitals. Source: AP https://apnews.com/article/middle-east-iran-israel-syria-august-24-2026-4c37df8a725b49eae2ab1672b4ae4201",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://apnews.com/article/middle-east-iran-israel-syria-august-24-2026-4c37df8a725b49eae2ab1672b4ae4201"
   ],
   "chunk": "A",
   "vid": 18,
+  "verified": "PASS",
   "id": 404
  },
  {
@@ -542,6 +546,7 @@
   ],
   "chunk": "A",
   "vid": 20,
+  "verified": "PASS",
   "id": 406
  },
  {
@@ -594,6 +599,7 @@
   ],
   "chunk": "A",
   "vid": 22,
+  "verified": "PASS",
   "id": 408
  },
  {
@@ -645,6 +651,7 @@
   ],
   "chunk": "A",
   "vid": 24,
+  "verified": "PASS",
   "id": 410
  },
  {
@@ -694,6 +701,7 @@
   ],
   "chunk": "A",
   "vid": 26,
+  "verified": "PASS",
   "id": 412
  },
  {
@@ -718,6 +726,7 @@
   ],
   "chunk": "A",
   "vid": 27,
+  "verified": "PASS",
   "id": 413
  },
  {
@@ -734,14 +743,15 @@
   "structuralDmg": "N/A",
   "humanCasualties": "19 seafarers killed and at least 6,000 stranded since the war began (IMO, as of Aug 28)",
   "launchOrigin": "N/A",
-  "misc": "The UN maritime agency said hundreds of ships have been unable to leave the region since the war began, with at least 70 attacks on international shipping in the Gulf. Coordinates approximate. Source: AP (citing IMO) https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8",
+  "misc": "FOG OF WAR: The UN maritime agency said hundreds of ships have been unable to leave the region since the war began, with at least 70 attacks on international shipping in the Gulf. Coordinates approximate. Source: AP (citing IMO) https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8"
   ],
   "chunk": "A",
   "vid": 28,
+  "verified": "PASS",
   "id": 414
  },
  {
@@ -766,6 +776,7 @@
   ],
   "chunk": "A",
   "vid": 29,
+  "verified": "PASS",
   "id": 415
  },
  {
@@ -924,6 +935,7 @@
   ],
   "chunk": "A",
   "vid": 35,
+  "verified": "PASS",
   "id": 421
  },
  {
@@ -949,6 +961,7 @@
   ],
   "chunk": "A",
   "vid": 36,
+  "verified": "PASS",
   "id": 422
  },
  {
@@ -1053,6 +1066,7 @@
   ],
   "chunk": "A",
   "vid": 40,
+  "verified": "PASS",
   "id": 426
  },
  {
@@ -1104,6 +1118,7 @@
   ],
   "chunk": "A",
   "vid": 42,
+  "verified": "PASS",
   "id": 428
  },
  {
@@ -1181,6 +1196,7 @@
   ],
   "chunk": "A",
   "vid": 45,
+  "verified": "PASS",
   "id": 431
  },
  {
@@ -1205,6 +1221,7 @@
   ],
   "chunk": "A",
   "vid": 46,
+  "verified": "PASS",
   "id": 432
  },
  {
@@ -1231,6 +1248,7 @@
   ],
   "chunk": "A",
   "vid": 47,
+  "verified": "PASS",
   "id": 433
  },
  {
@@ -1245,7 +1263,7 @@
   "weaponCap": "N/A",
   "target": "IDF: Hezbollah weapons storage facilities",
   "structuralDmg": "Not itemized.",
-  "humanCasualties": "4 killed, 23 injured (Lebanese Health Ministry)",
+  "humanCasualties": "4 killed, 32 wounded (Lebanese Health Ministry, per AFP Sep 5; earlier count 23 wounded)",
   "launchOrigin": "IDF",
   "misc": "Israeli strikes without evacuation warnings killed four across southern Lebanon. The same day Israel released four more Lebanese prisoners under a deal tied to Lebanese help searching for missing Lebanese Jewish leaders. Coordinates approximate. Source: Reuters https://www.reuters.com/world/middle-east/israeli-military-says-it-strikes-southern-lebanon-after-hezbollah-launched-2026-09-06/ ; AP https://apnews.com/article/mideast-iran-hormuz-washington-september-4-2026-49d0cb10d83827e52b56b5280e7d048d",
   "tier": "standard",
@@ -1256,6 +1274,7 @@
   ],
   "chunk": "A",
   "vid": 48,
+  "verified": "FIX",
   "id": 434
  },
  {
@@ -1280,6 +1299,7 @@
   ],
   "chunk": "A",
   "vid": 49,
+  "verified": "PASS",
   "id": 435
  },
  {
@@ -1338,30 +1358,6 @@
  },
  {
   "date": "2026-09-05",
-  "type": "hez",
-  "city": "Southern Lebanon",
-  "country": "Lebanon",
-  "lat": 33.27,
-  "lng": 35.4,
-  "attacker": "Israel (IDF)",
-  "weapon": "Airstrikes",
-  "weaponCap": "N/A",
-  "target": "IDF: Hezbollah infrastructure, after an attempted Hezbollah attack",
-  "structuralDmg": "Not itemized.",
-  "humanCasualties": "3 killed (Lebanese Health Ministry)",
-  "launchOrigin": "IDF",
-  "misc": "The IDF said it struck Hezbollah infrastructure in response to an attempted Hezbollah attack. Coordinates approximate. Source: Euronews https://www.euronews.com/2026/09/05/three-killed-in-israeli-strikes-on-lebanon-health-ministry-says",
-  "tier": "standard",
-  "fog": false,
-  "sources": [
-   "https://www.euronews.com/2026/09/05/three-killed-in-israeli-strikes-on-lebanon-health-ministry-says"
-  ],
-  "chunk": "A",
-  "vid": 52,
-  "id": 438
- },
- {
-  "date": "2026-09-05",
   "type": "global",
   "city": "Hays District, Hudaydah Province",
   "country": "Yemen",
@@ -1383,7 +1379,8 @@
   ],
   "chunk": "A",
   "vid": 53,
-  "id": 439
+  "verified": "PASS",
+  "id": 438
  },
  {
   "date": "2026-09-06",
@@ -1410,7 +1407,7 @@
   "chunk": "A",
   "vid": 54,
   "verified": "FIX",
-  "id": 440
+  "id": 439
  },
  {
   "date": "2026-09-06",
@@ -1436,6 +1433,32 @@
   ],
   "chunk": "A",
   "vid": 55,
+  "verified": "FIX",
+  "id": 440
+ },
+ {
+  "date": "2026-09-06",
+  "type": "political",
+  "city": "Tehran",
+  "country": "Iran",
+  "lat": 35.69,
+  "lng": 51.39,
+  "attacker": "N/A - statement",
+  "weapon": "N/A",
+  "weaponCap": "N/A",
+  "target": "N/A",
+  "structuralDmg": "N/A",
+  "humanCasualties": "N/A",
+  "launchOrigin": "Iran (Ghalibaf)",
+  "misc": "Iran's top negotiator Mohammad Bagher Ghalibaf warned that further US attacks would trigger a 'faster, heavier, more painful response', saying the 'rules of the game have changed'. Comes after US strikes on Iranian tankers on Sep 5 under a new 'tanker for tanker' policy. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; BBC https://www.bbc.com/news/articles/cp8d56w7d9po",
+  "tier": "standard",
+  "fog": false,
+  "sources": [
+   "https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war",
+   "https://www.bbc.com/news/articles/cp8d56w7d9po"
+  ],
+  "chunk": "B",
+  "vid": 57,
   "verified": "FIX",
   "id": 441
  },
@@ -1468,31 +1491,6 @@
  },
  {
   "date": "2026-09-07",
-  "type": "political",
-  "city": "Tehran",
-  "country": "Iran",
-  "lat": 35.69,
-  "lng": 51.39,
-  "attacker": "N/A - statement",
-  "weapon": "N/A",
-  "weaponCap": "N/A",
-  "target": "N/A",
-  "structuralDmg": "N/A",
-  "humanCasualties": "N/A",
-  "launchOrigin": "Iran (Ghalibaf)",
-  "misc": "Iran's top negotiator Mohammad Bagher Ghalibaf warned that further US attacks would trigger a 'faster, heavier, more painful response', saying the 'rules of the game have changed'. Comes after US strikes on Iranian tankers on Sep 5 under a new 'tanker for tanker' policy. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; BBC https://www.bbc.com/news/articles/cp8d56w7d9po",
-  "tier": "standard",
-  "fog": false,
-  "sources": [
-   "https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war",
-   "https://www.bbc.com/news/articles/cp8d56w7d9po"
-  ],
-  "chunk": "B",
-  "vid": 57,
-  "id": 443
- },
- {
-  "date": "2026-09-07",
   "type": "global",
   "city": "Jizan",
   "country": "Saudi Arabia",
@@ -1515,7 +1513,7 @@
   "chunk": "B",
   "vid": 58,
   "verified": "PASS",
-  "id": 444
+  "id": 443
  },
  {
   "date": "2026-09-07",
@@ -1541,7 +1539,7 @@
   "chunk": "B",
   "vid": 59,
   "verified": "FIX",
-  "id": 445
+  "id": 444
  },
  {
   "date": "2026-09-08",
@@ -1569,7 +1567,7 @@
   "chunk": "B",
   "vid": 60,
   "verified": "PASS",
-  "id": 446
+  "id": 445
  },
  {
   "date": "2026-09-08",
@@ -1594,7 +1592,8 @@
   ],
   "chunk": "B",
   "vid": 62,
-  "id": 447
+  "verified": "PASS",
+  "id": 446
  },
  {
   "date": "2026-09-08",
@@ -1620,7 +1619,8 @@
   ],
   "chunk": "B",
   "vid": 63,
-  "id": 448
+  "verified": "PASS",
+  "id": 447
  },
  {
   "date": "2026-09-08",
@@ -1645,7 +1645,8 @@
   ],
   "chunk": "B",
   "vid": 64,
-  "id": 449
+  "verified": "PASS",
+  "id": 448
  },
  {
   "date": "2026-09-09",
@@ -1671,7 +1672,7 @@
   "chunk": "B",
   "vid": 61,
   "verified": "FIX",
-  "id": 450
+  "id": 449
  },
  {
   "date": "2026-09-09",
@@ -1699,7 +1700,7 @@
   "chunk": "B",
   "vid": 65,
   "verified": "FIX",
-  "id": 451
+  "id": 450
  },
  {
   "date": "2026-09-09",
@@ -1726,7 +1727,7 @@
   "chunk": "B",
   "vid": 66,
   "verified": "FIX",
-  "id": 452
+  "id": 451
  },
  {
   "date": "2026-09-09",
@@ -1752,7 +1753,7 @@
   "chunk": "B",
   "vid": 67,
   "verified": "PASS",
-  "id": 453
+  "id": 452
  },
  {
   "date": "2026-09-10",
@@ -1779,7 +1780,7 @@
   "chunk": "B",
   "vid": 68,
   "verified": "PASS",
-  "id": 454
+  "id": 453
  },
  {
   "date": "2026-09-10",
@@ -1806,7 +1807,7 @@
   "chunk": "B",
   "vid": 69,
   "verified": "PASS",
-  "id": 455
+  "id": 454
  },
  {
   "date": "2026-09-11",
@@ -1833,7 +1834,7 @@
   "chunk": "B",
   "vid": 70,
   "verified": "PASS",
-  "id": 456
+  "id": 455
  },
  {
   "date": "2026-09-11",
@@ -1858,7 +1859,7 @@
   "chunk": "B",
   "vid": 71,
   "verified": "PASS",
-  "id": 457
+  "id": 456
  },
  {
   "date": "2026-09-11",
@@ -1883,7 +1884,8 @@
   ],
   "chunk": "B",
   "vid": 72,
-  "id": 458
+  "verified": "PASS",
+  "id": 457
  },
  {
   "date": "2026-09-12",
@@ -1907,7 +1909,8 @@
   ],
   "chunk": "B",
   "vid": 73,
-  "id": 459
+  "verified": "PASS",
+  "id": 458
  },
  {
   "date": "2026-09-12",
@@ -1923,7 +1926,7 @@
   "structuralDmg": "N/A",
   "humanCasualties": "3 IRGC soldiers and 5 Baloch fighters killed (IRGC Ground Forces); MPF claims 9 regime forces killed. Zahedan Friday prayer leader Molavi Yousef Gargij shot dead by unknown gunman.",
   "launchOrigin": "Domestic",
-  "misc": "FOG OF WAR: IRGC and MPF casualty claims differ. IRGC and police raided a Baloch separatist hideout in Saravan, sparking an hours-long gunfight. In Zahedan an unknown gunman killed prominent Sunni cleric Molavi Yousef Gargij outside his home. Casualty figures conflict between the IRGC and the militants. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-15-2026/ ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war",
+  "misc": "FOG OF WAR: IRGC and MPF casualty claims differ. IRGC and police raided a Baloch separatist hideout in Saravan, sparking an hours-long gunfight (Sep 12). Separately, on Sep 14 in Zahedan an unknown gunman killed prominent Sunni cleric Molavi Yousef Gargij outside his home. Casualty figures conflict between the IRGC and the militants. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-15-2026/ ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war",
   "tier": "standard",
   "fog": true,
   "sources": [
@@ -1932,7 +1935,8 @@
   ],
   "chunk": "B",
   "vid": 74,
-  "id": 460
+  "verified": "FIX",
+  "id": 459
  },
  {
   "date": "2026-09-13",
@@ -1957,7 +1961,8 @@
   ],
   "chunk": "B",
   "vid": 75,
-  "id": 461
+  "verified": "PASS",
+  "id": 460
  },
  {
   "date": "2026-09-13",
@@ -1983,7 +1988,7 @@
   "chunk": "B",
   "vid": 76,
   "verified": "PASS",
-  "id": 462
+  "id": 461
  },
  {
   "date": "2026-09-14",
@@ -2008,7 +2013,8 @@
   ],
   "chunk": "B",
   "vid": 77,
-  "id": 463
+  "verified": "PASS",
+  "id": 462
  },
  {
   "date": "2026-09-14",
@@ -2033,7 +2039,8 @@
   ],
   "chunk": "B",
   "vid": 78,
-  "id": 464
+  "verified": "PASS",
+  "id": 463
  },
  {
   "date": "2026-09-14",
@@ -2059,7 +2066,7 @@
   "chunk": "B",
   "vid": 79,
   "verified": "PASS",
-  "id": 465
+  "id": 464
  },
  {
   "date": "2026-09-15",
@@ -2083,7 +2090,8 @@
   ],
   "chunk": "B",
   "vid": 81,
-  "id": 466
+  "verified": "PASS",
+  "id": 465
  },
  {
   "date": "2026-09-16",
@@ -2108,7 +2116,7 @@
   "chunk": "B",
   "vid": 80,
   "verified": "FIX",
-  "id": 467
+  "id": 466
  },
  {
   "date": "2026-09-16",
@@ -2133,7 +2141,7 @@
   "chunk": "B",
   "vid": 82,
   "verified": "PASS",
-  "id": 468
+  "id": 467
  },
  {
   "date": "2026-09-16",
@@ -2159,7 +2167,8 @@
   ],
   "chunk": "B",
   "vid": 83,
-  "id": 469
+  "verified": "PASS",
+  "id": 468
  },
  {
   "date": "2026-09-16",
@@ -2184,7 +2193,7 @@
   "chunk": "B",
   "vid": 84,
   "verified": "FIX",
-  "id": 470
+  "id": 469
  },
  {
   "date": "2026-09-16",
@@ -2209,7 +2218,8 @@
   ],
   "chunk": "B",
   "vid": 85,
-  "id": 471
+  "verified": "PASS",
+  "id": 470
  },
  {
   "date": "2026-09-17",
@@ -2236,7 +2246,7 @@
   "chunk": "B",
   "vid": 86,
   "verified": "PASS",
-  "id": 472
+  "id": 471
  },
  {
   "date": "2026-09-17",
@@ -2264,7 +2274,7 @@
   "chunk": "B",
   "vid": 87,
   "verified": "PASS",
-  "id": 473
+  "id": 472
  },
  {
   "date": "2026-09-17",
@@ -2289,7 +2299,7 @@
   "chunk": "B",
   "vid": 88,
   "verified": "PASS",
-  "id": 474
+  "id": 473
  },
  {
   "date": "2026-09-17",
@@ -2313,7 +2323,8 @@
   ],
   "chunk": "B",
   "vid": 89,
-  "id": 475
+  "verified": "PASS",
+  "id": 474
  },
  {
   "date": "2026-09-18",
@@ -2338,7 +2349,8 @@
   ],
   "chunk": "B",
   "vid": 90,
-  "id": 476
+  "verified": "PASS",
+  "id": 475
  },
  {
   "date": "2026-09-18",
@@ -2363,7 +2375,8 @@
   ],
   "chunk": "B",
   "vid": 91,
-  "id": 477
+  "verified": "PASS",
+  "id": 476
  },
  {
   "date": "2026-09-19",
@@ -2389,7 +2402,7 @@
   "chunk": "B",
   "vid": 92,
   "verified": "PASS",
-  "id": 478
+  "id": 477
  },
  {
   "date": "2026-09-19",
@@ -2414,7 +2427,8 @@
   ],
   "chunk": "B",
   "vid": 93,
-  "id": 479
+  "verified": "PASS",
+  "id": 478
  },
  {
   "date": "2026-09-19",
@@ -2439,7 +2453,8 @@
   ],
   "chunk": "B",
   "vid": 94,
-  "id": 480
+  "verified": "PASS",
+  "id": 479
  },
  {
   "date": "2026-09-20",
@@ -2465,7 +2480,7 @@
   "chunk": "B",
   "vid": 95,
   "verified": "PASS",
-  "id": 481
+  "id": 480
  },
  {
   "date": "2026-09-20",
@@ -2491,7 +2506,8 @@
   ],
   "chunk": "B",
   "vid": 96,
-  "id": 482
+  "verified": "PASS",
+  "id": 481
  },
  {
   "date": "2026-09-20",
@@ -2515,7 +2531,8 @@
   ],
   "chunk": "B",
   "vid": 97,
-  "id": 483
+  "verified": "PASS",
+  "id": 482
  },
  {
   "date": "2026-09-22",
@@ -2542,7 +2559,7 @@
   "chunk": "B",
   "vid": 98,
   "verified": "PASS",
-  "id": 484
+  "id": 483
  },
  {
   "date": "2026-09-22",
@@ -2569,7 +2586,7 @@
   "chunk": "B",
   "vid": 99,
   "verified": "PASS",
-  "id": 485
+  "id": 484
  },
  {
   "date": "2026-09-23",
@@ -2596,7 +2613,7 @@
   "chunk": "B",
   "vid": 100,
   "verified": "PASS",
-  "id": 486
+  "id": 485
  },
  {
   "date": "2026-09-23",
@@ -2623,7 +2640,7 @@
   "chunk": "B",
   "vid": 101,
   "verified": "FIX",
-  "id": 487
+  "id": 486
  },
  {
   "date": "2026-09-23",
@@ -2649,7 +2666,7 @@
   "chunk": "B",
   "vid": 102,
   "verified": "PASS",
-  "id": 488
+  "id": 487
  },
  {
   "date": "2026-09-23",
@@ -2673,7 +2690,8 @@
   ],
   "chunk": "B",
   "vid": 103,
-  "id": 489
+  "verified": "PASS",
+  "id": 488
  },
  {
   "date": "2026-09-24",
@@ -2700,7 +2718,7 @@
   "chunk": "B",
   "vid": 104,
   "verified": "PASS",
-  "id": 490
+  "id": 489
  },
  {
   "date": "2026-09-24",
@@ -2727,7 +2745,7 @@
   "chunk": "B",
   "vid": 105,
   "verified": "PASS",
-  "id": 491
+  "id": 490
  },
  {
   "date": "2026-09-25",
@@ -2754,7 +2772,7 @@
   "chunk": "B",
   "vid": 106,
   "verified": "PASS",
-  "id": 492
+  "id": 491
  },
  {
   "date": "2026-09-25",
@@ -2770,15 +2788,16 @@
   "structuralDmg": "Not reported.",
   "humanCasualties": "Not reported.",
   "launchOrigin": "Yemen (Houthi-controlled)",
-  "misc": "The Houthis launched another missile and drone salvo at the Aramco refinery in Yanbu and at Riyadh, while attacking near the Taiz-Aden road, which government forces kept control of. The Saudi Grand Mufti urged forces to defeat the Houthis after the Sep 24 al-Tuwal attack. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-25-2026/",
+  "misc": "FOG OF WAR: The Houthis claimed they fired ballistic missiles, cruise missiles and drones at the Aramco refinery in Yanbu and an unspecified target in Riyadh (Houthi claim, not independently confirmed), while attacking near the Taiz-Aden road, which government forces kept control of. The Saudi Grand Mufti urged forces to defeat the Houthis after the Sep 24 al-Tuwal attack. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-25-2026/",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://understandingwar.org/research/middle-east/iran-update-september-25-2026/"
   ],
   "chunk": "B",
   "vid": 107,
-  "id": 493
+  "verified": "FIX",
+  "id": 492
  },
  {
   "date": "2026-09-26",
@@ -2805,7 +2824,7 @@
   "chunk": "B",
   "vid": 108,
   "verified": "FIX",
-  "id": 494
+  "id": 493
  },
  {
   "date": "2026-09-26",
@@ -2832,7 +2851,7 @@
   "chunk": "B",
   "vid": 109,
   "verified": "PASS",
-  "id": 495
+  "id": 494
  },
  {
   "date": "2026-09-27",
@@ -2859,7 +2878,7 @@
   "chunk": "B",
   "vid": 110,
   "verified": "PASS",
-  "id": 496
+  "id": 495
  },
  {
   "date": "2026-09-27",
@@ -2885,7 +2904,7 @@
   "chunk": "C",
   "vid": 111,
   "verified": "PASS",
-  "id": 497
+  "id": 496
  },
  {
   "date": "2026-09-28",
@@ -2910,7 +2929,8 @@
   ],
   "chunk": "C",
   "vid": 112,
-  "id": 498
+  "verified": "PASS",
+  "id": 497
  },
  {
   "date": "2026-09-28",
@@ -2924,9 +2944,9 @@
   "weaponCap": "N/A",
   "target": "US Marines",
   "structuralDmg": "Not itemized.",
-  "humanCasualties": "Press TV reported 8 US Marines injured in a 'recent' Iranian attack; not confirmed by US.",
+  "humanCasualties": "8 US Marines injured (Press TV; NBC citing US officials), attack ~mid-Sep",
   "launchOrigin": "Iran",
-  "misc": "FOG OF WAR: Iranian state outlet Press TV reported that eight US Marines were injured in a recent Iranian attack on American forces near the Strait of Hormuz; no US confirmation found and the attack date is unclear. Same day the IRGC spokesman said Hormuz 'is not open' and had become a 'hunting ground' for US underwater vehicles. Source: GlobalSecurity (Press TV, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-28_index.htm",
+  "misc": "FOG OF WAR: Iranian state outlet Press TV reported eight US Marines injured in a recent Iranian attack near the Strait of Hormuz. NBC News, citing US officials, later reported (Sep 28) that 8 Marines were injured about two weeks earlier when an Iranian cruise missile hit a vessel they were operating on; the vessel and details remain contested. Same day the IRGC spokesman said Hormuz 'is not open' and had become a 'hunting ground' for US underwater vehicles. Source: GlobalSecurity (Press TV, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-28_index.htm ; Maritime Executive https://maritime-executive.com/article/report-eight-u-s-marines-were-injured-in-iranian-strike-on-a-ship",
   "tier": "standard",
   "fog": true,
   "sources": [
@@ -2934,7 +2954,8 @@
   ],
   "chunk": "C",
   "vid": 113,
-  "id": 499
+  "verified": "FIX",
+  "id": 498
  },
  {
   "date": "2026-09-29",
@@ -2960,7 +2981,7 @@
   "chunk": "C",
   "vid": 114,
   "verified": "PASS",
-  "id": 500
+  "id": 499
  },
  {
   "date": "2026-09-29",
@@ -2986,7 +3007,7 @@
   "chunk": "C",
   "vid": 115,
   "verified": "FIX",
-  "id": 501
+  "id": 500
  },
  {
   "date": "2026-09-29",
@@ -3013,7 +3034,7 @@
   "chunk": "C",
   "vid": 116,
   "verified": "FIX",
-  "id": 502
+  "id": 501
  },
  {
   "date": "2026-09-29",
@@ -3038,7 +3059,7 @@
   "chunk": "C",
   "vid": 117,
   "verified": "PASS",
-  "id": 503
+  "id": 502
  },
  {
   "date": "2026-09-29",
@@ -3063,7 +3084,8 @@
   ],
   "chunk": "C",
   "vid": 118,
-  "id": 504
+  "verified": "PASS",
+  "id": 503
  },
  {
   "date": "2026-09-30",
@@ -3089,7 +3111,7 @@
   "chunk": "C",
   "vid": 119,
   "verified": "PASS",
-  "id": 505
+  "id": 504
  },
  {
   "date": "2026-09-30",
@@ -3115,7 +3137,7 @@
   "chunk": "C",
   "vid": 120,
   "verified": "FIX",
-  "id": 506
+  "id": 505
  },
  {
   "date": "2026-09-30",
@@ -3141,7 +3163,7 @@
   "chunk": "C",
   "vid": 121,
   "verified": "PASS",
-  "id": 507
+  "id": 506
  },
  {
   "date": "2026-09-30",
@@ -3167,7 +3189,8 @@
   ],
   "chunk": "C",
   "vid": 122,
-  "id": 508
+  "verified": "PASS",
+  "id": 507
  },
  {
   "date": "2026-09-30",
@@ -3193,7 +3216,8 @@
   ],
   "chunk": "C",
   "vid": 123,
-  "id": 509
+  "verified": "PASS",
+  "id": 508
  },
  {
   "date": "2026-09-30",
@@ -3219,7 +3243,8 @@
   ],
   "chunk": "C",
   "vid": 124,
-  "id": 510
+  "verified": "PASS",
+  "id": 509
  },
  {
   "date": "2026-10-01",
@@ -3245,7 +3270,7 @@
   "chunk": "C",
   "vid": 125,
   "verified": "PASS",
-  "id": 511
+  "id": 510
  },
  {
   "date": "2026-10-01",
@@ -3269,7 +3294,8 @@
   ],
   "chunk": "C",
   "vid": 126,
-  "id": 512
+  "verified": "PASS",
+  "id": 511
  },
  {
   "date": "2026-10-01",
@@ -3296,7 +3322,7 @@
   "chunk": "C",
   "vid": 127,
   "verified": "FIX",
-  "id": 513
+  "id": 512
  },
  {
   "date": "2026-10-02",
@@ -3323,7 +3349,7 @@
   "chunk": "C",
   "vid": 128,
   "verified": "PASS",
-  "id": 514
+  "id": 513
  },
  {
   "date": "2026-10-03",
@@ -3349,7 +3375,7 @@
   "chunk": "C",
   "vid": 129,
   "verified": "PASS",
-  "id": 515
+  "id": 514
  },
  {
   "date": "2026-10-05",
@@ -3376,7 +3402,7 @@
   "chunk": "C",
   "vid": 130,
   "verified": "FIX",
-  "id": 516
+  "id": 515
  },
  {
   "date": "2026-10-05",
@@ -3403,7 +3429,7 @@
   "chunk": "C",
   "vid": 131,
   "verified": "PASS",
-  "id": 517
+  "id": 516
  },
  {
   "date": "2026-10-05",
@@ -3427,7 +3453,8 @@
   ],
   "chunk": "C",
   "vid": 132,
-  "id": 518
+  "verified": "PASS",
+  "id": 517
  },
  {
   "date": "2026-10-06",
@@ -3453,7 +3480,7 @@
   "chunk": "C",
   "vid": 133,
   "verified": "PASS",
-  "id": 519
+  "id": 518
  },
  {
   "date": "2026-10-06",
@@ -3478,7 +3505,8 @@
   ],
   "chunk": "C",
   "vid": 134,
-  "id": 520
+  "verified": "PASS",
+  "id": 519
  },
  {
   "date": "2026-10-06",
@@ -3503,7 +3531,8 @@
   ],
   "chunk": "C",
   "vid": 135,
-  "id": 521
+  "verified": "PASS",
+  "id": 520
  },
  {
   "date": "2026-10-07",
@@ -3529,7 +3558,7 @@
   "chunk": "C",
   "vid": 136,
   "verified": "PASS",
-  "id": 522
+  "id": 521
  },
  {
   "date": "2026-10-07",
@@ -3553,7 +3582,8 @@
   ],
   "chunk": "C",
   "vid": 137,
-  "id": 523
+  "verified": "PASS",
+  "id": 522
  },
  {
   "date": "2026-10-08",
@@ -3580,7 +3610,7 @@
   "chunk": "C",
   "vid": 138,
   "verified": "PASS",
-  "id": 524
+  "id": 523
  },
  {
   "date": "2026-10-08",
@@ -3607,7 +3637,7 @@
   "chunk": "C",
   "vid": 139,
   "verified": "PASS",
-  "id": 525
+  "id": 524
  },
  {
   "date": "2026-10-08",
@@ -3633,7 +3663,7 @@
   "chunk": "C",
   "vid": 140,
   "verified": "PASS",
-  "id": 526
+  "id": 525
  },
  {
   "date": "2026-10-08",
@@ -3658,7 +3688,8 @@
   ],
   "chunk": "C",
   "vid": 141,
-  "id": 527
+  "verified": "PASS",
+  "id": 526
  },
  {
   "date": "2026-10-09",
@@ -3682,7 +3713,8 @@
   ],
   "chunk": "C",
   "vid": 142,
-  "id": 528
+  "verified": "PASS",
+  "id": 527
  },
  {
   "date": "2026-10-09",
@@ -3707,7 +3739,8 @@
   ],
   "chunk": "C",
   "vid": 143,
-  "id": 529
+  "verified": "PASS",
+  "id": 528
  },
  {
   "date": "2026-10-10",
@@ -3734,7 +3767,7 @@
   "chunk": "C",
   "vid": 144,
   "verified": "PASS",
-  "id": 530
+  "id": 529
  },
  {
   "date": "2026-10-10",
@@ -3760,7 +3793,7 @@
   "chunk": "C",
   "vid": 145,
   "verified": "FIX",
-  "id": 531
+  "id": 530
  },
  {
   "date": "2026-10-10",
@@ -3785,7 +3818,8 @@
   ],
   "chunk": "C",
   "vid": 146,
-  "id": 532
+  "verified": "PASS",
+  "id": 531
  },
  {
   "date": "2026-10-11",
@@ -3812,7 +3846,7 @@
   "chunk": "C",
   "vid": 147,
   "verified": "PASS",
-  "id": 533
+  "id": 532
  },
  {
   "date": "2026-10-11",
@@ -3837,7 +3871,8 @@
   ],
   "chunk": "C",
   "vid": 148,
-  "id": 534
+  "verified": "PASS",
+  "id": 533
  },
  {
   "date": "2026-10-11",
@@ -3862,7 +3897,8 @@
   ],
   "chunk": "C",
   "vid": 149,
-  "id": 535
+  "verified": "PASS",
+  "id": 534
  },
  {
   "date": "2026-10-12",
@@ -3889,7 +3925,7 @@
   "chunk": "C",
   "vid": 150,
   "verified": "PASS",
-  "id": 536
+  "id": 535
  },
  {
   "date": "2026-10-12",
@@ -3915,7 +3951,7 @@
   "chunk": "C",
   "vid": 151,
   "verified": "FIX",
-  "id": 537
+  "id": 536
  },
  {
   "date": "2026-10-12",
@@ -3939,7 +3975,8 @@
   ],
   "chunk": "C",
   "vid": 152,
-  "id": 538
+  "verified": "PASS",
+  "id": 537
  },
  {
   "date": "2026-10-13",
@@ -3965,7 +4002,7 @@
   "chunk": "C",
   "vid": 153,
   "verified": "FIX",
-  "id": 539
+  "id": 538
  },
  {
   "date": "2026-10-13",
@@ -3992,7 +4029,7 @@
   "chunk": "C",
   "vid": 154,
   "verified": "FIX",
-  "id": 540
+  "id": 539
  },
  {
   "date": "2026-10-14",
@@ -4019,7 +4056,7 @@
   "chunk": "C",
   "vid": 155,
   "verified": "PASS",
-  "id": 541
+  "id": 540
  },
  {
   "date": "2026-10-14",
@@ -4046,7 +4083,7 @@
   "chunk": "C",
   "vid": 156,
   "verified": "FIX",
-  "id": 542
+  "id": 541
  },
  {
   "date": "2026-10-15",
@@ -4071,7 +4108,7 @@
   "chunk": "C",
   "vid": 157,
   "verified": "PASS",
-  "id": 543
+  "id": 542
  },
  {
   "date": "2026-10-15",
@@ -4096,7 +4133,8 @@
   ],
   "chunk": "C",
   "vid": 158,
-  "id": 544
+  "verified": "PASS",
+  "id": 543
  },
  {
   "date": "2026-10-16",
@@ -4122,7 +4160,7 @@
   "chunk": "C",
   "vid": 159,
   "verified": "FIX",
-  "id": 545
+  "id": 544
  },
  {
   "date": "2026-10-17",
@@ -4148,7 +4186,7 @@
   "chunk": "C",
   "vid": 160,
   "verified": "PASS",
-  "id": 546
+  "id": 545
  },
  {
   "date": "2026-10-17",
@@ -4172,7 +4210,8 @@
   ],
   "chunk": "C",
   "vid": 161,
-  "id": 547
+  "verified": "PASS",
+  "id": 546
  },
  {
   "date": "2026-10-18",
@@ -4197,7 +4236,7 @@
   "chunk": "C",
   "vid": 162,
   "verified": "PASS",
-  "id": 548
+  "id": 547
  },
  {
   "date": "2026-10-18",
@@ -4222,7 +4261,7 @@
   "chunk": "C",
   "vid": 163,
   "verified": "FIX",
-  "id": 549
+  "id": 548
  },
  {
   "date": "2026-10-19",
@@ -4248,7 +4287,7 @@
   "chunk": "D",
   "vid": 164,
   "verified": "PASS",
-  "id": 550
+  "id": 549
  },
  {
   "date": "2026-10-19",
@@ -4264,16 +4303,17 @@
   "structuralDmg": "N/A",
   "humanCasualties": "N/A",
   "launchOrigin": "Russia",
-  "misc": "Russian FM Lavrov met Iranian FM Araghchi in Tehran; Moscow offered to process Iran's 60%-enriched uranium as differences over US-Iran talks persisted. Source: Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares ; Al Jazeera (Oct 31 photo caption, Reuters) https://www.aljazeera.com/news/liveblog/2026/10/31/iran-war-live-oil-tankers-hit-in-hormuz-trump-says-conflict-will-end-soon",
+  "misc": "FOG OF WAR: Russian FM Lavrov met Iranian FM Araghchi in Tehran; Moscow offered to process Iran's 60%-enriched uranium as differences over US-Iran talks persisted. Source: Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares ; Al Jazeera (Oct 31 photo caption, Reuters) https://www.aljazeera.com/news/liveblog/2026/10/31/iran-war-live-oil-tankers-hit-in-hormuz-trump-says-conflict-will-end-soon",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares",
    "https://www.aljazeera.com/news/liveblog/2026/10/31/iran-war-live-oil-tankers-hit-in-hormuz-trump-says-conflict-will-end-soon"
   ],
   "chunk": "D",
   "vid": 165,
-  "id": 551
+  "verified": "PASS",
+  "id": 550
  },
  {
   "date": "2026-10-19",
@@ -4298,7 +4338,7 @@
   "chunk": "D",
   "vid": 166,
   "verified": "FIX",
-  "id": 552
+  "id": 551
  },
  {
   "date": "2026-10-20",
@@ -4314,15 +4354,16 @@
   "structuralDmg": "N/A",
   "humanCasualties": "N/A",
   "launchOrigin": "Iran / US",
-  "misc": "Araghchi said the Strait of Hormuz will remain closed until Washington accepts Tehran's conditions, amid indirect talks via Pakistan and Qatar. Hegseth said US forces are ready for further military action if Trump orders it. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/20/draft-3",
+  "misc": "FOG OF WAR: Araghchi said the Strait of Hormuz will remain closed until Washington accepts Tehran's conditions, amid indirect talks via Pakistan and Qatar. Hegseth said US forces are ready for further military action if Trump orders it. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/20/draft-3",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/20/draft-3"
   ],
   "chunk": "D",
   "vid": 167,
-  "id": 553
+  "verified": "PASS",
+  "id": 552
  },
  {
   "date": "2026-10-21",
@@ -4347,7 +4388,7 @@
   "chunk": "D",
   "vid": 168,
   "verified": "FIX",
-  "id": 554
+  "id": 553
  },
  {
   "date": "2026-10-21",
@@ -4373,7 +4414,7 @@
   "chunk": "D",
   "vid": 169,
   "verified": "PASS",
-  "id": 555
+  "id": 554
  },
  {
   "date": "2026-10-21",
@@ -4389,15 +4430,16 @@
   "structuralDmg": "N/A",
   "humanCasualties": "N/A",
   "launchOrigin": "US",
-  "misc": "US military officials reported a reduction in troop presence across Middle East bases, and staff cuts were ordered at several US diplomatic missions as threat of new US-Iran fighting grew. Coordinates are a regional placeholder. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult",
+  "misc": "FOG OF WAR: US military officials reported a reduction in troop presence across Middle East bases, and staff cuts were ordered at several US diplomatic missions as threat of new US-Iran fighting grew. Coordinates are a regional placeholder. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult"
   ],
   "chunk": "D",
   "vid": 170,
-  "id": 556
+  "verified": "PASS",
+  "id": 555
  },
  {
   "date": "2026-10-21",
@@ -4413,16 +4455,17 @@
   "structuralDmg": "Not itemized.",
   "humanCasualties": "No immediate casualty reports",
   "launchOrigin": "Israel",
-  "misc": "Israeli air strikes and large explosions were reported across southern Lebanon, including Kfar Tebnit; explosions were also reported in Haddatha on Oct 19. Source: Al Jazeera (Oct 21) https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult ; Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares",
+  "misc": "FOG OF WAR: Israeli air strikes and large explosions were reported across southern Lebanon, including Kfar Tebnit; explosions were also reported in Haddatha on Oct 19. Source: Al Jazeera (Oct 21) https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult ; Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult",
    "https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares"
   ],
   "chunk": "D",
   "vid": 171,
-  "id": 557
+  "verified": "PASS",
+  "id": 556
  },
  {
   "date": "2026-10-22",
@@ -4438,15 +4481,16 @@
   "structuralDmg": "N/A",
   "humanCasualties": "N/A",
   "launchOrigin": "US / Israel",
-  "misc": "Trump hinted at further strikes, saying 'we've knocked the hell out of them', and blamed Iran for rising oil prices. Netanyahu said Trump backs his push to intensify action against Iran. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/22/iran-war-live-irgc-vows-invasion-as-defence-doctrine-turns-offensive",
+  "misc": "FOG OF WAR: Trump hinted at further strikes, saying 'we've knocked the hell out of them', and blamed Iran for rising oil prices. Netanyahu said Trump backs his push to intensify action against Iran. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/22/iran-war-live-irgc-vows-invasion-as-defence-doctrine-turns-offensive",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/22/iran-war-live-irgc-vows-invasion-as-defence-doctrine-turns-offensive"
   ],
   "chunk": "D",
   "vid": 172,
-  "id": 558
+  "verified": "PASS",
+  "id": 557
  },
  {
   "date": "2026-10-23",
@@ -4473,7 +4517,7 @@
   "chunk": "D",
   "vid": 173,
   "verified": "PASS",
-  "id": 559
+  "id": 558
  },
  {
   "date": "2026-10-24",
@@ -4499,7 +4543,7 @@
   "chunk": "D",
   "vid": 174,
   "verified": "PASS",
-  "id": 560
+  "id": 559
  },
  {
   "date": "2026-10-24",
@@ -4524,7 +4568,7 @@
   "chunk": "D",
   "vid": 175,
   "verified": "PASS",
-  "id": 561
+  "id": 560
  },
  {
   "date": "2026-10-25",
@@ -4549,7 +4593,8 @@
   ],
   "chunk": "D",
   "vid": 176,
-  "id": 562
+  "verified": "PASS",
+  "id": 561
  },
  {
   "date": "2026-10-25",
@@ -4565,15 +4610,16 @@
   "structuralDmg": "N/A",
   "humanCasualties": "N/A",
   "launchOrigin": "US",
-  "misc": "CENTCOM said more than 3,000 vessels have crossed the Strait of Hormuz and credited US forces with enabling 1.5 billion barrels of oil exports through the strait despite Iranian restrictions. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/25/iran-war-live-trump-hints-at-possible-sunday-iran-attack-or-deal-reached",
+  "misc": "FOG OF WAR: CENTCOM said more than 3,000 vessels have crossed the Strait of Hormuz and credited US forces with enabling 1.5 billion barrels of oil exports through the strait despite Iranian restrictions. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/25/iran-war-live-trump-hints-at-possible-sunday-iran-attack-or-deal-reached",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/25/iran-war-live-trump-hints-at-possible-sunday-iran-attack-or-deal-reached"
   ],
   "chunk": "D",
   "vid": 177,
-  "id": 563
+  "verified": "PASS",
+  "id": 562
  },
  {
   "date": "2026-10-26",
@@ -4598,7 +4644,7 @@
   "chunk": "D",
   "vid": 178,
   "verified": "PASS",
-  "id": 564
+  "id": 563
  },
  {
   "date": "2026-10-27",
@@ -4624,7 +4670,7 @@
   "chunk": "D",
   "vid": 179,
   "verified": "PASS",
-  "id": 565
+  "id": 564
  },
  {
   "date": "2026-10-27",
@@ -4648,7 +4694,8 @@
   ],
   "chunk": "D",
   "vid": 180,
-  "id": 566
+  "verified": "PASS",
+  "id": 565
  },
  {
   "date": "2026-10-27",
@@ -4672,7 +4719,8 @@
   ],
   "chunk": "D",
   "vid": 181,
-  "id": 567
+  "verified": "PASS",
+  "id": 566
  },
  {
   "date": "2026-10-27",
@@ -4688,15 +4736,16 @@
   "structuralDmg": "Not itemized.",
   "humanCasualties": "Not reported",
   "launchOrigin": "Israel",
-  "misc": "Lebanon's National News Agency reported a heavy Israeli bombing of Tallousa in the Marjayoun district. Source: Al Jazeera (citing NNA) https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-iran-says-us-not-serious-on-talks-ship-on-fire-off-iraq",
+  "misc": "FOG OF WAR: Lebanon's National News Agency reported a heavy Israeli bombing of Tallousa in the Marjayoun district. Source: Al Jazeera (citing NNA) https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-iran-says-us-not-serious-on-talks-ship-on-fire-off-iraq",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-iran-says-us-not-serious-on-talks-ship-on-fire-off-iraq"
   ],
   "chunk": "D",
   "vid": 182,
-  "id": 568
+  "verified": "PASS",
+  "id": 567
  },
  {
   "date": "2026-10-28",
@@ -4721,7 +4770,7 @@
   "chunk": "D",
   "vid": 184,
   "verified": "PASS",
-  "id": 569
+  "id": 568
  },
  {
   "date": "2026-10-28",
@@ -4746,7 +4795,8 @@
   ],
   "chunk": "D",
   "vid": 185,
-  "id": 570
+  "verified": "PASS",
+  "id": 569
  },
  {
   "date": "2026-10-29",
@@ -4771,7 +4821,7 @@
   "chunk": "D",
   "vid": 186,
   "verified": "PASS",
-  "id": 571
+  "id": 570
  },
  {
   "date": "2026-10-29",
@@ -4795,7 +4845,8 @@
   ],
   "chunk": "D",
   "vid": 187,
-  "id": 572
+  "verified": "PASS",
+  "id": 571
  },
  {
   "date": "2026-10-29",
@@ -4821,7 +4872,7 @@
   "chunk": "D",
   "vid": 188,
   "verified": "PASS",
-  "id": 573
+  "id": 572
  },
  {
   "date": "2026-10-30",
@@ -4846,7 +4897,7 @@
   "chunk": "D",
   "vid": 183,
   "verified": "FIX",
-  "id": 574
+  "id": 573
  },
  {
   "date": "2026-10-30",
@@ -4862,15 +4913,16 @@
   "structuralDmg": "Not itemized.",
   "humanCasualties": "Not reported",
   "launchOrigin": "Unknown",
-  "misc": "UKMTO said a projectile hit a crude oil tanker as it exited the Strait of Hormuz. Coordinates approximate. Source: Al Jazeera (citing UKMTO) https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz",
+  "misc": "FOG OF WAR: UKMTO said a projectile hit a crude oil tanker as it exited the Strait of Hormuz. Coordinates approximate. Source: Al Jazeera (citing UKMTO) https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz"
   ],
   "chunk": "D",
   "vid": 189,
-  "id": 575
+  "verified": "PASS",
+  "id": 574
  },
  {
   "date": "2026-10-30",
@@ -4896,7 +4948,7 @@
   "chunk": "D",
   "vid": 190,
   "verified": "PASS",
-  "id": 576
+  "id": 575
  },
  {
   "date": "2026-10-30",
@@ -4912,15 +4964,16 @@
   "structuralDmg": "Not itemized.",
   "humanCasualties": "Not reported",
   "launchOrigin": "Houthi-held Yemen",
-  "misc": "Yemen's government accused the Houthis of firing ballistic missiles at Aden airport and the presidential palace; the coalition intercepted a drone over Saudi Arabia's Eastern Province. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz",
+  "misc": "FOG OF WAR: Yemen's government accused the Houthis of firing ballistic missiles at Aden airport and the presidential palace; the coalition intercepted a drone over Saudi Arabia's Eastern Province. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz"
   ],
   "chunk": "D",
   "vid": 191,
-  "id": 577
+  "verified": "PASS",
+  "id": 576
  },
  {
   "date": "2026-10-31",
@@ -4945,7 +4998,7 @@
   "chunk": "D",
   "vid": 192,
   "verified": "PASS",
-  "id": 578
+  "id": 577
  },
  {
   "date": "2026-10-31",
@@ -4970,7 +5023,7 @@
   "chunk": "D",
   "vid": 193,
   "verified": "PASS",
-  "id": 579
+  "id": 578
  },
  {
   "date": "2026-11-01",
@@ -4994,7 +5047,8 @@
   ],
   "chunk": "D",
   "vid": 194,
-  "id": 580
+  "verified": "PASS",
+  "id": 579
  },
  {
   "date": "2026-11-02",
@@ -5021,7 +5075,7 @@
   "chunk": "D",
   "vid": 195,
   "verified": "PASS",
-  "id": 581
+  "id": 580
  },
  {
   "date": "2026-11-02",
@@ -5046,7 +5100,7 @@
   "chunk": "D",
   "vid": 196,
   "verified": "PASS",
-  "id": 582
+  "id": 581
  },
  {
   "date": "2026-11-02",
@@ -5071,7 +5125,8 @@
   ],
   "chunk": "D",
   "vid": 197,
-  "id": 583
+  "verified": "PASS",
+  "id": 582
  },
  {
   "date": "2026-11-03",
@@ -5097,7 +5152,7 @@
   "chunk": "D",
   "vid": 198,
   "verified": "PASS",
-  "id": 584
+  "id": 583
  },
  {
   "date": "2026-11-03",
@@ -5122,7 +5177,7 @@
   "chunk": "D",
   "vid": 199,
   "verified": "PASS",
-  "id": 585
+  "id": 584
  },
  {
   "date": "2026-11-03",
@@ -5138,16 +5193,17 @@
   "structuralDmg": "N/A",
   "humanCasualties": "N/A",
   "launchOrigin": "Iran",
-  "misc": "Chief negotiator Qalibaf said Iran delivered a 'firm and rational response' and 'the ball is now in America's court', warning of a 'new battlefield'. SNSC head Rezaei said Hormuz stays closed until Iran's conditions are met; Iran unveiled a 'maximum deterrence' plan. Source: ITV (AP) https://www.itv.com/news/2026-11-03/us-strikes-iran-on-the-eve-of-midterm-elections-official-says ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court",
+  "misc": "FOG OF WAR: Chief negotiator Qalibaf said Iran delivered a 'firm and rational response' and 'the ball is now in America's court', warning of a 'new battlefield'. SNSC head Rezaei said Hormuz stays closed until Iran's conditions are met; Iran unveiled a 'maximum deterrence' plan. Source: ITV (AP) https://www.itv.com/news/2026-11-03/us-strikes-iran-on-the-eve-of-midterm-elections-official-says ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.itv.com/news/2026-11-03/us-strikes-iran-on-the-eve-of-midterm-elections-official-says",
    "https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court"
   ],
   "chunk": "D",
   "vid": 200,
-  "id": 586
+  "verified": "PASS",
+  "id": 585
  },
  {
   "date": "2026-11-04",
@@ -5173,7 +5229,7 @@
   "chunk": "D",
   "vid": 201,
   "verified": "PASS",
-  "id": 587
+  "id": 586
  },
  {
   "date": "2026-11-04",
@@ -5189,15 +5245,16 @@
   "structuralDmg": "Not itemized.",
   "humanCasualties": "4 family members killed incl. 3 children; 4 injured",
   "launchOrigin": "Houthi-held Yemen",
-  "misc": "A Houthi ballistic missile killed four members of one family in Hayfan. Government forces reported gains in al-Jawf. Coordinates approximate. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack",
+  "misc": "FOG OF WAR: A Houthi ballistic missile killed four members of one family in Hayfan. Government forces reported gains in al-Jawf. Coordinates approximate. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack"
   ],
   "chunk": "D",
   "vid": 202,
-  "id": 588
+  "verified": "PASS",
+  "id": 587
  },
  {
   "date": "2026-11-05",
@@ -5222,7 +5279,7 @@
   "chunk": "D",
   "vid": 203,
   "verified": "PASS",
-  "id": 589
+  "id": 588
  },
  {
   "date": "2026-11-05",
@@ -5247,7 +5304,7 @@
   "chunk": "D",
   "vid": 204,
   "verified": "PASS",
-  "id": 590
+  "id": 589
  },
  {
   "date": "2026-11-05",
@@ -5263,16 +5320,17 @@
   "structuralDmg": "Not itemized.",
   "humanCasualties": "3 Palestinians killed (Wafa); Gaza MoH total since Oct 2023: 74,618",
   "launchOrigin": "Israel",
-  "misc": "An Israeli air strike on al-Shati camp killed three; Gaza's Health Ministry earlier said 1,574 killed since the Oct 2025 ceasefire (as of Oct 29). Source: Al Jazeera (Nov 5) https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it ; Al Jazeera (Oct 29) https://www.aljazeera.com/news/liveblog/2026/10/29/iran-war-live-tehran-presses-7-day-hormuz-plan-trump-denies-peace-talks",
+  "misc": "FOG OF WAR: An Israeli air strike on al-Shati camp killed three; Gaza's Health Ministry earlier said 1,574 killed since the Oct 2025 ceasefire (as of Oct 29). Source: Al Jazeera (Nov 5) https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it ; Al Jazeera (Oct 29) https://www.aljazeera.com/news/liveblog/2026/10/29/iran-war-live-tehran-presses-7-day-hormuz-plan-trump-denies-peace-talks",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it",
    "https://www.aljazeera.com/news/liveblog/2026/10/29/iran-war-live-tehran-presses-7-day-hormuz-plan-trump-denies-peace-talks"
   ],
   "chunk": "D",
   "vid": 205,
-  "id": 591
+  "verified": "PASS",
+  "id": 590
  },
  {
   "date": "2026-11-06",
@@ -5297,7 +5355,7 @@
   "chunk": "D",
   "vid": 207,
   "verified": "PASS",
-  "id": 592
+  "id": 591
  },
  {
   "date": "2026-11-07",
@@ -5323,7 +5381,7 @@
   "chunk": "D",
   "vid": 206,
   "verified": "FIX",
-  "id": 593
+  "id": 592
  },
  {
   "date": "2026-11-07",
@@ -5348,7 +5406,7 @@
   "chunk": "D",
   "vid": 208,
   "verified": "FIX",
-  "id": 594
+  "id": 593
  },
  {
   "date": "2026-11-07",
@@ -5372,7 +5430,8 @@
   ],
   "chunk": "D",
   "vid": 209,
-  "id": 595
+  "verified": "PASS",
+  "id": 594
  },
  {
   "date": "2026-11-07",
@@ -5398,7 +5457,7 @@
   "chunk": "D",
   "vid": 210,
   "verified": "FIX",
-  "id": 596
+  "id": 595
  },
  {
   "date": "2026-11-07",
@@ -5423,7 +5482,8 @@
   ],
   "chunk": "D",
   "vid": 211,
-  "id": 597
+  "verified": "PASS",
+  "id": 596
  },
  {
   "date": "2026-11-08",
@@ -5449,7 +5509,7 @@
   "chunk": "D",
   "vid": 212,
   "verified": "PASS",
-  "id": 598
+  "id": 597
  },
  {
   "date": "2026-11-08",
@@ -5473,7 +5533,8 @@
   ],
   "chunk": "D",
   "vid": 213,
-  "id": 599
+  "verified": "PASS",
+  "id": 598
  },
  {
   "date": "2026-11-08",
@@ -5499,7 +5560,7 @@
   "chunk": "D",
   "vid": 214,
   "verified": "PASS",
-  "id": 600
+  "id": 599
  },
  {
   "date": "2026-11-08",
@@ -5515,15 +5576,16 @@
   "structuralDmg": "Sandbank collapse; tents flooded",
   "humanCasualties": "At least 5 killed incl. 4 children",
   "launchOrigin": "N/A",
-  "misc": "Heavy rain caused a landslide at a displacement camp in central Gaza; Hamas blamed Israel. Thousands of tents flooded on Nov 7. Source: Al Jazeera (Nov 8) https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes ; Al Jazeera (Nov 7) https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal",
+  "misc": "FOG OF WAR: Heavy rain caused a landslide at a displacement camp in central Gaza; Hamas blamed Israel. Thousands of tents flooded on Nov 7. Source: Al Jazeera (Nov 8) https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes ; Al Jazeera (Nov 7) https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal",
   "tier": "standard",
-  "fog": false,
+  "fog": true,
   "sources": [
    "https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes",
    "https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal"
   ],
   "chunk": "D",
   "vid": 215,
-  "id": 601
+  "verified": "PASS",
+  "id": 600
  }
 ]
