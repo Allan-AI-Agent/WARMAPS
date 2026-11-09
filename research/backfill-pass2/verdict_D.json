@@ -1,0 +1,201 @@
+[
+ {
+  "vid": 164,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AP/NY1: Oct 19 (Monday), al-Alam camp Jardan, Shabwa; 60 headline vs 73 official, 200+ wounded; coords near Ataq OK."
+ },
+ {
+  "vid": 166,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "Tasnim (Iranian state-linked) reports PGSA list Oct 20 pub; 122 figure Iranian-sourced so fog; 6,000 seafarers is a recurring IMO figure (July/Aug too). Date Oct 19 vs Tasnim Oct 20 uncertain, left."
+ },
+ {
+  "vid": 168,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-10-21",
+   "fog": true,
+   "misc": "Iraq closed the Sheeb crossing with Iran until further notice (passengers, vehicles, trucks), citing a security review and new detection equipment against smuggling; an Iranian official said Iraq's government made the decision. Coordinates approximate. Source: Reuters via The Star https://www.thestar.com.my/news/world/2026/10/21/iraq-closes-sheeb-border-crossing-with-iran-to-review-security-sources-say",
+   "sources": [
+    "https://www.thestar.com.my/news/world/2026/10/21/iraq-closes-sheeb-border-crossing-with-iran-to-review-security-sources-say"
+   ]
+  },
+  "note": "Reuters: closed Wed Oct 21; no PM order or gradual closure of other crossings in source; AJ page robots-blocked."
+ },
+ {
+  "vid": 169,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Khaleej Times: Oct 21, 4 killed/10 injured (2+2 Shaybah, 2+8 Dammam airport) matches. AJ 3-killed and 4-drones claims unverified."
+ },
+ {
+  "vid": 173,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AP/WJLA: Fri Oct 23, 2 soldiers killed, 2 Palestinian suspects killed, Netanyahu ordered Hebron cordon/West Bank closure. Displacement figures unverified."
+ },
+ {
+  "vid": 174,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Gulf News: Sat Oct 24, 2 Houthi ballistic missiles, debris Mecca/Jeddah/Taif/Rabigh, no casualties reported. Other details unverified."
+ },
+ {
+  "vid": 175,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UNVERIFIED: Al Jazeera liveblog not fetchable (allowlist/robots); no independent corroboration found; plausible, left as is."
+ },
+ {
+  "vid": 178,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Tehran security talks with Saudi/Turkish/Pakistani officials confirmed Oct 26 (AJ, AP, Kuwait Times). Egypt/Netanyahu items unverified."
+ },
+ {
+  "vid": 179,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Long War Journal: Oct 27 vote, Likud 27/Yashar 21/Bennett 12/Joint List 11, bloc 53, turnout 77.9%; KOMO headline confirms Likud 'stolen' claim."
+ },
+ {
+  "vid": 183,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-10-30"
+  },
+  "note": "Reuters/GV Wire Oct 30: embassy announced order for non-emergency staff and families (effective Oct 23); no Oct 28 report found. Aden airport suspension unverified."
+ },
+ {
+  "vid": 184,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UNVERIFIED: Al Jazeera liveblog not fetchable (allowlist/robots); no independent corroboration found; plausible, left as is."
+ },
+ {
+  "vid": 186,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UNVERIFIED: Al Jazeera liveblog not fetchable (allowlist/robots); no independent corroboration found; plausible, left as is."
+ },
+ {
+  "vid": 188,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Greek City Times: IRGC claim Oct 29, UKMTO 25nm NE of Khasab, Louise 1 limpet mines per Reuters, CENTCOM says lanes clear; fog correct."
+ },
+ {
+  "vid": 190,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ/QNA: Al Mayeda struck Fri evening Oct 30 (Nov 1 pub), no crew hurt, attacker unidentified; fog correct."
+ },
+ {
+  "vid": 192,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UNVERIFIED: Al Jazeera liveblog not fetchable (allowlist/robots); no independent corroboration found; plausible, left as is."
+ },
+ {
+  "vid": 193,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "144 redirected plausible (CENTCOM counts 136 earlier, 147 by Nov 7) but exact claim unverified; Su-35 claim unverified."
+ },
+ {
+  "vid": 195,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "ITV/AP: reported Mon Nov 2, explosions Qeshm/Hengam/Bandar Abbas, no casualties, first known US attack since early Sept."
+ },
+ {
+  "vid": 196,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UNVERIFIED: Al Jazeera liveblog not fetchable (allowlist/robots); no independent corroboration found; plausible, left as is."
+ },
+ {
+  "vid": 198,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Stars and Stripes: Trump said Nov 3 aid ($4bn/yr) ends after year-end, claimed Netanyahu agreed; no Israeli statement; fog correct."
+ },
+ {
+  "vid": 199,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Multiple (Khaleej Times, The Week, Republic) Nov 3: Indian-flagged vessel hit off Oman, 1 Indian killed, 13 rescued."
+ },
+ {
+  "vid": 201,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GV Wire/Reuters Nov 4: Dems won House and Senate; Trump 'a part of it was Iran'. Vance/Schumer details unverified."
+ },
+ {
+  "vid": 203,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UNVERIFIED: Al Jazeera liveblog not fetchable (allowlist/robots); no independent corroboration found; plausible, left as is."
+ },
+ {
+  "vid": 204,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Siasat: Turkish parliament ratified Thu Nov 5."
+ },
+ {
+  "vid": 206,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-11-07",
+   "sources": [
+    "https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran",
+    "https://www.siasat.com/two-projectiles-hit-irans-qeshm-island-near-hormuz-3571062/"
+   ],
+   "misc": "FOG OF WAR: Iranian-sourced claims. Iranian media reported two projectile impacts on Qeshm and the army said it downed a US MQ-9 (IRNA separately claimed an MQ-1); the US has not confirmed any drone loss. Trump confirmed limited US strikes on Iranian air-defence systems; CENTCOM called the area 'relatively calm'. Source: Siasat https://www.siasat.com/two-projectiles-hit-irans-qeshm-island-near-hormuz-3571062/"
+  },
+  "note": "Siasat: early Sat Nov 7 local; Daily Pioneer source is a May 26 2026 article (wrong event), removed; Qatar-denial claim unverified so dropped."
+ },
+ {
+  "vid": 207,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Reuters/AJ: Treasury sanctioned eight Canadian money-services firms over Iran, Nov 6 (Reuters dated Nov 6). Trump quote unverified."
+ },
+ {
+  "vid": 208,
+  "verdict": "FIX",
+  "fix": {
+   "lat": 25.3,
+   "lng": 56.6
+  },
+  "note": "Maritime Executive: Huda disabled Nov 7, UKMTO places it ~18nm east of Khor Fakkan, UAE; event coords were ~150 km off."
+ },
+ {
+  "vid": 210,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-11-07",
+   "fog": false,
+   "misc": "Israeli President Herzog tasked Gadi Eisenkot with forming a government after Netanyahu's bloc lost its majority; 67 of 120 lawmakers, including Arab-led parties, had backed Eisenkot in consultations. Source: Qatar Tribune https://www.qatar-tribune.com/article/262857/world/majority-of-israeli-lawmakers-back-eisenkot-to-form-government ; Boston Globe/AP https://www.bostonglobe.com/2026/11/07/world/eisenkot-israel-form-government/"
+  },
+  "note": "Search hits (AP/ADN, Boston Globe, Gulf News, ARA) dated Nov 7 say Herzog tapped Eisenkot; Nov 10 swearing-in unverified so dropped."
+ },
+ {
+  "vid": 212,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Task Force Iron Gate announced Sat Nov 7 (GV Wire/CENTCOM); Trump 'in effect' statement Nov 8 per AJ title, not independently fetched."
+ },
+ {
+  "vid": 214,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "US News (Reuters) Nov 8: production suspended after drone attack; Gulf News: 2.8 GW lost; 70% figure unverified; fog correct."
+ }
+]

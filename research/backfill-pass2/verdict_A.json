@@ -1,0 +1,236 @@
+[
+ {
+  "vid": 0,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aug 17 lapse and Trump Oman remark confirmed (Caspian Post/Fox); Iran-Oman 'agreement' not seen in my fetch, only separate talks - minor."
+ },
+ {
+  "vid": 1,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "None reported",
+   "fog": true
+  },
+  "note": "Seizure Aug 17 near Qeshm confirmed (Hellenic Shipping); article gives no crew details, so 'Indian crew' unsupported; identity inferred from AIS, Iranian claim -> fog."
+ },
+ {
+  "vid": 2,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aug 17 00:28 Erbil, 2 drones at PM private office and Parastin chief home, no casualties (Kurdistan24); Iran false-flag claim confirmed (Press TV)."
+ },
+ {
+  "vid": 4,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Shafaq Aug 17: CTS arrested Nujaba reconnaissance head near Nasiriyah; PMF Baghdad Belt intel role not corroborated (ISW only)."
+ },
+ {
+  "vid": 5,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "MINOAN DIGNITY struck overnight Aug 17-18, chief engineer killed, 0.5nm off Omani coast (Hellenic Shipping/UKMTO)."
+ },
+ {
+  "vid": 6,
+  "verdict": "FIX",
+  "fix": {
+   "misc": "FOG OF WAR: The UAE Defense Ministry said two ballistic missiles launched from Iran fell into the sea, one outside and one inside UAE territorial waters; Iranian FM spokesman Baghaei rejected the claim as baseless. Khaleej Times reported it as the first Iranian missile threat the UAE had flagged since July 12. Coordinates approximate. Source: Reuters https://www.reuters.com/world/middle-east/uae-says-iran-launched-two-missiles-it-2026-08-18/ ; Khaleej Times https://www.khaleejtimes.com/uae/uae-suspends-trade-financial-transactions-with-iran-until-further-notice ; Times of Oman https://timesofoman.com/article/175788-iran-rejects-uae-claim-of-missile-launch-calls-accusations-baseless"
+  },
+  "note": "Aug 18 and Baghaei denial confirmed; 'first since May 4 Fujairah' contradicted by Khaleej Times (first since July 12)."
+ },
+ {
+  "vid": 7,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-08-19"
+  },
+  "note": "Euronews dates the trade-suspension announcement Aug 19 (missiles were Aug 18); Khaleej Times posted 00:40 Aug 19."
+ },
+ {
+  "vid": 8,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Houthi claim of drone strike on Jizan Aramco refinery over Saada/Hajjah overflights dated Aug 18 (Anadolu); no Saudi comment; fog correct."
+ },
+ {
+  "vid": 9,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aug 18 (Tuesday) strike on cafe in Gaza City port, 7 killed incl child, day after Kushner-Netanyahu meeting (Democracy Now, Al Jazeera)."
+ },
+ {
+  "vid": 10,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-08-17"
+  },
+  "note": "Kyiv Independent says NBC reported it Aug 17, not Aug 18; Amirabad port not confirmed in the pages I could open; shipments described over weeks."
+ },
+ {
+  "vid": 11,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aug 19 Gaza City police station strike ~9-10 killed incl child (Ahram, Libnanews, Countercurrents); Nuseirat part not independently opened."
+ },
+ {
+  "vid": 12,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aug 20 Hezbollah re-designation as IRGC-QF service plus 10 individuals and Bessent 'toughest sanctions' remark confirmed (Reuters via News Tribune)."
+ },
+ {
+  "vid": 15,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aug 24 Operation Economic Outcast, 60+ targets, country timelines confirmed (Kuwait Times, Jewish Insider); rial 2.02m and China warning not found in those articles."
+ },
+ {
+  "vid": 16,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Aug 24: Amzan (Bahri) hit ~63nm west of Yanbu, Houthi missile claim, crew safe, Saudi unconfirmed."
+ },
+ {
+  "vid": 17,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Gulf News/UKMTO 120-26: 20:57 UTC Aug 24, ~9nm NE of Ash Shishah, engine room hit, crew safe."
+ },
+ {
+  "vid": 19,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true,
+   "misc": "After Araghchi met Omani FM Badr Albusaidi in Tehran on Aug 25, a joint statement referred to a phased framework with a joint temporary navigational corridor and joint mine clearing; Albusaidi described the corridor as something he hoped would be announced soon. Iran's Deputy FM Gharibabadi (Tasnim) said inbound ships would pass through Iranian waters and outbound through Omani waters, about 7 nm wide, with a permanent scheme to be negotiated in 30-60 days, and that this did not mean immediate reopening of the strait. Parties' accounts differ on whether the corridor is agreed. Often reported as Aug 26. Source: Oman MFA https://www.fm.gov.om/en/53722/ ; Kuwait Times (KUNA) https://kuwaittimes.com/article/48729/world/iran-says-oman-deal-will-not-reopen-hormuz-immediately/ ; Al Jazeera https://aljazeera.com/news/2026/8/25/iran-oman-discuss-temporary-shipping-lane-through-strait-of-hormuz"
+  },
+  "note": "Date/place ok; 'IRGC revenue shares', 'Iranian permission required', US MoU condition not in sources I opened; Oman says proposal while Iran says agreed -> contested."
+ },
+ {
+  "vid": 21,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UKMTO 121-26: struck 17:30 UTC Aug 25 near Khasab, fire out, crew safe, issued Aug 27; Kuwaiti identity from TradeWinds, not in the official notice."
+ },
+ {
+  "vid": 23,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Qatari PM in Tehran Aug 27 (Qatar MOFA, Tasnim); Egypt/Pakistan mediation not checked."
+ },
+ {
+  "vid": 25,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "1 young woman killed (Arab Salim), several wounded (NNA)"
+  },
+  "note": "Aug 27 strike killed a bride in Arab Salim after Hezbollah drones at Ali al-Taher (Naharnet); no wounded count or child reported."
+ },
+ {
+  "vid": 30,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "UKMTO 122-26: inbound crude tanker hit 20:35 UTC Aug 29, ~12nm north of Khasab, no casualties (Gulf News)."
+ },
+ {
+  "vid": 31,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "3 killed (Tasnim, after a wounded person died), several wounded; 2 identified as IRGC Navy members (Nournews)"
+  },
+  "note": "Aug 30 night strike on Larak confirmed (The National, Shafaq); toll rose to three."
+ },
+ {
+  "vid": 32,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "IRGC claimed hits at King Hussein/Muwaffaq Salti bases ~3am Dubai Aug 31 (Aug 30 UTC); Jordan said 8 missiles intercepted (The National); fog correct."
+ },
+ {
+  "vid": 33,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Iran army claim of drone strikes on Al Minhad vs UAE interception of one drone and denial (Al Jazeera, The National, Khaleej Times) Aug 31."
+ },
+ {
+  "vid": 34,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "2 Filipino seafarers killed aboard VLCC Sidr (Bahri); no casualties reported for the second tanker, Senegal Prosperity",
+   "fog": true
+  },
+  "note": "Late Aug 31 attacks on Sidr and Senegal Prosperity (World Oil/Marisks); Bahri/Saudi say 2 sailors killed and blame Iran, no one claimed it -> fog; 'None reported' wrong."
+ },
+ {
+  "vid": 37,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aug 31 Gaza City strike killing at least five found in search snippets only (Egypt Today/ARY); page not opened, low confidence."
+ },
+ {
+  "vid": 38,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "US 'large and powerful' strikes on IRGC sites Sep 1 (TradeWinds); Khuzestan 7 killed seen in Libnanews headline; detail not fully opened."
+ },
+ {
+  "vid": 39,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera: Kuhestak/Sirik wedding strike overnight Sep 1-2, governor lists 4 dead, Iran says 5, 60+ wounded, CENTCOM denies targeting civilians; date may be Sep 2 local - within tolerance."
+ },
+ {
+  "vid": 41,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Jordan said 10 of 13 ballistic missiles intercepted, 3 fell in open areas, reported Sep 2 05:11 UTC; Bahrain/Kuwait and Erbil claims not individually verified."
+ },
+ {
+  "vid": 43,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "Iran army claimed strikes on Ahmad al-Jaber and Al Minhad Sep 3; bne IntelliNews says no confirmation from US, Kuwait or UAE (though an Oman Observer headline has Kuwait reporting interceptions) -> contested."
+ },
+ {
+  "vid": 44,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "IDF: some Hezbollah fighters killed, others fled; unnamed IDF source told Maariv 15 bodies found (unverified); Iranian officials told Reuters more than a dozen IRGC personnel were with Hezbollah at the ridge"
+  },
+  "note": "IDF claimed operational control Sep 3 (Long War Journal); 'at least 12 IRGC' is 'more than a dozen' in the source; siege start date not supported."
+ },
+ {
+  "vid": 50,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "CENTCOM Sep 5: IRGC fired ballistic missiles at a carrier and a destroyer, ships avoided them, no US personnel harmed."
+ },
+ {
+  "vid": 51,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "Kylo crew directed to abandon ship before strike (CENTCOM); no other crew information"
+  },
+  "note": "CENTCOM: tankers Downy (off Kharg), Stark 1 (near Jask), Kylo (Gulf of Oman); 'survived and evacuated' not stated."
+ },
+ {
+  "vid": 54,
+  "verdict": "FIX",
+  "fix": {
+   "misc": "Rezaei said in a state TV interview on Sunday Sep 6 that Iran would declare a restricted maritime zone starting from the US blockade line and extending into the Gulf within days, with any vessel entering put on a sanctions list, and that maps of a new corridor in Iranian and Omani waters managed by Iran had been agreed and should be signed in coming days. Oman had not confirmed. Source: Khaleej Times https://www.khaleejtimes.com/mena/iran-to-announce-new-restricted-zone-outside-hormuz-strait ; Anadolu https://www.aa.com.tr/en/middle-east/iran-to-declare-restricted-maritime-zone-beyond-strait-of-hormuz-top-security-official/4049165"
+  },
+  "note": "Date Sep 6 confirmed; the US warship casualty claim is not in the source, removed."
+ },
+ {
+  "vid": 55,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "7 killed on Sep 6 (2 Nabatieh al-Fawqa, 2 women Arab Salim, 3 near Nabatieh), 20 wounded (Lebanese Health Ministry via AFP); more than 4,300 killed since March",
+   "misc": "Israel stepped up strikes in southern Lebanon after saying Hezbollah launched drones at areas its troops occupy; the out-of-service Ghandour hospital in Nabatieh al-Fawqa was destroyed and President Aoun called it a dangerous escalation and urged the US to act. Source: AFP via Arab News https://www.arabnews.com/middle-east/israel-army-says-striking-southern-lebanon-urges-evacuation-3000647 ; Al Jazeera https://www.aljazeera.com/amp/news/2026/9/6/israeli-air-attacks-on-lebanon-kill-at-least-four"
+  },
+  "note": "AFP gives 7 dead, not 11; '27 dead Sep 4-6' and '4,362' unsupported (source says more than 4,300)."
+ }
+]
