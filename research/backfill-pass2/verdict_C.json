@@ -1,0 +1,226 @@
+[
+ {
+  "vid": 111,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ Oct 12: 5 men arrested Sept 27, petrol in 3 vans, bailed, no charges; 2 more arrested later. Bomber-relocation detail not verified."
+ },
+ {
+  "vid": 114,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ Sept 29: Al-Beik killed in Gaza City Nassr, Hamas confirmed, one more died at al-Shifa; 1,400 and 20+ figures match. 'Six killed' not checked."
+ },
+ {
+  "vid": 115,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "GS Sept 30/Oct 1: UKMTO 3 tankers hit Sept 29 by unknown projectiles; Iran's PGSA statement is a party claim; attribution unknown."
+ },
+ {
+  "vid": 116,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "Express Tribune: Sept 29 5:11am attack on Taibah station, one transformer out; coalition attributes to Houthis, Houthis deny ('lie'). Disputed."
+ },
+ {
+  "vid": 117,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Sept 29: Treasury 10 targets under Operation Economic Outcast; State designations; Trump 'nothing' denial all match."
+ },
+ {
+  "vid": 119,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Sept 30 CENTCOM: Erbil departure completed Sept 30, OIR mission ends; Iraqi groups hail withdrawal."
+ },
+ {
+  "vid": 120,
+  "verdict": "FIX",
+  "fix": {
+   "city": "Tabuk",
+   "fog": true
+  },
+  "note": "The National: landed Tabuk Airport 9:45am Sept 30, FZ1073. Accounts conflict (NPR 'stabbed' vs UAE 'crash axe'; Omani claim unconfirmed), so fog."
+ },
+ {
+  "vid": 121,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Sept 30 RFE/RL: Araghchi presented US proposal to Pezeshkian at cabinet Sept 30; Oct 4 IRNA reviewing counter-proposal, additional points."
+ },
+ {
+  "vid": 125,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Oct 1 SPA: 2 ballistic missiles + 4 UAVs intercepted Khamis Mushait/Jazan; DOJ: DOE employee arrested Oct 1 for material support to Houthis."
+ },
+ {
+  "vid": 127,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-10-01"
+  },
+  "note": "WSJ report was Thursday Oct 1 (People's Daily Oct 2); AJ says carrier left San Diego 'on Sunday' (Sept 27), MEU a day later. Numbers (9-10k, ~50k, 2,000 Marines, three carriers by end Nov) and Hegseth/Trump quotes match."
+ },
+ {
+  "vid": 128,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Oct 2 RFE/RL: Bessent zero crude loaded in Sept, tanker-tracking supports; Oct 4 IRNA: Paknejad resigned, Bovard caretaker."
+ },
+ {
+  "vid": 129,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Oct 3 RFE/RL: Houthis claimed attack on Aramco site near Riyadh, strikes exchanged, journalists saw smoke; Press TV on Taiz. Attributed as claim."
+ },
+ {
+  "vid": 130,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "GS Oct 5: Mokha recapture reported by SABA via AZERTAC (government claim); RFE/RL Bab al-Mandab control claim; Oct 10 AFP 63 killed/not secured; AJ Oct 13 says Houthis seized Mocha in Sept. Party claim, so fog."
+ },
+ {
+  "vid": 131,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS: SPA says emergency Makkah Alliance committee met in Riyadh Oct 5; People's Daily Oct 6 Pakistan/Turkey to deploy forces."
+ },
+ {
+  "vid": 133,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Baird/RFE/RL: On Peace hit Oct 6 ~9nm NE of Lima, Musandam; 12 injured, 11 Indian; 10 airlifted. GS: US says 13 ships destroyed claim headline."
+ },
+ {
+  "vid": 136,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "The National timeline: Oct 7 strikes on King Khalid and Abha, 3 foreign killed, 36 injured, Houthis claimed."
+ },
+ {
+  "vid": 138,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "The National timeline: Oct 8 King Khalid attack killed 3 Saudis incl. pilot, Saudia aircraft damaged."
+ },
+ {
+  "vid": 139,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AP/HNN: Trump post Thursday Oct 8 'will not be attacking Iran' before Nov 3; Araghchi reply within days."
+ },
+ {
+  "vid": 140,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Oct 8 IRNA/Press TV: Pezeshkian met Putin in Turkmenistan Oct 8, 'will not walk away'; Hormuz transits lowest in 2+ months."
+ },
+ {
+  "vid": 144,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Khaleej Times/The National: Oct 10 missile hit King Khalid, 12 killed 309 injured (GACA), later 13; Houthi claim Oct 11."
+ },
+ {
+  "vid": 145,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "GS Oct 10 SPA: coalition says 136 targets destroyed (party claim); Press TV woman killed; Yemeni gov 1,732 strikes (KT). Unverified party claims, so fog."
+ },
+ {
+  "vid": 147,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "The National/KT: Oct 11 projectile hit Terminals 3-4, 1 Pakistani killed, 11 injured; 4th strike in 5 days; Dammam reportedly targeted."
+ },
+ {
+  "vid": 150,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "AJ + GS: Burnham Oct 12 'almost certainly' IRGC; Miliband sanctions Bazghandi + Zindashti facilitator; 29-signatory joint statement; Iran summoned UK envoy Oct 13."
+ },
+ {
+  "vid": 151,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "GS Oct 12 RFE/RL/Press TV: SNSC secretary claims US accepted some conditions; Iranian-only claim, so fog. Baqaei rejection of Trump Hormuz claim confirmed."
+ },
+ {
+  "vid": 153,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "AJ/GS Oct 13: coalition struck al-Sabah station after evacuation warning; oil company says tanks were empty vs coalition missile-depot claim. Disputed, so fog. Ras Isa/Hodeidah not verified."
+ },
+ {
+  "vid": 154,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "AJ/World Oil/National Oct 13: Aramco admin building in Dhahran fire, no casualties; Reuters says cause not established (possibly debris); Riyadh 4 injured/15 homes matches. Cause disputed."
+ },
+ {
+  "vid": 155,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Reuters/HTH + GS Oct 14: GFS Pride sank (21 crew safe), Cape Dao sunk, 1 killed Sept 23; projectile vs IRGC mine claim; fog already true."
+ },
+ {
+  "vid": 156,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "GS Oct 15: Saudi FM official accused Iran Oct 14; Oct 17 Iran denied, offered mediation. Disputed accusation, so fog. Iraqi PM visit not verified."
+ },
+ {
+  "vid": 157,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Oct 15: UNSC presidential statement; GCC-EU Oct 24 summit postponed citing King Khalid suspension; Yemen forces claim Typhoon downed (flagged unconfirmed)."
+ },
+ {
+  "vid": 159,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "GS Oct 16/17: Khatibzadeh Lebanon and all-front ceasefire; Trump ruled out nukes (Sputnik); 500 km pullback is an Iranian Army claim, so fog."
+ },
+ {
+  "vid": 160,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Oct 17: IRGC says supertanker >2M bbl hit mine, second supertanker; CENTCOM $25B / ~$350M crypto. fog already true."
+ },
+ {
+  "vid": 162,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "GS Oct 18 RFE/RL: Ketabchi approved 237-15; Araghchi day six/day seven; Vance 'won decisively'."
+ },
+ {
+  "vid": 163,
+  "verdict": "FIX",
+  "fix": {
+   "country": "Yemen / Saudi Arabia",
+   "city": "Yemen / Najran"
+  },
+  "note": "GS Oct 18: Press TV 110 strikes, 30+ killed/injured; SPA Najran 6 injured. Coordinates are Najran (Saudi), so country must cover both; fog already true."
+ }
+]
