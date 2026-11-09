@@ -169,10 +169,29 @@ function runScenario(fakeNowParts) {
   };
 }
 
+// Independent expectation for the latest event day: parsed here in plain JS from the
+// event date strings (UTC arithmetic), not with the app's own parseWarDay.
+const EXPECTED_LATEST = (function () {
+  const M = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+  const start = Date.UTC(2026, 1, 28);
+  let mx = -Infinity;
+  strikeDates.forEach(function (s) {
+    const m = /^([A-Za-z]+)\.?\s+(\d{1,2}),\s*(\d{4})$/.exec(String(s.date).trim());
+    if (!m) return;
+    const mi = M.findIndex(function (n) { return n.indexOf(m[1].toLowerCase().slice(0, 3)) === 0; });
+    if (mi < 0) return;
+    const d = Math.round((Date.UTC(+m[3], mi, +m[2]) - start) / 86400000) + 1;
+    if (d > mx) mx = d;
+  });
+  return mx;
+})();
+
+// Expected timeline end = max(today's war day, latest event day). Updated 2026-11-09:
+// expectations derive from the data so a backfill does not break the test.
 const SCENARIOS = [
-  { name: 'now 2026-11-02 12:00', now: [2026, 10, 2, 12], expect: () => 248 },
-  { name: 'now 2027-02-28 12:00', now: [2027, 1, 28, 12], expect: () => 366 },
-  { name: 'now 2026-03-01 12:00 (wrong clock)', now: [2026, 2, 1, 12], expect: (r) => r.latestEvt, expectLatest: 170 },
+  { name: 'now 2026-11-02 12:00', now: [2026, 10, 2, 12], expectNow: 248, expect: (r) => Math.max(248, r.latestEvt), expectLatest: EXPECTED_LATEST },
+  { name: 'now 2027-02-28 12:00', now: [2027, 1, 28, 12], expectNow: 366, expect: (r) => Math.max(366, r.latestEvt) },
+  { name: 'now 2026-03-01 12:00 (wrong clock)', now: [2026, 2, 1, 12], expectNow: 2, expect: (r) => r.latestEvt, expectLatest: EXPECTED_LATEST },
 ];
 
 function runAll() {
@@ -212,6 +231,7 @@ Object.keys(byTz).forEach(tz => {
     check(r.tlMaxMaxAttr === String(exp), tz + ' ' + s.name + ': tl-max max attr ' + r.tlMaxMaxAttr + ' != ' + exp);
     check(r.tlMinMaxAttr === String(exp), tz + ' ' + s.name + ': tl-min max attr ' + r.tlMinMaxAttr + ' != ' + exp);
     check(r.tlMaxValue === String(exp), tz + ' ' + s.name + ': tl-max value ' + r.tlMaxValue + ' != ' + exp + ' (slider started at end)');
+    if (s.expectNow !== undefined) check(r.warDayNow === s.expectNow, tz + ' ' + s.name + ': warDayNow ' + r.warDayNow + ' != ' + s.expectNow);
     if (s.expectLatest !== undefined) check(r.latestEvt === s.expectLatest, tz + ' ' + s.name + ': latest event day ' + r.latestEvt + ' != ' + s.expectLatest);
     check(r.dateErrors === 0, tz + ' ' + s.name + ': ' + r.dateErrors + ' unreadable event dates');
     check(r.consoleErrors === 0, tz + ' ' + s.name + ': IIFE logged ' + r.consoleErrors + ' console.error call(s)');
