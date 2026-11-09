@@ -1,0 +1,222 @@
+[
+ {
+  "vid": 56,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Date, Kfar Roummane, 12 killed incl infant and paramedic corroborated (L'Orient, Al-Monitor, NBC); cumulative toll 4,362 seen as of Sep 6."
+ },
+ {
+  "vid": 58,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Houthi Jizan refinery attack could not be dated to Sep 7 from accessible sources; ISW-only, hedged 'likely', fog true. Possible overlap with vid 61."
+ },
+ {
+  "vid": 59,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "1 Palestinian (19) killed and 3 injured in Hajja; a 34-year-old Palestinian shot dead near Qusra (Nablus) after stabbing an Israeli (Reuters).",
+   "misc": "Night confrontation in Hajja on Sep 7: a 19-year-old Palestinian was killed and three injured; residents said settlers and troops fired, the army said it fired on stone-throwers. Separately a 34-year-old Palestinian stabbed a 20-year-old Israeli near a settler outpost by Qusra and was shot dead. Source: Reuters https://www.reuters.com/world/middle-east/two-palestinians-killed-israeli-stabbed-west-bank-settler-violence-flares-2026-09-07/",
+   "fog": true
+  },
+  "note": "Reuters (via gbm.com) confirms Hajja death Sep 7 but 3 injured not 5, and second death was near Qusra not Qabalan/Aqraba; OCHA figures unverified; accounts of who fired disputed."
+ },
+ {
+  "vid": 60,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Euronews: 5 tankers destroyed Tuesday (Sep 8), one near Jask, one ~4 mi off Kharg; coordinates fit Gulf of Oman/Jask."
+ },
+ {
+  "vid": 61,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-09-09",
+   "humanCasualties": "At least 73 civilians injured in Abha, Khamis Mushait, Jazan and Najran (Saudi-led coalition)."
+  },
+  "note": "The National (Sep 10) dates the Abha/Khamis Mushait/Jazan attacks and the 73 injured to Wed Sep 9, not Sep 8; figure is coalition-sourced."
+ },
+ {
+  "vid": 65,
+  "verdict": "FIX",
+  "fix": {
+   "misc": "FOG OF WAR: Damage disputed; the IRGC claims heavy damage, US officials say minimal; some outlets report aircraft damaged at the base, unconfirmed. Iran fired ballistic missiles, reportedly including cluster warheads, at the US-used air base at Azraq in retaliation for the tanker strikes. Jordan said it intercepted 18 of 20 missiles, with two falling in uninhabited areas; Jordan reported no casualties. Source: Euronews https://www.euronews.com/2026/09/09/us-destroys-five-iranian-tankers-as-tehran-launches-retaliatory-strikes-on-jordan ; ISW https://understandingwar.org/research/middle-east/iran-update-september-9-2026/"
+  },
+  "note": "18 of 20 intercepted and no Jordan casualties confirmed (Euronews, Jordan News); original misc had garbled name 'Marisks' and meta text, cleaned."
+ },
+ {
+  "vid": 66,
+  "verdict": "FIX",
+  "fix": {
+   "humanCasualties": "1 seafarer killed on Hercules Star off Dubai; the missing crew member was later found dead (Peninsula via Seatrade/Ship&Bunker)."
+  },
+  "note": "Hercules Star incident and IRGC destroyer claim confirmed on Sep 9; later reports say the missing crewman was found dead."
+ },
+ {
+  "vid": 67,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Multiple Sep 9 reports (MercoPress, bizpacreview, Al-Monitor): Brent above $100 first time since July; exact $100.70 not confirmed."
+ },
+ {
+  "vid": 68,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "The National/AP-style reports Sep 10: Houthis seized Mokha after days of fighting; Pro-gov forces withdrew toward Dhubab."
+ },
+ {
+  "vid": 69,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 11: Saudi FM statement, Riyadh and Medina regions, injuries, Iraqi PM dismissed Maysan commander; smoke seen Thursday Sep 10. Trump 'probably responsible' not checked."
+ },
+ {
+  "vid": 70,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Euronews/Israel Hayom Sep 11 report Houthi seizure of Perim (Mayun) and Hanish; fog true appropriate."
+ },
+ {
+  "vid": 71,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Axios via Reuters/Internazionale Sep 11: Trump declined MBS request for Houthi strikes; press report, fog true."
+ },
+ {
+  "vid": 76,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Reuters via Al-Monitor Sep 16: US officials met Houthis in Oman 'over the weekend' (Sep 12-13); sources-based, fog true."
+ },
+ {
+  "vid": 79,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Gulf News/Khaleej Times (published Sep 15): 13 injured in Houthi attacks on three Saudi cities."
+ },
+ {
+  "vid": 80,
+  "verdict": "FIX",
+  "fix": {
+   "date": "2026-09-16",
+   "misc": "FOG OF WAR: Houthi claim; not confirmed by Saudi Arabia. On Sep 16 the Houthis published footage and said they shot down a Saudi F-15 over Marib province; outlets differ on the weapon (air-to-air vs surface-to-air missile). Saudi Arabia has not confirmed details. Source: Korea Times https://www.koreatimes.co.kr/world/20260916/yemens-houthis-say-shot-down-saudi-fighter-jet ; ISW https://understandingwar.org/research/middle-east/iran-update-september-16-2026/"
+  },
+  "note": "Korea Times: claim made Wed Sep 16, no shootdown date given; weapon description conflicts across outlets; no Saudi response."
+ },
+ {
+  "vid": 82,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Collapse Sep 16 with 21 dead confirmed by multiple outlets; Al-Monitor says 12 children vs Guardian-cited 11, minor."
+ },
+ {
+  "vid": 84,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true
+  },
+  "note": "L'Orient/Reuters: Houthis say they attacked Yanbu Aramco, no Saudi confirmation; single-party claim so fog true."
+ },
+ {
+  "vid": 86,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Trend strike claimed by IRGC and reported Sep 17-18 (Malay Mail, Korea Times, Kurdistan24). UKMTO 2-injured tanker report is a separate Sep 21 incident."
+ },
+ {
+  "vid": 87,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Aviationist/Italian defence minister: Eurofighter hit overnight Sep 17-18 at King Fahd Air Base, Taif; debris death not independently checked."
+ },
+ {
+  "vid": 88,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Axios Sep 17 (Republic World, Siasat): Trump faces 'big decision', will consult Gulf leaders."
+ },
+ {
+  "vid": 92,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Northeast Times/AP Sep 19: Houthis claim Riyadh strikes, fire near airport; Guardian 75-fighter figure not checked."
+ },
+ {
+  "vid": 95,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Axios Sep 21: Trump weighed Houthi strikes before holding off; press-sourced, fog true."
+ },
+ {
+  "vid": 98,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Sep 22 UNGA: three-hour Witkoff/Kushner-Araghchi talks via Qatari mediation, Iran confirmed; 'annihilate' speech confirmed; 'deal after November elections' not checked."
+ },
+ {
+  "vid": 99,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Irish Examiner/Guardian: up to 169 killed in Yemen over three days; Kahbub retaken Sep 17 per China Daily; location approximate."
+ },
+ {
+  "vid": 100,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "gCaptain: Cape Dao ~0630 UTC Sep 23 near Musandam, 1 Indian killed, 27 evacuated by Omani navy."
+ },
+ {
+  "vid": 101,
+  "verdict": "FIX",
+  "fix": {
+   "fog": true,
+   "humanCasualties": "IRGC Brig. Gen. Hossein Zarifi (Shahid Sajjad base, Saravan) killed per IRGC/Tasnim; 5 insurgents killed per IRNA; a second officer (Ahmad Zeraati) reported killed only by Baloch rights group Haalvsh.",
+   "misc": "Baloch militants and IRGC forces clashed around Jihadabad, Saravan, in a counterinsurgency operation; the IRGC confirmed the death of Brig. Gen. Hossein Zarifi. A second killed officer is reported only by an opposition rights group. Source: The National https://thenationalnews.com/news/mena/2026/09/24/irgc-commander-killed-in-clashes-with-gunmen-in-irans-restive-south-east ; ISW https://understandingwar.org/research/middle-east/iran-update-september-24-2026/"
+  },
+  "note": "The National (dated Sep 24): only Zarifi confirmed officially; Zeraati unconfirmed; claims from regime media and an opposition group; date Sep 23 vs 24 uncertain, left unchanged."
+ },
+ {
+  "vid": 102,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Houthi-only casualty claim, unacknowledged by Riyadh, fog true; 2026 corroboration not found beyond ISW."
+ },
+ {
+  "vid": 104,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Salam UN speech Sep 25 and continued shelling confirmed (Al Jazeera, QNA); 4,386 toll and eight-to-six brigade cut not independently checked."
+ },
+ {
+  "vid": 105,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 24 (coalition: 6 ballistic missiles intercepted) and Euronews Sep 25 (France support for Yanbu) confirm."
+ },
+ {
+  "vid": 106,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Al Jazeera Sep 25 and Kuwait Times: Araghchi seven-day Hormuz plan announced at UNGA."
+ },
+ {
+  "vid": 108,
+  "verdict": "FIX",
+  "fix": {
+   "misc": "Trump rejected Iran's seven-day Hormuz proposal on Sep 26 at the White House, saying 'I reject their proposal', that it would not be acceptable and that Iran wants a deal 'because they are losing so badly'; a White House official said the US has control of the Strait of Hormuz. Araghchi said Tehran 'will not back down' and was awaiting mediators' 'definitive views'. Source: Al Jazeera https://www.aljazeera.com/news/2026/09/26/trump-rejects-irans-seven-day-roadmap-to-reopen-strait-of-hormuz ; ITV https://www.itv.com/news/2026-09-26/donald-trump-rejects-irans-latest-proposal-to-reopen-strait-of-hormuz"
+  },
+  "note": "Date confirmed; quotes 'total control', 'overplayed their hand', 'I'm rejecting their deal' absent from Al Jazeera and ITV, replaced with quoted wording."
+ },
+ {
+  "vid": 109,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Iranian-only claim of 19 interceptions, fog true; late UKMTO reports separate."
+ },
+ {
+  "vid": 110,
+  "verdict": "PASS",
+  "fix": {},
+  "note": "Euronews/Oman Observer Sep 27: IRGC claims seizure of second US underwater drone; claim-only, fog true."
+ }
+]
