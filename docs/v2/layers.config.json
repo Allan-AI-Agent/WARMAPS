@@ -1,0 +1,315 @@
+{
+  "version": "0.1",
+  "date": "2026-11-02",
+  "note": "Switchboard for the WARMAPS v2 globe. States: on | available | dormant | excluded. Changing a layer's state is a one-line edit. Excluded layers are not imported; recover them from the upstream commit pinned in globe/UPSTREAM.md.",
+  "default_view_rule": "RULED 2026-11-02: first load shows the conflict's mapped events and theater outlines only; every other layer is one tap away",
+  "aois": {
+    "iran-war": {
+      "label": "Iran war theater",
+      "bbox": [
+        29.0,
+        10.0,
+        66.0,
+        40.0
+      ],
+      "chokepoints": [
+        "hormuz",
+        "gulf-of-oman",
+        "bab-el-mandeb",
+        "red-sea"
+      ]
+    },
+    "russia-ukraine": {
+      "label": "Russia vs Ukraine",
+      "bbox": [
+        21.0,
+        43.0,
+        42.0,
+        56.5
+      ],
+      "chokepoints": [
+        "black-sea",
+        "kerch",
+        "baltic-approaches"
+      ]
+    },
+    "east-asia": {
+      "label": "East Asia",
+      "bbox": [
+        115.0,
+        18.0,
+        146.0,
+        45.0
+      ],
+      "chokepoints": [
+        "taiwan-strait",
+        "korea-strait"
+      ]
+    },
+    "caribbean": {
+      "label": "Caribbean",
+      "bbox": [
+        -90.0,
+        8.0,
+        -58.0,
+        27.0
+      ],
+      "chokepoints": [
+        "windward-passage",
+        "venezuela-coast"
+      ]
+    }
+  },
+  "aoi_note": "Bounding boxes are [west, south, east, north] in degrees, first-cut and INFERRED; refine in the build session.",
+  "layers": [
+    {
+      "id": "events",
+      "state": "on",
+      "source": "theaters/*/events.json",
+      "confidence": "per-event epistemic tag"
+    },
+    {
+      "id": "aoi-outlines",
+      "state": "on",
+      "source": "this file"
+    },
+    {
+      "id": "military-flights",
+      "state": "available",
+      "source": "adsb.lol",
+      "license": "ODbL-1.0",
+      "key": "none",
+      "clip": "aoi",
+      "keep": [
+        "military",
+        "government",
+        "tanker",
+        "aew-isr",
+        "transport",
+        "squawk-7500",
+        "squawk-7600",
+        "squawk-7700"
+      ],
+      "drop": [
+        "airliner",
+        "general-aviation",
+        "helicopter"
+      ],
+      "only_when": "scrubber_is_today",
+      "public_delay_minutes": 0,
+      "public_delay_note": "RULED 2026-11-02: no self-imposed delay; provider data as published",
+      "live_mode": "browser polls provider for visible AOI every 10-30 s while viewing today; stops when tab closes",
+      "label": "OBSERVED (transponder). Combat aircraft often fly dark; absence is not evidence.",
+      "state_note": "RULED 2026-11-02: one tap away"
+    },
+    {
+      "id": "commercial-over-theater",
+      "state": "available",
+      "parent": "live-flights",
+      "source": "adsb.lol",
+      "clip": "aoi",
+      "keep": [
+        "airliner"
+      ],
+      "render": "density",
+      "purpose": "airspace closure shown by absence"
+    },
+    {
+      "id": "vessels",
+      "state": "available",
+      "source": "AISStream",
+      "key": "free, server-brokered",
+      "terms": "No ToS published (checked 2026-11-02); docs direct server relay to clients; display with attribution",
+      "clip": "aoi-chokepoints",
+      "keep": [
+        "tanker",
+        "cargo",
+        "military",
+        "law-enforcement",
+        "sar",
+        "near-event"
+      ],
+      "drop": [
+        "fishing",
+        "pleasure",
+        "tug",
+        "passenger"
+      ],
+      "only_when": "scrubber_is_today",
+      "label": "OBSERVED (AIS). Positions inside GNSS-jamming areas may be spoofed.",
+      "relay": "required: server-side, compressed, max 3 connections"
+    },
+    {
+      "id": "gnss-integrity",
+      "state": "available",
+      "source": "adsb.lol / GPSJAM",
+      "clip": "aoi",
+      "auto_with": [
+        "vessels",
+        "military-flights"
+      ]
+    },
+    {
+      "id": "active-fires",
+      "state": "available",
+      "source": "NASA FIRMS",
+      "key": "free, server-brokered",
+      "clip": "aoi",
+      "window_hours": 24,
+      "purpose": "strike corroboration"
+    },
+    {
+      "id": "mapped-installations",
+      "state": "available",
+      "source": "OpenStreetMap",
+      "license": "ODbL-1.0",
+      "clip": "aoi",
+      "label": "community-mapped, incomplete"
+    },
+    {
+      "id": "submarine-cables",
+      "state": "available",
+      "source": "bundled (upstream)",
+      "clip": "aoi"
+    },
+    {
+      "id": "dams",
+      "state": "available",
+      "source": "bundled (upstream)",
+      "clip": "aoi"
+    },
+    {
+      "id": "satellites-over-theaters",
+      "state": "available",
+      "source": "CelesTrak",
+      "key": "none",
+      "clip": "ground track crosses an AOI within +/-30 min of scrubber time",
+      "groups_first": [
+        "military",
+        "earth-observation",
+        "weather"
+      ],
+      "exclude": [
+        "starlink-dense"
+      ],
+      "update_seconds": 5
+    },
+    {
+      "id": "significant-space-objects",
+      "state": "available",
+      "source": "CelesTrak",
+      "key": "none",
+      "objects": [
+        "ISS (ZARYA) 25544",
+        "CSS (TIANHE) 48274",
+        "Hubble 20580"
+      ],
+      "note": "curated short list; add more by NORAD id"
+    },
+    {
+      "id": "launches",
+      "state": "available",
+      "source": "Launch Library 2",
+      "key": "none (free quota)",
+      "window": "last 30 days + next 14 days",
+      "refresh": "daily cache, not live"
+    },
+    {
+      "id": "live-flights",
+      "state": "dormant",
+      "source": "OpenSky / adsb.lol"
+    },
+    {
+      "id": "earthquakes",
+      "state": "dormant",
+      "source": "USGS"
+    },
+    {
+      "id": "weather",
+      "state": "dormant",
+      "source": "NOAA GFS / ECMWF / nowCOAST"
+    },
+    {
+      "id": "radio",
+      "state": "dormant",
+      "source": "Radio Browser"
+    },
+    {
+      "id": "visual-modes",
+      "state": "dormant",
+      "note": "NVG / FLIR / CRT / Noir shaders - presentation mode later"
+    },
+    {
+      "id": "voice",
+      "state": "dormant",
+      "note": "OpenAI Realtime / Gemini Live"
+    },
+    {
+      "id": "contacts-roster",
+      "state": "dormant",
+      "note": "future: assets near this event"
+    },
+    {
+      "id": "google-3d-tiles",
+      "state": "dormant",
+      "key": "metered or non-commercial",
+      "note": "default basemap is Esri imagery plus keyless terrain"
+    },
+    {
+      "id": "datacenters",
+      "state": "dormant",
+      "source": "bundled (upstream)"
+    },
+    {
+      "id": "cyclones",
+      "state": "excluded"
+    },
+    {
+      "id": "detection-hud",
+      "state": "excluded"
+    },
+    {
+      "id": "cctv-mesh",
+      "state": "excluded",
+      "reason": "off-mission; civilian surveillance"
+    },
+    {
+      "id": "alpr-cameras",
+      "state": "excluded",
+      "reason": "off-mission; civilian surveillance"
+    },
+    {
+      "id": "street-level",
+      "state": "excluded"
+    },
+    {
+      "id": "transit",
+      "state": "excluded"
+    },
+    {
+      "id": "bikeshare",
+      "state": "excluded"
+    },
+    {
+      "id": "traffic",
+      "state": "excluded",
+      "reason": "simulated, not observed"
+    },
+    {
+      "id": "directions",
+      "state": "excluded"
+    },
+    {
+      "id": "air-quality",
+      "state": "excluded"
+    },
+    {
+      "id": "fire-perimeters",
+      "state": "excluded"
+    },
+    {
+      "id": "nepal-flood-scene",
+      "state": "excluded"
+    }
+  ]
+}
