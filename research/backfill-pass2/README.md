@@ -5,12 +5,12 @@ these files keep what the published schema cannot yet hold.
 
 - `RESEARCH_BRIEF.md` — the rules the four research agents followed.
 - `VERIFY_BRIEF.md` — the rules the four independent verifier agents followed.
-- `events_386-601_with_tiers_sources.json` — every event with its `id`, `tier`
+- `events_386-600_with_tiers_sources.json` — every event with its `id`, `tier`
   (milestone/major/standard), `fog`, full `sources` list, research block (`chunk` A-D),
   verifier index (`vid`) and `verified` verdict (PASS / FIX, or absent = not sampled).
-- `verdict_A..D.json` — verifier verdicts keyed by `vid`, with the fix applied and a one-line note.
+- `verdict_A..D.json`, `verdict_rest.json` — verifier verdicts keyed by `vid`, with the fix applied and a one-line note.
 
-Coverage: 129 of 216 events verified (all milestone + major, random 25% of standard;
-seed 7): 90 PASS, 39 FIX, 0 DROP. 87 standard events are research-pass only.
+Coverage: all 216 researched events verified in two passes (129, then the other 87):
+171 PASS, 44 FIX, 1 DROP (duplicate). 215 published as IDs 386-600 (renumbered after the drop).
 Stored in the repo (not Drive) on 2026-11-09 to avoid relaying ~300 KB through a chat;
 mirror to Drive _RESEARCH/WARMAPS via the OSIRIS rclone job when it exists.

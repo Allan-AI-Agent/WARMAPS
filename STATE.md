@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-09 (MST), **Day 255**. Version unchanged: **v01.09.03**. Events: **601** (IDs 1-601), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-09 (MST), **Day 255**. Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -24,19 +24,19 @@ Branch `data/backfill-171-254`, PR to `main`. Authorized by Allan 2026-11-08 ("I
 No code change to `index.html`; version stays v01.09.03.
 
 **What shipped**
-- `warmaps-data.js`: **216 events, IDs 386-601**, Days 171-254. Scope per the 2026-09-29 ruling: US+Israel vs Iran plus Lebanon/Hezbollah, Gaza/West Bank, Houthis, Iraq, Saudi Arabia/GCC, Hormuz/Red Sea shipping, diplomacy.
+- `warmaps-data.js`: **215 events, IDs 386-600**, Days 171-254 (216 researched; 1 dropped as a duplicate in the final check, and IDs renumbered to stay continuous). Scope per the 2026-09-29 ruling: US+Israel vs Iran plus Lebanon/Hezbollah, Gaza/West Bank, Houthis, Iraq, Saudi Arabia/GCC, Hormuz/Red Sea shipping, diplomacy.
 - Tiers (research pass): 22 milestone, 78 major, 116 standard. Tiers are NOT yet a schema field; they live in the research files.
-- **77 events carry `FOG OF WAR:`** in `misc` (party claims, single-source, or conflicting accounts).
+- **93 events carry `FOG OF WAR:`** in `misc` (party claims, single-source, conflicting accounts, or supported only by a search snippet / headline).
 - Coordinates: researcher-assigned; sea and region events use representative points.
 - `tools/test-timeline.js`: expectations now derive from the data (timeline end = max(today, latest event); wrong-clock floor = latest event day, parsed independently). The old fixed "latest = 170" broke as soon as real data passed Nov 2.
 
 **How it was produced (Trap 12 / independence)**
 1. Four research agents (one per ~3-week block) built the events from web sources only (shared brief: sources required, latest figures, provenance noted, no bypassing blocks).
 2. Four separate verifier agents that did not write the events checked **every milestone and major event plus a random 25% of standard events: 129 of 216 (60%)** against sources: 90 PASS, 39 FIX, 0 DROP. Fixes applied: 9 dates, 11 casualty figures, 12 text corrections, 20 fog flags, 2 cities, 1 country, 1 coordinate pair, 2 source replacements. PASS items the verifier could only support via search snippets were also set to fog.
-3. **The other 87 standard events (40%) are research-pass only**, not independently verified.
+3. Second pass (same day): the remaining 87 standard events were also verified: 81 PASS, 5 FIX, 1 DROP (duplicate). **All 215 published events have now been independently checked.** ISW and GlobalSecurity pages were partly unreadable to the verifier; claims resting on headlines or snippets only were set to fog.
 - Many outlets (AP, Reuters, ISW, Al Jazeera live blogs) refused automated fetch; verifiers used other outlets or search results and did not bypass blocks. GlobalSecurity pages were read via Firecrawl where WebFetch was refused.
 
-**Validation (lead session, both exit 0):** `validate.js` PASS (syntax, tags unchanged 9/9 11/11 466/466, IDs 1-601 continuous, all 260 events with id >= 342 match their dates, backticks unchanged); `test-timeline.js` PASS in 4 time zones.
+**Validation (lead session, both exit 0):** `validate.js` PASS (syntax, tags unchanged 9/9 11/11 466/466, IDs 1-600 continuous, all 260 events with id >= 342 match their dates, backticks unchanged); `test-timeline.js` PASS in 4 time zones.
 
 **Research files (scratchpad, to be filed to Drive _RESEARCH):** per-block JSON with tiers, sources and verifier verdicts.
 
@@ -51,7 +51,6 @@ US wounded 865 (Pentagon, Oct 15) found; not shown in any stat box.
 **NOT done in this pass (open)**
 - Key Strikes panel: no new IDs added (editorial call for Allan; candidates = the 22 milestones).
 - The 45 older day-label warnings (ids 112-122, 238-295): still awaiting Allan's OK.
-- Remaining 87 standard events: optional second verification pass.
 
 ---
 

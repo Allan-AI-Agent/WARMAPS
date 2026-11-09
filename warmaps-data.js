@@ -5823,7 +5823,7 @@ const strikes = [
     structuralDmg: 'Not itemized.',
     humanCasualties: 'At least 4 killed incl. 2 children (hospital officials); Gaza Health Ministry: 1,288 killed since Oct ceasefire',
     launchOrigin: 'IDF',
-    misc: 'Israeli strikes across Gaza killed at least four people including a 4-year-old, according to Awda and other hospitals. Source: AP https://apnews.com/article/middle-east-iran-israel-syria-august-24-2026-4c37df8a725b49eae2ab1672b4ae4201',
+    misc: 'FOG OF WAR: Israeli strikes across Gaza killed at least four people including a 4-year-old, according to Awda and other hospitals. Source: AP https://apnews.com/article/middle-east-iran-israel-syria-august-24-2026-4c37df8a725b49eae2ab1672b4ae4201',
   },
   // ── Day 179 (August 25, 2026) ──
   {
@@ -5967,7 +5967,7 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: '19 seafarers killed and at least 6,000 stranded since the war began (IMO, as of Aug 28)',
     launchOrigin: 'N/A',
-    misc: 'The UN maritime agency said hundreds of ships have been unable to leave the region since the war began, with at least 70 attacks on international shipping in the Gulf. Coordinates approximate. Source: AP (citing IMO) https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8',
+    misc: 'FOG OF WAR: The UN maritime agency said hundreds of ships have been unable to leave the region since the war began, with at least 70 attacks on international shipping in the Gulf. Coordinates approximate. Source: AP (citing IMO) https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8',
   },
   {
     id: 415, type: 'political',
@@ -6252,7 +6252,7 @@ const strikes = [
     weaponCap: 'N/A',
     target: 'IDF: Hezbollah weapons storage facilities',
     structuralDmg: 'Not itemized.',
-    humanCasualties: '4 killed, 23 injured (Lebanese Health Ministry)',
+    humanCasualties: '4 killed, 32 wounded (Lebanese Health Ministry, per AFP Sep 5; earlier count 23 wounded)',
     launchOrigin: 'IDF',
     misc: 'Israeli strikes without evacuation warnings killed four across southern Lebanon. The same day Israel released four more Lebanese prisoners under a deal tied to Lebanese help searching for missing Lebanese Jewish leaders. Coordinates approximate. Source: Reuters https://www.reuters.com/world/middle-east/israeli-military-says-it-strikes-southern-lebanon-after-hezbollah-launched-2026-09-06/ ; AP https://apnews.com/article/mideast-iran-hormuz-washington-september-4-2026-49d0cb10d83827e52b56b5280e7d048d',
   },
@@ -6300,21 +6300,7 @@ const strikes = [
     misc: 'In response to the missile attack CENTCOM struck three Iranian oil tankers, and Adm. Brad Cooper warned the US would, if necessary, \'destroy Iran\'s limited and exposed oil fleet\'. Coordinates approximate (Jask). Source: CENTCOM https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4591744/centcom-destroys-3-irgc-oil-tankers-after-iran-targets-2-us-navy-warships/ ; The Guardian https://www.theguardian.com/world/2026/sep/05/us-military-iran-tankers ; Migflug https://migflug.com/afterburner/centcom-strikes-three-iranian-oil-tankers-september-2026/',
   },
   {
-    id: 438, type: 'hez',
-    city: 'Southern Lebanon', country: 'Lebanon',
-    lat: 33.27, lng: 35.4,
-    date: 'September 5, 2026', time: 'Day 190',
-    attacker: 'Israel (IDF)',
-    weapon: 'Airstrikes',
-    weaponCap: 'N/A',
-    target: 'IDF: Hezbollah infrastructure, after an attempted Hezbollah attack',
-    structuralDmg: 'Not itemized.',
-    humanCasualties: '3 killed (Lebanese Health Ministry)',
-    launchOrigin: 'IDF',
-    misc: 'The IDF said it struck Hezbollah infrastructure in response to an attempted Hezbollah attack. Coordinates approximate. Source: Euronews https://www.euronews.com/2026/09/05/three-killed-in-israeli-strikes-on-lebanon-health-ministry-says',
-  },
-  {
-    id: 439, type: 'global',
+    id: 438, type: 'global',
     city: 'Hays District, Hudaydah Province', country: 'Yemen',
     lat: 13.93, lng: 43.48,
     date: 'September 5, 2026', time: 'Day 190',
@@ -6329,7 +6315,7 @@ const strikes = [
   },
   // ── Day 191 (September 6, 2026) ──
   {
-    id: 440, type: 'political',
+    id: 439, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'September 6, 2026', time: 'Day 191',
@@ -6343,7 +6329,7 @@ const strikes = [
     misc: 'Rezaei said in a state TV interview on Sunday Sep 6 that Iran would declare a restricted maritime zone starting from the US blockade line and extending into the Gulf within days, with any vessel entering put on a sanctions list, and that maps of a new corridor in Iranian and Omani waters managed by Iran had been agreed and should be signed in coming days. Oman had not confirmed. Source: Khaleej Times https://www.khaleejtimes.com/mena/iran-to-announce-new-restricted-zone-outside-hormuz-strait ; Anadolu https://www.aa.com.tr/en/middle-east/iran-to-declare-restricted-maritime-zone-beyond-strait-of-hormuz-top-security-official/4049165 ; https://caspiannews.com/news-detail/iran-to-declare-new-restricted-maritime-zone-in-persian-gulf-2026-9-8-36/ ; https://understandingwar.org/research/middle-east/iran-update-september-7-2026/',
   },
   {
-    id: 441, type: 'hez',
+    id: 440, type: 'hez',
     city: 'Nabatieh al-Fawqa / Nabatieh al-Tahta / Arab Salim', country: 'Lebanon',
     lat: 33.38, lng: 35.5,
     date: 'September 6, 2026', time: 'Day 191',
@@ -6355,6 +6341,20 @@ const strikes = [
     humanCasualties: '7 killed on Sep 6 (2 Nabatieh al-Fawqa, 2 women Arab Salim, 3 near Nabatieh), 20 wounded (Lebanese Health Ministry via AFP); more than 4,300 killed since March',
     launchOrigin: 'IDF',
     misc: 'Israel stepped up strikes in southern Lebanon after saying Hezbollah launched drones at areas its troops occupy; the out-of-service Ghandour hospital in Nabatieh al-Fawqa was destroyed and President Aoun called it a dangerous escalation and urged the US to act. Source: AFP via Arab News https://www.arabnews.com/middle-east/israel-army-says-striking-southern-lebanon-urges-evacuation-3000647 ; Al Jazeera https://www.aljazeera.com/amp/news/2026/9/6/israeli-air-attacks-on-lebanon-kill-at-least-four ; https://www.reuters.com/world/middle-east/israeli-military-says-it-strikes-southern-lebanon-after-hezbollah-launched-2026-09-06/ ; https://www.bbc.com/news/articles/c5yl96vz0edo ; https://www.arabnews.com/middle-east/lebanon-president-calls-for-us-help-as-israeli-strikes-kill-7-3000647',
+  },
+  {
+    id: 441, type: 'political',
+    city: 'Tehran', country: 'Iran',
+    lat: 35.69, lng: 51.39,
+    date: 'September 6, 2026', time: 'Day 191',
+    attacker: 'N/A - statement',
+    weapon: 'N/A',
+    weaponCap: 'N/A',
+    target: 'N/A',
+    structuralDmg: 'N/A',
+    humanCasualties: 'N/A',
+    launchOrigin: 'Iran (Ghalibaf)',
+    misc: 'Iran\'s top negotiator Mohammad Bagher Ghalibaf warned that further US attacks would trigger a \'faster, heavier, more painful response\', saying the \'rules of the game have changed\'. Comes after US strikes on Iranian tankers on Sep 5 under a new \'tanker for tanker\' policy. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; BBC https://www.bbc.com/news/articles/cp8d56w7d9po',
   },
   // ── Day 192 (September 7, 2026) ──
   {
@@ -6372,21 +6372,7 @@ const strikes = [
     misc: 'Israeli strikes overnight into Sep 7 destroyed a residential building in Kfar Roummane and hit a paramedic vehicle, one of the deadliest days in recent weeks in south Lebanon. Lebanon\'s Health Ministry said 27 people were killed over the preceding three days; the IDF said it struck Hezbollah fighters in the Nabatieh area. Source: BBC https://www.bbc.com/news/articles/c5yl96vz0edo ; Al Jazeera https://www.aljazeera.com/news/2026/9/7/israeli-air-attack-kills-at-least-10-people-in-southern-lebanon ; Reuters https://www.reuters.com/world/middle-east/israeli-strikes-southern-lebanese-town-kill-11-state-news-agency-says-2026-09-07/',
   },
   {
-    id: 443, type: 'political',
-    city: 'Tehran', country: 'Iran',
-    lat: 35.69, lng: 51.39,
-    date: 'September 7, 2026', time: 'Day 192',
-    attacker: 'N/A - statement',
-    weapon: 'N/A',
-    weaponCap: 'N/A',
-    target: 'N/A',
-    structuralDmg: 'N/A',
-    humanCasualties: 'N/A',
-    launchOrigin: 'Iran (Ghalibaf)',
-    misc: 'Iran\'s top negotiator Mohammad Bagher Ghalibaf warned that further US attacks would trigger a \'faster, heavier, more painful response\', saying the \'rules of the game have changed\'. Comes after US strikes on Iranian tankers on Sep 5 under a new \'tanker for tanker\' policy. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; BBC https://www.bbc.com/news/articles/cp8d56w7d9po',
-  },
-  {
-    id: 444, type: 'global',
+    id: 443, type: 'global',
     city: 'Jizan', country: 'Saudi Arabia',
     lat: 16.89, lng: 42.55,
     date: 'September 7, 2026', time: 'Day 192',
@@ -6400,7 +6386,7 @@ const strikes = [
     misc: 'FOG OF WAR: The Houthis likely conducted a ballistic missile attack on the Aramco refinery in Jizan; Saudi Arabia responded with airstrikes and cruise missile attacks on several Houthi-held provinces. ISW assesses the Houthis are shifting toward targeting Saudi oil facilities. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-7-2026/ ; ISW https://understandingwar.org/research/middle-east/iran-update-september-8-2026/',
   },
   {
-    id: 445, type: 'isr',
+    id: 444, type: 'isr',
     city: 'Hajja (Qalqiliya governorate)', country: 'West Bank',
     lat: 32.17, lng: 35.1,
     date: 'September 7, 2026', time: 'Day 192',
@@ -6415,7 +6401,7 @@ const strikes = [
   },
   // ── Day 193 (September 8, 2026) ──
   {
-    id: 446, type: 'us',
+    id: 445, type: 'us',
     city: 'Gulf of Oman / near Kharg Island', country: 'International waters',
     lat: 25.2, lng: 57.6,
     date: 'September 8, 2026', time: 'Day 193',
@@ -6429,7 +6415,7 @@ const strikes = [
     misc: 'CENTCOM destroyed five Iranian crude tankers after saying the IRGC fired ballistic missiles at a US warship twice in two days; the US has now hit 10 Iranian tankers since Sep 5. Iran\'s Foreign Ministry called the strikes a \'war crime\'. US officials told the WSJ Iran may be getting Russian or Chinese targeting help. Kharg location approximate; lat/lng shown for Gulf of Oman group. Source: Al Jazeera https://www.aljazeera.com/news/2026/9/9/us-destroys-five-iranian-tankers-iran-retaliates-with-attacks-on-jordan-base ; BBC https://www.bbc.com/news/articles/cyvznqypz0yo ; NBC News https://www.nbcnews.com/world/iran/us-strikes-iranian-tankers-attempted-missile-attacks-navy-warship-rcna596699 ; ISW https://understandingwar.org/research/middle-east/iran-update-september-9-2026/',
   },
   {
-    id: 447, type: 'political',
+    id: 446, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'September 8, 2026', time: 'Day 193',
@@ -6443,7 +6429,7 @@ const strikes = [
     misc: 'The US Treasury sanctioned 36 targets supporting Iran\'s aviation sector, including 27 Iranian airlines and nine service providers and sales agents accused of serving Mahan Air, on the same day as the tanker strikes. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-8-2026/ ; Migflug https://migflug.com/afterburner/centcom-five-iranian-tankers-jordan-missile-barrage-2026/',
   },
   {
-    id: 448, type: 'naval',
+    id: 447, type: 'naval',
     city: 'Strait of Hormuz / Bandar Abbas', country: 'Iran',
     lat: 27.18, lng: 56.27,
     date: 'September 8, 2026', time: 'Day 193',
@@ -6457,7 +6443,7 @@ const strikes = [
     misc: 'FOG OF WAR: Iran says it captured the drone; the US says it was lost to a malfunction. Iran\'s army said air defences downed a US MQ-1 drone over Bandar Abbas, and the IRGC claimed it seized a US Anduril Dive-LD unmanned submarine at the entrance to the Strait of Hormuz. US forces said an outdated underwater drone was lost due to malfunction. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; ISW https://understandingwar.org/research/middle-east/iran-update-september-8-2026/ ; Reuters https://www.reuters.com/world/middle-east/iran-says-it-captured-us-submarine-drone-strait-hormuz-2026-09-08/',
   },
   {
-    id: 449, type: 'political',
+    id: 448, type: 'political',
     city: 'Doha', country: 'Qatar',
     lat: 25.29, lng: 51.53,
     date: 'September 8, 2026', time: 'Day 193',
@@ -6472,7 +6458,7 @@ const strikes = [
   },
   // ── Day 194 (September 9, 2026) ──
   {
-    id: 450, type: 'global',
+    id: 449, type: 'global',
     city: 'Abha, Jizan, Najran, Khamis Mushait', country: 'Saudi Arabia',
     lat: 18.3, lng: 42.73,
     date: 'September 9, 2026', time: 'Day 194',
@@ -6486,7 +6472,7 @@ const strikes = [
     misc: 'The Houthis struck Saudi oil facilities and a military base in the southwest with ballistic missiles and drones. ISW attributes the shift to the failure of the Houthi Red Sea blockade. Location approximate (multiple cities). Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-8-2026/ ; ISW https://understandingwar.org/research/middle-east/iran-update-september-9-2026/',
   },
   {
-    id: 451, type: 'iran',
+    id: 450, type: 'iran',
     city: 'Muwaffaq Salti Air Base, Azraq', country: 'Jordan',
     lat: 31.83, lng: 36.78,
     date: 'September 9, 2026', time: 'Day 194',
@@ -6500,7 +6486,7 @@ const strikes = [
     misc: 'FOG OF WAR: Damage disputed; the IRGC claims heavy damage, US officials say minimal; some outlets report aircraft damaged at the base, unconfirmed. Iran fired ballistic missiles, reportedly including cluster warheads, at the US-used air base at Azraq in retaliation for the tanker strikes. Jordan said it intercepted 18 of 20 missiles, with two falling in uninhabited areas; Jordan reported no casualties. Source: Euronews https://www.euronews.com/2026/09/09/us-destroys-five-iranian-tankers-as-tehran-launches-retaliatory-strikes-on-jordan ; ISW https://understandingwar.org/research/middle-east/iran-update-september-9-2026/ ; https://www.aljazeera.com/news/2026/9/9/us-destroys-five-iranian-tankers-iran-retaliates-with-attacks-on-jordan-base ; https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; https://www.reuters.com/world/middle-east/iran-attacks-us-base-jordan-ships-near-hormuz-after-tankers-sunk-2026-09-09/',
   },
   {
-    id: 452, type: 'iran',
+    id: 451, type: 'iran',
     city: 'Off Dubai; Khor Fakkan; Iraqi waters SE of Al-Faw', country: 'International waters',
     lat: 25.25, lng: 55.1,
     date: 'September 9, 2026', time: 'Day 194',
@@ -6514,7 +6500,7 @@ const strikes = [
     misc: 'FOG OF WAR: The IRGC claim of hits on US destroyers DDG-119 and DDG-53 is denied by the US. The IRGC said it hit two US vessels and eight tankers in response to the US tanker strikes; the US denied its warships were hit. Confirmed incidents include Hercules Star off Dubai (one crew killed), New Andros attacked by drone in Iraqi waters, and vessels in the northern Gulf and Gulf of Oman. Reuters called it the biggest wave of attacks on shipping since the war began. Source: Reuters https://www.reuters.com/world/middle-east/iran-attacks-us-base-jordan-ships-near-hormuz-after-tankers-sunk-2026-09-09/ ; ISW https://understandingwar.org/research/middle-east/iran-update-september-9-2026/ ; Wikipedia Hormuz crisis https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis',
   },
   {
-    id: 453, type: 'energy',
+    id: 452, type: 'energy',
     city: 'Global markets', country: 'International',
     lat: 51.51, lng: -0.13,
     date: 'September 9, 2026', time: 'Day 194',
@@ -6529,7 +6515,7 @@ const strikes = [
   },
   // ── Day 195 (September 10, 2026) ──
   {
-    id: 454, type: 'global',
+    id: 453, type: 'global',
     city: 'Mokha', country: 'Yemen',
     lat: 13.32, lng: 43.25,
     date: 'September 10, 2026', time: 'Day 195',
@@ -6543,7 +6529,7 @@ const strikes = [
     misc: 'The Houthis captured the Red Sea port city of Mokha from government-aligned National Resistance Forces after launching an offensive overnight Sep 9-10 to roll back a government counteroffensive in Hays. Analysts said it gives Iran new leverage over Red Sea shipping, about 75 km north of Bab al-Mandeb. Source: AP https://apnews.com/article/yemen-iran-houthi-rebels-red-sea-mokha-e4e799701b382799a955969c212800ea ; The Guardian https://www.theguardian.com/world/2026/sep/10/houthis-seize-key-port-mocha-yemen-red-sea-coast-iran-saudi-arabia-us ; ISW https://understandingwar.org/research/middle-east/iran-update-september-10-2026/',
   },
   {
-    id: 455, type: 'energy',
+    id: 454, type: 'energy',
     city: 'East-West Pipeline (Riyadh and Medina regions)', country: 'Saudi Arabia',
     lat: 24.2, lng: 39.6,
     date: 'September 10, 2026', time: 'Day 195',
@@ -6558,7 +6544,7 @@ const strikes = [
   },
   // ── Day 196 (September 11, 2026) ──
   {
-    id: 456, type: 'global',
+    id: 455, type: 'global',
     city: 'Perim Island / Dhubab / Hanish Islands', country: 'Yemen',
     lat: 12.66, lng: 43.42,
     date: 'September 11, 2026', time: 'Day 196',
@@ -6572,7 +6558,7 @@ const strikes = [
     misc: 'FOG OF WAR: Control of Perim Island is unclear; a Houthi withdrawal was reported Sep 13 and is unverified. Following Mokha, the Houthis took Dhubab, the government\'s last Red Sea port city, the Hanish islands and Perim Island in the middle of Bab al-Mandeb, per Yemeni government officials. ISW said the Houthis are setting conditions to make Bab al-Mandeb an Axis-controlled waterway. A Houthi withdrawal from Perim was reported on Sep 13 but not verified. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-11-2026/ ; CNBC https://www.cnbc.com/2026/09/11/iran-houthis-mokha-red-sea-yemen.html ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 457, type: 'political',
+    id: 456, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'September 11, 2026', time: 'Day 196',
@@ -6586,7 +6572,7 @@ const strikes = [
     misc: 'FOG OF WAR: The MBS request is a press report, not an on-record statement. Saudi Crown Prince Mohammed bin Salman reportedly urged Trump to take military action against the Houthis; Trump declined, saying the Houthis had signalled they did not want a conflict with the US. Trump also framed the war as a continuation of the post-9/11 War on Terror. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 458, type: 'political',
+    id: 457, type: 'political',
     city: 'New Delhi', country: 'India',
     lat: 28.61, lng: 77.21,
     date: 'September 11, 2026', time: 'Day 196',
@@ -6601,7 +6587,7 @@ const strikes = [
   },
   // ── Day 197 (September 12, 2026) ──
   {
-    id: 459, type: 'naval',
+    id: 458, type: 'naval',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'September 12, 2026', time: 'Day 197',
@@ -6615,7 +6601,7 @@ const strikes = [
     misc: 'The US limited guaranteed air-defence cover for ships transiting Hormuz to two set time windows a day instead of continuous overnight cover, after more Iranian attacks on ships moving at night. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 460, type: 'iran',
+    id: 459, type: 'iran',
     city: 'Saravan / Zahedan (Sistan and Baluchistan)', country: 'Iran',
     lat: 27.37, lng: 62.33,
     date: 'September 12, 2026', time: 'Day 197',
@@ -6626,11 +6612,11 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: '3 IRGC soldiers and 5 Baloch fighters killed (IRGC Ground Forces); MPF claims 9 regime forces killed. Zahedan Friday prayer leader Molavi Yousef Gargij shot dead by unknown gunman.',
     launchOrigin: 'Domestic',
-    misc: 'FOG OF WAR: IRGC and MPF casualty claims differ. IRGC and police raided a Baloch separatist hideout in Saravan, sparking an hours-long gunfight. In Zahedan an unknown gunman killed prominent Sunni cleric Molavi Yousef Gargij outside his home. Casualty figures conflict between the IRGC and the militants. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-15-2026/ ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
+    misc: 'FOG OF WAR: IRGC and MPF casualty claims differ. IRGC and police raided a Baloch separatist hideout in Saravan, sparking an hours-long gunfight (Sep 12). Separately, on Sep 14 in Zahedan an unknown gunman killed prominent Sunni cleric Molavi Yousef Gargij outside his home. Casualty figures conflict between the IRGC and the militants. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-15-2026/ ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   // ── Day 198 (September 13, 2026) ──
   {
-    id: 461, type: 'iran',
+    id: 460, type: 'iran',
     city: 'North of Musandam peninsula', country: 'International waters',
     lat: 26.45, lng: 56.35,
     date: 'September 13, 2026', time: 'Day 198',
@@ -6644,7 +6630,7 @@ const strikes = [
     misc: 'FOG OF WAR: Cause disputed (mine vs drone) and date given as Sep 12 or Sep 13 by different sources. A Panama-flagged vessel, the El Gaia, was struck near Hormuz. The IRGC said it hit a mine, while CENTCOM said Iranian forces fired a drone at a stationary vessel off Oman. ISW dates the incident Sep 12. Source: Wikipedia Hormuz crisis https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis ; ISW https://understandingwar.org/research/middle-east/iran-update-september-14-2026/',
   },
   {
-    id: 462, type: 'political',
+    id: 461, type: 'political',
     city: 'Muscat', country: 'Oman',
     lat: 23.59, lng: 58.41,
     date: 'September 13, 2026', time: 'Day 198',
@@ -6659,7 +6645,7 @@ const strikes = [
   },
   // ── Day 199 (September 14, 2026) ──
   {
-    id: 463, type: 'us',
+    id: 462, type: 'us',
     city: 'Strait of Hormuz', country: 'Iran',
     lat: 26.6, lng: 56.3,
     date: 'September 14, 2026', time: 'Day 199',
@@ -6673,7 +6659,7 @@ const strikes = [
     misc: 'FOG OF WAR: US says the boats were trying to seize a drone; Iran says they were fishing boats. CENTCOM said it destroyed two Iranian small boats that tried to seize a US naval drone patrolling Hormuz; it announced the strike on Sep 15. Iran said the boats were fishing vessels. On Sep 15 the IRGC also claimed to intercept an MQ-1 over Hormuz, and the US later confirmed at least two MQ-1s lost in recent days. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-15-2026/ ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 464, type: 'iran',
+    id: 463, type: 'iran',
     city: 'Sulaymaniyah Governorate', country: 'Iraq',
     lat: 35.56, lng: 45.44,
     date: 'September 14, 2026', time: 'Day 199',
@@ -6687,7 +6673,7 @@ const strikes = [
     misc: 'FOG OF WAR: Attacker not officially identified. Five missiles struck three camps of Iranian Kurdish opposition groups east of Sulaymaniyah in Iraqi Kurdistan, with no casualties reported. Iran has repeatedly struck these groups during the war. Source: Wikipedia https://en.wikipedia.org/wiki/2026_Iranian_strikes_on_the_Kurdistan_Region ; Times of Israel (search result) https://www.timesofisrael.com/liveblog_entry/iranian-kurdish-opposition-camps-targeted-with-missiles-in-iraqs-kurdistan-sources-say/',
   },
   {
-    id: 465, type: 'global',
+    id: 464, type: 'global',
     city: 'Khamis Mushait, Abha, Taif', country: 'Saudi Arabia',
     lat: 18.22, lng: 42.5,
     date: 'September 14, 2026', time: 'Day 199',
@@ -6702,7 +6688,7 @@ const strikes = [
   },
   // ── Day 200 (September 15, 2026) ──
   {
-    id: 466, type: 'isr',
+    id: 465, type: 'isr',
     city: 'Sheikh Radwan (Gaza City) / Mawasi (Khan Younis)', country: 'Gaza',
     lat: 31.53, lng: 34.46,
     date: 'September 15, 2026', time: 'Day 200',
@@ -6717,7 +6703,7 @@ const strikes = [
   },
   // ── Day 201 (September 16, 2026) ──
   {
-    id: 467, type: 'global',
+    id: 466, type: 'global',
     city: 'Marib Governorate', country: 'Yemen',
     lat: 15.46, lng: 45.32,
     date: 'September 16, 2026', time: 'Day 201',
@@ -6731,7 +6717,7 @@ const strikes = [
     misc: 'FOG OF WAR: Houthi claim; not confirmed by Saudi Arabia. On Sep 16 the Houthis published footage and said they shot down a Saudi F-15 over Marib province; outlets differ on the weapon (air-to-air vs surface-to-air missile). Saudi Arabia has not confirmed details. Source: Korea Times https://www.koreatimes.co.kr/world/20260916/yemens-houthis-say-shot-down-saudi-fighter-jet ; ISW https://understandingwar.org/research/middle-east/iran-update-september-16-2026/',
   },
   {
-    id: 468, type: 'isr',
+    id: 467, type: 'isr',
     city: 'Gaza City', country: 'Gaza',
     lat: 31.52, lng: 34.45,
     date: 'September 16, 2026', time: 'Day 201',
@@ -6745,7 +6731,7 @@ const strikes = [
     misc: 'A bombed-out multistorey building in Gaza City, weakened by earlier Israeli strikes and sheltering displaced families, collapsed. Rescuers said the search for dozens more was hampered by a lack of heavy machinery. Source: The Guardian https://www.theguardian.com/world/2026/sep/16/building-gaza-city-damaged-israeli-strikes-collapses-killed',
   },
   {
-    id: 469, type: 'political',
+    id: 468, type: 'political',
     city: 'Beijing', country: 'China',
     lat: 39.9, lng: 116.4,
     date: 'September 16, 2026', time: 'Day 201',
@@ -6759,7 +6745,7 @@ const strikes = [
     misc: 'Iranian FM Araghchi met Chinese FM Wang Yi in Beijing. China called for reopening the Strait of Hormuz and avoiding spillover into Yemen and the Red Sea, after private Chinese requests (urged by Saudi Arabia) that Iran \'rein in\' the Houthis. The same day the CBO put US war spending at over $38 billion from Feb 28 to Aug 1. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-16-2026/ ; ISW https://understandingwar.org/research/middle-east/iran-update-september-17-2026/ ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 470, type: 'global',
+    id: 469, type: 'global',
     city: 'Yanbu / Khamis Mushait', country: 'Saudi Arabia',
     lat: 24.09, lng: 38.06,
     date: 'September 16, 2026', time: 'Day 201',
@@ -6773,7 +6759,7 @@ const strikes = [
     misc: 'FOG OF WAR: The Houthis announced missile and drone attacks on the Aramco refinery at Yanbu and King Khalid Air Base. On Sep 15 Saudi air defences intercepted a Houthi drone near Mecca, showing the campaign\'s growing reach. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-16-2026/',
   },
   {
-    id: 471, type: 'iran',
+    id: 470, type: 'iran',
     city: 'Kermanshah, Kurdistan, West Azerbaijan provinces', country: 'Iran',
     lat: 34.31, lng: 47.07,
     date: 'September 16, 2026', time: 'Day 201',
@@ -6788,7 +6774,7 @@ const strikes = [
   },
   // ── Day 202 (September 17, 2026) ──
   {
-    id: 472, type: 'iran',
+    id: 471, type: 'iran',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'September 17, 2026', time: 'Day 202',
@@ -6802,7 +6788,7 @@ const strikes = [
     misc: 'Iran fired projectiles at two tankers transiting Hormuz on Sep 16-17. The IRGC said it hit a Togo-flagged vessel (Trend) making an \'illegal passage\', which caught fire and stopped. UKMTO reported a security incident near Oman. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-18-2026/ ; Wikipedia Hormuz crisis https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 473, type: 'global',
+    id: 472, type: 'global',
     city: 'Taif (King Fahd Air Base)', country: 'Saudi Arabia',
     lat: 21.48, lng: 40.54,
     date: 'September 17, 2026', time: 'Day 202',
@@ -6816,7 +6802,7 @@ const strikes = [
     misc: 'A Houthi attack on King Fahd Air Base in Taif damaged an Italian Eurofighter Typhoon, and debris from a drone intercepted over Taif killed one person. Italy said it is preparing to send warships on its own to protect Italian shipping through Bab al-Mandeb. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-22-2026/ ; ISW https://understandingwar.org/research/middle-east/iran-update-september-23-2026/ ; Anadolu https://www.aa.com.tr/en/middle-east/yemen-s-houthis-claim-missile-drone-attacks-on-saudi-capital/4062167 ; ISW https://understandingwar.org/research/middle-east/iran-update-september-18-2026/',
   },
   {
-    id: 474, type: 'political',
+    id: 473, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'September 17, 2026', time: 'Day 202',
@@ -6830,7 +6816,7 @@ const strikes = [
     misc: 'Trump told Axios he faces a \'big decision\' between resuming large-scale strikes on Iran or pursuing a deal to end the nearly seven-month war, and said he would consult the six GCC leaders at the UN General Assembly first. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 475, type: 'intel',
+    id: 474, type: 'intel',
     city: 'Parchin / Natanz', country: 'Iran',
     lat: 35.52, lng: 51.77,
     date: 'September 17, 2026', time: 'Day 202',
@@ -6845,7 +6831,7 @@ const strikes = [
   },
   // ── Day 203 (September 18, 2026) ──
   {
-    id: 476, type: 'iran',
+    id: 475, type: 'iran',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'September 18, 2026', time: 'Day 203',
@@ -6859,7 +6845,7 @@ const strikes = [
     misc: 'UK military reported a vessel hit by an \'unknown projectile\' in Hormuz, identified as the STI Steadfast. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; Wikipedia Hormuz crisis https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis',
   },
   {
-    id: 477, type: 'political',
+    id: 476, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'September 18, 2026', time: 'Day 203',
@@ -6874,7 +6860,7 @@ const strikes = [
   },
   // ── Day 204 (September 19, 2026) ──
   {
-    id: 478, type: 'global',
+    id: 477, type: 'global',
     city: 'Riyadh / Yanbu', country: 'Saudi Arabia',
     lat: 24.96, lng: 46.7,
     date: 'September 19, 2026', time: 'Day 204',
@@ -6888,7 +6874,7 @@ const strikes = [
     misc: 'The Houthis claimed missile and drone strikes on Riyadh and Aramco\'s Yanbu facilities after an overnight air-raid alert. AFP saw firefighters put out a blaze at an Aramco-marked fuel tank near Riyadh airport. The Guardian reported 75 Houthi fighters killed the same day. Source: Kurdistan24 (AFP) https://www.kurdistan24.net/en/story/940514/houthis-claim-missile-and-drone-strikes-on-riyadh-yanbu-oil-facilities ; The Guardian https://www.theguardian.com/world/2026/sep/20/middle-east-braces-for-more-violence-as-iran-claims-us-is-planning-to-renew-bombing-campaign',
   },
   {
-    id: 479, type: 'isr',
+    id: 478, type: 'isr',
     city: 'Jabalia / Gaza City', country: 'Gaza',
     lat: 31.53, lng: 34.48,
     date: 'September 19, 2026', time: 'Day 204',
@@ -6902,7 +6888,7 @@ const strikes = [
     misc: 'Israeli drone strikes killed three Palestinians in Gaza on Sep 19, and a fourth died of wounds. Among the dead was the eldest son of Gaza health director-general Munir al-Bursh, killed in Jabalia. Source: Al Jazeera https://www.aljazeera.com/news/2026/9/19/three-palestinians-killed-in-israeli-strikes-across-gaza ; BSS https://www.bssnews.net/international/426283',
   },
   {
-    id: 480, type: 'naval',
+    id: 479, type: 'naval',
     city: 'CENTCOM area (Gulf)', country: 'International waters',
     lat: 26.0, lng: 55.0,
     date: 'September 19, 2026', time: 'Day 204',
@@ -6917,7 +6903,7 @@ const strikes = [
   },
   // ── Day 205 (September 20, 2026) ──
   {
-    id: 481, type: 'political',
+    id: 480, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'September 20, 2026', time: 'Day 205',
@@ -6931,7 +6917,7 @@ const strikes = [
     misc: 'FOG OF WAR: The called-off strikes are based on press reports. Trump reportedly decided at the last minute not to strike Houthi targets in Yemen \'for the time being\' and cut short a Camp David weekend. He told Fox News he was considering \'wiping Iran out\'. Iran claimed intelligence that the US was preparing to renew bombing, and the State Department issued a new security alert for the region. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-21-2026/ ; The Guardian https://www.theguardian.com/world/2026/sep/20/middle-east-braces-for-more-violence-as-iran-claims-us-is-planning-to-renew-bombing-campaign',
   },
   {
-    id: 482, type: 'iran',
+    id: 481, type: 'iran',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'September 20, 2026', time: 'Day 205',
@@ -6945,7 +6931,7 @@ const strikes = [
     misc: 'The Liberia-flagged Al Maryah was attacked while leaving Hormuz. A tanker was attacked on Sep 21 (two crew lightly hurt), and the Isle of Man-flagged LR Stephanie was damaged on Sep 22. Source: Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; Wikipedia Hormuz crisis https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis ; ISW https://understandingwar.org/research/middle-east/iran-update-september-21-2026/',
   },
   {
-    id: 483, type: 'isr',
+    id: 482, type: 'isr',
     city: 'Near Ganim (Jenin) / near Halamish', country: 'West Bank',
     lat: 32.46, lng: 35.3,
     date: 'September 20, 2026', time: 'Day 205',
@@ -6960,7 +6946,7 @@ const strikes = [
   },
   // ── Day 207 (September 22, 2026) ──
   {
-    id: 484, type: 'political',
+    id: 483, type: 'political',
     city: 'UN General Assembly, New York', country: 'United States',
     lat: 40.749, lng: -73.968,
     date: 'September 22, 2026', time: 'Day 207',
@@ -6974,7 +6960,7 @@ const strikes = [
     misc: 'At UNGA, Witkoff and Kushner held a three-hour meeting with FM Araghchi through Qatari mediators; Iranian state TV confirmed Araghchi met Witkoff. Trump called it \'very productive\', yet in his UN speech asked whether he should \'annihilate the Islamic Republic\' and predicted a deal after the November elections. Tehran\'s conditions include an end to the war on all fronts. Source: BBC https://www.bbc.com/news/articles/c52e0ywl9pr7o ; Axios https://www.axios.com/2026/09/22/unga-iran-us-trump-war ; ISW https://understandingwar.org/research/middle-east/iran-update-september-23-2026/',
   },
   {
-    id: 485, type: 'global',
+    id: 484, type: 'global',
     city: 'Jabal Kahbub (Taiz-Lahij border) and other fronts', country: 'Yemen',
     lat: 13.0, lng: 43.7,
     date: 'September 22, 2026', time: 'Day 207',
@@ -6989,7 +6975,7 @@ const strikes = [
   },
   // ── Day 208 (September 23, 2026) ──
   {
-    id: 486, type: 'iran',
+    id: 485, type: 'iran',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.4, lng: 56.4,
     date: 'September 23, 2026', time: 'Day 208',
@@ -7003,7 +6989,7 @@ const strikes = [
     misc: 'Cape Dao, carrying coal to India, was hit by an unknown projectile in Hormuz at 06:30 UTC and abandoned after an engine-room fire, as US-Iran talks reopened at the UN. Source: gCaptain https://gcaptain.com/seafarer-killed-in-hormuz-attack-as-trump-pushes-iran-deal-at-un/ ; Seatrade Maritime https://www.seatrade-maritime.com/security/seafarer-dead-in-attack-on-uae-managed-bulker ; Lloyd\'s List https://www.lloydslist.com/LL1158520/UPDATED-Seafarer-killed-in-latest-Hormuz-attack',
   },
   {
-    id: 487, type: 'iran',
+    id: 486, type: 'iran',
     city: 'Saravan / Jihadabad (Sistan and Baluchistan)', country: 'Iran',
     lat: 27.37, lng: 62.33,
     date: 'September 23, 2026', time: 'Day 208',
@@ -7017,7 +7003,7 @@ const strikes = [
     misc: 'FOG OF WAR: Baloch militants and IRGC forces clashed around Jihadabad, Saravan, in a counterinsurgency operation; the IRGC confirmed the death of Brig. Gen. Hossein Zarifi. A second killed officer is reported only by an opposition rights group. Source: The National https://thenationalnews.com/news/mena/2026/09/24/irgc-commander-killed-in-clashes-with-gunmen-in-irans-restive-south-east ; ISW https://understandingwar.org/research/middle-east/iran-update-september-24-2026/ ; https://understandingwar.org/research/middle-east/iran-update-september-23-2026/ ; https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 488, type: 'global',
+    id: 487, type: 'global',
     city: 'Al Tuwal (Jizan Province)', country: 'Saudi Arabia',
     lat: 16.53, lng: 42.97,
     date: 'September 23, 2026', time: 'Day 208',
@@ -7031,7 +7017,7 @@ const strikes = [
     misc: 'FOG OF WAR: Casualty claim from the Houthi spokesman only; unacknowledged by Riyadh. The Houthis said they launched \'preemptive\' strikes on a Saudi border base at al-Tuwal over a reported Saudi troop build-up, and attacked again on Sep 24. Government forces pushed back a Houthi advance aimed at cutting the Taiz-Aden road the same day. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-24-2026/ ; ISW https://understandingwar.org/research/middle-east/iran-update-september-25-2026/',
   },
   {
-    id: 489, type: 'intel',
+    id: 488, type: 'intel',
     city: 'N/A (China to Iran air deliveries)', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'September 23, 2026', time: 'Day 208',
@@ -7046,7 +7032,7 @@ const strikes = [
   },
   // ── Day 209 (September 24, 2026) ──
   {
-    id: 490, type: 'hez',
+    id: 489, type: 'hez',
     city: 'Southern Lebanon', country: 'Lebanon',
     lat: 33.27, lng: 35.43,
     date: 'September 24, 2026', time: 'Day 209',
@@ -7060,7 +7046,7 @@ const strikes = [
     misc: 'The IDF cut its ground presence in southern Lebanon from eight to six brigades after meeting operational objectives (ISW). Israeli shelling and demolitions continued around Froun, Taybeh and Deir Siryan. On Sep 25 PM Nawaf Salam told the UN he wants the ceasefire consolidated, full Israeli withdrawal and state control of all weapons. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-24-2026/ ; Al Jazeera https://www.aljazeera.com/news/2026/9/25/israeli-shelling-continues-as-lebanons-pm-demands-withdrawal-in-un-speech ; Shafaq News https://shafaq.com/en/Middle-East/Israeli-army-strikes-multiple-villages-in-southern-Lebanon',
   },
   {
-    id: 491, type: 'global',
+    id: 490, type: 'global',
     city: 'Taif / Yanbu', country: 'Saudi Arabia',
     lat: 24.09, lng: 38.06,
     date: 'September 24, 2026', time: 'Day 209',
@@ -7075,7 +7061,7 @@ const strikes = [
   },
   // ── Day 210 (September 25, 2026) ──
   {
-    id: 492, type: 'political',
+    id: 491, type: 'political',
     city: 'UN, New York', country: 'United States',
     lat: 40.749, lng: -73.968,
     date: 'September 25, 2026', time: 'Day 210',
@@ -7089,7 +7075,7 @@ const strikes = [
     misc: 'On the UNGA sidelines Araghchi offered a seven-day roadmap: Iran would reopen Hormuz and resume nuclear talks by day seven if the US lifts its naval blockade, waives oil sanctions and observes a ceasefire including Lebanon, conditions he said already sit in the June MOU. Source: Al Jazeera https://www.aljazeera.com/news/2026/9/25/iran-pitches-seven-day-roadmap-to-end-conflict-with-us ; PBS NewsHour https://www.pbs.org/newshour/world/iran-has-suggested-a-deal-to-reopen-the-strait-of-hormuz-in-7-days ; BBC https://www.bbc.com/news/articles/cqgmrr9ekr7ko',
   },
   {
-    id: 493, type: 'global',
+    id: 492, type: 'global',
     city: 'Yanbu / Riyadh', country: 'Saudi Arabia',
     lat: 24.09, lng: 38.06,
     date: 'September 25, 2026', time: 'Day 210',
@@ -7100,11 +7086,11 @@ const strikes = [
     structuralDmg: 'Not reported.',
     humanCasualties: 'Not reported.',
     launchOrigin: 'Yemen (Houthi-controlled)',
-    misc: 'The Houthis launched another missile and drone salvo at the Aramco refinery in Yanbu and at Riyadh, while attacking near the Taiz-Aden road, which government forces kept control of. The Saudi Grand Mufti urged forces to defeat the Houthis after the Sep 24 al-Tuwal attack. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-25-2026/',
+    misc: 'FOG OF WAR: The Houthis claimed they fired ballistic missiles, cruise missiles and drones at the Aramco refinery in Yanbu and an unspecified target in Riyadh (Houthi claim, not independently confirmed), while attacking near the Taiz-Aden road, which government forces kept control of. The Saudi Grand Mufti urged forces to defeat the Houthis after the Sep 24 al-Tuwal attack. Source: ISW https://understandingwar.org/research/middle-east/iran-update-september-25-2026/',
   },
   // ── Day 211 (September 26, 2026) ──
   {
-    id: 494, type: 'political',
+    id: 493, type: 'political',
     city: 'White House, Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'September 26, 2026', time: 'Day 211',
@@ -7118,7 +7104,7 @@ const strikes = [
     misc: 'Trump rejected Iran\'s seven-day Hormuz proposal on Sep 26 at the White House, saying \'I reject their proposal\', that it would not be acceptable and that Iran wants a deal \'because they are losing so badly\'; a White House official said the US has control of the Strait of Hormuz. Araghchi said Tehran \'will not back down\' and was awaiting mediators\' \'definitive views\'. Source: Al Jazeera https://www.aljazeera.com/news/2026/09/26/trump-rejects-irans-seven-day-roadmap-to-reopen-strait-of-hormuz ; ITV https://www.itv.com/news/2026-09-26/donald-trump-rejects-irans-latest-proposal-to-reopen-strait-of-hormuz ; https://www.bbc.com/news/articles/cqgmrr9ekr7ko ; https://abcnews.com/International/live-updates/iran-live-updates-irgc-ready-counteroffensive-us-attacks/?id=136611503 ; https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war',
   },
   {
-    id: 495, type: 'iran',
+    id: 494, type: 'iran',
     city: 'Strait of Hormuz (southern route via Omani waters)', country: 'International waters',
     lat: 26.3, lng: 56.5,
     date: 'September 26, 2026', time: 'Day 211',
@@ -7133,7 +7119,7 @@ const strikes = [
   },
   // ── Day 212 (September 27, 2026) ──
   {
-    id: 496, type: 'naval',
+    id: 495, type: 'naval',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'September 27, 2026', time: 'Day 212',
@@ -7147,7 +7133,7 @@ const strikes = [
     misc: 'FOG OF WAR: The drone seizure is an IRGC claim; no US confirmation found. The IRGC Navy claimed to have seized a US Remus 600 underwater drone in Hormuz, its second such claim this month. Trump said he expects more talks with Iran this week, is \'always thinking about\' new strikes, and claimed over 20 million barrels moved through Hormuz over the weekend. Araghchi said Iran is ready for diplomacy but would stand firm \'even if it comes to a doomsday war\'. Source: ABC News https://abcnews.com/International/live-updates/iran-live-updates-irgc-ready-counteroffensive-us-attacks/?id=136611503 ; Wikipedia timeline https://en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war ; Wikipedia Hormuz crisis https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis',
   },
   {
-    id: 497, type: 'intel',
+    id: 496, type: 'intel',
     city: 'RAF Fairford', country: 'United Kingdom',
     lat: 51.682, lng: -1.79,
     date: 'September 27, 2026', time: 'Day 212',
@@ -7162,7 +7148,7 @@ const strikes = [
   },
   // ── Day 213 (September 28, 2026) ──
   {
-    id: 498, type: 'political',
+    id: 497, type: 'political',
     city: 'New York', country: 'United States',
     lat: 40.749, lng: -73.968,
     date: 'September 28, 2026', time: 'Day 213',
@@ -7176,7 +7162,7 @@ const strikes = [
     misc: 'Iranian FM Abbas Araghchi met Qatari mediators on the UNGA sidelines in New York to discuss proposals to end the war with the US, and also met UN Secretary-General Guterres. Iran\'s 7-point plan (reopen Hormuz within seven days in exchange for ending the US blockade, sanctions relief, unfrozen assets, non-aggression guarantees and a regional ceasefire incl. Lebanon and Yemen) was conveyed via Qatar; Supreme Leader Mojtaba Khamenei issued a statement insisting Iran remains custodian of Hormuz. Source: GlobalSecurity (RFE/RL, UN SG readouts) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-28_index.htm ; Al Jazeera https://www.aljazeera.com/news/2026/10/4/new-aircraft-carrier-10000-us-troops-is-the-iran-war-about-to-escalate',
   },
   {
-    id: 499, type: 'iran',
+    id: 498, type: 'iran',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'September 28, 2026', time: 'Day 213',
@@ -7185,13 +7171,13 @@ const strikes = [
     weaponCap: 'N/A',
     target: 'US Marines',
     structuralDmg: 'Not itemized.',
-    humanCasualties: 'Press TV reported 8 US Marines injured in a \'recent\' Iranian attack; not confirmed by US.',
+    humanCasualties: '8 US Marines injured (Press TV; NBC citing US officials), attack ~mid-Sep',
     launchOrigin: 'Iran',
-    misc: 'FOG OF WAR: Iranian state outlet Press TV reported that eight US Marines were injured in a recent Iranian attack on American forces near the Strait of Hormuz; no US confirmation found and the attack date is unclear. Same day the IRGC spokesman said Hormuz \'is not open\' and had become a \'hunting ground\' for US underwater vehicles. Source: GlobalSecurity (Press TV, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-28_index.htm',
+    misc: 'FOG OF WAR: Iranian state outlet Press TV reported eight US Marines injured in a recent Iranian attack near the Strait of Hormuz. NBC News, citing US officials, later reported (Sep 28) that 8 Marines were injured about two weeks earlier when an Iranian cruise missile hit a vessel they were operating on; the vessel and details remain contested. Same day the IRGC spokesman said Hormuz \'is not open\' and had become a \'hunting ground\' for US underwater vehicles. Source: GlobalSecurity (Press TV, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-28_index.htm ; Maritime Executive https://maritime-executive.com/article/report-eight-u-s-marines-were-injured-in-iranian-strike-on-a-ship',
   },
   // ── Day 214 (September 29, 2026) ──
   {
-    id: 500, type: 'isr',
+    id: 499, type: 'isr',
     city: 'Gaza City (Nasr)', country: 'Palestine (Gaza)',
     lat: 31.53, lng: 34.46,
     date: 'September 29, 2026', time: 'Day 214',
@@ -7205,7 +7191,7 @@ const strikes = [
     misc: 'Israel killed Izz al-Din al-Beik, head of Hamas\'s armed wing in northern Gaza, in a strike on an apartment in Gaza City\'s Nasr neighbourhood; Netanyahu and Katz announced it and Hamas confirmed. Gaza Health Ministry says more than 1,400 Palestinians killed since the October 2025 ceasefire; IDF says it killed 20+ Hamas members in September. Source: Al Jazeera https://www.aljazeera.com/news/2026/9/29/israeli-forces-kill-hamas-commander-izz-al-din-al-beik-in-gaza-attack ; GlobalSecurity (Israel PMO) https://www.globalsecurity.org/military/library/news/2026/09/09-29_index.htm',
   },
   {
-    id: 501, type: 'naval',
+    id: 500, type: 'naval',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'September 29, 2026', time: 'Day 214',
@@ -7219,7 +7205,7 @@ const strikes = [
     misc: 'FOG OF WAR: UKMTO said three tankers were struck by unknown projectiles in the Strait of Hormuz on Sept 29 amid renewed attacks on shipping. On Oct 1 Iran\'s Persian Gulf Strait Authority said the three Emirati tankers hit were already on its non-compliance list, and the IRGC said the US had not responded to its measures against violating vessels. Source: GlobalSecurity (RFE/RL, AZERTAC citing UKMTO) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-30_index.htm ; GlobalSecurity (Press TV) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-01_index.htm',
   },
   {
-    id: 502, type: 'global',
+    id: 501, type: 'global',
     city: 'Madinah', country: 'Saudi Arabia',
     lat: 24.47, lng: 39.61,
     date: 'September 29, 2026', time: 'Day 214',
@@ -7233,7 +7219,7 @@ const strikes = [
     misc: 'FOG OF WAR: The Saudi-led coalition said a Houthi drone struck the Taibah power distribution station in Madinah that supplies the Prophet\'s Mosque, a major escalation in the Houthi campaign against the kingdom. Pakistan called it a \'grave provocation\', the GCC called it a flagrant violation of holy sites, and the UAE condemned it; Yemen\'s government army struck Sanaa afterward. Source: GlobalSecurity (Pakistan MOFA) https://www.globalsecurity.org/military/library/news/2026/10/10-02_index.htm ; Express Tribune https://tribune.com.pk/story/2632566/pakistan-calls-houthi-attack-on-madinah-power-station-grave-provocation ; GlobalSecurity (GCC) https://www.globalsecurity.org/military/library/news/2026/10/10-01_index.htm',
   },
   {
-    id: 503, type: 'us',
+    id: 502, type: 'us',
     city: 'Washington', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'September 29, 2026', time: 'Day 214',
@@ -7247,7 +7233,7 @@ const strikes = [
     misc: 'Under \'Operation Economic Outcast\' Treasury sanctioned 10 individuals/entities procuring weapons for Iran\'s MODAFL and State designated further Iran- and Russia-based entities, marking a year since UN snapback. Trump denied reports he offered sanctions relief or frozen funds for nuclear concessions, saying he offered Iran \'nothing\'. Source: GlobalSecurity (US Treasury, State, RFE/RL) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-29_index.htm',
   },
   {
-    id: 504, type: 'global',
+    id: 503, type: 'global',
     city: 'Yemen (five provinces)', country: 'Yemen',
     lat: 15.5, lng: 44.0,
     date: 'September 29, 2026', time: 'Day 214',
@@ -7262,7 +7248,7 @@ const strikes = [
   },
   // ── Day 215 (September 30, 2026) ──
   {
-    id: 505, type: 'us',
+    id: 504, type: 'us',
     city: 'Erbil Air Base', country: 'Iraq',
     lat: 36.237, lng: 43.963,
     date: 'September 30, 2026', time: 'Day 215',
@@ -7276,7 +7262,7 @@ const strikes = [
     misc: 'CENTCOM completed the orderly departure of US forces and equipment from Erbil Air Base on Sept 30, ending the Operation Inherent Resolve mission in Iraq; Baghdad had set Sept 30 as the \'fixed and final\' date and declared the coalition mission over. The IRGC, Hezbollah and Iraqi armed factions hailed it as an \'expulsion\'; Kata\'ib Sayyid al-Shuhada rejected disarmament. Source: GlobalSecurity (CENTCOM) https://www.globalsecurity.org/military/library/news/2026/09/09-30_index.htm ; Anadolu Agency https://www.aa.com.tr/en/world/timeline-us-ends-military-presence-in-iraq-after-23-years/4073521',
   },
   {
-    id: 506, type: 'global',
+    id: 505, type: 'global',
     city: 'Tabuk', country: 'Saudi Arabia',
     lat: 28.365, lng: 36.618,
     date: 'September 30, 2026', time: 'Day 215',
@@ -7290,7 +7276,7 @@ const strikes = [
     misc: 'FOG OF WAR: On flydubai\'s Dubai-Tel Aviv flight the co-pilot attacked the pilot with a crash axe and tried to seize the controls; passengers subdued him and the plane made an emergency landing in Saudi Arabia (reported near Tabuk; coordinates approximate). Israel and the UAE called it a terrorist attack; the UAE leads the probe and flydubai suspended Israel flights. Netanyahu said the attacker was Omani, unconfirmed by Oman. Source: NPR https://www.hppr.org/npr-news/2026-09-30/a-pilot-stabs-another-pilot-and-tries-to-crash-their-flight-to-tel-aviv-israel-says ; The National https://www.thenationalnews.com/news/gulf/2026/09/30/flydubai-flight-to-tel-aviv-diverted-to-saudi-arabia-after-incident-on-board/',
   },
   {
-    id: 507, type: 'political',
+    id: 506, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'September 30, 2026', time: 'Day 215',
@@ -7304,7 +7290,7 @@ const strikes = [
     misc: 'Iran received the US response to its seven-point plan via Qatari mediators; FM Araghchi presented the US proposal to President Pezeshkian at a cabinet meeting. On Oct 4 Iran said it was reviewing the US counter-proposal and would send additional points; US envoy Waltz called frozen funds and sanctions relief non-negotiable. Source: GlobalSecurity (RFE/RL) https://www.globalsecurity.org/wmd/library/news/iran/2026/09/09-30_index.htm ; GlobalSecurity (IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-04_index.htm',
   },
   {
-    id: 508, type: 'hez',
+    id: 507, type: 'hez',
     city: 'South Lebanon', country: 'Lebanon',
     lat: 33.27, lng: 35.4,
     date: 'September 30, 2026', time: 'Day 215',
@@ -7318,7 +7304,7 @@ const strikes = [
     misc: 'Press TV reported a new wave of Israeli strikes on southern Lebanon despite the framework truce with Hezbollah. UNICEF said four in five Lebanese households struggle to afford basics, and on Oct 1 that Israeli offensives since March had killed 261 children and wounded 1,056. Lebanon\'s Health Ministry put total deaths from Israeli attacks since March 2 above 4,300 (as of ~Oct 11). Source: GlobalSecurity (Press TV, UNICEF) https://www.globalsecurity.org/military/library/news/2026/09/09-30_index.htm ; GlobalSecurity (Press TV/UNICEF) https://www.globalsecurity.org/military/library/news/2026/10/10-01_index.htm ; Al Jazeera https://www.aljazeera.com/news/2026/10/11/two-killed-near-israeli-occupied-area-in-south-lebanon',
   },
   {
-    id: 509, type: 'isr',
+    id: 508, type: 'isr',
     city: 'Gaza Strip', country: 'Palestine (Gaza)',
     lat: 31.45, lng: 34.4,
     date: 'September 30, 2026', time: 'Day 215',
@@ -7332,7 +7318,7 @@ const strikes = [
     misc: 'At least six Palestinians were killed in Israeli attacks across Gaza on Sept 30, per medical sources, amid continuing ceasefire violations. The Gaza Media Office claims more than 5,100 Israeli violations and 1,421 killed since the ceasefire; on Oct 1 recovery teams retrieved remains of 105 Palestinians from one destroyed residential block in Gaza City. Source: GlobalSecurity (Press TV) https://www.globalsecurity.org/military/library/news/2026/09/09-30_index.htm ; GlobalSecurity (Press TV) https://www.globalsecurity.org/military/library/news/2026/09/09-29_index.htm ; GlobalSecurity (Press TV) https://www.globalsecurity.org/military/library/news/2026/10/10-01_index.htm',
   },
   {
-    id: 510, type: 'political',
+    id: 509, type: 'political',
     city: 'London', country: 'United Kingdom',
     lat: 51.5, lng: -0.13,
     date: 'September 30, 2026', time: 'Day 215',
@@ -7347,7 +7333,7 @@ const strikes = [
   },
   // ── Day 216 (October 1, 2026) ──
   {
-    id: 511, type: 'global',
+    id: 510, type: 'global',
     city: 'Khamis Mushait / Jazan', country: 'Saudi Arabia',
     lat: 18.3, lng: 42.73,
     date: 'October 1, 2026', time: 'Day 216',
@@ -7361,7 +7347,7 @@ const strikes = [
     misc: 'The Saudi-led coalition said two ballistic missiles and four UAVs were intercepted over Khamis Mushait and Jazan; Saudi civil defense said debris caused material damage. Another missile toward Khamis Mushait was intercepted Oct 2. A US Department of Energy employee was arrested in Washington state on charges of attempting to aid the Houthis. Source: GlobalSecurity (SPA) https://www.globalsecurity.org/military/library/news/2026/10/10-01_index.htm ; GlobalSecurity (SPA) https://www.globalsecurity.org/military/library/news/2026/10/10-02_index.htm',
   },
   {
-    id: 512, type: 'political',
+    id: 511, type: 'political',
     city: 'New York', country: 'United States',
     lat: 40.749, lng: -73.968,
     date: 'October 1, 2026', time: 'Day 216',
@@ -7375,7 +7361,7 @@ const strikes = [
     misc: 'The UN General Assembly debated China\'s and Russia\'s veto of a US-backed Security Council resolution that would have renewed the Iran sanctions Panel of Experts; the UK said UN proliferation sanctions on Iran remain in force. NATO chief Rutte called the US strikes on Iran\'s nuclear program \'absolutely essential\'. US Treasury targeted Iran\'s rail and auto conglomerates and the Russia-linked A7 shadow-banking network. Source: GlobalSecurity (UN News, UK FCDO, US Treasury, RFE/RL) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-01_index.htm',
   },
   {
-    id: 513, type: 'naval',
+    id: 512, type: 'naval',
     city: 'San Diego (departure)', country: 'United States',
     lat: 32.71, lng: -117.16,
     date: 'October 1, 2026', time: 'Day 216',
@@ -7390,7 +7376,7 @@ const strikes = [
   },
   // ── Day 217 (October 2, 2026) ──
   {
-    id: 514, type: 'energy',
+    id: 513, type: 'energy',
     city: 'Persian Gulf', country: 'International waters',
     lat: 26.5, lng: 52.0,
     date: 'October 2, 2026', time: 'Day 217',
@@ -7405,7 +7391,7 @@ const strikes = [
   },
   // ── Day 218 (October 3, 2026) ──
   {
-    id: 515, type: 'global',
+    id: 514, type: 'global',
     city: 'Riyadh area (Aramco site)', country: 'Saudi Arabia',
     lat: 24.71, lng: 46.68,
     date: 'October 3, 2026', time: 'Day 218',
@@ -7420,7 +7406,7 @@ const strikes = [
   },
   // ── Day 220 (October 5, 2026) ──
   {
-    id: 516, type: 'global',
+    id: 515, type: 'global',
     city: 'Mokha', country: 'Yemen',
     lat: 13.32, lng: 43.25,
     date: 'October 5, 2026', time: 'Day 220',
@@ -7434,7 +7420,7 @@ const strikes = [
     misc: 'FOG OF WAR: Yemen\'s internationally recognized government announced a major offensive (\'Dawn of Yemen\') against the Houthis on Oct 4 and on Oct 5 recaptured the Red Sea port of Mokha, which the Houthis had seized in September; government forces claimed effective control of Bab al-Mandab, though fighting continued and on Oct 10 AFP said the strait was not yet secured (63 killed in 24h). Source: GlobalSecurity (RFE/RL, AZERTAC/SABA) https://www.globalsecurity.org/military/library/news/2026/10/10-05_index.htm ; GlobalSecurity (RFE/RL/AFP) https://www.globalsecurity.org/military/library/news/2026/10/10-10_index.htm ; Al Jazeera https://www.aljazeera.com/news/2026/10/13/houthis-threaten-saudi-arabias-aramco-facilities-and-airports',
   },
   {
-    id: 517, type: 'political',
+    id: 516, type: 'political',
     city: 'Riyadh', country: 'Saudi Arabia',
     lat: 24.71, lng: 46.68,
     date: 'October 5, 2026', time: 'Day 220',
@@ -7448,7 +7434,7 @@ const strikes = [
     misc: 'Saudi Arabia, Pakistan and Turkey held an emergency Makkah (Mecca) Alliance for Defense committee meeting in Riyadh; on Oct 6 Pakistan and Turkey agreed to provide forces and capabilities with rapid deployment to Saudi Arabia under the pact\'s mutual-defense clause. Saudi Arabia condemned Houthi attacks on Makkah, Madinah, Riyadh, Abha, Khamis Mushait, Jazan, Najran, Taif and Yanbu and on Saudi vessels in the Red Sea. Source: GlobalSecurity (SPA) https://www.globalsecurity.org/military/library/news/2026/10/10-04_index.htm ; GlobalSecurity (People\'s Daily) https://www.globalsecurity.org/military/library/news/2026/10/10-06_index.htm ; GlobalSecurity (RFE/RL) https://www.globalsecurity.org/military/library/news/2026/10/10-07_index.htm',
   },
   {
-    id: 518, type: 'isr',
+    id: 517, type: 'isr',
     city: 'Gaza Strip', country: 'Palestine (Gaza)',
     lat: 31.45, lng: 34.4,
     date: 'October 5, 2026', time: 'Day 220',
@@ -7463,7 +7449,7 @@ const strikes = [
   },
   // ── Day 221 (October 6, 2026) ──
   {
-    id: 519, type: 'naval',
+    id: 518, type: 'naval',
     city: 'Strait of Hormuz (off Lima, Musandam)', country: 'Oman',
     lat: 25.95, lng: 56.42,
     date: 'October 6, 2026', time: 'Day 221',
@@ -7477,7 +7463,7 @@ const strikes = [
     misc: 'The Panama-flagged tanker On Peace was struck by a projectile about 9 nm northeast of Lima in Oman\'s Musandam governorate, injuring 12 crew, 11 of them Indian; Oman airlifted the injured to Khasab. No attribution; India condemned attacks on shipping. Separately the US said 13 ships had been destroyed in its Iran blockade since July. Source: Baird Maritime https://www.bairdmaritime.com/amp/story/security/incidents/on-peace-tanker-attack-hormuz ; GlobalSecurity (RFE/RL) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-06_index.htm',
   },
   {
-    id: 520, type: 'us',
+    id: 519, type: 'us',
     city: 'Gulf of Oman', country: 'International waters',
     lat: 24.5, lng: 58.5,
     date: 'October 6, 2026', time: 'Day 221',
@@ -7491,7 +7477,7 @@ const strikes = [
     misc: 'CENTCOM said on Oct 14 that on Oct 6 US forces destroyed an Iranian-affiliated dhow in the Gulf of Oman after observing surveillance and targeting activity against US Navy ships; the crew was removed before the strike and repatriation was under way. Source: gCaptain https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/ ; GlobalSecurity (RFE/RL) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-15_index.htm',
   },
   {
-    id: 521, type: 'global',
+    id: 520, type: 'global',
     city: 'Jazan / Najran airports', country: 'Saudi Arabia',
     lat: 16.9, lng: 42.586,
     date: 'October 6, 2026', time: 'Day 221',
@@ -7506,7 +7492,7 @@ const strikes = [
   },
   // ── Day 222 (October 7, 2026) ──
   {
-    id: 522, type: 'global',
+    id: 521, type: 'global',
     city: 'Riyadh (King Khalid Intl Airport) / Abha', country: 'Saudi Arabia',
     lat: 24.957, lng: 46.698,
     date: 'October 7, 2026', time: 'Day 222',
@@ -7520,7 +7506,7 @@ const strikes = [
     misc: 'The Houthis claimed a ballistic-missile strike on Riyadh\'s King Khalid International Airport and attacks on Abha airport; Saudi aviation authority GACA confirmed both were targeted on Oct 6-7. Three foreign nationals were killed and 36 injured. Another missile was intercepted north of Riyadh and the coalition said it destroyed the Sanaa launcher used. Source: The National https://www.thenationalnews.com/news/gulf/2026/10/12/timeline-houthis-escalate-attacks-on-saudi-airports/ ; GlobalSecurity (SPA, RFE/RL, OIC) https://www.globalsecurity.org/military/library/news/2026/10/10-07_index.htm',
   },
   {
-    id: 523, type: 'political',
+    id: 522, type: 'political',
     city: 'Washington', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'October 7, 2026', time: 'Day 222',
@@ -7535,7 +7521,7 @@ const strikes = [
   },
   // ── Day 223 (October 8, 2026) ──
   {
-    id: 524, type: 'global',
+    id: 523, type: 'global',
     city: 'Riyadh (King Khalid Intl Airport)', country: 'Saudi Arabia',
     lat: 24.957, lng: 46.698,
     date: 'October 8, 2026', time: 'Day 223',
@@ -7549,7 +7535,7 @@ const strikes = [
     misc: 'At least one more attack hit Riyadh\'s airport, killing three Saudi citizens including an airline pilot and damaging a Saudia aircraft; the OIC and GCC condemned it and Poland condemned drone and missile attacks on Riyadh and Abha airports on Oct 7-8. Source: The National https://www.thenationalnews.com/news/gulf/2026/10/12/timeline-houthis-escalate-attacks-on-saudi-airports/ ; GlobalSecurity (OIC, GCC) https://www.globalsecurity.org/military/library/news/2026/10/10-09_index.htm ; GlobalSecurity (Poland MFA) https://www.globalsecurity.org/military/library/news/2026/10/10-08_index.htm',
   },
   {
-    id: 525, type: 'political',
+    id: 524, type: 'political',
     city: 'Washington', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'October 8, 2026', time: 'Day 223',
@@ -7563,7 +7549,7 @@ const strikes = [
     misc: 'Trump posted that the US \'will not be attacking Iran at any time prior to the Midterm Elections\' on Nov 3, calling talks with Tehran productive while the naval blockade stays. Araghchi said Iran would reply to the US counter-proposal within days via mediators. Treasury sanctioned 17 shadow-fleet vessels and firms. Source: AP via Hawaii News Now https://www.hawaiinewsnow.com/2026/10/08/trump-says-us-will-not-resume-military-strikes-iran-before-midterm-elections/ ; GlobalSecurity (People\'s Daily, RFE/RL) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-09_index.htm ; GlobalSecurity (IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-08_index.htm',
   },
   {
-    id: 526, type: 'political',
+    id: 525, type: 'political',
     city: 'Ashgabat', country: 'Turkmenistan',
     lat: 37.95, lng: 58.38,
     date: 'October 8, 2026', time: 'Day 223',
@@ -7577,7 +7563,7 @@ const strikes = [
     misc: 'President Pezeshkian met Vladimir Putin in Turkmenistan and said Iran will not leave the negotiating table; Putin said Moscow was ready to do everything in its power to help Tehran resolve the regional conflict. Shipping data showed Hormuz transits at their lowest in more than two months. Source: GlobalSecurity (Press TV, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-08_index.htm ; GlobalSecurity (People\'s Daily) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-09_index.htm',
   },
   {
-    id: 527, type: 'hez',
+    id: 526, type: 'hez',
     city: 'South Lebanon', country: 'Lebanon',
     lat: 33.2, lng: 35.4,
     date: 'October 8, 2026', time: 'Day 223',
@@ -7592,7 +7578,7 @@ const strikes = [
   },
   // ── Day 224 (October 9, 2026) ──
   {
-    id: 528, type: 'naval',
+    id: 527, type: 'naval',
     city: 'San Diego', country: 'United States',
     lat: 32.71, lng: -117.16,
     date: 'October 9, 2026', time: 'Day 224',
@@ -7606,7 +7592,7 @@ const strikes = [
     misc: 'USS Abraham Lincoln (CVN 72) returned to San Diego after a 321-day combat deployment that included the North Arabian Sea. The IRGC Navy renewed warnings against vessels using a \'restricted zone\' south of Hormuz and reported a new fire on a tanker using an \'illegal route\'. Source: GlobalSecurity (US Navy, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-09_index.htm',
   },
   {
-    id: 529, type: 'political',
+    id: 528, type: 'political',
     city: 'New York', country: 'United States',
     lat: 40.749, lng: -73.968,
     date: 'October 9, 2026', time: 'Day 224',
@@ -7621,7 +7607,7 @@ const strikes = [
   },
   // ── Day 225 (October 10, 2026) ──
   {
-    id: 530, type: 'global',
+    id: 529, type: 'global',
     city: 'Riyadh (King Khalid Intl Airport)', country: 'Saudi Arabia',
     lat: 24.957, lng: 46.698,
     date: 'October 10, 2026', time: 'Day 225',
@@ -7635,7 +7621,7 @@ const strikes = [
     misc: 'A Houthi missile struck Riyadh\'s King Khalid International Airport, killing 12 and injuring 309 per Saudi authorities, the deadliest attack in the Houthi campaign against the kingdom; the toll reached 13. The Houthis claimed it on Oct 11, vowing \'airport for airport\' escalation; Guterres condemned it and airlines incl. Etihad, Lufthansa, Delta and Qatar Airways suspended flights. Source: Khaleej Times https://www.khaleejtimes.com/gulf/saudi-arabia-attack-king-khalid-international-airport-october-10-2026 ; The National https://www.thenationalnews.com/news/gulf/2026/10/12/timeline-houthis-escalate-attacks-on-saudi-airports/ ; Khaleej Times live https://www.khaleejtimes.com/world/mena/worldmenaus-israel-iran-lebanon-war-live-updates-october-11-2026',
   },
   {
-    id: 531, type: 'global',
+    id: 530, type: 'global',
     city: 'Houthi-held Yemen', country: 'Yemen',
     lat: 15.37, lng: 44.19,
     date: 'October 10, 2026', time: 'Day 225',
@@ -7649,7 +7635,7 @@ const strikes = [
     misc: 'FOG OF WAR: The Saudi-led coalition said a large-scale operation destroyed 136 Houthi military targets; Houthi media reported civilian casualties. Yemeni government forces claimed 1,732 strikes on the Houthis (Oct 11 report). Source: GlobalSecurity (SPA, Press TV) https://www.globalsecurity.org/military/library/news/2026/10/10-10_index.htm ; Khaleej Times live https://www.khaleejtimes.com/world/mena/worldmenaus-israel-iran-lebanon-war-live-updates-october-11-2026',
   },
   {
-    id: 532, type: 'us',
+    id: 531, type: 'us',
     city: 'Gulf of Oman', country: 'International waters',
     lat: 24.5, lng: 58.5,
     date: 'October 10, 2026', time: 'Day 225',
@@ -7664,7 +7650,7 @@ const strikes = [
   },
   // ── Day 226 (October 11, 2026) ──
   {
-    id: 533, type: 'global',
+    id: 532, type: 'global',
     city: 'Riyadh (King Khalid Intl Airport) / Dammam', country: 'Saudi Arabia',
     lat: 24.957, lng: 46.698,
     date: 'October 11, 2026', time: 'Day 226',
@@ -7678,7 +7664,7 @@ const strikes = [
     misc: 'A projectile hit Terminals 3 and 4 at Riyadh\'s airport, killing a Pakistani citizen and wounding 11, the fourth strike on Riyadh in five days; a projectile also fell near Dammam\'s King Fahd airport. Some reports dated this attack Oct 12; The National and the Khaleej Times live blog place it on Sunday Oct 11. Source: The National https://www.thenationalnews.com/news/gulf/2026/10/12/timeline-houthis-escalate-attacks-on-saudi-airports/ ; GlobalSecurity (AZERTAC, RFE/RL) https://www.globalsecurity.org/military/library/news/2026/10/10-12_index.htm ; Khaleej Times live https://www.khaleejtimes.com/world/mena/worldmenaus-israel-iran-lebanon-war-live-updates-october-11-2026',
   },
   {
-    id: 534, type: 'iran',
+    id: 533, type: 'iran',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'October 11, 2026', time: 'Day 226',
@@ -7692,7 +7678,7 @@ const strikes = [
     misc: 'FOG OF WAR: The IRGC Navy said a \'violating\' supertanker exploded after hitting a naval mine while exiting Hormuz via an unauthorized route, calling it the third tanker to hit a mine, and warned ships that switch off AIS; vessel not independently identified. Iran\'s FM spoke with Saudi FM Faisal bin Farhan in their first reported contact since Houthi attacks intensified. Source: GlobalSecurity (IRNA, Press TV) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-11_index.htm ; GlobalSecurity (AZERTAC) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-12_index.htm',
   },
   {
-    id: 535, type: 'hez',
+    id: 534, type: 'hez',
     city: 'Bint Jbeil district', country: 'Lebanon',
     lat: 33.12, lng: 35.43,
     date: 'October 11, 2026', time: 'Day 226',
@@ -7707,7 +7693,7 @@ const strikes = [
   },
   // ── Day 227 (October 12, 2026) ──
   {
-    id: 536, type: 'political',
+    id: 535, type: 'political',
     city: 'London', country: 'United Kingdom',
     lat: 51.5, lng: -0.13,
     date: 'October 12, 2026', time: 'Day 227',
@@ -7721,7 +7707,7 @@ const strikes = [
     misc: 'PM Burnham told parliament the Sept 27 RAF Fairford plot was \'almost certainly\' directed by Iran\'s IRGC; FS Miliband sanctioned IRGC counterespionage chief Ruhollah Bazghandi and a Zindashti network facilitator and summoned Iran\'s ambassador. 29 countries incl. the US issued a joint statement backing the attribution; Iran denied it and on Oct 13 summoned the UK envoy again. Source: Al Jazeera https://www.aljazeera.com/news/2026/10/12/uk-blames-iran-for-airbase-plot-sanctions-two-iranian-nationals ; GlobalSecurity (US State, UK FCDO, RFE/RL) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-12_index.htm ; GlobalSecurity (Press TV) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-13_index.htm',
   },
   {
-    id: 537, type: 'political',
+    id: 536, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 12, 2026', time: 'Day 227',
@@ -7735,7 +7721,7 @@ const strikes = [
     misc: 'FOG OF WAR: SNSC Secretary Mohsen Rezaei said the US accepted some of Iran\'s seven conditions for restarting negotiations but called the response \'inadequate\'; Iran said Washington must clarify unresolved points. The Foreign Ministry rejected Trump\'s claim that Hormuz flows had returned to pre-war levels, saying security will not return while the blockade continues. Source: GlobalSecurity (Press TV, RFE/RL, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-12_index.htm ; Khaleej Times live https://www.khaleejtimes.com/world/mena/worldmenaus-israel-iran-lebanon-war-live-updates-october-11-2026',
   },
   {
-    id: 538, type: 'isr',
+    id: 537, type: 'isr',
     city: 'Khan Younis / Jabalia', country: 'Palestine (Gaza)',
     lat: 31.35, lng: 34.3,
     date: 'October 12, 2026', time: 'Day 227',
@@ -7750,7 +7736,7 @@ const strikes = [
   },
   // ── Day 228 (October 13, 2026) ──
   {
-    id: 539, type: 'global',
+    id: 538, type: 'global',
     city: 'Sanaa (al-Sabah oil station)', country: 'Yemen',
     lat: 15.37, lng: 44.19,
     date: 'October 13, 2026', time: 'Day 228',
@@ -7764,7 +7750,7 @@ const strikes = [
     misc: 'FOG OF WAR: After warning civilians to evacuate, the Saudi-led coalition struck the Yemeni Oil Company\'s al-Sabah central station on Sanaa\'s outskirts, saying its depots held Houthi missiles and drones, and hit oil storage at Ras Isa and Hodeidah. The Houthis called it a war crime and declared Saudi Aramco facilities and airports \'legitimate targets\'. Source: Al Jazeera https://www.aljazeera.com/news/2026/10/13/houthis-threaten-saudi-arabias-aramco-facilities-and-airports ; GlobalSecurity (RFE/RL, Press TV, SPA) https://www.globalsecurity.org/military/library/news/2026/10/10-13_index.htm',
   },
   {
-    id: 540, type: 'global',
+    id: 539, type: 'global',
     city: 'Dhahran', country: 'Saudi Arabia',
     lat: 26.29, lng: 50.11,
     date: 'October 13, 2026', time: 'Day 228',
@@ -7779,7 +7765,7 @@ const strikes = [
   },
   // ── Day 229 (October 14, 2026) ──
   {
-    id: 541, type: 'naval',
+    id: 540, type: 'naval',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'October 14, 2026', time: 'Day 229',
@@ -7793,7 +7779,7 @@ const strikes = [
     misc: 'FOG OF WAR on cause: the Singapore-flagged container ship GFS Pride caught fire and sank in the Strait of Hormuz; Reuters sources said a projectile, while the IRGC Navy said it hit a mine on an \'unauthorized route\'. The Antigua-flagged bulk carrier Cape Dao, hit Sept 23, was also confirmed sunk. RFE/RL said attacks on Hormuz shipping hit a wartime high with at least 10 ships attacked in recent days. Source: Reuters via Hawaii Tribune-Herald https://www.hawaiitribune-herald.com/2026/10/15/nation-world-news/two-ships-sink-near-hormuz-after-being-hit-by-projectiles-amid-surge-in-attacks/ ; GlobalSecurity (RFE/RL, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-14_index.htm ; gCaptain https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/',
   },
   {
-    id: 542, type: 'political',
+    id: 541, type: 'political',
     city: 'Riyadh', country: 'Saudi Arabia',
     lat: 24.71, lng: 46.68,
     date: 'October 14, 2026', time: 'Day 229',
@@ -7808,7 +7794,7 @@ const strikes = [
   },
   // ── Day 230 (October 15, 2026) ──
   {
-    id: 543, type: 'political',
+    id: 542, type: 'political',
     city: 'New York', country: 'United States',
     lat: 40.749, lng: -73.968,
     date: 'October 15, 2026', time: 'Day 230',
@@ -7822,7 +7808,7 @@ const strikes = [
     misc: 'The UN Security Council adopted a presidential statement condemning escalating Houthi attacks on Saudi Arabia that hit civil aviation and energy infrastructure. The GCC and EU postponed their Oct 24 Riyadh summit over security concerns and the extended suspension of flights at King Khalid airport. The Houthis claimed to have downed a Saudi Typhoon over Saada (unconfirmed). Source: GlobalSecurity (UNSC, GCC, RFE/RL, IRNA) https://www.globalsecurity.org/military/library/news/2026/10/10-15_index.htm',
   },
   {
-    id: 544, type: 'energy',
+    id: 543, type: 'energy',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'October 15, 2026', time: 'Day 230',
@@ -7837,7 +7823,7 @@ const strikes = [
   },
   // ── Day 231 (October 16, 2026) ──
   {
-    id: 545, type: 'political',
+    id: 544, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 16, 2026', time: 'Day 231',
@@ -7852,7 +7838,7 @@ const strikes = [
   },
   // ── Day 232 (October 17, 2026) ──
   {
-    id: 546, type: 'iran',
+    id: 545, type: 'iran',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'October 17, 2026', time: 'Day 232',
@@ -7866,7 +7852,7 @@ const strikes = [
     misc: 'FOG OF WAR: The IRGC Navy said a supertanker with more than 2 million barrels of crude exploded and caught fire after hitting a naval mine on an unauthorized route through Hormuz, and reported a second supertanker explosion; vessels not independently identified. CENTCOM\'s commander said the blockade has kept at least $25 billion of Iranian crude off the market and about $350 million in Iranian crypto has been frozen. Source: GlobalSecurity (RFE/RL, IRNA, AZERTAC) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-17_index.htm ; GlobalSecurity (RFE/RL) https://www.globalsecurity.org/military/library/news/2026/10/10-17_index.htm',
   },
   {
-    id: 547, type: 'global',
+    id: 546, type: 'global',
     city: 'Saada', country: 'Yemen',
     lat: 16.94, lng: 43.76,
     date: 'October 17, 2026', time: 'Day 232',
@@ -7881,7 +7867,7 @@ const strikes = [
   },
   // ── Day 233 (October 18, 2026) ──
   {
-    id: 548, type: 'political',
+    id: 547, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 18, 2026', time: 'Day 233',
@@ -7895,7 +7881,7 @@ const strikes = [
     misc: 'Iran\'s parliament approved UN-sanctioned missile-industry veteran Mehrdad Akhlaghi Ketabchi as defense minister (237-15), and he warned the US would pay heavily for another attack. FM Araghchi said that if the US meets Iran\'s conditions, Hormuz would open on day six and negotiations begin on day seven; Vance said the US had \'won decisively\' against Iran\'s nuclear program. Source: GlobalSecurity (RFE/RL, IRNA, Sputnik) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-18_index.htm',
   },
   {
-    id: 549, type: 'global',
+    id: 548, type: 'global',
     city: 'Yemen / Najran', country: 'Yemen / Saudi Arabia',
     lat: 17.49, lng: 44.13,
     date: 'October 18, 2026', time: 'Day 233',
@@ -7910,7 +7896,7 @@ const strikes = [
   },
   // ── Day 234 (October 19, 2026) ──
   {
-    id: 550, type: 'global',
+    id: 549, type: 'global',
     city: 'Jardan district (al-Alam camp), Shabwa', country: 'Yemen',
     lat: 14.75, lng: 46.75,
     date: 'October 19, 2026', time: 'Day 234',
@@ -7924,7 +7910,7 @@ const strikes = [
     misc: 'Houthi ballistic missiles struck a Yemeni government military training camp north of Ataq, the deadliest attack in months as the Yemen front widened. Coordinates approximate. Source: AP via NY1 https://ny1.com/nyc/all-boroughs/ap-top-news/2026/10/20/death-toll-rises-to-60-in-houthi-strike-on-yemen-training-camp-in-deadliest-attack-in-months ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares',
   },
   {
-    id: 551, type: 'political',
+    id: 550, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 19, 2026', time: 'Day 234',
@@ -7935,10 +7921,10 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: 'N/A',
     launchOrigin: 'Russia',
-    misc: 'Russian FM Lavrov met Iranian FM Araghchi in Tehran; Moscow offered to process Iran\'s 60%-enriched uranium as differences over US-Iran talks persisted. Source: Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares ; Al Jazeera (Oct 31 photo caption, Reuters) https://www.aljazeera.com/news/liveblog/2026/10/31/iran-war-live-oil-tankers-hit-in-hormuz-trump-says-conflict-will-end-soon',
+    misc: 'FOG OF WAR: Russian FM Lavrov met Iranian FM Araghchi in Tehran; Moscow offered to process Iran\'s 60%-enriched uranium as differences over US-Iran talks persisted. Source: Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares ; Al Jazeera (Oct 31 photo caption, Reuters) https://www.aljazeera.com/news/liveblog/2026/10/31/iran-war-live-oil-tankers-hit-in-hormuz-trump-says-conflict-will-end-soon',
   },
   {
-    id: 552, type: 'energy',
+    id: 551, type: 'energy',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'October 19, 2026', time: 'Day 234',
@@ -7953,7 +7939,7 @@ const strikes = [
   },
   // ── Day 235 (October 20, 2026) ──
   {
-    id: 553, type: 'political',
+    id: 552, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 20, 2026', time: 'Day 235',
@@ -7964,11 +7950,11 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: 'N/A',
     launchOrigin: 'Iran / US',
-    misc: 'Araghchi said the Strait of Hormuz will remain closed until Washington accepts Tehran\'s conditions, amid indirect talks via Pakistan and Qatar. Hegseth said US forces are ready for further military action if Trump orders it. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/20/draft-3',
+    misc: 'FOG OF WAR: Araghchi said the Strait of Hormuz will remain closed until Washington accepts Tehran\'s conditions, amid indirect talks via Pakistan and Qatar. Hegseth said US forces are ready for further military action if Trump orders it. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/20/draft-3',
   },
   // ── Day 236 (October 21, 2026) ──
   {
-    id: 554, type: 'global',
+    id: 553, type: 'global',
     city: 'Sheeb border crossing, Maysan', country: 'Iraq',
     lat: 32.3, lng: 47.65,
     date: 'October 21, 2026', time: 'Day 236',
@@ -7982,7 +7968,7 @@ const strikes = [
     misc: 'FOG OF WAR: Iraq closed the Sheeb crossing with Iran until further notice (passengers, vehicles, trucks), citing a security review and new detection equipment against smuggling; an Iranian official said Iraq\'s government made the decision. Coordinates approximate. Source: Reuters via The Star https://www.thestar.com.my/news/world/2026/10/21/iraq-closes-sheeb-border-crossing-with-iran-to-review-security-sources-say',
   },
   {
-    id: 555, type: 'global',
+    id: 554, type: 'global',
     city: 'Dammam (King Fahd Intl Airport) and Shaybah oilfield', country: 'Saudi Arabia',
     lat: 26.47, lng: 49.8,
     date: 'October 21, 2026', time: 'Day 236',
@@ -7996,7 +7982,7 @@ const strikes = [
     misc: 'FOG OF WAR: Drone attacks hit Dammam\'s airport in the evening after a morning drone was intercepted over Shaybah; the Saudi-led coalition also downed four drones over the Eastern Province. Shaybah is at approx 22.52N 53.97E. Source: Khaleej Times https://khaleejtimes.com/world/gulf/saudi-arabia-attack-oil-field-aramco-king-fahd-airport-residents-killed ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult',
   },
   {
-    id: 556, type: 'political',
+    id: 555, type: 'political',
     city: 'Middle East (regional)', country: 'International',
     lat: 29.0, lng: 48.0,
     date: 'October 21, 2026', time: 'Day 236',
@@ -8007,10 +7993,10 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: 'N/A',
     launchOrigin: 'US',
-    misc: 'US military officials reported a reduction in troop presence across Middle East bases, and staff cuts were ordered at several US diplomatic missions as threat of new US-Iran fighting grew. Coordinates are a regional placeholder. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult',
+    misc: 'FOG OF WAR: US military officials reported a reduction in troop presence across Middle East bases, and staff cuts were ordered at several US diplomatic missions as threat of new US-Iran fighting grew. Coordinates are a regional placeholder. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult',
   },
   {
-    id: 557, type: 'hez',
+    id: 556, type: 'hez',
     city: 'Kfar Tebnit, Nabatieh', country: 'Lebanon',
     lat: 33.35, lng: 35.53,
     date: 'October 21, 2026', time: 'Day 236',
@@ -8021,11 +8007,11 @@ const strikes = [
     structuralDmg: 'Not itemized.',
     humanCasualties: 'No immediate casualty reports',
     launchOrigin: 'Israel',
-    misc: 'Israeli air strikes and large explosions were reported across southern Lebanon, including Kfar Tebnit; explosions were also reported in Haddatha on Oct 19. Source: Al Jazeera (Oct 21) https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult ; Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares',
+    misc: 'FOG OF WAR: Israeli air strikes and large explosions were reported across southern Lebanon, including Kfar Tebnit; explosions were also reported in Haddatha on Oct 19. Source: Al Jazeera (Oct 21) https://www.aljazeera.com/news/liveblog/2026/10/21/iran-war-live-us-warns-peace-deal-with-tehran-is-extremely-difficult ; Al Jazeera (Oct 19) https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tehran-says-netanyahu-seeks-more-war-yemen-fighting-flares',
   },
   // ── Day 237 (October 22, 2026) ──
   {
-    id: 558, type: 'political',
+    id: 557, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'October 22, 2026', time: 'Day 237',
@@ -8036,11 +8022,11 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: 'N/A',
     launchOrigin: 'US / Israel',
-    misc: 'Trump hinted at further strikes, saying \'we\'ve knocked the hell out of them\', and blamed Iran for rising oil prices. Netanyahu said Trump backs his push to intensify action against Iran. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/22/iran-war-live-irgc-vows-invasion-as-defence-doctrine-turns-offensive',
+    misc: 'FOG OF WAR: Trump hinted at further strikes, saying \'we\'ve knocked the hell out of them\', and blamed Iran for rising oil prices. Netanyahu said Trump backs his push to intensify action against Iran. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/22/iran-war-live-irgc-vows-invasion-as-defence-doctrine-turns-offensive',
   },
   // ── Day 238 (October 23, 2026) ──
   {
-    id: 559, type: 'isr',
+    id: 558, type: 'isr',
     city: 'Hebron', country: 'Palestine (West Bank)',
     lat: 31.53, lng: 35.1,
     date: 'October 23, 2026', time: 'Day 238',
@@ -8055,7 +8041,7 @@ const strikes = [
   },
   // ── Day 239 (October 24, 2026) ──
   {
-    id: 560, type: 'global',
+    id: 559, type: 'global',
     city: 'Mecca', country: 'Saudi Arabia',
     lat: 21.42, lng: 39.83,
     date: 'October 24, 2026', time: 'Day 239',
@@ -8069,7 +8055,7 @@ const strikes = [
     misc: 'FOG OF WAR: Saudi Arabia said parts of two ballistic missiles fell near Mecca after interception, with shrapnel landing in Jeddah, Taif and Rabigh. Bahrain condemned Houthi missile attacks on Mecca and Medina. A drone was also intercepted over Riyadh. Source: Al Jazeera (Oct 24) https://www.aljazeera.com/news/liveblog/2026/10/24/iran-war-live-israel-launches-targeted-hebron-operation-after-attack ; Al Jazeera (Oct 25) https://www.aljazeera.com/news/liveblog/2026/10/25/iran-war-live-trump-hints-at-possible-sunday-iran-attack-or-deal-reached',
   },
   {
-    id: 561, type: 'global',
+    id: 560, type: 'global',
     city: 'Aden', country: 'Yemen',
     lat: 12.79, lng: 45.03,
     date: 'October 24, 2026', time: 'Day 239',
@@ -8084,7 +8070,7 @@ const strikes = [
   },
   // ── Day 240 (October 25, 2026) ──
   {
-    id: 562, type: 'political',
+    id: 561, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 25, 2026', time: 'Day 240',
@@ -8098,7 +8084,7 @@ const strikes = [
     misc: 'After saying on Oct 24 a strike could come \'tomorrow\' or a big deal, Trump said there would be no strike; Qatari mediators visited Tehran. Trump also reiterated his endorsement of Netanyahu ahead of Israel\'s election. Source: Al Jazeera (Oct 25) https://www.aljazeera.com/news/liveblog/2026/10/25/iran-war-live-trump-hints-at-possible-sunday-iran-attack-or-deal-reached ; Al Jazeera (Oct 24) https://www.aljazeera.com/news/liveblog/2026/10/24/iran-war-live-israel-launches-targeted-hebron-operation-after-attack',
   },
   {
-    id: 563, type: 'naval',
+    id: 562, type: 'naval',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'October 25, 2026', time: 'Day 240',
@@ -8109,11 +8095,11 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: 'N/A',
     launchOrigin: 'US',
-    misc: 'CENTCOM said more than 3,000 vessels have crossed the Strait of Hormuz and credited US forces with enabling 1.5 billion barrels of oil exports through the strait despite Iranian restrictions. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/25/iran-war-live-trump-hints-at-possible-sunday-iran-attack-or-deal-reached',
+    misc: 'FOG OF WAR: CENTCOM said more than 3,000 vessels have crossed the Strait of Hormuz and credited US forces with enabling 1.5 billion barrels of oil exports through the strait despite Iranian restrictions. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/25/iran-war-live-trump-hints-at-possible-sunday-iran-attack-or-deal-reached',
   },
   // ── Day 241 (October 26, 2026) ──
   {
-    id: 564, type: 'political',
+    id: 563, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 26, 2026', time: 'Day 241',
@@ -8128,7 +8114,7 @@ const strikes = [
   },
   // ── Day 242 (October 27, 2026) ──
   {
-    id: 565, type: 'political',
+    id: 564, type: 'political',
     city: 'Jerusalem', country: 'Israel',
     lat: 31.77, lng: 35.21,
     date: 'October 27, 2026', time: 'Day 242',
@@ -8142,7 +8128,7 @@ const strikes = [
     misc: 'Israel voted Oct 27; final results: Likud 27, Yashar (Eisenkot) 21, Bennett 12, Joint List 11; Netanyahu\'s bloc fell to 53 seats, short of a majority, and Likud alleged the vote was \'stolen\'. Turnout 77.9%. Source: FDD Long War Journal https://www.longwarjournal.org/archives/2026/11/arab-parties-endorse-eisenkot-for-israeli-pm-idf-reports-52-ceasefire-violations-oct-16-nov-5.php ; Sinclair/KOMO https://komonews.com/news/nation-world/gallery/israeli-prime-minister-benjamin-netanyahus-bloc-loses-majority-as-likud-party-claims-election-was-stolen-arab-parties-foreign-interference-investigation-qatar?photo=1',
   },
   {
-    id: 566, type: 'energy',
+    id: 565, type: 'energy',
     city: 'East of Strait of Hormuz', country: 'International waters',
     lat: 25.9, lng: 57.0,
     date: 'October 27, 2026', time: 'Day 242',
@@ -8156,7 +8142,7 @@ const strikes = [
     misc: 'FOG OF WAR: Iranian report; not independently confirmed. Iran reported an oil tanker caught fire after hitting mines east of the Strait of Hormuz. Coordinates approximate. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-iran-says-us-not-serious-on-talks-ship-on-fire-off-iraq',
   },
   {
-    id: 567, type: 'political',
+    id: 566, type: 'political',
     city: 'Moscow', country: 'Russia',
     lat: 55.75, lng: 37.62,
     date: 'October 27, 2026', time: 'Day 242',
@@ -8170,7 +8156,7 @@ const strikes = [
     misc: 'Putin met Iran\'s President Pezeshkian and Qatar\'s Emir Tamim on the sidelines of a gas exporters\' forum in Moscow; Pezeshkian said the Middle East can solve its problems without the US. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-iran-says-us-not-serious-on-talks-ship-on-fire-off-iraq',
   },
   {
-    id: 568, type: 'hez',
+    id: 567, type: 'hez',
     city: 'Tallousa, Marjayoun', country: 'Lebanon',
     lat: 33.27, lng: 35.52,
     date: 'October 27, 2026', time: 'Day 242',
@@ -8181,11 +8167,11 @@ const strikes = [
     structuralDmg: 'Not itemized.',
     humanCasualties: 'Not reported',
     launchOrigin: 'Israel',
-    misc: 'Lebanon\'s National News Agency reported a heavy Israeli bombing of Tallousa in the Marjayoun district. Source: Al Jazeera (citing NNA) https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-iran-says-us-not-serious-on-talks-ship-on-fire-off-iraq',
+    misc: 'FOG OF WAR: Lebanon\'s National News Agency reported a heavy Israeli bombing of Tallousa in the Marjayoun district. Source: Al Jazeera (citing NNA) https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-iran-says-us-not-serious-on-talks-ship-on-fire-off-iraq',
   },
   // ── Day 243 (October 28, 2026) ──
   {
-    id: 569, type: 'hez',
+    id: 568, type: 'hez',
     city: 'Deir Mimas', country: 'Lebanon',
     lat: 33.3, lng: 35.57,
     date: 'October 28, 2026', time: 'Day 243',
@@ -8199,7 +8185,7 @@ const strikes = [
     misc: 'FOG OF WAR: Hezbollah reiterated it will not disarm as Israeli strikes continued in southern Lebanon, including the Deir Mimas area. Coordinates approximate. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-pezeshkian-says-middle-east-can-solve-own-issues-without-us',
   },
   {
-    id: 570, type: 'energy',
+    id: 569, type: 'energy',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'October 28, 2026', time: 'Day 243',
@@ -8214,7 +8200,7 @@ const strikes = [
   },
   // ── Day 244 (October 29, 2026) ──
   {
-    id: 571, type: 'global',
+    id: 570, type: 'global',
     city: 'Riyadh', country: 'Saudi Arabia',
     lat: 24.71, lng: 46.68,
     date: 'October 29, 2026', time: 'Day 244',
@@ -8228,7 +8214,7 @@ const strikes = [
     misc: 'FOG OF WAR: The Saudi-led coalition said it destroyed two Houthi missiles fired toward Riyadh. Yemeni government forces struck Houthi positions in Taiz. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/29/iran-war-live-tehran-presses-7-day-hormuz-plan-trump-denies-peace-talks',
   },
   {
-    id: 572, type: 'political',
+    id: 571, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'October 29, 2026', time: 'Day 244',
@@ -8242,7 +8228,7 @@ const strikes = [
     misc: 'US envoy Tom Barrack told CNN talks via Qatar, Pakistan and others were \'very close\' to agreeing a de-escalation process, while kinetic action remained under consideration. Tehran pressed a 7-day plan to reopen Hormuz. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/29/iran-war-live-tehran-presses-7-day-hormuz-plan-trump-denies-peace-talks',
   },
   {
-    id: 573, type: 'naval',
+    id: 572, type: 'naval',
     city: 'Strait of Hormuz (25nm NE of Khasab)', country: 'International waters',
     lat: 26.5, lng: 56.6,
     date: 'October 29, 2026', time: 'Day 244',
@@ -8257,7 +8243,7 @@ const strikes = [
   },
   // ── Day 245 (October 30, 2026) ──
   {
-    id: 574, type: 'political',
+    id: 573, type: 'political',
     city: 'Riyadh', country: 'Saudi Arabia',
     lat: 24.71, lng: 46.68,
     date: 'October 30, 2026', time: 'Day 245',
@@ -8271,7 +8257,7 @@ const strikes = [
     misc: 'The US ordered non-emergency staff and families to leave Saudi Arabia over Houthi missile attacks on airports and infrastructure. Aden airport suspended flights after two waves of Houthi missile attacks. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/27/iran-war-live-pezeshkian-says-middle-east-can-solve-own-issues-without-us',
   },
   {
-    id: 575, type: 'energy',
+    id: 574, type: 'energy',
     city: 'Strait of Hormuz exit', country: 'International waters',
     lat: 26.3, lng: 56.6,
     date: 'October 30, 2026', time: 'Day 245',
@@ -8282,10 +8268,10 @@ const strikes = [
     structuralDmg: 'Not itemized.',
     humanCasualties: 'Not reported',
     launchOrigin: 'Unknown',
-    misc: 'UKMTO said a projectile hit a crude oil tanker as it exited the Strait of Hormuz. Coordinates approximate. Source: Al Jazeera (citing UKMTO) https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz',
+    misc: 'FOG OF WAR: UKMTO said a projectile hit a crude oil tanker as it exited the Strait of Hormuz. Coordinates approximate. Source: Al Jazeera (citing UKMTO) https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz',
   },
   {
-    id: 576, type: 'energy',
+    id: 575, type: 'energy',
     city: 'Gulf (exact location not given)', country: 'International waters',
     lat: 26.3, lng: 55.5,
     date: 'October 30, 2026', time: 'Day 245',
@@ -8299,7 +8285,7 @@ const strikes = [
     misc: 'FOG OF WAR: Attacker unidentified. Nakilat\'s LNG carrier Al Mayeda was struck on the evening of Friday Oct 30; Qatar condemned it and said it reserves the right to respond. Saudi Arabia, UAE, Bahrain, Kuwait, the GCC and Arab League condemned. Location not specified; coordinates approximate. Source: Al Jazeera https://aljazeera.com/news/2026/11/1/qatar-lng-carrier-struck-by-unidentified-objects-in-gulf ; QNA https://qna.org.qa/en/News-Area/News/2026-11/1/qatar-condemns-attack-on-lng-carrier-in-arabian-gulf',
   },
   {
-    id: 577, type: 'global',
+    id: 576, type: 'global',
     city: 'Aden', country: 'Yemen',
     lat: 12.79, lng: 45.03,
     date: 'October 30, 2026', time: 'Day 245',
@@ -8310,11 +8296,11 @@ const strikes = [
     structuralDmg: 'Not itemized.',
     humanCasualties: 'Not reported',
     launchOrigin: 'Houthi-held Yemen',
-    misc: 'Yemen\'s government accused the Houthis of firing ballistic missiles at Aden airport and the presidential palace; the coalition intercepted a drone over Saudi Arabia\'s Eastern Province. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz',
+    misc: 'FOG OF WAR: Yemen\'s government accused the Houthis of firing ballistic missiles at Aden airport and the presidential palace; the coalition intercepted a drone over Saudi Arabia\'s Eastern Province. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/30/iran-war-live-irgc-says-four-tankers-struck-mines-in-strait-of-hormuz',
   },
   // ── Day 246 (October 31, 2026) ──
   {
-    id: 578, type: 'political',
+    id: 577, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'October 31, 2026', time: 'Day 246',
@@ -8328,7 +8314,7 @@ const strikes = [
     misc: 'FOG OF WAR: Araghchi said Tehran was studying a letter from VP Vance, with a delegation in Doha; security chief Rezaei said the US had \'shifted tone\'. Iran offered to shorten its Hormuz plan to two days, while Supreme Leader Mojtaba Khamenei ordered commanders to prepare responses without geographic limits. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/10/31/iran-war-live-oil-tankers-hit-in-hormuz-trump-says-conflict-will-end-soon',
   },
   {
-    id: 579, type: 'naval',
+    id: 578, type: 'naval',
     city: 'Gulf of Oman / Arabian Sea', country: 'International waters',
     lat: 24.5, lng: 58.5,
     date: 'October 31, 2026', time: 'Day 246',
@@ -8343,7 +8329,7 @@ const strikes = [
   },
   // ── Day 247 (November 1, 2026) ──
   {
-    id: 580, type: 'political',
+    id: 579, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'November 1, 2026', time: 'Day 247',
@@ -8358,7 +8344,7 @@ const strikes = [
   },
   // ── Day 248 (November 2, 2026) ──
   {
-    id: 581, type: 'us',
+    id: 580, type: 'us',
     city: 'Qeshm and Hengam islands; Bandar Abbas', country: 'Iran',
     lat: 26.85, lng: 55.9,
     date: 'November 2, 2026', time: 'Day 248',
@@ -8372,7 +8358,7 @@ const strikes = [
     misc: 'Hours before the US midterms, a US official said the US carried out limited strikes on Iranians firing SAMs at US forces in Hormuz; Iranian media reported explosions on Qeshm and Hengam and near Bandar Abbas. It was the first known US attack since early September and was not publicly announced. Source: ITV (AP) https://www.itv.com/news/2026-11-03/us-strikes-iran-on-the-eve-of-midterm-elections-official-says ; Free Press Journal (PTI) https://www.freepressjournal.in/world/us-bombs-iranian-targets-ahead-of-midterm-election-raising-fears-of-wider-war ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/2/iran-war-live-tankers-hit-in-hormuz-trump-again-says-conflict-to-end-soon',
   },
   {
-    id: 582, type: 'energy',
+    id: 581, type: 'energy',
     city: '9nm NE of Lima, Musandam', country: 'Oman',
     lat: 26.05, lng: 56.5,
     date: 'November 2, 2026', time: 'Day 248',
@@ -8386,7 +8372,7 @@ const strikes = [
     misc: 'FOG OF WAR: UKMTO said an unknown projectile hit a ship 9 nautical miles northeast of Lima, Oman. Coordinates approximate. Source: Al Jazeera (citing UKMTO) https://www.aljazeera.com/news/liveblog/2026/11/2/iran-war-live-tankers-hit-in-hormuz-trump-again-says-conflict-to-end-soon',
   },
   {
-    id: 583, type: 'global',
+    id: 582, type: 'global',
     city: 'Tehran', country: 'Iran',
     lat: 35.79, lng: 51.43,
     date: 'November 2, 2026', time: 'Day 248',
@@ -8401,7 +8387,7 @@ const strikes = [
   },
   // ── Day 249 (November 3, 2026) ──
   {
-    id: 584, type: 'political',
+    id: 583, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'November 3, 2026', time: 'Day 249',
@@ -8415,7 +8401,7 @@ const strikes = [
     misc: 'FOG OF WAR: Israel had not confirmed; Congress controls appropriations. Trump told Fox & Friends that US aid to Israel, about $4bn a year, will be cut off at the end of 2026, saying Israel no longer needs it and that Netanyahu agreed. Israeli opposition leader Lapid called it a historic failure. Source: Stars and Stripes https://www.stripes.com/theaters/middle_east/2026-11-03/trump-us-aid-israel-cut-23351076.html ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court',
   },
   {
-    id: 585, type: 'energy',
+    id: 584, type: 'energy',
     city: 'Off Oman (Gulf of Oman)', country: 'International waters',
     lat: 25.0, lng: 57.5,
     date: 'November 3, 2026', time: 'Day 249',
@@ -8429,7 +8415,7 @@ const strikes = [
     misc: 'A commercial ship was hit by an unidentified aerial object off Oman, killing one Indian crew member. Coordinates approximate. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court',
   },
   {
-    id: 586, type: 'political',
+    id: 585, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'November 3, 2026', time: 'Day 249',
@@ -8440,11 +8426,11 @@ const strikes = [
     structuralDmg: 'N/A',
     humanCasualties: 'N/A',
     launchOrigin: 'Iran',
-    misc: 'Chief negotiator Qalibaf said Iran delivered a \'firm and rational response\' and \'the ball is now in America\'s court\', warning of a \'new battlefield\'. SNSC head Rezaei said Hormuz stays closed until Iran\'s conditions are met; Iran unveiled a \'maximum deterrence\' plan. Source: ITV (AP) https://www.itv.com/news/2026-11-03/us-strikes-iran-on-the-eve-of-midterm-elections-official-says ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court',
+    misc: 'FOG OF WAR: Chief negotiator Qalibaf said Iran delivered a \'firm and rational response\' and \'the ball is now in America\'s court\', warning of a \'new battlefield\'. SNSC head Rezaei said Hormuz stays closed until Iran\'s conditions are met; Iran unveiled a \'maximum deterrence\' plan. Source: ITV (AP) https://www.itv.com/news/2026-11-03/us-strikes-iran-on-the-eve-of-midterm-elections-official-says ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/3/iran-war-live-vance-sees-progress-in-talks-tehran-says-ball-in-us-court',
   },
   // ── Day 250 (November 4, 2026) ──
   {
-    id: 587, type: 'political',
+    id: 586, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'November 4, 2026', time: 'Day 250',
@@ -8458,7 +8444,7 @@ const strikes = [
     misc: 'FOG OF WAR: Democrats won control of both the House and Senate in the Nov 3 midterms; on Nov 4 Trump acknowledged \'a part of it was Iran\' but said he would do it again, and VP Vance blamed the war. Stocks rose and oil fell; Schumer vowed to halt the war. Source: GV Wire (Reuters) https://gvwire.com/2026/11/04/trump-acknowledges-role-of-iran-war-in-democratic-sweep-in-midterm-elections/ ; Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack',
   },
   {
-    id: 588, type: 'global',
+    id: 587, type: 'global',
     city: 'Hayfan, Taiz', country: 'Yemen',
     lat: 13.3, lng: 44.25,
     date: 'November 4, 2026', time: 'Day 250',
@@ -8469,11 +8455,11 @@ const strikes = [
     structuralDmg: 'Not itemized.',
     humanCasualties: '4 family members killed incl. 3 children; 4 injured',
     launchOrigin: 'Houthi-held Yemen',
-    misc: 'A Houthi ballistic missile killed four members of one family in Hayfan. Government forces reported gains in al-Jawf. Coordinates approximate. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack',
+    misc: 'FOG OF WAR: A Houthi ballistic missile killed four members of one family in Hayfan. Government forces reported gains in al-Jawf. Coordinates approximate. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/4/iran-war-live-tehran-prepares-maximum-deterrence-plan-for-any-new-attack',
   },
   // ── Day 251 (November 5, 2026) ──
   {
-    id: 589, type: 'political',
+    id: 588, type: 'political',
     city: 'Tehran', country: 'Iran',
     lat: 35.69, lng: 51.39,
     date: 'November 5, 2026', time: 'Day 251',
@@ -8487,7 +8473,7 @@ const strikes = [
     misc: 'FOG OF WAR: Tehran warned that any state aiding a US attack would be a legitimate target; Reuters reported Iran sent a nuclear proposal via Qatar tied to its seven demands. Satellite images showed USS Theodore Roosevelt nearing the region, and Trump hinted at \'destroying\' Iran; oil rose over $2. Source: Al Jazeera (citing Reuters) https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it',
   },
   {
-    id: 590, type: 'political',
+    id: 589, type: 'political',
     city: 'Ankara', country: 'Turkiye',
     lat: 39.93, lng: 32.86,
     date: 'November 5, 2026', time: 'Day 251',
@@ -8501,7 +8487,7 @@ const strikes = [
     misc: 'Turkiye\'s parliament ratified a defence pact with Saudi Arabia and Pakistan amid Houthi attacks on Saudi Arabia. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it',
   },
   {
-    id: 591, type: 'isr',
+    id: 590, type: 'isr',
     city: 'al-Shati refugee camp, Gaza City', country: 'Palestine (Gaza)',
     lat: 31.53, lng: 34.45,
     date: 'November 5, 2026', time: 'Day 251',
@@ -8512,11 +8498,11 @@ const strikes = [
     structuralDmg: 'Not itemized.',
     humanCasualties: '3 Palestinians killed (Wafa); Gaza MoH total since Oct 2023: 74,618',
     launchOrigin: 'Israel',
-    misc: 'An Israeli air strike on al-Shati camp killed three; Gaza\'s Health Ministry earlier said 1,574 killed since the Oct 2025 ceasefire (as of Oct 29). Source: Al Jazeera (Nov 5) https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it ; Al Jazeera (Oct 29) https://www.aljazeera.com/news/liveblog/2026/10/29/iran-war-live-tehran-presses-7-day-hormuz-plan-trump-denies-peace-talks',
+    misc: 'FOG OF WAR: An Israeli air strike on al-Shati camp killed three; Gaza\'s Health Ministry earlier said 1,574 killed since the Oct 2025 ceasefire (as of Oct 29). Source: Al Jazeera (Nov 5) https://www.aljazeera.com/news/liveblog/2026/11/5/iran-war-live-trump-admits-war-caused-election-loss-but-had-to-do-it ; Al Jazeera (Oct 29) https://www.aljazeera.com/news/liveblog/2026/10/29/iran-war-live-tehran-presses-7-day-hormuz-plan-trump-denies-peace-talks',
   },
   // ── Day 252 (November 6, 2026) ──
   {
-    id: 592, type: 'political',
+    id: 591, type: 'political',
     city: 'Washington, DC', country: 'United States',
     lat: 38.9, lng: -77.04,
     date: 'November 6, 2026', time: 'Day 252',
@@ -8531,7 +8517,7 @@ const strikes = [
   },
   // ── Day 253 (November 7, 2026) ──
   {
-    id: 593, type: 'iran',
+    id: 592, type: 'iran',
     city: 'Qeshm Island', country: 'Iran',
     lat: 26.85, lng: 55.9,
     date: 'November 7, 2026', time: 'Day 253',
@@ -8545,7 +8531,7 @@ const strikes = [
     misc: 'FOG OF WAR: Iranian-sourced claims. Iranian media reported two projectile impacts on Qeshm and the army said it downed a US MQ-9 (IRNA separately claimed an MQ-1); the US has not confirmed any drone loss. Trump confirmed limited US strikes on Iranian air-defence systems; CENTCOM called the area \'relatively calm\'. Source: Siasat https://www.siasat.com/two-projectiles-hit-irans-qeshm-island-near-hormuz-3571062/ ; https://www.aljazeera.com/news/liveblog/2026/11/6/iran-war-live-trump-warns-us-may-have-to-destroy-rest-of-iran',
   },
   {
-    id: 594, type: 'naval',
+    id: 593, type: 'naval',
     city: 'Gulf of Oman', country: 'International waters',
     lat: 25.3, lng: 56.6,
     date: 'November 7, 2026', time: 'Day 253',
@@ -8559,7 +8545,7 @@ const strikes = [
     misc: 'CENTCOM said it disabled the M/V Huda after its crew ignored warnings and tried to breach the US blockade; UKMTO reported a military \'incident\' with a bulk carrier in the Gulf of Oman. Coordinates approximate. Source: Al Jazeera (citing CENTCOM, UKMTO) https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal',
   },
   {
-    id: 595, type: 'naval',
+    id: 594, type: 'naval',
     city: 'Strait of Hormuz', country: 'International waters',
     lat: 26.57, lng: 56.25,
     date: 'November 7, 2026', time: 'Day 253',
@@ -8573,7 +8559,7 @@ const strikes = [
     misc: 'FOG OF WAR: IRGC claim; not independently confirmed. IRGC navy said two oil tankers were damaged by mines near Hormuz; explosions were heard on Qeshm with no damage reported. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal',
   },
   {
-    id: 596, type: 'political',
+    id: 595, type: 'political',
     city: 'Jerusalem', country: 'Israel',
     lat: 31.77, lng: 35.21,
     date: 'November 7, 2026', time: 'Day 253',
@@ -8587,7 +8573,7 @@ const strikes = [
     misc: 'Israeli President Herzog tasked Gadi Eisenkot with forming a government after Netanyahu\'s bloc lost its majority; 67 of 120 lawmakers, including Arab-led parties, had backed Eisenkot in consultations. Source: Qatar Tribune https://www.qatar-tribune.com/article/262857/world/majority-of-israeli-lawmakers-back-eisenkot-to-form-government ; Boston Globe/AP https://www.bostonglobe.com/2026/11/07/world/eisenkot-israel-form-government/ ; https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal',
   },
   {
-    id: 597, type: 'global',
+    id: 596, type: 'global',
     city: 'Riyadh / Yemen', country: 'Saudi Arabia',
     lat: 24.71, lng: 46.68,
     date: 'November 7, 2026', time: 'Day 253',
@@ -8602,7 +8588,7 @@ const strikes = [
   },
   // ── Day 254 (November 8, 2026) ──
   {
-    id: 598, type: 'us',
+    id: 597, type: 'us',
     city: 'Iran land borders (regional)', country: 'Iran',
     lat: 32.0, lng: 53.0,
     date: 'November 8, 2026', time: 'Day 254',
@@ -8616,7 +8602,7 @@ const strikes = [
     misc: 'Trump said a blockade of Iran\'s land supply routes under the new Task Force Iron Gate is in effect, extending the naval blockade, and said renewed air strikes are unlikely if nuclear talks progress. Coordinates are a national centroid. Source: Al Jazeera (Nov 8) https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes ; Al Jazeera (Nov 9 recap) https://www.aljazeera.com/news/liveblog/2026/11/9/iran-war-live-trump-says-land-blockade-in-effect-drone-cuts-power-in-iraq',
   },
   {
-    id: 599, type: 'us',
+    id: 598, type: 'us',
     city: 'Qeshm Island', country: 'Iran',
     lat: 26.85, lng: 55.9,
     date: 'November 8, 2026', time: 'Day 254',
@@ -8630,7 +8616,7 @@ const strikes = [
     misc: 'FOG OF WAR: US strike not confirmed by Pentagon. Iranian state media said the US fired projectiles at Qeshm over the weekend; the Pentagon did not confirm. Iran said separate blasts in Mahshahr were from faulty transformers, not an attack. Source: Al Jazeera https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes',
   },
   {
-    id: 600, type: 'global',
+    id: 599, type: 'global',
     city: 'Khor Mor gas field, Sulaimaniyah', country: 'Iraq',
     lat: 35.07, lng: 44.83,
     date: 'November 8, 2026', time: 'Day 254',
@@ -8644,7 +8630,7 @@ const strikes = [
     misc: 'FOG OF WAR: Attacker not identified. A drone of unknown origin hit the Khor Mor gas field, halting production; Iraq expected about 2.8 GW of lost generation and more than 70% of the Kurdistan Region lost power. Coordinates approximate. Source: Al Jazeera (Nov 8) https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes ; Al Jazeera (Nov 9 recap) https://www.aljazeera.com/news/liveblog/2026/11/9/iran-war-live-trump-says-land-blockade-in-effect-drone-cuts-power-in-iraq',
   },
   {
-    id: 601, type: 'isr',
+    id: 600, type: 'isr',
     city: 'Deir al-Balah', country: 'Palestine (Gaza)',
     lat: 31.42, lng: 34.35,
     date: 'November 8, 2026', time: 'Day 254',
@@ -8655,7 +8641,7 @@ const strikes = [
     structuralDmg: 'Sandbank collapse; tents flooded',
     humanCasualties: 'At least 5 killed incl. 4 children',
     launchOrigin: 'N/A',
-    misc: 'Heavy rain caused a landslide at a displacement camp in central Gaza; Hamas blamed Israel. Thousands of tents flooded on Nov 7. Source: Al Jazeera (Nov 8) https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes ; Al Jazeera (Nov 7) https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal',
+    misc: 'FOG OF WAR: Heavy rain caused a landslide at a displacement camp in central Gaza; Hamas blamed Israel. Thousands of tents flooded on Nov 7. Source: Al Jazeera (Nov 8) https://www.aljazeera.com/news/liveblog/2026/11/8/iran-war-live-explosions-hit-qeshm-us-moves-to-block-land-supply-routes ; Al Jazeera (Nov 7) https://www.aljazeera.com/news/liveblog/2026/11/7/iran-war-live-qatar-says-us-iran-should-not-wait-to-reach-a-peace-deal',
   },
 ];
 
