@@ -1,0 +1,46 @@
+# Nightly raw intake: fetch 37 news feeds, sort by keyword into theaters, store on the
+# `intake-data` branch (kept off `main` so it never triggers a site deploy or bloats main).
+# No AI involved. Honest User-Agent, robots.txt respected (see intake/warmaps_intake.py).
+name: nightly-intake
+on:
+  schedule:
+    - cron: "17 13 * * *"   # 13:17 UTC = 6:17 AM MST daily
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: nightly-intake
+  cancel-in-progress: false
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install feedparser==6.0.11
+      - name: Run intake
+        run: |
+          DAY=$(TZ=America/Phoenix date +%Y/%m/%d)
+          echo "DAY=$DAY" >> "$GITHUB_ENV"
+          python3 intake/warmaps_intake.py --hours 24 --out "/tmp/out/$DAY"
+      - name: Store on intake-data branch
+        run: |
+          git config user.name "warmaps-intake-bot"
+          git config user.email "warmaps-intake-bot@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin intake-data >/dev/null; then
+            git fetch --depth=1 origin intake-data
+            git worktree add /tmp/data intake-data
+          else
+            git worktree add --detach /tmp/data
+            cd /tmp/data && git checkout --orphan intake-data && git rm -rq . && cd -
+            printf '# WARMAPS raw intake\nRAW, NOT VERIFIED. One folder per day: raw/YYYY/MM/DD/<theater>.json|.md and run.json.\nWritten by .github/workflows/intake.yml on main.\n' > /tmp/data/README.md
+          fi
+          mkdir -p "/tmp/data/raw/$DAY"
+          cp /tmp/out/$DAY/* "/tmp/data/raw/$DAY/"
+          cd /tmp/data
+          git add -A
+          git commit -qm "intake $DAY" || { echo "nothing new"; exit 0; }
+          git push origin intake-data

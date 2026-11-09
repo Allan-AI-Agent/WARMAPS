@@ -18,6 +18,14 @@ a fresh tab and read the values **without being told them first**:
 
 This also closes v01.09.02's open item "confirm badge text on a cold load".
 
+## STATUS 2026-11-09: NIGHTLY INTAKE + VALIDATION AUTOMATED (GitHub Actions)
+- `.github/workflows/intake.yml`: daily 6:17 AM MST, runs `intake/warmaps_intake.py` (37 feeds, keyword sort, no AI) and stores
+  raw output on the **`intake-data` branch** (`raw/YYYY/MM/DD/`), off `main` so it never deploys or bloats the site.
+- `.github/workflows/validate.yml`: runs `validate.js` + `test-timeline.js` on every PR to main and every push to main.
+- Sandbox test 2026-11-09 16:56 MST: 1,542 entries read, 321 kept (iran-war 87, russia-ukraine 142, east-asia 44, caribbean 7,
+  global 41). Refused our honest bot (skipped, not bypassed): UN News (robots.txt), CENTCOM, Mondoweiss, Efecto Cocuyo (robots 403), Arab News (403).
+- NOT yet built: daily candidate-event drafting from intake (Claude task) and the phone approval page.
+
 ## STATUS 2026-11-09: BACKFILL PASS 2, Days 171-254 (Aug 17 - Nov 8 2026) — data only
 
 Branch `data/backfill-171-254`, PR to `main`. Authorized by Allan 2026-11-08 ("I authorize the merge and ... bringing the data up to speed").
