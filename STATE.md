@@ -24,8 +24,9 @@ This also closes v01.09.02's open item "confirm badge text on a cold load".
    The panel is a scrolling list with no hard cap; v2's design adds filtering by tier/theater.
 3. 45 older day labels (ids 112-122, 238-295): **fix** (relabel `time` from the date; display-only).
 4. Globe: **copy** selected God's Eye View parts into `globe/` (MIT notice kept, upstream commit pinned), not a fork.
-5. Ship/plane history storage: R2 chosen with a hard cost ceiling of about $10; pending confirmation of the no-card
-   alternative (a GitHub data branch) because R2 requires a payment method on file.
+5. Ship/plane history storage: **GitHub data branch first (5C)**, no card, no bill possible; move to R2 or OSIRIS when it
+   reaches a few GB (~a year+). Watch: GitHub can auto-disable scheduled workflows in public repos after 60 days without
+   repository activity, and scheduled runs can be delayed at busy times.
 6. Old GitHub PAT: **revoked** by Allan (no longer used; pushes go through the Claude GitHub app).
 
 ## RULING 2026-11-09 (Allan): Russia-Ukraine scope = LEAN, backfill retained
