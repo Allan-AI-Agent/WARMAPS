@@ -18,6 +18,15 @@ a fresh tab and read the values **without being told them first**:
 
 This also closes v01.09.02's open item "confirm badge text on a cold load".
 
+## STATUS 2026-11-10: v2 F1 PART A (design documents) — PR #17, DRAFT, NOT MERGED
+Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js` unchanged; version stays v01.09.03.**
+- `docs/v2/ARCHITECTURE_v1.md` — event schema v2 (REV B), links, watchlist, actors, theater config, timeline engine, migration, app architecture.
+- `docs/v2/DESIGN_SYSTEM_v1.md`, `docs/v2/LAYOUT_ENGINE_SPEC_v1.md`, `docs/v2/RELEASE_PLAN_v1.md`.
+- `docs/v2/F1_DECISIONS_FOR_ALLAN.md` — **7 decisions awaiting Allan.** Nothing in these documents is ruled until he answers.
+- `docs/v2/F1_PROGRESS.md` — resume file. **Part B (prototype at `prototype/v2/`) not started; starts on Allan's "continue with Part B".**
+- Validators run before each push: `validate.js` PASS, `test-timeline.js` PASS.
+- Known stale item, not fixed in this docs-only PR: the KEY FIELDS table below still says 385 events / Day 170 (header above is correct: 600 / Day 254).
+
 ## RULINGS 2026-11-09 18:03 (Allan) — queued for after the weekly reset (Fable gets tonight's allowance)
 1. Iran military dead stat box: **keep 1,937+**; next research pass looks for a first-hand US/Israeli figure.
 2. Key Strikes: **add all 25 candidates** (pass-1 milestones 349, 367, 374 + the 22 pass-2 milestones), each with a tier.

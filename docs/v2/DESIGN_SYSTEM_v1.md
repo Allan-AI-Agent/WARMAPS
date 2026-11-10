@@ -116,7 +116,7 @@ Drawn with fill, outline and pattern in the theater's own colour. Readable in gr
 | `denied`, `retracted` | Hollow, outline at 50% opacity, struck through | DENIED / RETRACTED |
 | `unreviewed` | Solid fill in `text-muted` grey-blue with a theater-coloured outline | NOT YET REVIEWED |
 
-- `unreviewed` is grey on purpose. Roughly the first 385 Iran events have no reviewed claim status yet
+- `unreviewed` is grey on purpose. 353 Iran events (ids 1-385, minus the 32 already marked fog; VERIFIED by count) have no reviewed claim status yet
   (ARCHITECTURE 3.4). Showing them in full theater colour would claim a confidence the data does not have. As review
   passes cover them, the map fills with colour: an honest picture of the archive's state. (If Allan finds a mostly
   grey early war unacceptable, the alternative is in the decisions file.)

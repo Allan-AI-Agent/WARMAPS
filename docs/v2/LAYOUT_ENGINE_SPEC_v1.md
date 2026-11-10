@@ -94,7 +94,7 @@ Always visible. Three heights:
 | `tall` | 88 | + band labels (2022 ... 2026), milestone ticks, per-theater day numbers | tablet-landscape, pc |
 
 - Readout: `08 Nov 2026` in data type, then per active theater `IR Day 254 · RU Day 1,719`. Calendar date first
-  (decision 7). In single-theater mode the day number moves up beside the date.
+  (decision 4). In single-theater mode the day number moves up beside the date.
 - Handles are 28 px drawn inside a 48 px hit area, centred on the track. This replaces v1's oversized default
   range-input thumbs that sat below the line (OBSERVED by Allan, 2026-11-02): the v2 timeline is a custom control,
   not a browser range input.

@@ -451,6 +451,10 @@ theaters/iran-war/events-*.json + reference.json   (GENERATED — header says "d
 - The pass-2 research file (`research/backfill-pass2/events_386-600_with_tiers_sources.json`) seeds `enrich.json`
   with tiers and sources for ids 386-600 at once (VERIFIED: it carries `tier`, `fog`, `sources`, `verified` per event).
 - CI check: regenerate and fail if the committed output differs. Generated files can never drift from the master.
+- Counts the migration must reproduce (VERIFIED this session): 124 fog events in total (32 in ids 1-385, 92 in ids
+  386-600), 8 of them `disputed`; 353 `unreviewed`; 123 `reported`. One discrepancy to reconcile in slice 1: the
+  pass-2 research file marks 93 events fog, while 92 carry the `FOG OF WAR:` text in `warmaps-data.js`. The rule is
+  the union (fog if either says so), and the script names the odd one out.
 - **Cutover (last slice):** the generated files become the master, `enrich.json` is folded in and deleted, the
   generated-file header is removed, v1 is frozen at `/v1/`. After cutover v1 stops receiving data. That is the
   only one-way door in the plan, and it is taken only when Allan says v2 has surpassed v1.
