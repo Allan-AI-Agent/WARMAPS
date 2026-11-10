@@ -48,12 +48,19 @@ Required concepts:
 2. `docs/v2/DESIGN_SYSTEM_v1.md` — visual identity: type, colour (including how confidence/fog and theaters read at a glance, colour-blind safe), motion rules, map and globe styling, link-arc styling, light/dark, icon set, accessibility.
 3. `docs/v2/LAYOUT_ENGINE_SPEC_v1.md` — the panel system: dock rail, snap-ins, pin, side-by-side views, info cards for events/links/tracks, touch gestures, and exact behaviour at phone portrait, phone landscape, tablet portrait/landscape, and PC; what collapses where.
 4. **An interactive prototype** at `prototype/v2/index.html` (self-contained; may load CesiumJS and Leaflet from cdnjs/jsdelivr; no keys; small sample data: ~30 real events from both theaters taken from `warmaps-data.js` plus clearly-labelled SAMPLE links and watchlist items marked "PROTOTYPE SAMPLE - NOT REAL DATA"). It must demonstrate: theater filter including all-theaters mode, shared timeline scrubber, 2D/3D switch, one-tap layers menu (stub layers fine), dock/snap/side-by-side panels, info card, watchlist panel, and responsive behaviour across the five form factors. Allan will judge it on his phone, tablet and PC.
+5a. `docs/v2/RELEASE_PLAN_v1.md` — **design whole, build thin.** Allan needs something usable as soon as possible, not in
+   months, but without a later pivot. Define the thinnest end-to-end v2 slice that is genuinely usable on his phone
+   (proposed: new shell + layout engine + Iran theater on the 2D map + shared timeline, served at `/v2/` beside v1),
+   then the order of weekly increments (RU lean data, all-theaters mode + links, globe, layers, watchlist), each
+   usable on its own. v1 stays live and current until v2 surpasses it. The architecture must make every slice
+   additive: no slice may require reworking an earlier one. Include which model builds each slice (Opus/Sonnet/Haiku;
+   Fable only for F2-F4).
 5. `docs/v2/F1_DECISIONS_FOR_ALLAN.md` — at most 7 decisions, each with options, your recommendation and why; one-word answers should be possible.
 
 ## Phasing and checkpoints (usage limits may stop this session at any moment)
 Work in two parts. **Commit and push after EACH deliverable** (do not batch), and keep `docs/v2/F1_PROGRESS.md` updated
 (done / in progress / next, with file paths) so a fresh session can resume from it if this one is cut off.
-- **Part A (first):** deliverables 1, 2, 3 and 5, in that order: the architecture, design system, layout spec and decisions.
+- **Part A (first):** deliverables 1, 2, 3, 5a and 5, in that order: the architecture, design system, layout spec and decisions.
   Open the PR (not merged) as soon as deliverable 1 is pushed, so progress is visible.
 - **Part B (when Allan says "continue with Part B", or in a new session told to resume from F1_PROGRESS.md):**
   deliverable 4, the prototype, built against the Part A documents, then the five-form-factor self-review.
