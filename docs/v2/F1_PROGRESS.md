@@ -11,8 +11,8 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | 1 | Architecture | `docs/v2/ARCHITECTURE_v1.md` | DONE |
 | 2 | Design system | `docs/v2/DESIGN_SYSTEM_v1.md` | DONE |
 | 3 | Layout engine spec | `docs/v2/LAYOUT_ENGINE_SPEC_v1.md` | DONE |
-| 5a | Release plan | `docs/v2/RELEASE_PLAN_v1.md` | NEXT |
-| 5 | Decisions for Allan | `docs/v2/F1_DECISIONS_FOR_ALLAN.md` | pending |
+| 5a | Release plan | `docs/v2/RELEASE_PLAN_v1.md` | DONE |
+| 5 | Decisions for Allan | `docs/v2/F1_DECISIONS_FOR_ALLAN.md` | NEXT |
 
 # Part B — prototype (only when Allan says "continue with Part B")
 | # | Deliverable | File | Status |
