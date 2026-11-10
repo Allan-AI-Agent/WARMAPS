@@ -18,6 +18,11 @@ a fresh tab and read the values **without being told them first**:
 
 This also closes v01.09.02's open item "confirm badge text on a cold load".
 
+## RULING 2026-11-09 (Allan): Russia-Ukraine scope = LEAN, backfill retained
+Lean first load: milestones only 2022-2024 (~60), weekly 2025 (~50), daily from Feb 28 2026 (~250-300), ~350-400 events total.
+**Backfill to the full design (monthly 2022-2024 detail, daily 2025) is retained as a planned, open capability**, not dropped:
+the schema, timeline engine and research pipeline must support adding it later without rework.
+
 ## STATUS 2026-11-09: NIGHTLY INTAKE + VALIDATION AUTOMATED (GitHub Actions)
 - `.github/workflows/intake.yml`: daily 6:17 AM MST, runs `intake/warmaps_intake.py` (37 feeds, keyword sort, no AI) and stores
   raw output on the **`intake-data` branch** (`raw/YYYY/MM/DD/`), off `main` so it never deploys or bloats the site.
