@@ -61,7 +61,7 @@ and is the one most likely to take two weeks (section 4).
 
 ---
 
-# 2. Slice 1 — the thinnest genuinely usable v2
+# 2. Slice 1 — the thinnest usable v2
 
 **Goal:** Allan opens `/v2/` on the S22 and can follow the Iran war there, more comfortably than in v1.
 

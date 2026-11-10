@@ -51,7 +51,7 @@ Facts that constrain the design. Counts come from loading `warmaps-data.js` in N
 | `type` values | 15, mixing **who** (us, iran, joint, hez) and **what** (naval, radar, energy, political, intel, isr...) | v2 splits into `kind` (what) and `actors` (who); the old value is kept as `legacyType` |
 | `attacker` | 299 distinct free-text strings ("US + Israel", "US+Israel", "Israel (IDF)", "Israel Defense Forces"...) | Actor normalisation is a separate reviewed pass, not part of the mechanical migration |
 | Fog | 15 events have real fields (`fogOfWar fogStatus fogLean fogNote fogSources fogCheckpoint`); 124 carry `FOG OF WAR:` text in `misc` | Both map to `fog: true`; the structured block is preserved |
-| Sources | `source` on 200; URLs or "Source:" inside `misc` on 373; structured `sources[]` exists only in `research/backfill-pass2/` for ids 386-600 | `sources[]` is filled where it exists; the rest are honestly marked `legacy-unlisted` |
+| Sources | `source` on 200; URLs or "Source:" inside `misc` on 373; structured `sources[]` exists only in `research/backfill-pass2/` for ids 386-600 | `sources[]` is filled where it exists; the rest are marked `legacy-unlisted` |
 | Tiers | Two unrelated things share the word: research tiers (milestone/major/standard, ids 386-600 only, not in the app) and Key Strike tiers (6 categories, 33 ids) | v2 names them apart: `tier` and `significance` |
 | `originLat/originLng/originName/originKnown` | 12 events; means **launch point geography** | Collides with REV B's `origin` (provenance). v2 renames the old ones to `launch.*` |
 | `perspective`, `verified` | 176 events (older) | Kept under `legacy`; not mapped to `claimStatus` automatically (see 3.4) |
@@ -152,7 +152,7 @@ header says 600 / Day 254. The header is correct (VERIFIED by count).
 | `detail` | object | yes | The v1 descriptive fields, text unchanged |
 | `launch` | object or null | no | v1 `originLat/originLng/originName/originKnown`, renamed to end the collision with `origin` |
 | `legacy` | object | no | v1 fields with no v2 meaning yet. Never read by v2 logic |
-| `rev` | integer | yes | Bumped on any edit after publication. Lets the UI show "updated" honestly |
+| `rev` | integer | yes | Bumped on any edit after publication. Lets the UI show "updated" truthfully |
 
 ## 3.3 Multi-theater events
 
