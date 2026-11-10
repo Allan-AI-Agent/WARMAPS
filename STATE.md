@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-09 (MST), **Day 255**. Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-10 (MST), **Day 256**. Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -17,6 +17,29 @@ a fresh tab and read the values **without being told them first**:
 | Timeline last day | 248 | 248 (Nov 2 2026; Feb 28 = Day 1; same in 4 TZs) | match |
 
 This also closes v01.09.02's open item "confirm badge text on a cold load".
+
+## RULING 2026-11-10 11:18 (Allan): SOURCING AND ACCESS RULE v2 (replaces "never bypass blocks")
+WARMAPS is a journalistic endeavor and follows ethical-journalism practice: get the information and get it out,
+from all sides, without putting a thumb on the scale; Allan's own opinion, when given, is clearly labelled as his.
+- **Balance:** keep sources from all sides, including propaganda, **attributed and labelled** ("Iranian state media
+  claims...", "IDF says...") with claim status and fog flag. Drop a source only for demonstrated fabrication/deception
+  or because it does not work, never for its side. Balance is an honest effort to capture wide, including different
+  framings; not a forced symmetry.
+- **Allowed:** same fact via other outlets, wires, official releases, OSINT/satellite; official RSS/APIs; public
+  archives (e.g. Wayback); Allan reading with his own subscription and citing; honest bot identity + robots.txt
+  respected in the automated intake.
+- **Never:** defeating paywalls or logins or using anyone else's credentials; hammering a site that blocks us;
+  leaked/stolen material without verification and clear labelling.
+- **Identity, three tiers:**
+  - GREEN: honest bot that identifies itself (the nightly intake). Standard.
+  - YELLOW (grey, case by case): an agent driving a real browser for Allan on public pages at human pace, no login
+    bypass, no bulk scraping. Before use: check the site's terms on automated access, volume, login, and whether
+    another source suffices; give Allan the risk-vs-reward read; **Allan decides.**
+  - RED (off): a script disguised as an ordinary browser/person to get past a bot block.
+- **When a source blocks us:** do not fight the block; cover the event from other sources and note the gap.
+- **Where the line is unclear or broad enough to be accused of crossing in hindsight:** say so before acting, with
+  the analysis and Claude's take; Allan decides. Off-limits always: illegal, ban/account-loss risk, license
+  infringement, false attribution, clearly bad risk/reward. Claude's own tool guardrails are not routed around.
 
 ## RULINGS 2026-11-09 18:03 (Allan) — queued for after the weekly reset (Fable gets tonight's allowance)
 1. Iran military dead stat box: **keep 1,937+**; next research pass looks for a first-hand US/Israeli figure.
