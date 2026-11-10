@@ -18,6 +18,16 @@ a fresh tab and read the values **without being told them first**:
 
 This also closes v01.09.02's open item "confirm badge text on a cold load".
 
+## RULINGS 2026-11-09 18:03 (Allan) — queued for after the weekly reset (Fable gets tonight's allowance)
+1. Iran military dead stat box: **keep 1,937+**; next research pass looks for a first-hand US/Israeli figure.
+2. Key Strikes: **add all 25 candidates** (pass-1 milestones 349, 367, 374 + the 22 pass-2 milestones), each with a tier.
+   The panel is a scrolling list with no hard cap; v2's design adds filtering by tier/theater.
+3. 45 older day labels (ids 112-122, 238-295): **fix** (relabel `time` from the date; display-only).
+4. Globe: **copy** selected God's Eye View parts into `globe/` (MIT notice kept, upstream commit pinned), not a fork.
+5. Ship/plane history storage: R2 chosen with a hard cost ceiling of about $10; pending confirmation of the no-card
+   alternative (a GitHub data branch) because R2 requires a payment method on file.
+6. Old GitHub PAT: **revoked** by Allan (no longer used; pushes go through the Claude GitHub app).
+
 ## RULING 2026-11-09 (Allan): Russia-Ukraine scope = LEAN, backfill retained
 Lean first load: milestones only 2022-2024 (~60), weekly 2025 (~50), daily from Feb 28 2026 (~250-300), ~350-400 events total.
 **Backfill to the full design (monthly 2022-2024 detail, daily 2025) is retained as a planned, open capability**, not dropped:
