@@ -1,0 +1,207 @@
+{
+ "run_utc": "2026-11-11T20:12:00+00:00",
+ "run_mst": "2026-11-11 13:12",
+ "war_day": 257,
+ "window_hours": 24,
+ "counts": {
+  "iran-war": 73,
+  "russia-ukraine": 129,
+  "east-asia": 28,
+  "caribbean": 6,
+  "global": 55
+ },
+ "stats": {
+  "entries": 1539,
+  "undated": 0,
+  "old": 902,
+  "notconflict": 330,
+  "dupes": 16
+ },
+ "feeds": [
+  {
+   "source": "Al Jazeera",
+   "origin": "intl-broadcaster (Qatar)",
+   "status": "ok (25 entries)"
+  },
+  {
+   "source": "BBC World",
+   "origin": "intl-broadcaster (UK)",
+   "status": "ok (25 entries)"
+  },
+  {
+   "source": "BBC Middle East",
+   "origin": "intl-broadcaster (UK)",
+   "status": "ok (28 entries)"
+  },
+  {
+   "source": "BBC Europe",
+   "origin": "intl-broadcaster (UK)",
+   "status": "ok (24 entries)"
+  },
+  {
+   "source": "BBC Asia",
+   "origin": "intl-broadcaster (UK)",
+   "status": "ok (17 entries)"
+  },
+  {
+   "source": "BBC Latin America",
+   "origin": "intl-broadcaster (UK)",
+   "status": "ok (18 entries)"
+  },
+  {
+   "source": "The Guardian World",
+   "origin": "europe (UK press)",
+   "status": "ok (45 entries)"
+  },
+  {
+   "source": "The Guardian Middle East",
+   "origin": "europe (UK press)",
+   "status": "ok (20 entries)"
+  },
+  {
+   "source": "The Guardian Ukraine",
+   "origin": "europe (UK press)",
+   "status": "ok (20 entries)"
+  },
+  {
+   "source": "The Guardian Americas",
+   "origin": "europe (UK press)",
+   "status": "ok (20 entries)"
+  },
+  {
+   "source": "UN News",
+   "origin": "ngo-igo",
+   "status": "ok (30 entries)"
+  },
+  {
+   "source": "CENTCOM press",
+   "origin": "us-official",
+   "status": "SKIPPED (robots-403)"
+  },
+  {
+   "source": "Jerusalem Post",
+   "origin": "israel-independent",
+   "status": "ok (26 entries)"
+  },
+  {
+   "source": "Ynet News",
+   "origin": "israel-independent",
+   "status": "ok (30 entries)"
+  },
+  {
+   "source": "Iran International",
+   "origin": "iran-opposition-exile",
+   "status": "ok (50 entries)"
+  },
+  {
+   "source": "The National (UAE)",
+   "origin": "gulf-state (UAE)",
+   "status": "ok (100 entries)"
+  },
+  {
+   "source": "Arab News",
+   "origin": "gulf-state (Saudi)",
+   "status": "HTTP 403"
+  },
+  {
+   "source": "Middle East Eye",
+   "origin": "regional-independent (UK-based)",
+   "status": "ok (20 entries)"
+  },
+  {
+   "source": "Mondoweiss",
+   "origin": "palestine-advocacy (US-based)",
+   "status": "ok (10 entries)"
+  },
+  {
+   "source": "Electronic Intifada",
+   "origin": "palestine-advocacy",
+   "status": "HTTP 403"
+  },
+  {
+   "source": "Dawn (Pakistan)",
+   "origin": "pakistan",
+   "status": "ok (27 entries)"
+  },
+  {
+   "source": "Kyiv Independent",
+   "origin": "ukraine-independent",
+   "status": "ok (15 entries)"
+  },
+  {
+   "source": "Ukrinform",
+   "origin": "ukraine-state",
+   "status": "SKIPPED (robots-503)"
+  },
+  {
+   "source": "Kyiv Post",
+   "origin": "ukraine-independent",
+   "status": "ok (100 entries)"
+  },
+  {
+   "source": "TASS",
+   "origin": "russia-state",
+   "status": "ok (100 entries)"
+  },
+  {
+   "source": "Meduza",
+   "origin": "russia-independent-exile",
+   "status": "ok (30 entries)"
+  },
+  {
+   "source": "The Moscow Times",
+   "origin": "russia-independent-exile",
+   "status": "ok (50 entries)"
+  },
+  {
+   "source": "Yonhap",
+   "origin": "south-korea (state-funded wire)",
+   "status": "ok (93 entries)"
+  },
+  {
+   "source": "NK News",
+   "origin": "korea-specialist-independent",
+   "status": "ok (300 entries)"
+  },
+  {
+   "source": "Japan Times",
+   "origin": "japan-independent",
+   "status": "ok (30 entries)"
+  },
+  {
+   "source": "Taipei Times",
+   "origin": "taiwan-independent",
+   "status": "ok (54 entries)"
+  },
+  {
+   "source": "SCMP",
+   "origin": "hong-kong (Alibaba-owned)",
+   "status": "ok (50 entries)"
+  },
+  {
+   "source": "Global Times",
+   "origin": "china-state",
+   "status": "ok (50 entries)"
+  },
+  {
+   "source": "CiberCuba",
+   "origin": "cuba-independent-exile (es)",
+   "status": "ok (10 entries)"
+  },
+  {
+   "source": "14ymedio",
+   "origin": "cuba-independent (es)",
+   "status": "ok (112 entries)"
+  },
+  {
+   "source": "Efecto Cocuyo",
+   "origin": "venezuela-independent (es)",
+   "status": "SKIPPED (robots-403)"
+  },
+  {
+   "source": "El Pitazo",
+   "origin": "venezuela-independent (es)",
+   "status": "ok (10 entries)"
+  }
+ ]
+}
