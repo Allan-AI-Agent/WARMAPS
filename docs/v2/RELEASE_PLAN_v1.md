@@ -1,7 +1,7 @@
 ---
 title: WARMAPS v2 — Release Plan v1 (design whole, build thin)
-version: v1.0
-date: 2026-11-10 (Iran-war Day 256)
+version: v1.1 (enrichment track and slice-1 acceptance numbers added after the 2026-11-11 dry run)
+date: 2026-11-11 (Iran-war Day 257)
 author: Claude (Fable 5.2), session F1, for Allan Sanceau
 status: DRAFT FOR RULING — slice order and model assignments proposed; nothing scheduled until Allan says GO
 companions: ARCHITECTURE_v1.md, DESIGN_SYSTEM_v1.md, LAYOUT_ENGINE_SPEC_v1.md, WARMAPS_v2_PLAN v0.1 (phases P0-P7)
@@ -95,7 +95,10 @@ beforehand from the data. Then the layout acceptance checks 1-6 in LAYOUT_ENGINE
 mutation-tests `validate-v2.js`, and checks the generated files against `warmaps-data.js` (600 events, same IDs,
 same text). **Not Fable.**
 
-**Risk:** the 63 events with non-plain dates (ARCHITECTURE section 1). The migration lists them; Allan or a short
+**Acceptance numbers:** the migration must reproduce the dry-run results exactly (ARCHITECTURE 7.2: 600 events,
+126 fog, 352 unreviewed, zero schema failures, text byte-identical). `research/v2-schema-dryrun/` is its test oracle.
+
+**Risk:** six dates and six time notes need a ruling (ARCHITECTURE 7.1). The migration lists them; Allan or a short
 Sonnet pass rules on the uncertain few before merge. v1 is unaffected either way.
 
 ---
@@ -188,6 +191,22 @@ Sonnet pass rules on the uncertain few before merge. v1 is unaffected either way
   before it can be backed out.
 
 ---
+
+## Track E — Enrichment pass (runs beside the slices; not a slice)
+- **What:** the reviewed pass named in ARCHITECTURE 7.3. For the Iran theater it fills what the migration will not
+  guess: kind (383 events), actors (600), titles for bare place names (331), claim status (352), tier (385),
+  source links (350 events have none). Output goes into `enrich.json`; no code changes.
+- **Order:** the 28 events with no source at all → the 33 key events → ids 1-385 newest first → a light pass over 386-600.
+- **Method:** the backfill pass-2 method (drafting agents, independent verifiers, sources required, blocks
+  respected, sourcing rule v2).
+- **When:** any time after S1 merges. Each batch is its own small PR and makes v2 visibly richer the same day.
+- **Depends on it:** decision 6 fades as it progresses; kind filters and actor-based link evidence for the Iran
+  theater (S4) are better with it but do not wait for it.
+- **Builder:** Sonnet 5.5 drafting; Haiku 5.5 or Sonnet verification by a different agent; Opus 5.5 only for
+  contested calls. Allan rules on disputed items.
+
+Naming note: "S1" to "S8" in this plan are slices. The older v2 plan mentions an "S1 Source & Feed Registry";
+that is the source registry (ARCHITECTURE 4.5), not slice 1.
 
 # 4. What can slip, and what cannot
 

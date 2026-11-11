@@ -1,7 +1,7 @@
 ---
 title: WARMAPS v2 — Layout Engine Spec v1 (the panel system)
-version: v1.0
-date: 2026-11-10 (Iran-war Day 256)
+version: v1.0.1 (timeline made two-level after the 2026-11-11 dry run; theme controls come in v1.1)
+date: 2026-11-11 (Iran-war Day 257)
 author: Claude (Fable 5.2), session F1, for Allan Sanceau
 status: DRAFT FOR RULING — exact behaviour for the prototype (Part B) and slice 1
 companions: ARCHITECTURE_v1.md (store, renderer contract), DESIGN_SYSTEM_v1.md (how things look)
@@ -85,13 +85,16 @@ Left to right: menu/brand → **theater filter** → spacer → **2D | 3D** swit
 becomes available but stays off). Theaters with status `intake-only` show greyed with "no curated events yet".
 
 ## 2.3 Timeline
-Always visible. Three heights:
+Always visible, and **two-level** (ARCHITECTURE 5.3): a **detail row** showing only as many steps as fit at
+finger size (at least 8 px each: about 41 on the S22), where the cursor and window handles live; and an **overview
+row** showing the whole extent with a draggable view box. The dry run showed a one-row timeline would give about
+1 px per day on a phone. Three heights:
 
 | State | Height | Contents | Where used |
 |---|---|---|---|
-| `slim` | 44 | Cursor track, date readout, play button | phone-landscape always; anywhere after the user collapses it |
-| `standard` | 64 | + density strip coloured by theater, window handles | phone-portrait, tablet-portrait |
-| `tall` | 88 | + band labels (2022 ... 2026), milestone ticks, per-theater day numbers | tablet-landscape, pc |
+| `slim` | 44 | Detail row only: cursor track, date readout, play button. Tapping the readout shows the overview temporarily | phone-landscape always; anywhere after the user collapses it |
+| `standard` | 64 | Detail row (44) with window handles + overview row (20): density strip coloured by theater, view box | phone-portrait, tablet-portrait |
+| `tall` | 88 | Both rows, + band labels (2022 ... 2026), milestone ticks, per-theater day numbers | tablet-landscape, pc |
 
 - Readout: `08 Nov 2026` in data type, then per active theater `IR Day 254 · RU Day 1,719`. Calendar date first
   (decision 4). In single-theater mode the day number moves up beside the date.
@@ -377,7 +380,8 @@ The stage can hold two views. Three useful pairings:
 | Card at peek | Swipe left / right | Next / previous event in time |
 | Timeline | Drag on track | Scrub the cursor |
 | | Drag a handle | Move a window edge |
-| | Pinch on the strip | Zoom the time scale (tablet, PC trackpad) |
+| | Pinch on the detail row | Change how many steps are shown (8 to 40 px per step) |
+| | Drag the view box on the overview | Move the detail view through time |
 | | Double-tap | Jump to today |
 | Panel header | Long-press, then drag (tablet) | Move to another slot |
 | Rail item | Long-press | Tooltip and the panel's Move/Pin menu |
@@ -432,7 +436,7 @@ Guards:
 3. Rotating the device with a panel and an info card open loses neither.
 4. System Back from: card open → panel open → nothing open, takes exactly three presses to leave.
 5. Phone landscape at 300 px height: rail, side sheet and slim timeline all fully visible and usable.
-6. The timeline cursor can be placed on any single day in a daily band with a finger on the S22.
+6. In the detail row, the cursor can be placed on any single step with a finger on the S22 (steps at least 8 px wide), and the overview's view box can be dragged to any part of the extent.
 7. With text size at 200%, panels scroll and nothing is clipped.
 8. Turning every available layer on and then "Reset to default view" returns to events and outlines only.
 9. Storage disabled: the app loads on defaults with no error banner.

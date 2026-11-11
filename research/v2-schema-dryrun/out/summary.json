@@ -1,0 +1,139 @@
+{
+ "total": 600,
+ "idsContinuous": true,
+ "idRoundTrip": true,
+ "dateNull": [],
+ "datePrecision": {
+  "day": 539,
+  "range": 57,
+  "ongoing-from": 4
+ },
+ "dateUncertain": 6,
+ "dayLabelChecked": 378,
+ "dayLabelMismatch": 60,
+ "researchDateMismatch": [],
+ "kind": {
+  "strike": 281,
+  "naval": 39,
+  "air-defense": 9,
+  "energy": 28,
+  "infrastructure": 5,
+  "unclassified": 74,
+  "deployment": 6,
+  "intel": 28,
+  "political": 130
+ },
+ "kindUnmapped": [],
+ "whoTypes": 281,
+ "whoTypeLooksNonStrike": 29,
+ "whoTypeAttackerDisagrees": 26,
+ "whoTypeAttackerDisagreesSample": [
+  "117 [iran] attacker=\"N/A — non-combat accident (mid-air collision)\"",
+  "125 [iran] attacker=\"Houthis (Ansar Allah) — Yemen\"",
+  "66 [us] attacker=\"Non-hostile incident\"",
+  "151 [isr] attacker=\"Hezbollah\"",
+  "207 [iran] attacker=\"Hezbollah\"",
+  "226 [iran] attacker=\"Hezbollah (alleged; Hezbollah denies)\"",
+  "250 [iran] attacker=\"US Central Command (counter-strikes)\"",
+  "336 [hez] attacker=\"N/A — de-escalation step\""
+ ],
+ "standingPlatforms": [
+  "26 Feb 28 – ongoing | USS Gerald R. Ford CSG",
+  "27 Feb 28 – ongoing | USS Abraham Lincoln CSG",
+  "28 Feb 28 – ongoing | IDF Tel Nof Airbase",
+  "71 Mar 11, 2026 | RAF Fairford — B-1/B-52 Bomber Fleet",
+  "320 July 18, 2026 | Azraq Air Base, Jordan",
+  "329 July 22, 2026 | Ali Al Salem Air Base, Kuwait"
+ ],
+ "fog": {
+  "total": 126,
+  "v1Text": 124,
+  "v1TextWithColon": 122,
+  "v1Field": 15,
+  "research": 93,
+  "researchOnly": [],
+  "dataOnly": []
+ },
+ "claimStatus": {
+  "unreviewed": 352,
+  "disputed": 8,
+  "claimed": 118,
+  "reported": 122
+ },
+ "tier": {
+  "null": 385,
+  "milestone": 22,
+  "major": 78,
+  "standard": 115
+ },
+ "significance": {
+  "strategic": 8,
+  "escalatory": 14,
+  "tactical-pivot": 5,
+  "infrastructure": 3,
+  "political": 2,
+  "world-changing": 1
+ },
+ "keyStrikeIdsWithoutTier": [],
+ "tierKeysNotInKeyStrikeIds": [],
+ "sourcesStatus": {
+  "legacy-unlisted": 28,
+  "named-only": 322,
+  "listed": 250
+ },
+ "sourceObjects": 1360,
+ "sourceFieldsAvailable": {
+  "url": 494,
+  "published": 0,
+  "kind": 0,
+  "access": 0
+ },
+ "distinctHosts": 87,
+ "titleBarePlaceName": 331,
+ "titleOver80": 7,
+ "titleMax": 90,
+ "textPreserved": true,
+ "v1FieldsNotMapped": [],
+ "countriesDistinct": 68,
+ "fogCheckpointShapes": [
+  "string:Day 9"
+ ],
+ "schemaFailedEvents": 0,
+ "schemaFailures": {},
+ "needs": {
+  "kind": 383,
+  "actors": 600,
+  "title": 331
+ },
+ "geoRepresentative": 47,
+ "timeNote": {
+  "kept": 230,
+  "dropped": 370,
+  "stillHasDayNumber": [
+   "IR-00126:Overnight into Day 30",
+   "IR-00287:~21:19 UTC / Day 128-129",
+   "IR-00288:Early hours / Day 129",
+   "IR-00289:Overnight / Day 130",
+   "IR-00294:Early hours / Day 134",
+   "IR-00296:Overnight / Day 135 (TODAY)"
+  ]
+ },
+ "files": {
+  "events-2025.json": {
+   "events": 1,
+   "bytes": 1449,
+   "gzip": 858
+  },
+  "events-2026.json": {
+   "events": 599,
+   "bytes": 918438,
+   "gzip": 178389
+  }
+ },
+ "v1DataJsBytes": 633262,
+ "v1DataJsGzip": 169948,
+ "leanIndex": {
+  "bytes": 76120,
+  "gzip": 16635
+ }
+}

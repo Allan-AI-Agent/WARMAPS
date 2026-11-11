@@ -1,0 +1,38 @@
+[
+ {
+  "id": "IR-00006",
+  "v1date": "June 22, 2025 (prior conflict) / updated Feb 28, 2026",
+  "parsedStart": "2025-06-22",
+  "why": "annotated date; needs a human ruling"
+ },
+ {
+  "id": "IR-00037",
+  "v1date": "Feb 28 - ongoing",
+  "parsedStart": "2026-02-28",
+  "why": "year not stated; v1 infers 2026"
+ },
+ {
+  "id": "IR-00131",
+  "v1date": "Dec 2025 (signed) / Feb 22, 2026 (revealed)",
+  "parsedStart": "2026-02-22",
+  "why": "annotated date; needs a human ruling"
+ },
+ {
+  "id": "IR-00026",
+  "v1date": "Feb 28 – ongoing",
+  "parsedStart": "2026-02-28",
+  "why": "year not stated; v1 infers 2026"
+ },
+ {
+  "id": "IR-00027",
+  "v1date": "Feb 28 – ongoing",
+  "parsedStart": "2026-02-28",
+  "why": "year not stated; v1 infers 2026"
+ },
+ {
+  "id": "IR-00028",
+  "v1date": "Feb 28 – ongoing",
+  "parsedStart": "2026-02-28",
+  "why": "year not stated; v1 infers 2026"
+ }
+]

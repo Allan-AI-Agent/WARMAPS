@@ -1,7 +1,7 @@
 ---
 title: WARMAPS v2 — Design System v1 (visual identity)
-version: v1.0
-date: 2026-11-10 (Iran-war Day 256)
+version: v1.0.1 (two factual corrections from the 2026-11-11 dry run; theme contract comes in v1.1)
+date: 2026-11-11 (Iran-war Day 257)
 author: Claude (Fable 5.2), session F1, for Allan Sanceau
 status: DRAFT FOR RULING — tokens are final enough to build the prototype against
 companions: ARCHITECTURE_v1.md, LAYOUT_ENGINE_SPEC_v1.md
@@ -22,7 +22,7 @@ where how sure we are is visible before a single word is read.
 | **Line style and width** (arcs) | Link confidence and evidence count | How solid and how active a connection is |
 
 Rules that follow from this:
-- Colour never means "good side / bad side". v1's red-for-Iran, blue-for-US scheme is retired in the map layer.
+- Colour never means "good side / bad side". v1 colours markers by actor (Israel red, US orange, Iran blue, joint purple; VERIFIED in `index.html`, and its popup badges use a second, different set). That scheme is retired in the map layer.
 - Fog is drawn as **absence** (hollow, dashed), not as a warning colour. Uncertain things look less solid, not more alarming.
 - Everything that is OBSERVED rather than curated (aircraft, ships) uses a separate neutral colour and its own shapes, so a transponder blip can never be mistaken for an event.
 - Nothing pulses, blinks or streams by default. Motion is reserved for the user's own action and for time itself.
@@ -116,7 +116,7 @@ Drawn with fill, outline and pattern in the theater's own colour. Readable in gr
 | `denied`, `retracted` | Hollow, outline at 50% opacity, struck through | DENIED / RETRACTED |
 | `unreviewed` | Solid fill in `text-muted` grey-blue with a theater-coloured outline | NOT YET REVIEWED |
 
-- `unreviewed` is grey on purpose. 353 Iran events (ids 1-385, minus the 32 already marked fog; VERIFIED by count) have no reviewed claim status yet
+- `unreviewed` is grey on purpose. 352 Iran events (ids 1-385, minus the 33 already marked fog; VERIFIED by the dry run) have no reviewed claim status yet
   (ARCHITECTURE 3.4). Showing them in full theater colour would claim a confidence the data does not have. As review
   passes cover them, the map fills with colour: an honest picture of the archive's state. (If Allan finds a mostly
   grey early war unacceptable, the alternative is in the decisions file.)

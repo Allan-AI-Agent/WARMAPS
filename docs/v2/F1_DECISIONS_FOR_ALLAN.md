@@ -1,7 +1,7 @@
 ---
 title: F1 — Decisions for Allan
-version: v1.0
-date: 2026-11-10 (Iran-war Day 256)
+version: v1.1 (corrected after the 2026-11-11 schema dry run; see "What changed" below)
+date: 2026-11-11 (Iran-war Day 257)
 author: Claude (Fable 5.2), session F1
 status: AWAITING RULING — seven decisions; a one-word answer works for each
 how to answer: reply with seven letters in order, for example "A A A A A A A", or "all recommended"
@@ -13,10 +13,10 @@ how to answer: reply with seven letters in order, for example "A A A A A A A", o
 |---|---|---|---|---|
 | 1 | Build step for v2 | **A: none** (plain files) | Keeps the phone-driven validate-then-push workflow; can be added later without rework | No — S1 needs it |
 | 2 | Iran data master until cutover | **A: v1 file stays master**, v2 files generated from it | One edit updates both sites; v1 never at risk | No — S1 needs it |
-| 3 | Event ID format | **A: `IR-0001`** with the old number kept | Unique across theaters, mechanical, reversible | No — S1 needs it |
+| 3 | Event ID format | **A: `IR-00001`** with the old number kept | Unique across theaters, mechanical, reversible | No — S1 needs it |
 | 4 | Shared timeline label | **A: calendar date first**, day numbers second | The two wars have different Day 1s; a date is the only label true for both | Yes |
 | 5 | The word "merger" | **A: the system never says it** | The software reports tripwire states; the conclusion stays yours | Yes |
-| 6 | The 353 events with no reviewed confidence (ids 1-385, minus the 32 already marked fog) | **A: neutral grey "not yet reviewed"** | Does not claim a confidence the data lacks | **Yes — judge it on the prototype** |
+| 6 | The 352 events with no reviewed confidence (ids 1-385, minus the 33 already marked fog) | **A: neutral grey "not yet reviewed"** | Does not claim a confidence the data lacks | **Yes — judge it on the prototype** |
 | 7 | v1's AI summary panel | **A: leave it out of v2 for now** | Stores users' API keys in the browser on a public site; off-mission for a source-disciplined map | Yes |
 
 Not a decision (already ruled 2026-11-09, recorded in STATE.md): the globe is a copy of selected parts into
@@ -75,7 +75,7 @@ recommendation, and my answer to it. Evidence labels as usual.
 
 | Option | What it means |
 |---|---|
-| **A. `IR-0001` ... `IR-0600`, `RU-0001` ... (recommended)** | A theater prefix plus the number. The old number is stored as `legacyId` permanently. Conversion both ways is a one-line rule |
+| **A. `IR-00001` ... `IR-00600`, `RU-00001` ... (recommended)** | A theater prefix plus the number, five digits so plain sorting still works past 9,999 events. The old number is stored as `legacyId` permanently. Conversion both ways is a one-line rule |
 | B. Iran keeps bare numbers; other theaters get prefixes | Nothing changes for Iran |
 | C. One global counter across all theaters | Next RU event would be 601, 602 ... interleaved with Iran |
 
@@ -84,7 +84,7 @@ recommendation, and my answer to it. Evidence labels as usual.
 - **Why A:** an ID should say which file to look in, and every ID should have the same shape so no code needs a
   special case for Iran. Key-event lists, links and watch items all cite IDs.
 - **Strongest objection:** the Drive research briefs, STATE.md history and your own notes all say "id 349".
-- **Answer:** they stay valid. "349" and "IR-0349" are the same event by rule, the UI can show either, and v1 keeps
+- **Answer:** they stay valid. "349" and "IR-00349" are the same event by rule, the UI can show either, and v1 keeps
   bare numbers until it is retired. This is the one decision here that is expensive to reverse once links start
   citing events, which is why it is asked now.
 
@@ -128,7 +128,7 @@ recommendation, and my answer to it. Evidence labels as usual.
 
 # 6. Events with no reviewed confidence
 
-**Question:** 353 Iran events (ids 1-385, minus the 32 that already carry a fog marker — VERIFIED by count) were never given a claim status. How should they look?
+**Question:** 352 Iran events (ids 1-385, minus the 33 that already carry a fog marker — VERIFIED by the dry run) were never given a claim status. How should they look?
 
 | Option | What it means |
 |---|---|
@@ -144,7 +144,7 @@ recommendation, and my answer to it. Evidence labels as usual.
   That undersells the product, and many of those events are well established in fact.
 - **Answer:** that is a fair hit, and it is why this one should be judged by eye. The prototype will show A and B
   side by side. The real cure is neither: it is a review pass over ids 1-385 (Sonnet drafting with an independent
-  verifier, the pass-2 method), which could run alongside S2 and would make the question disappear. If you choose
+  verifier, the pass-2 method; now a named piece of work, ARCHITECTURE 7.3), which could run alongside S2 and would make the question disappear. If you choose
   B, the card still says "not yet reviewed", so nothing false is stated; only the at-a-glance signal is weaker.
 
 # 7. v1's AI summary panel
@@ -177,7 +177,7 @@ Does v2 carry it?
 |---|---|---|
 | Typefaces: IBM Plex Sans, Sans Condensed and Mono, self-hosted | DESIGN_SYSTEM 1 | Cyrillic coverage for the RU theater; no third-party font call |
 | Theater = colour **and** shape (circle, diamond, triangle, hexagon) | DESIGN_SYSTEM 2.2 | Amber and sky blue have near-identical brightness (computed 1.02:1); shape keeps them apart in sunlight and greyscale |
-| Colour never marks a side | DESIGN_SYSTEM 0 | v1's red/blue reads as partisan and cannot extend to four theaters |
+| Colour never marks a side | DESIGN_SYSTEM 0 | v1 colours markers by actor (Israel red, US orange, Iran blue); that reads as partisan and cannot extend to four theaters |
 | All link arcs one colour; confidence by line style; at most 12 arcs; no animation | DESIGN_SYSTEM 5 | The anti-"conspiracy board" rules |
 | No scrolling ticker by default; no national flags as icons | DESIGN_SYSTEM 6, 7 | Restraint; flags take sides and fail at small sizes |
 | 2D is the default view on every device until the globe is measured | ARCHITECTURE 9.4 | Fire tablet performance is unknown |
@@ -185,17 +185,41 @@ Does v2 carry it?
 | Watchlist is the last feature slice | RELEASE_PLAN S7 | Most interpretive; can move earlier at no cost if you prefer |
 | Touch targets 48 px (v1 used 44); custom timeline control instead of browser sliders | LAYOUT 2.3, DESIGN 8 | Fixes the oversized slider handles you reported on 2026-11-02 |
 
-# Three things you should know that are not decisions
+# What changed since v1.0 of this file (2026-11-10)
 
-1. **WARNING — NOT PREVIOUSLY IDENTIFIED.** 63 of the 600 events have dates that are ranges or annotations
-   ("Feb 28 – Mar 1, 2026", "Feb 28 - ongoing"). v1 quietly uses the first date. The v2 migration will list each
-   one for a ruling rather than guess. MITIGATION — PENDING (slice 1). No effect on the live site.
-2. **WARNING — NOT PREVIOUSLY IDENTIFIED.** The word "tier" means two different things in the project (research
-   tiers milestone/major/standard; Key Strike categories), and "origin" means two different things (launch point
-   in v1; provenance in REV B). v2 separates them by name. MITIGATION — IN FORCE in the schema; watch for the old
-   meanings in future briefs.
-3. **Previously identified, restated.** Every performance number for the Fire tablet is a target, not a
-   measurement. Slice 5 replaces them with readings from your device. MITIGATION — PENDING.
+I ran all 600 live events through the proposed schema (`research/v2-schema-dryrun/REPORT.md`). None of the seven
+decisions changes direction. Three details changed, and four things I told you were wrong:
+- **Decision 3:** IDs are five digits (`IR-00001`), not four, so sorting survives a large backfill.
+- **Decision 6:** the count is 352, not 353.
+- **Corrected:** "63 dates need a ruling" (it is 6); "the research file and the data disagree on fog by one" (they
+  agree; my search was wrong); "v1 is red-for-Iran, blue-for-US" (Israel red, US orange, Iran blue).
+
+# Five things you should know that are not decisions
+
+1. **WARNING — NOT PREVIOUSLY IDENTIFIED. Link confidence in v1.0 was biased.** A link could be marked
+   "documented" on a single government's sanctions designation. A designation proves an accusation was made, not
+   that the transfer happened, so this would have graded one side's official claims above everyone else's, against
+   your 2026-11-10 balance ruling. MITIGATION — IN FORCE in ARCHITECTURE v1.1: every piece of link evidence records
+   who attests it; a government's claim is "reported" whichever government it is; "documented" needs a
+   participant's own acknowledgement, a court finding, or a neutral body's forensic work.
+2. **WARNING — NOT PREVIOUSLY IDENTIFIED. A one-row timeline cannot be used precisely on a phone.** At full width
+   the S22 gets about 1 pixel per day. MITIGATION — IN FORCE in the specs: the timeline is two-level, an overview
+   of everything plus a detail row of about 41 finger-sized steps. You will see it in the prototype.
+3. **WARNING — NOT PREVIOUSLY IDENTIFIED. v1's event type is unreliable about who did what** (26 of 281 name a
+   different attacker; about 29 are not strikes). MITIGATION — IN FORCE: v2 does not derive actors from it and
+   flags derived values so they are never shown as fact. Consequence: an **enrichment pass** over the 600 events
+   is real work (ARCHITECTURE 7.3). Until it runs, v2 shows the Iran theater as richly as v1 and no richer.
+4. **Six dates and six time notes need your ruling** before slice 1 merges (ARCHITECTURE 7.1). Defaults keep v1's
+   placement, so nothing is blocked. Separately, 60 events (ids 109-297) show a "Day N" in v1 that is one lower
+   than the day the app computes; that is a v1 data fix if you want it.
+5. **One tripwire from the ruled list does not fit: "coordinated cross-theater escalation timing".** Timing is a
+   pattern read into events; no single event can confirm it. Options when definitions are written: redefine it as
+   documented operational coordination, or keep timing coincidences in a separate status-free list. Held out of
+   the starting set until you rule. MITIGATION — PENDING.
+
+Previously identified, restated: every performance number for the Fire tablet is a target, not a measurement.
+MITIGATION — PENDING (the globe slice measures it). The dry run itself was written by the schema's author; an
+independent agent review is available on your word.
 
 Also noticed, not changed: the KEY FIELDS table in `STATE.md` still shows 385 events and Day 170, while its header
 correctly says 600 and Day 254. A one-line fix for the next session that rewrites STATE.md.

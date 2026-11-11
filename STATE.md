@@ -40,13 +40,22 @@ from all sides, without putting a thumb on the scale; Allan's own opinion, when 
 - **Where the line is unclear or broad enough to be accused of crossing in hindsight:** say so before acting, with
   the analysis and Claude's take; Allan decides. Off-limits always: illegal, ban/account-loss risk, license
   infringement, false attribution, clearly bad risk/reward. Claude's own tool guardrails are not routed around.
-## STATUS 2026-11-10: v2 F1 PART A (design documents) — PR #17, DRAFT, NOT MERGED
+## STATUS 2026-11-11: v2 F1 PART A (design documents) + SCHEMA DRY RUN — PR #17, DRAFT, NOT MERGED
 Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js` unchanged; version stays v01.09.03.**
 - `docs/v2/ARCHITECTURE_v1.md` — event schema v2 (REV B), links, watchlist, actors, theater config, timeline engine, migration, app architecture.
 - `docs/v2/DESIGN_SYSTEM_v1.md`, `docs/v2/LAYOUT_ENGINE_SPEC_v1.md`, `docs/v2/RELEASE_PLAN_v1.md`.
 - `docs/v2/F1_DECISIONS_FOR_ALLAN.md` — **7 decisions awaiting Allan.** Nothing in these documents is ruled until he answers.
 - `docs/v2/F1_PROGRESS.md` — resume file. **Part B (prototype at `prototype/v2/`) not started; starts on Allan's "continue with Part B".**
 - Validators run before each push: `validate.js` PASS, `test-timeline.js` PASS.
+- **2026-11-11 dry run (F1 step 1):** all 600 events run through the proposed schema by throwaway scripts in
+  `research/v2-schema-dryrun/` (`REPORT.md` there). v1.0 failed (50 schema failures, a biased link-confidence rule,
+  a timeline unusable on a phone); `ARCHITECTURE_v1.md` is now **v1.1**: 600/600 pass, text byte-identical, start
+  dates match v1, 34/34 rule tests pass. The dry-run numbers are the acceptance test for the slice-1 migration.
+- **v1 data findings from the dry run, NOT fixed (v1 untouched):** 60 events (ids 109-297) carry a "Day N" in their
+  `time` text one lower than the computed day; 6 events have stale day text mid-string (ids 126, 287, 288, 289, 294,
+  296); type `platform` (ids 320, 329) has no marker colour entry; 28 events have no source recorded.
+- **Next F1 steps, each on Allan's go with an effort setting:** step 2 theme amendments (design system v1.1 and
+  patches); step 3 Part B prototype.
 - Known stale item, not fixed in this docs-only PR: the KEY FIELDS table below still says 385 events / Day 170 (header above is correct: 600 / Day 254).
 
 ## RULINGS 2026-11-09 18:03 (Allan) — queued for after the weekly reset (Fable gets tonight's allowance)

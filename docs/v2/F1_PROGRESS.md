@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-10 MST
+updated: 2026-11-11 MST
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -15,6 +15,13 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | 5 | Decisions for Allan | `docs/v2/F1_DECISIONS_FOR_ALLAN.md` | DONE |
 
 **Part A is complete (2026-11-10). PR #17 is a draft and must not be merged before Allan rules on the decisions file.**
+
+# Part A follow-ups (agreed 2026-11-11; Allan chooses the thinking effort before each step)
+| Step | What | Output | Status |
+|---|---|---|---|
+| 1 | Architecture dry run and audit (effort: high) | `research/v2-schema-dryrun/` (scripts, `REPORT.md`, `out/`); `ARCHITECTURE_v1.md` v1.1; corrections in the other four documents | DONE 2026-11-11 |
+| 2 | Theme amendments: design system v1.1 (grammar vs skin, Classic/Ops/Paper themes, theme contract, map styles), patches to architecture, layout, release plan; decision 8 (default theme; Classic and side colours) | documents | NEXT — waiting for Allan's go and effort setting |
+| 3 | Part B prototype with theme switcher and swatch-based studio | `prototype/v2/` | after step 2 |
 
 # Part B — prototype (only when Allan says "continue with Part B")
 | # | Deliverable | File | Status |
