@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-10 (MST), **Day 256**. Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-11 (MST), **Day 257** (R1 review note only). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -58,6 +58,10 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
   `docs/v2/V2_SESSION_COMMON.md` (read first by every v2 session) and the `docs/v2/SESSION_PROMPT_*` files: R1
   independent schema review (Opus), F1b theme amendments (Fable), F1c prototype (Fable), S1 slice 1 (Opus, blocked
   on decisions 1-3), E1 backfill pass 3 and enrichment (Sonnet).
+- **2026-11-11 R1 independent schema review (Opus 5.5) DONE:** `research/v2-schema-review/REVIEW.md`. Bottom line: ready for
+  slice 1 after four document fixes (M1 ID tombstones instead of continuity, M2 re-baselined acceptance numbers: fog 127,
+  M3 plain-text and URL rule for repo data, M4 `origin` shape). Link, watchlist and claim/source rules need revision
+  before S3/S4/S7. Nothing ruled yet; F1b applies what Allan accepts.
 - **Data gap confirmed by Allan 2026-11-11:** Days 57-140 (25 Apr to 17 Jul) are thin, 84 events with empty runs up
   to 20 days. Backfill pass 3 is later work (E1 prompt).
 - Known stale item, not fixed in this docs-only PR: the KEY FIELDS table below still says 385 events / Day 170 (header above is correct: 600 / Day 254).

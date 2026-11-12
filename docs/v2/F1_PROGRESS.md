@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-11 MST
+updated: 2026-11-11 MST (R1 added)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -20,7 +20,8 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | Step | What | Output | Status |
 |---|---|---|---|
 | 1 | Architecture dry run and audit (effort: high) | `research/v2-schema-dryrun/` (scripts, `REPORT.md`, `out/`); `ARCHITECTURE_v1.md` v1.1; corrections in the other four documents | DONE 2026-11-11 |
-| R1 | Independent schema review (Opus 5.5, high) | `research/v2-schema-review/REVIEW.md` | NEXT — `SESSION_PROMPT_R1_schema_review.md` |
+| R1 | Independent schema review (Opus 5.5, high) | `research/v2-schema-review/REVIEW.md` | DONE 2026-11-11 (Opus 5.5, extra) |
+| R1-out | Review result, for Allan to rule on before F1b | REVIEW.md: **yes after fixes M1-M4** (ID tombstones, re-baselined acceptance numbers, plain-text/URL rule, `origin` shape); link, watch and claim/source rules need revision before S3/S4/S7 (S1-S13) | awaiting Allan; F1b applies what he accepts |
 | 2 | Theme amendments (Fable 5.2, medium): design system v1.1, patches, decisions 7 and 8 | documents | after R1 — `SESSION_PROMPT_F1b_theme_amendments.md` |
 | 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | after step 2 — `SESSION_PROMPT_F1c_prototype.md` |
 | S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | blocked on decisions 1-3 — `SESSION_PROMPT_S1_shell.md` |
