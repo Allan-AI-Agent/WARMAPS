@@ -1,6 +1,6 @@
 ---
 title: WARMAPS v2 — common brief for every v2 session
-version: v1.1 (2026-11-12: editorial charter added; R1 done)
+version: v1.2 (2026-11-12: editorial charter; R1 done; section 3b direction for fog, lenses, detail and screen size)
 date: 2026-11-11 (Iran-war Day 257); amended 2026-11-12 (Day 258)
 author: Claude (Fable 5.2), end of session F1 day 2, for Allan Sanceau; v1.1 by Claude (Opus 5.5)
 status: STANDING — every SESSION_PROMPT_* file in this folder tells the session to read this first
@@ -47,7 +47,8 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 | Schema dry run | Done: `research/v2-schema-dryrun/` (`REPORT.md`). 600/600 events pass the v1.1 schema; its numbers are the acceptance test for the slice-1 migration |
 | Independent schema review | Done 2026-11-11: `research/v2-schema-review/REVIEW.md` (read its 2026-11-12 addendum under the charter) |
 | Editorial charter | Ruled 2026-11-12 (`STATE.md`). The truth-grading parts of the v2 design carry a banner; F1b rewrites them |
-| Theme amendments + charter rewrite | Not started. `SESSION_PROMPT_F1b_theme_amendments.md` (v1.1) |
+| F1b-1 attribution, fog and lenses | Not started. `SESSION_PROMPT_F1b1_attribution_fog_lenses.md` |
+| F1b-2 themes, detail levels, screen size | Not started; after F1b-1. `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2) |
 | Prototype (Part B) | Not started. `SESSION_PROMPT_F1c_prototype.md` |
 | Slice 1 build | Blocked on decisions 1-3. `SESSION_PROMPT_S1_shell.md` |
 | Backfill pass 3 and enrichment | Not started. `SESSION_PROMPT_E1_backfill3_enrichment.md` |
@@ -66,6 +67,44 @@ except where marked. The theme-amendments session writes them into the documents
 | Data | He confirms the thin stretch (about 25 Apr to 17 Jul 2026): partly a period when he was not working on WARMAPS, partly data not brought up to the current model. Backfill is later work. He already knew some day labels are off by one |
 | Independent review | "I agree with your recommendation, so let's do that" (RULED: do one bounded independent review of the schema before slice 1) |
 | Working method | Prompt him for model and thinking effort before each step; use cheaper models wherever they are enough; carry work into fresh chats that pull context from the repo |
+
+# 3b. Direction agreed 2026-11-12 (provisional until Allan has tried the prototype)
+
+**Allan's words (OBSERVED, lightly cleaned of phone-typing errors):**
+- "The fog essentially shows up as ghosts ... less solid ... and then as more information is gathered they solidify,
+  move into position." No "huge dot on the map with everything as fog thrown into that dot".
+- "I want it to look nice, I want it to be functional, I want my cake, and I want to eat it too."
+- Points of view: "what's the view look like from the Iranian point of view, or Hezbollah, or US, Israel", "not
+  propaganda claims, simply things that ideally can be verified easier, a strike: where was it, what was said".
+- 3D: "all of this will have to exist on the 2D map and then move into 3D", with the planes, satellites and other
+  God's Eye View layers.
+- Devices: it should work on his Fire HD 10, but "if that is going to skew everything else, I don't want it to"; a
+  full-fidelity view on PC, where most users will be. Modular, so parts can be tweaked or redesigned later. "I haven't
+  seen anything yet": a mock-up comes before implementation.
+- Screen size is separate from complexity: his S22 is powerful; the limit is screen size. He wants phone landscape;
+  a zoomed-out globe may suit the phone better than a labelled map; a header plus a side window does not work on the
+  phone; the map must be able to look very clean when wanted.
+- **Rulings, PROVISIONAL (confirm after the demo):** (1) the map opens on the last 7 days and can be widened to any
+  range or the whole war; (2) a one-sided claim stays standard size until another side is on record; (3) look-again
+  checks at 1, 3, 7 and 30 days.
+
+**Design direction agreed for the prototype (Claude's proposals, accepted by Allan 2026-11-12 "Okay, let's go"):**
+
+| Topic | Direction |
+|---|---|
+| Four looks | **Ghost**: one side on record; thin see-through outline in the theater colour, no glow, standard size. **Solid**: more than one side on record and they agree it happened; full size for its tier. **Split**: more than one side on record and they disagree (a denial makes it split, never solid). **Faded ghost**: still one side after the last look-again check; the card says "Unresolved: no account from X as of [date]". Hue = theater, size = tier (with the cap above). Never a truth grade: solid means "the sides agree", and the legend says exactly that |
+| One happening, one record | Every claim, denial and outlet about a happening attaches to one record as a dated **entry**: who, their side, stance (claims, denies, acknowledges), date published, location if they give one, figures, source. A statement naming many targets is one record listing them; targets show as small ticks only when it is opened. Only claims with a stated place go on the map; claims with no place go in that side's list |
+| Location history | The marker sits at the most specific location on record; the card says who placed it and when. If sides name different places, the marker stays at the claimed target and the others appear, on tap, as small linked ghosts labelled by who said so. No uncertainty circles on the map |
+| Fog layer | Two one-tap layers: **On the record** (solid and split) and **Fog** (ghosts). Both on by default, ghosts faint. Fog off = a clean map of what more than one side has said; fog only = where information is missing. A **Contested** filter shows every split marker. Filters count sides heard, never which side |
+| Lifecycle | A new claim is matched to an existing happening (Allan approves merges; a split is always possible) or opens a new one, drawn as a ghost; the card names the missing side. Look-again checks at 1, 3, 7, 30 days search the missing side's outlets (the nightly task, batched per outlet). New entries are appended after approval. Nothing is deleted: a claimant changing a figure or withdrawing is a new entry; only our own mistakes are removed, leaving a tombstone. v1's 15 `fogCheckpoint` dates were the seed of this |
+| Timeline | Opens on the last 7 days as a band on the full-war timeline; drag the band to move it, drag its edge or tap All to widen. Older events drawn fainter in long ranges. A switch: **Record today** (default; each event as the record stands now) or **As known then** (each event as it stood on the slider date). Play in As known then shows ghosts appear, solidify, move into place, split or fade. Needs every entry's publication date (`published` becomes required) |
+| Status line | One line on every card: "On record: Israel, Iran · Missing: Hezbollah · Agree it happened; disagree on damage · Satellite images: 1 (published by X)". No score, no percentage, no graded colour |
+| Lenses | "Lens: All" (default) or one or more **parties from the actor registry**, never pre-built blocs (Iran's government and the Iranian opposition are separate; Hezbollah is separate from Iran). A lens shows only that party's entries, at the location that party gives, so markers move when the lens changes. **Compare two**: agree = solid; only one spoke = ghost on that party's half; conflict = split with one half per party. Compare mode alone uses two neutral, non-national colours plus left/right halves. A persistent banner: "Showing X's account only, not WARMAPS's view · N other accounts hidden · accounts on file: N", carried on share links and screenshots. Lens buttons in neutral alphabetical order. **No left-right slider**: a line forces many parties into two camps and the points between mean nothing. A state-affiliated outlet's own unsourced report is filed under that outlet, labelled state media, grouped with its side |
+| 3D | All of the above lives in the core store; both renderers draw the same filtered state (ARCHITECTURE 9.2). Events stay on the surface; height is used only for real altitude. Aircraft, vessel and satellite tracks stay OBSERVED: grey, own shapes, today only, one tap, no ghost or solid looks. Ghosts on imagery get a dark keyline. The renderer contract's link `confidence` is renamed under the charter |
+| Detail levels | **Lite / Standard / Full**, picked automatically by a two-second draw test plus browser hints, remembered per device, changeable in Settings; on sustained low frame rate the app offers (never forces) a step down. One config file holds the limits per level: ARCHITECTURE 9.4's Fire budget becomes the Lite column; the PC gets Full (terrain, full resolution, more tracks, effects). **Detail changes how things are drawn, never what can be reached** (enforced by a test); where Lite thins tracks it says "showing N of M". Each module states what it does at each level; Lite never downloads Full-only code |
+| Screen size | A separate, automatic axis. Layout comes from viewport and pointer (already in the layout spec). Decluttering is computed in screen pixels: grouping, labels and track thinning per screen area, so a small screen groups more and zooming separates; independent of detail level. Milestones never group; the Events list shows everything in the window. Samsung DeX on the S22 gets a desktop layout with the phone's detail level |
+| Clean view | One tap hides the rail, timeline and buttons, leaving the map or globe edge to edge; a corner button restores them. When a lens is on, a small lens tag stays visible |
+| Phone landscape | Kept and tested (designed for about 300 px of height). The prototype offers both 2D and a zoomed-out globe with labels off; Allan picks the default after trying them |
 
 # 4. Design positions Claude proposed on 2026-11-11 (NOT ruled; Allan has read them and not objected)
 
@@ -89,7 +128,8 @@ except where marked. The theme-amendments session writes them into the documents
 | Step | Model | Effort | Notes |
 |---|---|---|---|
 | R1 independent schema review | Opus 5.5 | High | Fresh chat |
-| F1b theme amendments + charter rewrite | Fable 5.2 | High (was Medium; the charter rewrite added scope; Allan decides) | Fresh chat; documents only |
+| F1b-1 attribution, fog and lenses (charter rewrite + section 3b) | Fable 5.2 | High | Fresh chat; documents only |
+| F1b-2 themes, detail levels, screen size | Fable 5.2 | Medium (Allan decides) | Fresh chat after F1b-1; documents only |
 | F1c prototype | Fable 5.2 | High | Fresh chat, started right after a usage refill; two sittings (build, then five-form-factor review) |
 | S1 slice 1 build | Opus 5.5 | High | Independent Haiku 5.5 check; needs decisions 1-3 |
 | E1 backfill pass 3, enrichment | Sonnet 5.5 | Medium | Different agent verifies; needs Allan's authorisation to change live data |

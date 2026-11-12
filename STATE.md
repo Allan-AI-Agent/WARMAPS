@@ -93,6 +93,11 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
   `docs/v2/V2_SESSION_COMMON.md` (read first by every v2 session) and the `docs/v2/SESSION_PROMPT_*` files: R1
   independent schema review (Opus), F1b theme amendments (Fable), F1c prototype (Fable), S1 slice 1 (Opus, blocked
   on decisions 1-3), E1 backfill pass 3 and enrichment (Sonnet).
+- **2026-11-12 Direction for fog, lenses, timeline, detail levels and screen size (Allan, 14:05, "Okay, let's go"):**
+  written into `docs/v2/V2_SESSION_COMMON.md` section 3b. PROVISIONAL rulings, to confirm after the prototype: map
+  opens on the last 7 days (widen to any range); one-sided claims stay standard size until another side is on record;
+  look-again checks at 1, 3, 7, 30 days. F1b is split: F1b-1 (attribution, fog, lenses; Fable High) then F1b-2
+  (themes, detail levels, screen size; Fable Medium), then the F1c prototype.
 - **2026-11-12 Editorial charter ruled (Allan, 12:59):** attribution, not verification (section above). Written into
   the common brief, KNOWN_FAILURES F-010, the S1/F1b/F1c/E1 prompts and banners on the v2 design documents. F1b now
   also rewrites the truth-grading parts of the architecture and design system under it.

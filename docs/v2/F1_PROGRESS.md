@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-12 MST (charter added)
+updated: 2026-11-12 MST (charter; section 3b direction; F1b split)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -23,7 +23,9 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | R1 | Independent schema review (Opus 5.5, high) | `research/v2-schema-review/REVIEW.md` | DONE 2026-11-11 (Opus 5.5, extra) |
 | R1-out | Review result, for Allan to rule on before F1b | REVIEW.md: **yes after fixes M1-M4** (ID tombstones, re-baselined acceptance numbers, plain-text/URL rule, `origin` shape); link, watch and claim/source rules need revision before S3/S4/S7 (S1-S13) | awaiting Allan; F1b applies what he accepts |
 | C1 | Editorial charter: attribution, not verification (Allan, 2026-11-12) | `STATE.md` ruling; common brief; KNOWN_FAILURES F-010; S1/F1b/F1c/E1 prompts; banners on five design docs; REVIEW addendum | DONE 2026-11-12. Charter check: nothing added grades truth |
-| 2 | Theme amendments + charter rewrite (Fable 5.2, high; Allan decides): design system v1.1, patches, decisions 7 and 8 | documents | after R1 — `SESSION_PROMPT_F1b_theme_amendments.md` |
+| C2 | Fog, lens, timeline, detail-level and screen-size direction (Allan, 2026-11-12, provisional until the demo) | `V2_SESSION_COMMON.md` section 3b; new F1b-1 prompt; F1b-2 and F1c prompts updated; charter copy on Drive (`WARMAPS/_RULES`) | DONE 2026-11-12. Charter check: nothing added grades truth |
+| 2a | F1b-1 attribution, fog and lenses (Fable 5.2, high): charter rewrite + common brief section 3b | documents | NEXT — `SESSION_PROMPT_F1b1_attribution_fog_lenses.md` |
+| 2b | F1b-2 themes, detail levels, screen size (Fable 5.2, medium): design system, patches, decisions 7 and 8 | documents | after F1b-1 — `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2) |
 | 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | after step 2 — `SESSION_PROMPT_F1c_prototype.md` |
 | S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | blocked on decisions 1-3 — `SESSION_PROMPT_S1_shell.md` |
 | E1 | Backfill pass 3 and enrichment batch 1 (Sonnet 5.5, medium) | `research/`, and `warmaps-data.js` only on Allan's go | any time — `SESSION_PROMPT_E1_backfill3_enrichment.md` |
