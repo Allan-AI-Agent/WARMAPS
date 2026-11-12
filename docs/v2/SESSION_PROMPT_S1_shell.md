@@ -1,6 +1,6 @@
 ---
 title: Session prompt S1 — WARMAPS v2 slice 1 (shell + Iran 2D + timeline)
-version: v1.0
+version: v1.1 (2026-11-12: charter gate and truth-grade test added)
 date: 2026-11-11 (Iran-war Day 257)
 for: a fresh Claude Code session, model Opus 5.5, thinking effort High, repository Allan-AI-Agent/WARMAPS; an independent Haiku 5.5 agent checks the work
 how to use: send "In the WARMAPS repo, read docs/v2/SESSION_PROMPT_S1_shell.md and follow it." (add "check out branch v2/f1-architecture" if PR #17 is not merged yet)
@@ -14,6 +14,10 @@ served at `/v2/` beside the untouched v1 site.
 Read `STATE.md` and `docs/v2/F1_DECISIONS_FOR_ALLAN.md`. Slice 1 needs Allan's rulings on **decision 1** (build
 step), **decision 2** (data master during the overlap) and **decision 3** (ID format). If any is not recorded as
 ruled, stop, show him those three rows of the answer sheet, and wait. Do not build on a recommendation.
+
+**Charter gate.** Read the editorial charter in `STATE.md` (2026-11-12). If `ARCHITECTURE_v1.md` still carries the
+charter-conflict banner (truth grades such as `claimStatus: confirmed` not yet rewritten by F1b), stop and tell Allan:
+slice 1 publishes record shapes that cannot be renamed later, so it waits for the rewrite.
 
 ## Before you start
 1. Read `docs/v2/V2_SESSION_COMMON.md` and follow its rules.
@@ -31,7 +35,10 @@ renaming a published field or restructuring, stop and bring it to Allan: that is
 
 Order of work, pushing after each:
 1. `tools/migrate-v1.js`, `tools/build-manifest.js`, `tools/validate-v2.js` (each honesty rule with a mutation
-   test); generated `theaters/`; `validate.yml` extended to regenerate and diff. Show Allan the six date rulings
+   test; **plus the charter test:** reject any field name or enum value that grades a claim's truth: `confirmed`,
+   `verified`, `documented`, `credible`, `credibility`, `reliable`, `debunked`, `confidence`, true/false verdicts.
+   Quoted source text is exempt. A record-to-source check (did the source say this) is allowed under charter rule 5
+   and is named as such. Mutation test: adding `"claimStatus": "confirmed"` to one event must fail); generated `theaters/`; `validate.yml` extended to regenerate and diff. Show Allan the six date rulings
    and six time-note rulings (architecture 7.1) with the defaults; proceed on the defaults unless he rules.
 2. `/v2/` core: `time`, `store`, `loader`, `selectors`, `errors`, `config`; tokens and the theme engine.
 3. Layout engine; top bar; dock rail; phone portrait and landscape to full spec; tablet and PC functional.
@@ -40,7 +47,7 @@ Order of work, pushing after each:
 
 ## Independent check (Allan authorises a separate checking agent for this slice)
 Use a separate Haiku 5.5 agent that has not seen your reasoning. It must: run all validators; mutation-test
-`validate-v2.js`; confirm the generated files match `warmaps-data.js` (600 events, same ids, text byte-identical)
+`validate-v2.js` including the charter test; repeat the charter check (nothing built grades truth); confirm the generated files match `warmaps-data.js` (600 events, same ids, text byte-identical)
 and the dry-run numbers; confirm `git diff main -- index.html warmaps-data.js` is empty; run the layout acceptance
 checks 1-6 in a headless browser at phone sizes if one is available. Report its findings to Allan unedited.
 

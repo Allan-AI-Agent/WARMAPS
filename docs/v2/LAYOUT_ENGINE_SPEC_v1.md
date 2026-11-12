@@ -7,6 +7,11 @@ status: DRAFT FOR RULING — exact behaviour for the prototype (Part B) and slic
 companions: ARCHITECTURE_v1.md (store, renderer contract), DESIGN_SYSTEM_v1.md (how things look)
 ---
 
+> **CHARTER CONFLICT (2026-11-12).** Parts of this document grade how true a claim is. The editorial charter in
+> `STATE.md` (ruled by Allan 2026-11-12) forbids that: WARMAPS reports who said what, with sources, from every
+> side, and never rules on truth. Affected here: the confidence badge on cards, the legend's confidence fills, the watchlist status chips. Where this document and the charter
+> disagree, the charter wins. Session F1b rewrites these parts; until then, do not build them. See `KNOWN_FAILURES.md` F-010.
+
 # 0. Read this first (one screen)
 
 **The one rule that fixes v1's overlap bugs:** panels live in **slots that tile the screen**. A slot has a place

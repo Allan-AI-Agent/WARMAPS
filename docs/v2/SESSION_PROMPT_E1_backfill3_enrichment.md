@@ -44,7 +44,8 @@ actors, a title where `city` is a bare place name, claim status, tier, and sourc
 
 **Do.** For this batch only: the 28 events with no source recorded, then the 33 key events.
 1. For each event, propose the fields in the shape architecture 3.2 defines. Read the sources; do not infer a
-   claim status from tone. `confirmed` only under the rule in architecture 3.4.
+   claim status from tone. Never set a truth grade (editorial charter in `STATE.md`): record who claims, who denies
+   and who carried it, each with a source, and fog where a directly involved side has not been heard.
 2. A different agent verifies each proposal.
 3. Write results to `research/enrichment/batch-01.json`, keyed by the v1 event id, with a short `README.md`
    (method, counts, contested items). If slice 1 has merged and `theaters/iran-war/enrich.json` exists, write

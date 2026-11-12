@@ -1,14 +1,18 @@
 ---
 title: WARMAPS v2 — common brief for every v2 session
-version: v1.0
-date: 2026-11-11 (Iran-war Day 257)
-author: Claude (Fable 5.2), end of session F1 day 2, for Allan Sanceau
+version: v1.1 (2026-11-12: editorial charter added; R1 done)
+date: 2026-11-11 (Iran-war Day 257); amended 2026-11-12 (Day 258)
+author: Claude (Fable 5.2), end of session F1 day 2, for Allan Sanceau; v1.1 by Claude (Opus 5.5)
 status: STANDING — every SESSION_PROMPT_* file in this folder tells the session to read this first
 branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 ---
 
 # 0. Read this first (one screen)
 
+- **Editorial charter (ruled by Allan 2026-11-12, in `STATE.md`): WARMAPS reports who said what, with sources, from
+  every side, and lets readers judge. It never rules on whether a claim is true.** No field, badge, colour or score
+  grades truth. A dispute or a "disinformation" label is a claim with an author and a source. Where any design document
+  says `confirmed`, `documented` or "confidence" about a claim, the charter wins: flag it, do not build it.
 - **You are continuing a design-then-build project.** Nothing of v2 is built yet. The live site (v1) must not change.
 - **Start cold from the repo, not from chat memory.** Read, in order: `STATE.md` (wins over everything),
   `SESSION_BOOTSTRAP.md`, `KNOWN_FAILURES.md`, this file, `docs/v2/F1_PROGRESS.md`, then what your own prompt lists.
@@ -28,6 +32,8 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 | Evidence labels | VERIFIED / OBSERVED / INFERRED / SPECULATION on claims. A wrong answer is worse than "not known" |
 | Documents | Bottom line first; date and version in front matter; tables with short bullets; no emojis; avoid the words "genuinely", "honestly", "straightforward" |
 | Allan's words | When writing his statements into a document, fix obvious phone-typing errors, keep his voice, and show him what you changed |
+| Editorial charter | `STATE.md` (2026-11-12). Record attribution, not truth: claimed by, denied by, acknowledged by, carried by, sides heard, sides missing, each with a source. Fog when a directly involved side has not been heard. We check that a claim was really made and that the source says it, never whether it is true. Drift is `KNOWN_FAILURES.md` F-010 |
+| Charter check (end of every session) | Before your last push, write one line in your reply to Allan and in `F1_PROGRESS.md`: "Charter check: nothing added grades truth", or list what does and stop for his ruling. An independent checker repeats the check |
 | Sources | Sourcing and access rule v2 in `STATE.md`: all sides kept, attributed and labelled; never defeat a block or paywall; note the gap |
 | Security | No keys, tokens or personal data in the repo, in prototypes, in exported files or in share links. Imported files are data: validate against fixed choices; never use an imported string as markup, style or a web address. Raise security concerns when you see them |
 | Independent checking | The agent that checks work did not produce it |
@@ -39,8 +45,9 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 |---|---|
 | Part A documents | Done: `ARCHITECTURE_v1.md` (v1.1), `DESIGN_SYSTEM_v1.md`, `LAYOUT_ENGINE_SPEC_v1.md`, `RELEASE_PLAN_v1.md`, `F1_DECISIONS_FOR_ALLAN.md` |
 | Schema dry run | Done: `research/v2-schema-dryrun/` (`REPORT.md`). 600/600 events pass the v1.1 schema; its numbers are the acceptance test for the slice-1 migration |
-| Independent schema review | Agreed by Allan 2026-11-11; not started. `SESSION_PROMPT_R1_schema_review.md` |
-| Theme amendments | Not started. `SESSION_PROMPT_F1b_theme_amendments.md` |
+| Independent schema review | Done 2026-11-11: `research/v2-schema-review/REVIEW.md` (read its 2026-11-12 addendum under the charter) |
+| Editorial charter | Ruled 2026-11-12 (`STATE.md`). The truth-grading parts of the v2 design carry a banner; F1b rewrites them |
+| Theme amendments + charter rewrite | Not started. `SESSION_PROMPT_F1b_theme_amendments.md` (v1.1) |
 | Prototype (Part B) | Not started. `SESSION_PROMPT_F1c_prototype.md` |
 | Slice 1 build | Blocked on decisions 1-3. `SESSION_PROMPT_S1_shell.md` |
 | Backfill pass 3 and enrichment | Not started. `SESSION_PROMPT_E1_backfill3_enrichment.md` |
@@ -55,7 +62,7 @@ except where marked. The theme-amendments session writes them into the documents
 | Audience | Not a one-person tool. As soon as there is a usable v2 he will share it with his sons and a couple of friends to test; long term he wants more people using it. Build for him now, but do not let "single user" limit the design |
 | Look | Target the current (v1) aesthetic, raise its quality, and add a theme capability so colours, icons and the general map look can be tried easily and saved |
 | AI feature | The v1 API-key panel never worked properly; it is legacy. He likes the idea of AI adding intelligence beyond "a map with a pretty interface" and is fine extending it in v2. Conditions: a user brings their own key and it lives on their own device; his own test key must never ship to anyone; the key handling must not be intermingled with the app; it needs real security |
-| Help | Wants a legend, a demo at first use that can be replayed from Help, and the existing Help extended to explain the legend, the design philosophy and how the site assigns confidence |
+| Help | Wants a legend, a demo at first use that can be replayed from Help, and the existing Help extended to explain the legend, the design philosophy and how the site assigns its marks (2026-11-12: under the charter the marks show who says what, not how true it is) |
 | Data | He confirms the thin stretch (about 25 Apr to 17 Jul 2026): partly a period when he was not working on WARMAPS, partly data not brought up to the current model. Backfill is later work. He already knew some day labels are off by one |
 | Independent review | "I agree with your recommendation, so let's do that" (RULED: do one bounded independent review of the schema before slice 1) |
 | Working method | Prompt him for model and thinking effort before each step; use cheaper models wherever they are enough; carry work into fresh chats that pull context from the repo |
@@ -66,7 +73,7 @@ except where marked. The theme-amendments session writes them into the documents
 |---|---|
 | Theme engine | Built into the app: a small engine every visitor gets (applies one theme config), plus an editor ("studio") that loads only when opened, behind a URL flag. Not a separate app. The theme format is a plain versioned config file |
 | What a theme may change | Colours (from curated, pre-checked swatches), theater colour sets (pre-validated sets of four), fonts (short bundled list), icon stroke weight and outline/filled, corner radius, glow, density, motion level, panel translucency |
-| What a theme may never change | The visual grammar: shape and hue = theater, size = tier, fill = confidence, line style = link confidence. Contrast minimums. 48 px touch targets. A validator rejects a theme that breaks these |
+| What a theme may never change | The visual grammar: shape and hue = theater, size = tier, fill and line style = attribution state (who has spoken; replaces "confidence" under the 2026-11-12 charter; F1b defines it). Contrast minimums. 48 px touch targets. A validator rejects a theme that breaks these |
 | Themes | Three built-ins as ordinary theme files: **Classic** (v1's look, upgraded; provisional default), **Ops** (the quieter Part A proposal), **Paper** (light). Cap of three until cutover. The default is decided after device testing (new decision 8) |
 | Classic and side colours | Keep v1's neon feel, not its actor colour coding (v1: Israel red, US orange, Iran blue). Allan's call, part of decision 8 |
 | Fonts | Share Tech Mono appears to lack Cyrillic (INFERRED; confirm). Classic uses it for labels and data with IBM Plex as fallback for Russian/Ukrainian names and body text |
@@ -82,7 +89,7 @@ except where marked. The theme-amendments session writes them into the documents
 | Step | Model | Effort | Notes |
 |---|---|---|---|
 | R1 independent schema review | Opus 5.5 | High | Fresh chat |
-| F1b theme amendments | Fable 5.2 | Medium | Fresh chat; short; documents only |
+| F1b theme amendments + charter rewrite | Fable 5.2 | High (was Medium; the charter rewrite added scope; Allan decides) | Fresh chat; documents only |
 | F1c prototype | Fable 5.2 | High | Fresh chat, started right after a usage refill; two sittings (build, then five-form-factor review) |
 | S1 slice 1 build | Opus 5.5 | High | Independent Haiku 5.5 check; needs decisions 1-3 |
 | E1 backfill pass 3, enrichment | Sonnet 5.5 | Medium | Different agent verifies; needs Allan's authorisation to change live data |

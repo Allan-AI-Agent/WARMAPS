@@ -7,6 +7,11 @@ status: DRAFT FOR RULING — tokens are final enough to build the prototype agai
 companions: ARCHITECTURE_v1.md, LAYOUT_ENGINE_SPEC_v1.md
 ---
 
+> **CHARTER CONFLICT (2026-11-12).** Parts of this document grade how true a claim is. The editorial charter in
+> `STATE.md` (ruled by Allan 2026-11-12) forbids that: WARMAPS reports who said what, with sources, from every
+> side, and never rules on truth. Affected here: the channel table (fill and line style), 2.3 Confidence, `state-alert`, link line styles. Where this document and the charter
+> disagree, the charter wins. Session F1b rewrites these parts; until then, do not build them. See `KNOWN_FAILURES.md` F-010.
+
 # 0. Read this first (one screen)
 
 **The look in one sentence:** a dark, quiet operations chart where the data is the only thing that glows, and

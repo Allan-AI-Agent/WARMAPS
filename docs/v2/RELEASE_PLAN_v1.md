@@ -7,6 +7,11 @@ status: DRAFT FOR RULING — slice order and model assignments proposed; nothing
 companions: ARCHITECTURE_v1.md, DESIGN_SYSTEM_v1.md, LAYOUT_ENGINE_SPEC_v1.md, WARMAPS_v2_PLAN v0.1 (phases P0-P7)
 ---
 
+> **CHARTER CONFLICT (2026-11-12).** Parts of this document grade how true a claim is. The editorial charter in
+> `STATE.md` (ruled by Allan 2026-11-12) forbids that: WARMAPS reports who said what, with sources, from every
+> side, and never rules on truth. Affected here: S2 "confidence styling", the S4 content rule and exit test ("documented" links). Where this document and the charter
+> disagree, the charter wins. Session F1b rewrites these parts; until then, do not build them. See `KNOWN_FAILURES.md` F-010.
+
 # 0. Read this first (one screen)
 
 **Plan in three lines**

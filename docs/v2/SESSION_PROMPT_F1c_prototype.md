@@ -27,8 +27,8 @@ It proves the design documents; it is not the start of the app.
 | Timeline | The two-level timeline (overview with view box, detail row with finger-sized steps), date-first readout with per-theater day numbers, Today, Play |
 | Theaters | Theater filter from one theater to all; outlines; the "no curated events yet" state for a theater with none |
 | Views | 2D (Leaflet) and 3D globe (CesiumJS, loaded only on request) showing the same sample events and arcs; the switch keeps the camera on the same place |
-| Confidence | Shape = theater, size = tier, fill = confidence, including fog and "not yet reviewed". A toggle showing decision 6 options A and B side by side |
-| Links | A few sample arcs with line style by confidence, weight changing as time is scrubbed, bundling, the legend sentence, off by default |
+| Attribution (was "Confidence"; charter 2026-11-12: show who says what, never how true) | Shape = theater, size = tier, fill = attribution state as defined by F1b, including fog and "not yet reviewed". A toggle showing decision 6 options A and B side by side |
+| Links | A few sample arcs with line style by attribution state (F1b), weight changing as time is scrubbed, bundling, the legend sentence, off by default |
 | Watchlist | Both tracks, visibly different, statuses as of the cursor date, the fixed headline ladder |
 | Cards | Event, link and track cards at peek and expanded, with sources and the fog note first |
 | Themes | Switcher for Classic, Ops and Paper; the swatch-based studio with live preview; export and import of a theme as a file and as a link, with strict validation of imported data; map-style picker including satellite with its adjustments |

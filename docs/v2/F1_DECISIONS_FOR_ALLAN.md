@@ -7,6 +7,11 @@ status: AWAITING RULING — seven decisions; a one-word answer works for each
 how to answer: reply with seven letters in order, for example "A A A A A A A", or "all recommended"
 ---
 
+> **CHARTER CONFLICT (2026-11-12).** Parts of this document grade how true a claim is. The editorial charter in
+> `STATE.md` (ruled by Allan 2026-11-12) forbids that: WARMAPS reports who said what, with sources, from every
+> side, and never rules on truth. Affected here: decision 6 wording and the watchlist headline decision ("confirmed"); the decision cards' own CONFIDENCE rating grades our decisions, not claims, and is not affected. Where this document and the charter
+> disagree, the charter wins. Session F1b rewrites these parts; until then, do not build them. See `KNOWN_FAILURES.md` F-010.
+
 # Answer sheet (everything you need is in this table)
 
 | # | Decision | Recommended | One-line reason | Can it wait for the prototype? |

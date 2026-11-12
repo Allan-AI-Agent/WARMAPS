@@ -1,6 +1,6 @@
 ---
 title: R1 — independent review of the WARMAPS v2 schema (ARCHITECTURE_v1.md v1.1)
-version: v1.0
+version: v1.1 (2026-11-12: addendum under the editorial charter)
 date: 2026-11-11 (Iran-war Day 257)
 author: Claude Opus 5.5, thinking effort extra (set by Allan). Did not write the architecture or the dry run
 inputs: branch v2/f1-architecture at 7eb940c; warmaps-data.js (600 events); intake/feeds.json; research/backfill-pass2
@@ -74,6 +74,31 @@ Timeline engine beyond reading it · file sizes and gzip figures · the performa
 release and decision documents beyond slice scope · the globe graft · browser behaviour · all 600 event texts (20
 sampled, plus targeted searches) · the 215 pass-2 URLs · later developments in the two real cases (L1, L2) beyond
 press reports of those dates. This review was not itself checked by a second agent (none was authorised for R1).
+
+
+# Addendum 2026-11-12 — read this review under the editorial charter
+
+Allan ruled on 2026-11-12 (`STATE.md`) that WARMAPS reports who said what, with sources, and never rules on truth.
+This review (2026-11-11) took the design's truth grades as given and proposed stricter grading. That was itself an
+instance of the drift the charter now forbids (`KNOWN_FAILURES.md` F-010). Read the findings this way:
+
+| Finding | Under the charter |
+|---|---|
+| M1-M3 | Unchanged |
+| M4 `origin` | Becomes `claimedBy[]` (charter rule 1); the shape decision is still needed before slice 1 |
+| S1 relayed claims | Remedy is "claimed by" separate from "carried by" (rule 3), not a stricter route to `confirmed` |
+| S2, S3 independence and access | Mostly dissolve: they existed only to reach `confirmed`. Registry fields still matter for showing which sides were heard (rule 2) |
+| S4 claimStatus | Becomes attribution status (claimed, denied, acknowledged, carried by); no truth value |
+| S5 fog | Charter rule 4 is the definition: fog when a directly involved side has not been heard; name the missing side |
+| S6 denials and scope | Required by rule 1: denials are recorded as claims with their source |
+| S7, S8 link grades | Link "confidence" goes; a link shows who affirms it and who denies it, with sources. Weight still needs a rule for what it counts |
+| S9 tripwires | Status shows who has reported or acknowledged the event and who denies it; no "confirmed" headline |
+| S10-S13, cuts | Unchanged |
+| Appendix A cases | Still valid evidence: each shows the site asserting something no source said |
+
+Expected effect on the data (INFERRED): under rule 4 many Iran-war events become fog at first, because Iranian state,
+Hezbollah, Houthi and Palestinian official accounts are rarely linked (0 links to those outlets among 87 linked sites;
+the only Iran feed in the intake is Iran International).
 
 ---
 

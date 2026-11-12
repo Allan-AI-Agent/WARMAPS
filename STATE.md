@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-11 (MST), **Day 257** (R1 review note only). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-12 (MST), **Day 258** (editorial charter ruled; documents only). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -17,6 +17,39 @@ a fresh tab and read the values **without being told them first**:
 | Timeline last day | 248 | 248 (Nov 2 2026; Feb 28 = Day 1; same in 4 TZs) | match |
 
 This also closes v01.09.02's open item "confirm badge text on a cold load".
+
+## RULING 2026-11-12 12:59 (Allan): EDITORIAL CHARTER — ATTRIBUTION, NOT VERIFICATION
+**This charter wins over every design document, session prompt and review. Only Allan's written ruling changes it.**
+
+WARMAPS is a journalistic record. It reports who said what, when, and where it was published, from every side, and
+lets readers judge. It never rules on whether a claim is true. In Allan's words (2026-11-12): "It's a journalistic
+operation, not a government spin operation." Grading claims as true puts the site in the role of judge; that has
+never been the intent.
+
+1. Every claim names who made it; every denial names who denied it. Each has its source, ideally a link.
+2. Sources come from all participants and everyone affected: governments and their oppositions, warring parties,
+   arms suppliers and neighbours. Exile or opposition media never stands in for a side.
+3. "Claimed by" (who said it) is kept separate from "carried by" (who repeated it). Repetition is not corroboration.
+4. Fog of war: if a directly involved side hasn't been heard from, or only one side's account exists, the record
+   says fog and names the missing side.
+5. What we do check: that the claim was really made, by whom, and that the source says what we say it says. That
+   checks the record is authentic, not that the claim is true.
+6. Allan's own views appear only clearly labelled as his, separate from the record.
+7. No field, badge, colour or score grades truth. Changing this needs Allan's written ruling.
+8. A dispute, or a "disinformation" label, is itself a claim. It is recorded like any other claim: who says it,
+   with their source. The site never calls anything disinformation on its own authority.
+
+- **Supersedes:** the "flagged for ... detected disinformation" exception in the 2026-09-28 figures policy. Figures
+  still use the latest available number; a disputed figure shows who disputes it, with their source (rule 8).
+- **How to read older text:** "claim status" in the 2026-11-10 sourcing rule below means attribution status
+  (claimed, denied, acknowledged, carried by), not a truth grade.
+- **Known conflicts, rewritten by session F1b:** `docs/v2/ARCHITECTURE_v1.md` principle 2, 3.2 `claimStatus`, 3.4
+  (`confirmed`), 4.1 (link confidence documented/reported/alleged), 4.2 (tripwire `confirmed` and its headline),
+  4.5 (independence used to reach `confirmed`); "fill = confidence" and "line style = link confidence" in
+  `DESIGN_SYSTEM_v1.md` and the other v2 documents. Each carries a banner until rewritten. Do not build them.
+- **Drift is a known failure:** `KNOWN_FAILURES.md` F-010. **Enforced by a test:** the v2 validator rejects
+  truth-grade fields and values (`docs/v2/SESSION_PROMPT_S1_shell.md`). **Every v2 session ends with a charter
+  check** (`docs/v2/V2_SESSION_COMMON.md`).
 
 ## RULING 2026-11-10 11:18 (Allan): SOURCING AND ACCESS RULE v2 (replaces "never bypass blocks")
 WARMAPS is a journalistic endeavor and follows ethical-journalism practice: get the information and get it out,
@@ -58,6 +91,9 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
   `docs/v2/V2_SESSION_COMMON.md` (read first by every v2 session) and the `docs/v2/SESSION_PROMPT_*` files: R1
   independent schema review (Opus), F1b theme amendments (Fable), F1c prototype (Fable), S1 slice 1 (Opus, blocked
   on decisions 1-3), E1 backfill pass 3 and enrichment (Sonnet).
+- **2026-11-12 Editorial charter ruled (Allan, 12:59):** attribution, not verification (section above). Written into
+  the common brief, KNOWN_FAILURES F-010, the S1/F1b/F1c/E1 prompts and banners on the v2 design documents. F1b now
+  also rewrites the truth-grading parts of the architecture and design system under it.
 - **2026-11-11 R1 independent schema review (Opus 5.5) DONE:** `research/v2-schema-review/REVIEW.md`. Bottom line: ready for
   slice 1 after four document fixes (M1 ID tombstones instead of continuity, M2 re-baselined acceptance numbers: fog 127,
   M3 plain-text and URL rule for repo data, M4 `origin` shape). Link, watchlist and claim/source rules need revision

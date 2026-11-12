@@ -9,6 +9,11 @@ evidence: research/v2-schema-dryrun/REPORT.md (what broke, with counts) and the 
 companions: DESIGN_SYSTEM_v1.md, LAYOUT_ENGINE_SPEC_v1.md, RELEASE_PLAN_v1.md, layers.config.json, WARMAPS_v2_GEV_INTEGRATION_SPEC
 ---
 
+> **CHARTER CONFLICT (2026-11-12).** Parts of this document grade how true a claim is. The editorial charter in
+> `STATE.md` (ruled by Allan 2026-11-12) forbids that: WARMAPS reports who said what, with sources, from every
+> side, and never rules on truth. Affected here: principle 2, 3.2 `claimStatus` and `origin`, 3.4, 4.1, 4.2, 4.5, 5.6, 7.1 mapping, 7.4 validator E. Where this document and the charter
+> disagree, the charter wins. Session F1b rewrites these parts; until then, do not build them. See `KNOWN_FAILURES.md` F-010.
+
 # 0. Read this first (one screen)
 
 **The idea.** WARMAPS v2 is one connected system that can be shown as separate theaters. Four record
