@@ -47,6 +47,8 @@ never been the intent.
   (`confirmed`), 4.1 (link confidence documented/reported/alleged), 4.2 (tripwire `confirmed` and its headline),
   4.5 (independence used to reach `confirmed`); "fill = confidence" and "line style = link confidence" in
   `DESIGN_SYSTEM_v1.md` and the other v2 documents. Each carries a banner until rewritten. Do not build them.
+- **Copy for other AIs:** Drive `WARMAPS/_RULES/_WARMAPS_EDITORIAL_CHARTER_v1.0.md` (id `1lwpZUu_Qc9GTTtwqCa3W5xZ8Gmr2-Xne`).
+  Change this section first; then re-issue the Drive copy as a new version so the two never differ.
 - **Drift is a known failure:** `KNOWN_FAILURES.md` F-010. **Enforced by a test:** the v2 validator rejects
   truth-grade fields and values (`docs/v2/SESSION_PROMPT_S1_shell.md`). **Every v2 session ends with a charter
   check** (`docs/v2/V2_SESSION_COMMON.md`).
