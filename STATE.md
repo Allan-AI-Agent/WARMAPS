@@ -54,8 +54,12 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
 - **v1 data findings from the dry run, NOT fixed (v1 untouched):** 60 events (ids 109-297) carry a "Day N" in their
   `time` text one lower than the computed day; 6 events have stale day text mid-string (ids 126, 287, 288, 289, 294,
   296); type `platform` (ids 320, 329) has no marker colour entry; 28 events have no source recorded.
-- **Next F1 steps, each on Allan's go with an effort setting:** step 2 theme amendments (design system v1.1 and
-  patches); step 3 Part B prototype.
+- **Next steps, each in a fresh chat from a prompt file, each on Allan's go with model and effort:** see
+  `docs/v2/V2_SESSION_COMMON.md` (read first by every v2 session) and the `docs/v2/SESSION_PROMPT_*` files: R1
+  independent schema review (Opus), F1b theme amendments (Fable), F1c prototype (Fable), S1 slice 1 (Opus, blocked
+  on decisions 1-3), E1 backfill pass 3 and enrichment (Sonnet).
+- **Data gap confirmed by Allan 2026-11-11:** Days 57-140 (25 Apr to 17 Jul) are thin, 84 events with empty runs up
+  to 20 days. Backfill pass 3 is later work (E1 prompt).
 - Known stale item, not fixed in this docs-only PR: the KEY FIELDS table below still says 385 events / Day 170 (header above is correct: 600 / Day 254).
 
 ## RULINGS 2026-11-09 18:03 (Allan) — queued for after the weekly reset (Fable gets tonight's allowance)

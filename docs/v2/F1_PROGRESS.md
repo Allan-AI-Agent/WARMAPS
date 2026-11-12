@@ -20,8 +20,14 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | Step | What | Output | Status |
 |---|---|---|---|
 | 1 | Architecture dry run and audit (effort: high) | `research/v2-schema-dryrun/` (scripts, `REPORT.md`, `out/`); `ARCHITECTURE_v1.md` v1.1; corrections in the other four documents | DONE 2026-11-11 |
-| 2 | Theme amendments: design system v1.1 (grammar vs skin, Classic/Ops/Paper themes, theme contract, map styles), patches to architecture, layout, release plan; decision 8 (default theme; Classic and side colours) | documents | NEXT — waiting for Allan's go and effort setting |
-| 3 | Part B prototype with theme switcher and swatch-based studio | `prototype/v2/` | after step 2 |
+| R1 | Independent schema review (Opus 5.5, high) | `research/v2-schema-review/REVIEW.md` | NEXT — `SESSION_PROMPT_R1_schema_review.md` |
+| 2 | Theme amendments (Fable 5.2, medium): design system v1.1, patches, decisions 7 and 8 | documents | after R1 — `SESSION_PROMPT_F1b_theme_amendments.md` |
+| 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | after step 2 — `SESSION_PROMPT_F1c_prototype.md` |
+| S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | blocked on decisions 1-3 — `SESSION_PROMPT_S1_shell.md` |
+| E1 | Backfill pass 3 and enrichment batch 1 (Sonnet 5.5, medium) | `research/`, and `warmaps-data.js` only on Allan's go | any time — `SESSION_PROMPT_E1_backfill3_enrichment.md` |
+
+**Every session reads `docs/v2/V2_SESSION_COMMON.md` first** (rules, where things stand, Allan's 2026-11-11 direction, model and effort plan).
+The 2026-11-11 chat was closed after writing these prompts to save usage; nothing from it lives only in chat.
 
 # Part B — prototype (only when Allan says "continue with Part B")
 | # | Deliverable | File | Status |
