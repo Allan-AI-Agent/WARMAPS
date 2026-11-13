@@ -68,6 +68,11 @@ a claimant on each entry); an independent **Sonnet 5.5 checker is authorised** f
 - The charter test caught v1's `originKnown: "probable"` (9 events), which no document had listed.
 - R1's S10, S12, S13 remain open (ARCHITECTURE section 10).
 
+**RULED by Allan 2026-11-13 01:42 (OBSERVED): "We should include updating the live v1 site stats wording."** Add to the remaining work: a
+small v1 change (its own branch and PR, version bump per Rule 8, validators, cold read) rewording the stat label
+"Confirmed Dead (Iran Military)" under the charter (who reports the figure, as of when). Ask him whether the naval
+"Verified / Unverified" labels and the launch-origin value go in the same PR; he named the stats wording only.
+
 **To resume:** fresh chat, Fable 5.2 High (or Opus 5.5 for items 1-2, which are mostly transcription of the above), send:
 `In the WARMAPS repo, check out branch v2/f1-architecture, read docs/v2/F1_PROGRESS.md section "F1b-1 handoff" and finish it. M1-M4 accepted; Sonnet 5.5 checker authorised.`
 
