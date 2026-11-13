@@ -1,16 +1,14 @@
 ---
 title: WARMAPS v2 — Layout Engine Spec v1 (the panel system)
-version: v1.0.1 (timeline made two-level after the 2026-11-11 dry run; theme controls come in v1.1)
-date: 2026-11-11 (Iran-war Day 257)
-author: Claude (Fable 5.2), session F1, for Allan Sanceau
+version: v1.1 (2026-11-13: lens, fog layers, 7-day band, record switch and status line under the editorial charter; theme controls, clean view and screen-size rules come in session F1b-2)
+date: 2026-11-13 (Iran-war Day 259)
+author: Claude (Fable 5.2), sessions F1 and F1b-1, for Allan Sanceau
 status: DRAFT FOR RULING — exact behaviour for the prototype (Part B) and slice 1
-companions: ARCHITECTURE_v1.md (store, renderer contract), DESIGN_SYSTEM_v1.md (how things look)
+companions: ARCHITECTURE_v1.md v1.2 (store, selectors, renderer contract), DESIGN_SYSTEM_v1.md v1.1 (how things look)
 ---
 
-> **CHARTER CONFLICT (2026-11-12).** Parts of this document grade how true a claim is. The editorial charter in
-> `STATE.md` (ruled by Allan 2026-11-12) forbids that: WARMAPS reports who said what, with sources, from every
-> side, and never rules on truth. Affected here: the confidence badge on cards, the legend's confidence fills, the watchlist status chips. Where this document and the charter
-> disagree, the charter wins. Session F1b rewrites these parts; until then, do not build them. See `KNOWN_FAILURES.md` F-010.
+> **Editorial charter (STATE.md, 2026-11-12) governs this document.** No control, chip, legend line or panel here
+> says how true a claim is. They show who has spoken, who has not, and whose account is on screen.
 
 # 0. Read this first (one screen)
 
@@ -22,7 +20,7 @@ The only things allowed to float above the map are the sheet on a phone, popover
 **Five regions, always in the same order of importance:**
 1. **Stage** — the map or globe. Always present, always the largest thing.
 2. **Timeline** — always present, attached to the stage.
-3. **Top bar** — theater filter, 2D/3D switch, layers button.
+3. **Top bar** — theater filter, lens button, 2D/3D switch, layers button.
 4. **Dock rail** — one icon per panel.
 5. **Panel slots** — where opened panels go.
 
@@ -76,29 +74,78 @@ so the map is never hidden under a panel there. On a phone the sheet covers part
 "visible centre" is offset so a selected event is never under the sheet.
 
 ## 2.2 Top bar
-Left to right: menu/brand → **theater filter** → spacer → **2D | 3D** switch → **Layers** button → overflow.
+Left to right: menu/brand → **theater filter** → **Lens** button → spacer → **2D | 3D** switch → **Layers** button → overflow.
 
 | Class | Height | Changes |
 |---|---|---|
-| phone-portrait | 48 | Theater filter collapses to one chip showing the current choice ("Iran war ▾", "All theaters ▾"); tapping opens a small menu. Brand becomes the mark only |
-| phone-landscape | none | The top bar is removed. Its controls move to the top of the left rail (theater chip, 2D/3D, layers) |
-| tablet (both) | 56 | Full segmented theater filter with names |
-| pc | 48 | Full filter, plus search, plus the date readout duplicated at right |
+| phone-portrait | 48 | Theater filter collapses to one chip showing the current choice ("Iran war ▾", "All theaters ▾"); tapping opens a small menu. Brand becomes the mark only. Lens is an icon button with a dot when a lens is on |
+| phone-landscape | none | The top bar is removed. Its controls move to the top of the left rail (theater chip, 2D/3D, layers). Lens and the fog switches are the first rows of the Layers side sheet; the lens tag on the stage opens the lens picker when tapped |
+| tablet (both) | 56 | Full segmented theater filter with names. Lens button with its text ("Lens: All", "Lens: Iran", "Compare: Iran | Israel") |
+| pc | 48 | Full filter, lens button with its text, plus search, plus the date readout duplicated at right |
 
 **Theater filter behaviour:** segments are toggles, with "All" as a shortcut. One theater on = single-theater mode
 (the AOI is framed, outside dimmed). Two or more on = multi mode (camera frames all selected AOIs; the Links layer
 becomes available but stays off). Theaters with status `intake-only` show greyed with "no curated events yet".
 
+## 2.2a Lens: button, picker, banner and tag (ARCHITECTURE 3.4.6; DESIGN_SYSTEM 5A.3)
+
+**Picker.** Opens from the Lens button: a sheet at half on phones, a popover on tablet and PC.
+- First row: **All accounts** (the default).
+- Then every party in the actor registry that has an entry in the current window, **in alphabetical order**, each
+  with a checkbox and the number of its entries in view ("Iran · 41"). Parties with none in view follow, greyed but
+  selectable. A search field filters the list. There are no pre-built groups, blocs or "sides": the Iranian
+  government and the Iranian opposition are two rows; Hezbollah is its own row.
+- One or more ticked = lens on those parties. A **Compare two** switch at the bottom is enabled when exactly two
+  are ticked; it shows "A (left): ... · B (right): ..." with a swap button.
+- There is no slider and no left-to-right scale anywhere in the picker.
+
+**Banner.** Shown whenever a lens other than All is on. It cannot be dismissed while the lens is on; its only
+action is "All accounts".
+
+| Class | Banner | Lens tag on the stage |
+|---|---|---|
+| phone-portrait | 32 px strip under the top bar, one line: "Iran's account only · 14 hidden". Tapping it opens the full sentence and the "All accounts" button | Yes |
+| phone-landscape | No room for a strip at 300 px. The full sentence is the first row of any open side sheet, and shows for 4 seconds over the stage when the lens changes | Yes, and it is the standing indicator here. Tap opens the picker |
+| tablet (both) | 32 px strip under the top bar, full sentence: "Showing Iran's account only, not WARMAPS's view · 14 other accounts hidden · accounts on file: 31", then "All accounts" | Yes |
+| pc | Same as tablet | Yes |
+
+- The **lens tag** is drawn inside the stage (bottom leading corner) at every class, so it is in every screenshot.
+  It stays visible in clean view (F1b-2). In side-by-side views each view carries its own tag.
+- A shared link carries the lens (ARCHITECTURE 9.1), so whoever opens it sees the same banner and tag.
+- Under a lens the Events panel has two groups: "Says" (records that party affirms; those with no stated place are
+  here and not on the map) and "Denies". The info card shows that party's entries and a row "N other accounts on
+  this record are hidden · Show all accounts".
+- Changing the lens moves markers to the places that party gives. The move is instant (it is a change of reading,
+  not of time).
+
+## 2.2b Record layers: On the record, Fog, Contested (ARCHITECTURE 9.1)
+
+Three switches that act on events. They count sides heard; none of them picks a side.
+
+| Switch | Default | Effect |
+|---|---|---|
+| **On the record** | on | Solid and split markers (and not-yet-attributed v1 records) |
+| **Fog** | on | Ghosts and faded ghosts |
+| **Contested** | off | A filter: only split markers, whatever the two switches above say |
+
+- Fog off = a clean map of what more than one side has said. On the record off = only where an account is missing.
+  Both off is not allowed: turning off the second one turns the first back on.
+- **One tap away at every class:** on phone-portrait, tablet and PC the three sit as a small control group at the
+  top trailing corner of the stage (48 px targets, icon plus a short label on tablet and PC, icon only on the
+  phone, with the mark each one controls as its icon). On phone-landscape they are the first rows of the Layers
+  side sheet, under Lens.
+- The Events panel follows the same switches, and its header says what is hidden: "7 ghosts hidden".
+
 ## 2.3 Timeline
 Always visible, and **two-level** (ARCHITECTURE 5.3): a **detail row** showing only as many steps as fit at
 finger size (at least 8 px each: about 41 on the S22), where the cursor and window handles live; and an **overview
-row** showing the whole extent with a draggable view box. The dry run showed a one-row timeline would give about
-1 px per day on a phone. Three heights:
+row** showing the whole extent with the window drawn on it as a **band**. The dry run showed a one-row timeline
+would give about 1 px per day on a phone. Three heights:
 
 | State | Height | Contents | Where used |
 |---|---|---|---|
-| `slim` | 44 | Detail row only: cursor track, date readout, play button. Tapping the readout shows the overview temporarily | phone-landscape always; anywhere after the user collapses it |
-| `standard` | 64 | Detail row (44) with window handles + overview row (20): density strip coloured by theater, view box | phone-portrait, tablet-portrait |
+| `slim` | 44 | Detail row only: cursor track, date readout with the range chip ("7d"), play button. Tapping the readout shows the overview with its band temporarily, plus the Record switch | phone-landscape always; anywhere after the user collapses it |
+| `standard` | 64 | Detail row (44) with the band's edges as handles + overview row (20): density strip coloured by theater, the band | phone-portrait, tablet-portrait |
 | `tall` | 88 | Both rows, + band labels (2022 ... 2026), milestone ticks, per-theater day numbers | tablet-landscape, pc |
 
 - Readout: `08 Nov 2026` in data type, then per active theater `IR Day 254 · RU Day 1,719`. Calendar date first
@@ -107,7 +154,19 @@ row** showing the whole extent with a draggable view box. The dry run showed a o
   range-input thumbs that sat below the line (OBSERVED by Allan, 2026-11-02): the v2 timeline is a custom control,
   not a browser range input.
 - Step buttons (previous / next step) sit at the ends on tablet and PC, and inside the readout's menu on a phone.
-- A "Today" button appears whenever the cursor is not at the end.
+- A "Today" button appears whenever the cursor is not at the end. It also returns the band to the last 7 days.
+- **The band (provisional ruling 1).** On first load the window is the last 7 days, drawn as a band at the right
+  end of the overview row. Drag the band to move it through the war; drag either edge to widen or narrow it; tap
+  **All** (a chip at the trailing end of the overview row; in the range chip's menu on `slim`) for the whole
+  extent. The range chip reads "Last 7 days", "12 Oct to 13 Nov" or "All", and its menu offers 7 days, 30 days,
+  90 days, All. The cursor is the band's right edge.
+- The detail row always contains the band's right edge. When the band fits the detail row, both of its edges show
+  there as handles and the days outside it are dimmed; when it is wider, the left edge is a chip at the row's start
+  ("from 12 Oct"). The detail view is no longer a second draggable box: it follows the band (ARCHITECTURE 5.3).
+- **Record today | As known then** (ARCHITECTURE 5.8): a two-part switch at the leading end of the timeline on
+  `standard` and `tall`, in the readout's menu on `slim`. In "As known then" the readout says "as known on 08 Nov
+  2026" and Play replays the record day by day: ghosts appear, solidify, move into position, split or fade.
+- Milestone ticks on the overview: filled for solid or split milestones, hollow for one-sided ones.
 
 ## 2.4 Dock rail
 One item per registered panel, in a fixed order. Initial set:
@@ -333,15 +392,26 @@ One component, three variants. Two sizes: **peek** (what you need to decide whet
 | Part | Event | Link | Track (OBSERVED) |
 |---|---|---|---|
 | Header line | Tier dot · title | Category glyph · title | Type glyph · callsign or name |
-| Chips | Theater chip(s) · **confidence badge** · kind | Theater chips · **confidence badge** · direction | **OBSERVED** chip · source · time |
-| Peek body | Date (and day number) · place · first sentence | Actors A → B · date range · evidence count in window | Position time, speed, heading; warning line if in a jamming area |
-| Expanded | Detail fields; fog note in its own block; **Sources** list (publisher, date, access); verification line; related links; "updated" if `rev > 1` | Summary; **observations** list by date, each with sources and linked events; the legend sentence about weight | "Transponder data is self-reported. Absence is not evidence of no activity." Provider attribution |
+| Chips | Theater chip(s) · **attribution chip** (ONE SIDE, SIDES AGREE, CONTESTED, UNRESOLVED, NOT YET ATTRIBUTED) · kind | Theater chips · **who-has-spoken chip** (BOTH ACTORS, ONE ACTOR, OTHERS ONLY, DENIED BY SOMEONE) · direction | **OBSERVED** chip · source · time |
+| Status line | "On record: Iran, Israel · Missing: Hezbollah · Agree it happened; disagree on damage" (ARCHITECTURE 3.4.4) | "Affirmed by: ... · Acknowledged by: ... · Denied by: ... · No statement from: ..." | — |
+| Peek body | Date (and day number) · place and who placed it · first sentence | Actors A → B · date range · number of voices in the window | Position time, speed, heading; warning line if in a jamming area |
+| Expanded | **Entries, oldest first:** each row = claimant · what they did (says, acknowledges, denies, withdraws) · date published · their words in brief · figures · source link · "carried by" list. Superseded entries are shown struck through under the entry that replaced them. Then: the look-again line ("Checked after 1, 3 and 7 days: no account from Iran found. Next check: 30 days"); other places named, each with who named it; the v1 note where there is one; the record-check line ("Record compared with its sources on 9 Nov 2026"); related links | Summary; **statements by date**, each = claimant · affirms, acknowledges or denies · the `covers` sentence · source; the fixed line "WARMAPS does not rate this link"; the legend sentence about weight | "Transponder data is self-reported. Absence is not evidence of no activity." Provider attribution |
 | Actions | Show on map · Show on timeline · Copy link · Previous / next in time | Show both ends · Filter events to these actors · Copy link | Follow (today only) · Copy link |
 
 Rules:
-- The confidence badge is always in the first row and never scrolls away at peek.
-- A fog event's card opens with the fog note **above** the description, so the caveat is read first.
-- Sources are real links that open in a new tab; a source with `access: "snippet-only"` or `"refused"` says so.
+- **The attribution chip and the status line are always visible at peek and never scroll away**, at every class.
+  At peek the status line is one line; expanded, it wraps in full.
+- A ghost's card therefore opens with "Missing: X" in view, and a faded ghost's with "Unresolved: no account from X
+  as of [date]". The reader sees whose account this is before reading it.
+- A carrier is listed under the entry it repeats and is never shown as a separate voice.
+- An entry by state or party media says so beside the claimant ("State TV, state media"). An entry citing unnamed
+  officials says so ("Wire One, citing an unnamed US official").
+- Tapping a marker whose record names other places shows them on the map as small linked marks labelled by who
+  said so (DESIGN_SYSTEM 2.3); closing the card removes them. A many-target record shows its further targets as
+  ticks the same way.
+- Sources are real links that open in a new tab (`rel="noopener noreferrer"`); a source with `access:
+  "snippet-only"` says so; a publisher with no URL on file is shown as plain text, never linked to a guess.
+- All card text is rendered as text, never as markup (ARCHITECTURE 3.2).
 - "Copy link" writes the URL hash that reproduces theater, date and selection (ARCHITECTURE 9.1).
 - Swiping left/right on a card at peek (phone) moves to the previous/next visible event in time.
 - Overlapping markers: a tap that hits several opens a short chooser list first.
@@ -376,7 +446,7 @@ The stage can hold two views. Three useful pairings:
 | Map / globe | One-finger drag | Pan (globe: rotate) |
 | | Pinch | Zoom |
 | | Two-finger twist / two-finger vertical drag | Rotate / tilt — **globe only**. The 2D map stays north-up |
-| | Tap marker | Select → info card at peek |
+| | Tap marker | Select → info card at peek; other places named on the record appear as linked marks |
 | | Tap empty map | Deselect; closes an unpinned sheet |
 | | Long-press empty map | "What's here": events within the area for the current window |
 | | Double-tap | Zoom in one step |
@@ -384,10 +454,10 @@ The stage can hold two views. Three useful pairings:
 | | Drag in body | Scroll content (never moves the map) |
 | Card at peek | Swipe left / right | Next / previous event in time |
 | Timeline | Drag on track | Scrub the cursor |
-| | Drag a handle | Move a window edge |
+| | Drag a band edge | Widen or narrow the window |
+| | Drag the band on the overview | Move the window through time (the detail row follows) |
 | | Pinch on the detail row | Change how many steps are shown (8 to 40 px per step) |
-| | Drag the view box on the overview | Move the detail view through time |
-| | Double-tap | Jump to today |
+| | Double-tap | Jump to today and back to the last 7 days |
 | Panel header | Long-press, then drag (tablet) | Move to another slot |
 | Rail item | Long-press | Tooltip and the panel's Move/Pin menu |
 
@@ -412,25 +482,68 @@ Guards:
   · source attribution. Rows for layers that are not built yet are visible but disabled in the prototype and in
   early slices, so the eventual menu shape is stable from day one.
 - Turning on Vessels or Military flights turns on GNSS integrity with them, per `layers.config.json` (`auto_with`).
-- The **legend** always reflects exactly what is on: theater shapes, tier sizes, confidence fills, and, when Links
-  are on, the arc key and its fixed sentence. Nothing is in the legend that is not on the map.
+- The Events group's first rows are **Lens** (opens the picker) and the three record switches of 2.2b, so they are
+  reachable here at every class as well as from their one-tap controls.
+- The **legend** always reflects exactly what is on: theater shapes, tier sizes, the looks in view with their fixed
+  lines (DESIGN_SYSTEM 2.3: "Solid = the sides on record agree it happened" and the rest), and, when Links are on,
+  the arc key and its fixed sentence. In compare mode it shows the one-line compare key instead of the looks. Its
+  footer is always shown: "The marks show who has spoken, not what is true." Nothing is in the legend that is not
+  on the map, and the legend never uses the words confirmed, verified or unconfirmed.
 - "Reset to default view" returns to events and outlines only.
 
+# 8a. Help: how the site assigns its marks (wording for the Help panel; F1b-2 places it)
+
+Help carries this section under the title **"What the marks mean"**. The wording is fixed here so every build
+says the same thing.
+
+> **WARMAPS records who said what.** Every item on the map is something someone has said happened, with who said
+> it, when, and where you can read it. WARMAPS does not decide whether it is true. You can follow each source and
+> judge for yourself.
+>
+> **Outline (ghost):** one side has said this. A side directly involved has not been heard. The card names who is
+> missing.
+> **Solid:** the sides on record agree it happened. That is all it means. They may still disagree about damage,
+> numbers or who is to blame, and the card says so.
+> **Half (split):** someone on record denies it, or disputes who did it.
+> **Dashed outline:** we looked again after 1, 3, 7 and 30 days and still have only one side's account. The card
+> says who has not answered and when we last looked.
+> **Plain:** carried over from the first version of WARMAPS. Who said it has not been recorded yet.
+>
+> **Size** shows how much an event matters to the story of the war. A claim made by one side only is drawn small
+> until another side speaks.
+> **Repeating is not agreeing.** Ten outlets carrying one statement are still one voice.
+> **A side's own media counts for that side and is labelled.** Exile and opposition media are listed, and never
+> stand in for the government or group they oppose.
+> **What we check:** that the statement was really made, by whom, and that the source says what we say it says.
+> Nothing more.
+> **Lens** shows one party's account only, or two side by side. The banner tells you whose account you are
+> looking at. It is never WARMAPS's view; WARMAPS has none.
+> **Aircraft, ships and satellites** are observations from transponders and orbital data, not claims. They are
+> grey, shown for today only, and never take these marks.
+> **Opinion** appears only in notes signed by Allan Sanceau, kept apart from the record.
+
 # 9. Watchlist panel
-- Two sections that look different on purpose: **Combat tripwires** (status chips: NOT SEEN / REPORTED / CONFIRMED,
-  with the fixed headline sentence above them) and, below a divider and a heading in smaller type, **Rhetoric and
-  mobilization** (four-step meter: quiet / noted / elevated / sustained, with the caption "Statements and
-  preparations. Weaker signal. Cannot change a tripwire.").
-- A row expands to its definition, its history by date, and its evidence (events and links, each tappable).
+- Two sections that look different on purpose: **Combat tripwires** and, below a divider and a heading in smaller
+  type, **Rhetoric and mobilization** (four-step meter: quiet / noted / elevated / sustained, with the caption
+  "Statements and preparations. Weaker signal. Cannot change a tripwire.").
+- **Combat tripwire rows** carry one chip, all in the same neutral chip style with the small mark of the cited
+  events' look: NO CLAIM ON FILE · CLAIMED BY ONE SIDE · CLAIMED AND DENIED · STATED BY BOTH ENDS (ARCHITECTURE 4.2).
+  Under the chip, the names: "Claimed by: Ukraine (names Iran) · Denied by: Iran · No account from: Russia".
+- **Headline above the tripwires:** a count only, "1 of 4 combat tripwires have a claim on record", and where
+  relevant "0 stated by both ends · 1 denied". No sentence says a link between the wars exists or does not.
+- A row expands to its definition, its history by date (each entry with what it relied on at the time), and its
+  evidence (events and links, each tappable).
 - The panel follows the timeline: statuses are shown **as of the cursor date**, with "as of 08 Nov 2026" in the header.
-- No totals across the two sections. No colour escalation beyond the single `state-alert` on a confirmed tripwire.
+- No totals across the two sections. **No colour escalation at all:** no tripwire state is drawn in a warning colour.
 
 # 10. Empty, loading and error states
 | State | Behaviour |
 |---|---|
 | Loading | The stage shows the basemap immediately; the timeline strip draws from the manifest; panels show skeleton rows. No full-screen spinner |
 | Theater with no curated events | Outline drawn, label "No curated events yet — intake only", no markers |
-| Window with no events | "No events in this period" on the timeline readout; the map is not re-centred |
+| Window with no events | "No events in the last 7 days" (or the chosen range) on the timeline readout, with a "Show all" button; the map is not re-centred |
+| Lens with nothing in view | "Iran has no account on file in this period" in the Events panel and beside the lens tag; the banner stays |
+| Fog off and everything in view is a ghost | "Only one-sided accounts in this period · Show fog" on the stage |
 | A layer failed | Its row shows "unavailable" with the reason; everything else works |
 | A module failed | The error banner names it in plain words and offers Reload and Reset layout |
 | Offline | Banner "Offline — showing what was already loaded"; live layers switch off and say why |
@@ -441,7 +554,16 @@ Guards:
 3. Rotating the device with a panel and an info card open loses neither.
 4. System Back from: card open → panel open → nothing open, takes exactly three presses to leave.
 5. Phone landscape at 300 px height: rail, side sheet and slim timeline all fully visible and usable.
-6. In the detail row, the cursor can be placed on any single step with a finger on the S22 (steps at least 8 px wide), and the overview's view box can be dragged to any part of the extent.
+6. In the detail row, the cursor can be placed on any single step with a finger on the S22 (steps at least 8 px wide), and the band can be dragged to any part of the extent.
 7. With text size at 200%, panels scroll and nothing is clipped.
 8. Turning every available layer on and then "Reset to default view" returns to events and outlines only.
 9. Storage disabled: the app loads on defaults with no error banner.
+10. First load: the window is the last 7 days and the range chip says so; **All** shows the whole war; "Today" restores the 7 days.
+11. With a lens on, at every class: the lens tag is on the stage; the banner is shown (phone-landscape: in the side sheet and on change); a screenshot of the stage alone shows whose account it is. Opening a copied link reproduces the lens, banner and tag.
+12. Changing the lens moves at least one sample marker to the place that party gives, and a record that party has not spoken on is absent.
+13. Fog off leaves no ghost or faded ghost on the map or in the Events list; Contested leaves only split markers; both record switches can never be off together.
+14. As known then: stepping the cursor back before an entry's publication date removes that entry's effect (a solid sample event becomes a ghost; a moved marker returns to the first place named).
+15. Every event card at peek shows the attribution chip and the status line without scrolling, at all five classes.
+16. Compare two: the three sample cases (both say it, only one spoke, one denies) draw as the compare table says, with A on the left.
+17. No string in the legend, chips, cards, Help or Watchlist says confirmed, verified, unconfirmed, debunked, true or false in WARMAPS's own voice (checked by a script over the built strings).
+

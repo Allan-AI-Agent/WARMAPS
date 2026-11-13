@@ -680,7 +680,7 @@ theater, today. (INFERRED: v1 has the same limitation with its 250-odd days on o
 
 | Row | Shows | Purpose |
 |---|---|---|
-| **Overview** | The whole extent, each step equally wide, density histogram, a draggable **view box** | See everything; jump anywhere |
+| **Overview** | The whole extent, each step equally wide, density histogram, the draggable window **band** | See everything; jump anywhere |
 | **Detail** | Only the steps inside the view box, each at least 8 px wide | The cursor and window handles live here; every step is touchable |
 
 - State (in the store): `extent`, `view { fromISO, toISO }`, `cursor`, `window { fromISO, toISO }`, `mode`, `record` (5.8).
@@ -689,9 +689,11 @@ theater, today. (INFERRED: v1 has the same limitation with its 250-odd days on o
   in the prototype). Pinching the detail row changes `stepPx` (8 to 40 px).
 - Because the scale counts **steps, not days**, a 41-step view is 41 days in the daily band and 41 months in the
   monthly band: all of 2022-2024 fits one phone screen (VERIFIED by test).
-- The view follows the cursor during Play and when the user jumps to an event. Dragging the view box moves the
-  view; the cursor stays where it is unless it falls outside, in which case it is carried along.
+- The view follows the cursor during Play and when the user jumps to an event.
 - Default view on first load: the most recent steps, ending today.
+- **(v1.2)** The window (5.4) is drawn on the overview row as a band. The view always contains the band's right
+  edge, which is the cursor; dragging the band carries the view with it. The view box is therefore not a second
+  thing to drag: on the overview there is one object, the band.
 
 ## 5.4 The window
 **The map opens on the last 7 days** (provisional ruling 1, 2026-11-12): `window` = the seven dates ending today,
