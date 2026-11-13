@@ -1,13 +1,36 @@
 ---
 title: WARMAPS v2 schema dry run — report
-version: v1.0
-date: 2026-11-11 (Iran-war Day 257)
+version: v1.1 (2026-11-13: re-run for ARCHITECTURE v1.2 under the editorial charter; numbers re-baselined)
+date: 2026-11-11 (Iran-war Day 257); re-run 2026-11-13 (Day 259)
 author: Claude (Fable 5.2), session F1 step 1 (thinking effort: high), for Allan Sanceau
-status: EVIDENCE — throwaway scripts; not the slice-1 migration. Result: ARCHITECTURE v1.0 → v1.1
+status: EVIDENCE — throwaway scripts; not the slice-1 migration. Results: ARCHITECTURE v1.0 → v1.1 (2026-11-11), then v1.1 → v1.2 (2026-11-13)
 inputs: warmaps-data.js (600 events, main at 2844e57); research/backfill-pass2/events_386-600_with_tiers_sources.json
 ---
 
 # 0. Read this first (one screen)
+
+**Re-run 2026-11-13 (session F1b-1).** On 2026-11-12 Allan ruled the editorial charter: WARMAPS records who said
+what and never grades truth. ARCHITECTURE v1.2 replaced claim status, `origin`, the stored fog flag and the link
+and tripwire grades with dated entries and derived looks. The dry run was re-run against that schema, with the R1
+review's three counting fixes (M2) applied.
+- **600 of 600 events pass the v1.2 schema**, text byte-identical, every start date where v1 puts it. Each event
+  becomes one record with one entry; **no v1 event records who made its claim or when it was published**, so
+  `claimant` and `published` are in `needs` on all 600.
+- **The derivation rules are written as code and tested:** `attribution.js` (reference implementation) and
+  `attribution-tests.js`, **66 of 66 pass**, on constructed records only. They cover the four looks, who counts as
+  a side, As known then, look-again and the faded ghost, location history, lenses and compare, links, the
+  watchlist and the charter test, and they replay the R1 review's cases L1, L2, L6, L7, W1 and W3.
+- **The charter test found something nobody had listed:** v1's `originKnown: "probable"` on 9 launch points is a
+  truth grade. It, `verified` (176 events) and `fogLean` (15) are not carried into v2 files.
+- The v1.1 link and tripwire tests graded truth and were removed from `engine-tests.js` (timeline only now: 16 of 16).
+- **Section 5 holds the new acceptance numbers.** Sections 1-4 are the 2026-11-11 record; findings 1 and 9 there
+  describe grading rules that no longer exist.
+- Limit, as before: these scripts were written by the author of the schema. The R1 review checked v1.1
+  independently; the v1.2 rules have not had that review.
+
+---
+
+**The 2026-11-11 run (kept as written):**
 
 **What was done.** All 600 live events were pushed through the event schema proposed in `ARCHITECTURE_v1.md`
 v1.0, and the timeline, link and watchlist rules were exercised with tests, including "mutation" tests (a bad
@@ -24,8 +47,9 @@ record that a rule must reject).
 
 **How to re-run** (no dependencies, nothing written outside `out/`):
 ```
-node research/v2-schema-dryrun/dryrun.js .        # prints the summary; writes out/*.json
-node research/v2-schema-dryrun/engine-tests.js    # 34 tests; exit code 0 = all pass
+node research/v2-schema-dryrun/dryrun.js .             # prints the summary; writes out/*.json
+node research/v2-schema-dryrun/engine-tests.js         # timeline: 16 tests (was 34 with the removed link and watch tests)
+node research/v2-schema-dryrun/attribution-tests.js    # attribution rules: 66 tests; exit code 0 = all pass
 ```
 
 **Limits of this evidence.** The scripts were written by the author of the schema, so they share its blind
@@ -88,25 +112,34 @@ events). Standing agreements would have gone "dormant" after 180 days (observati
   daily needs no engine change.
 - All eight watchlist mutation tests and four link rejection tests reject what they should.
 
-# 5. Numbers the slice-1 migration must reproduce
+# 5. Numbers the slice-1 migration must reproduce (re-baselined 2026-11-13, ARCHITECTURE v1.2)
 
-| Measure | Value |
-|---|---|
-| Events | 600 |
-| Date precision | 539 day · 57 range · 4 ongoing-from |
-| Fog | 126 (33 in ids 1-385; 93 in ids 386-600) |
-| Claim status | 8 disputed · 118 claimed · 122 reported · 352 unreviewed |
-| Tier | 22 milestone · 78 major · 115 standard · 385 unrated |
-| Significance (key events) | 33 |
-| Kind established / flagged | 217 / 383 |
-| `needs` | kind 383 · title 331 · actors 600 |
-| Sources | 250 listed · 322 named-only · 28 legacy-unlisted (1,360 entries, 494 URLs, 87 hosts) |
-| Geo precision | 47 representative · 553 unknown |
-| Schema failures | 0 |
+| Measure | v1.2 value | v1.1 value (2026-11-11) and why it changed |
+|---|---|---|
+| Events | 600 | 600 |
+| Entries | 600, one per event | (no entries) charter |
+| Date precision | 539 day · 57 range · 4 ongoing-from | same |
+| v1 fog marker (`legacy.fog`) | **127** (34 in ids 1-385; 93 in ids 386-600; 15 with the structured block) | fog 126: the match was case-sensitive and missed id 217 (R1 M2a). No longer a stored flag |
+| Derived look today (decision 6, option A) | 127 ghost · 473 unattributed · 0 solid · 0 split | claim status 8 / 118 / 122 / 352: removed by the charter |
+| Marker placed by | WARMAPS: 600 | (new) |
+| `recordCheck` | 171 checked · 44 corrected · 385 none | `verification` pass / fix / none: renamed; same counts |
+| Tier | 22 milestone · 78 major · 115 standard · 385 unrated | same |
+| Significance (key events) | 33 | same |
+| Kind established / flagged | 217 / 383 | same |
+| `needs` | claimant 600 · published 600 · actors 600 · kind 383 · title 331 | kind 383 · title 331 · actors 600 |
+| Sources | 250 listed · 322 named-only · 28 legacy-unlisted (1,360 sources, 494 URLs, 87 hosts) | same |
+| Geo precision | **39** representative · 561 unknown | 47 / 553: the pattern matched "approximately 92%" and "Houthi representatives" (R1 M2b) |
+| `timeNote` carrying a day number | **0** (224 notes kept) | 6: the check was switched off (R1 M2c) |
+| v1 truth grades not carried | `verified` 176 · `fogLean` 15 · `originKnown: "probable"` 9 | carried under `legacy` and `launch` |
+| Charter test on the output | 0 hits; the mutation `"claimStatus": "confirmed"` is rejected | (new) |
+| Sizes | events-2026.json 899 KB (179 KB gzipped) · index 85 KB (18 KB gzipped) | 918 KB (178) · 76 KB (17) |
+| Schema failures | 0 | 0 |
 
 # 6. Left open
 - The enrichment pass (ARCHITECTURE 7.3) is now a visible piece of work: six fields across up to 600 events.
 - Six date rulings and six time-text rulings for Allan (ARCHITECTURE 7.1). Defaults keep v1's placement.
 - The "coordinated cross-theater escalation timing" tripwire does not fit the combat track as written
   (ARCHITECTURE 4.2). Held out of the starting set until Allan rules.
-- An independent review of the schema by an agent that has not seen this work is available on Allan's word.
+- The independent review was done on 2026-11-11 (`research/v2-schema-review/REVIEW.md`); its fixes M1-M4 are applied
+  in ARCHITECTURE v1.2. Its S10, S12 and S13 remain open.
+- Decisions 6 and 9 (how unattributed records look; when a ghost becomes solid) are Allan's, judged on the prototype.

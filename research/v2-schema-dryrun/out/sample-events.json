@@ -22,14 +22,16 @@
   },
   "attackerText": "US + Israel",
   "significance": "strategic",
-  "fog": false,
-  "claimStatus": "unreviewed",
-  "origin": {
-   "class": "unknown"
-  },
-  "sources": [],
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-02-28",
+    "sources": []
+   }
+  ],
   "sourcesStatus": "legacy-unlisted",
-  "verification": {
+  "recordCheck": {
    "status": "none"
   },
   "detail": {
@@ -46,7 +48,9 @@
   },
   "needs": [
    "kind",
-   "actors"
+   "actors",
+   "claimant",
+   "published"
   ],
   "rev": 1
  },
@@ -72,14 +76,16 @@
    "against": []
   },
   "attackerText": "United States (CENTCOM)",
-  "fog": false,
-  "claimStatus": "unreviewed",
-  "origin": {
-   "class": "unknown"
-  },
-  "sources": [],
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2025-06-22",
+    "sources": []
+   }
+  ],
   "sourcesStatus": "legacy-unlisted",
-  "verification": {
+  "recordCheck": {
    "status": "none"
   },
   "detail": {
@@ -96,7 +102,9 @@
   },
   "needs": [
    "kind",
-   "actors"
+   "actors",
+   "claimant",
+   "published"
   ],
   "rev": 1
  },
@@ -122,27 +130,26 @@
    "against": []
   },
   "attackerText": "Israel (IDF)",
-  "fog": false,
-  "claimStatus": "unreviewed",
-  "origin": {
-   "class": "unknown"
-  },
-  "sources": [
+  "entries": [
    {
-    "publisher": "Iran International",
-    "access": "unrecorded"
-   },
-   {
-    "publisher": "Al Jazeera",
-    "access": "unrecorded"
-   },
-   {
-    "publisher": "Reuters",
-    "access": "unrecorded"
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-02-28",
+    "sources": [
+     {
+      "publisher": "Iran International"
+     },
+     {
+      "publisher": "Al Jazeera"
+     },
+     {
+      "publisher": "Reuters"
+     }
+    ]
    }
   ],
   "sourcesStatus": "named-only",
-  "verification": {
+  "recordCheck": {
    "status": "none"
   },
   "detail": {
@@ -157,12 +164,13 @@
   "legacy": {
    "time": "~10:15 IRST",
    "perspective": "multi",
-   "verified": true,
    "source": "Iran International / Al Jazeera / Reuters"
   },
   "needs": [
    "title",
-   "actors"
+   "actors",
+   "claimant",
+   "published"
   ],
   "rev": 1
  },
@@ -189,27 +197,26 @@
    "against": []
   },
   "attackerText": "United States (Deployment)",
-  "fog": false,
-  "claimStatus": "unreviewed",
-  "origin": {
-   "class": "unknown"
-  },
-  "sources": [
+  "entries": [
    {
-    "publisher": "Al Jazeera",
-    "access": "unrecorded"
-   },
-   {
-    "publisher": "Reuters",
-    "access": "unrecorded"
-   },
-   {
-    "publisher": "AP",
-    "access": "unrecorded"
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-02-25",
+    "sources": [
+     {
+      "publisher": "Al Jazeera"
+     },
+     {
+      "publisher": "Reuters"
+     },
+     {
+      "publisher": "AP"
+     }
+    ]
    }
   ],
   "sourcesStatus": "named-only",
-  "verification": {
+  "recordCheck": {
    "status": "none"
   },
   "detail": {
@@ -224,12 +231,13 @@
   "legacy": {
    "time": "Continuous",
    "perspective": "multi",
-   "verified": true,
    "source": "Al Jazeera / Reuters / AP"
   },
   "needs": [
    "kind",
-   "actors"
+   "actors",
+   "claimant",
+   "published"
   ],
   "rev": 1
  },
@@ -255,31 +263,29 @@
    "against": []
   },
   "attackerText": "IDF (cumulative campaign)",
-  "fog": false,
-  "claimStatus": "unreviewed",
-  "origin": {
-   "class": "unknown"
-  },
-  "sources": [
+  "entries": [
    {
-    "publisher": "ACLED",
-    "access": "unrecorded"
-   },
-   {
-    "publisher": "NBC News",
-    "access": "unrecorded"
-   },
-   {
-    "publisher": "Reuters satellite analysis",
-    "access": "unrecorded"
-   },
-   {
-    "publisher": "Lebanese NNA",
-    "access": "unrecorded"
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-04-28",
+    "sources": [
+     {
+      "publisher": "ACLED"
+     },
+     {
+      "publisher": "NBC News"
+     },
+     {
+      "publisher": "Reuters satellite analysis"
+     },
+     {
+      "publisher": "Lebanese NNA"
+     }
+    ]
    }
   ],
   "sourcesStatus": "named-only",
-  "verification": {
+  "recordCheck": {
    "status": "none"
   },
   "detail": {
@@ -293,7 +299,9 @@
   },
   "needs": [
    "kind",
-   "actors"
+   "actors",
+   "claimant",
+   "published"
   ],
   "rev": 1
  },
@@ -319,21 +327,22 @@
   },
   "attackerText": "Israel (IDF)",
   "tier": "standard",
-  "fog": false,
-  "claimStatus": "reported",
-  "origin": {
-   "class": "unknown"
-  },
-  "sources": [
+  "entries": [
    {
-    "url": "https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8",
-    "publisher": "apnews.com",
-    "access": "unrecorded"
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-08-28",
+    "sources": [
+     {
+      "url": "https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8",
+      "publisher": "apnews.com"
+     }
+    ]
    }
   ],
   "sourcesStatus": "listed",
-  "verification": {
-   "status": "pass",
+  "recordCheck": {
+   "status": "checked",
    "pass": "backfill-pass2",
    "date": "2026-11-09"
   },
@@ -352,7 +361,9 @@
   "needs": [
    "kind",
    "title",
-   "actors"
+   "actors",
+   "claimant",
+   "published"
   ],
   "rev": 1
  },
@@ -378,31 +389,30 @@
   },
   "attackerText": "Unknown; IRGC claimed a mine",
   "tier": "milestone",
-  "fog": true,
-  "claimStatus": "claimed",
-  "origin": {
-   "class": "unknown"
-  },
-  "sources": [
+  "entries": [
    {
-    "url": "https://www.hawaiitribune-herald.com/2026/10/15/nation-world-news/two-ships-sink-near-hormuz-after-being-hit-by-projectiles-amid-surge-in-attacks/",
-    "publisher": "hawaiitribune-herald.com",
-    "access": "unrecorded"
-   },
-   {
-    "url": "https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-14_index.htm",
-    "publisher": "globalsecurity.org",
-    "access": "unrecorded"
-   },
-   {
-    "url": "https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/",
-    "publisher": "gcaptain.com",
-    "access": "unrecorded"
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-10-14",
+    "sources": [
+     {
+      "url": "https://www.hawaiitribune-herald.com/2026/10/15/nation-world-news/two-ships-sink-near-hormuz-after-being-hit-by-projectiles-amid-surge-in-attacks/",
+      "publisher": "hawaiitribune-herald.com"
+     },
+     {
+      "url": "https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-14_index.htm",
+      "publisher": "globalsecurity.org"
+     },
+     {
+      "url": "https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/",
+      "publisher": "gcaptain.com"
+     }
+    ]
    }
   ],
   "sourcesStatus": "listed",
-  "verification": {
-   "status": "pass",
+  "recordCheck": {
+   "status": "checked",
    "pass": "backfill-pass2",
    "date": "2026-11-09"
   },
@@ -416,11 +426,16 @@
    "misc": "FOG OF WAR on cause: the Singapore-flagged container ship GFS Pride caught fire and sank in the Strait of Hormuz; Reuters sources said a projectile, while the IRGC Navy said it hit a mine on an 'unauthorized route'. The Antigua-flagged bulk carrier Cape Dao, hit Sept 23, was also confirmed sunk. RFE/RL said attacks on Hormuz shipping hit a wartime high with at least 10 ships attacked in recent days. Source: Reuters via Hawaii Tribune-Herald https://www.hawaiitribune-herald.com/2026/10/15/nation-world-news/two-ships-sink-near-hormuz-after-being-hit-by-projectiles-amid-surge-in-attacks/ ; GlobalSecurity (RFE/RL, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-14_index.htm ; gCaptain https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/"
   },
   "legacy": {
-   "time": "Day 229"
+   "time": "Day 229",
+   "fog": {
+    "marker": true
+   }
   },
   "needs": [
    "title",
-   "actors"
+   "actors",
+   "claimant",
+   "published"
   ],
   "rev": 1
  }

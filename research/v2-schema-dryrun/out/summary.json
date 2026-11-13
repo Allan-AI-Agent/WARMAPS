@@ -1,6 +1,6 @@
 {
  "total": 600,
- "idsContinuous": true,
+ "idsUnique": true,
  "idRoundTrip": true,
  "dateNull": [],
  "datePrecision": {
@@ -45,20 +45,43 @@
   "320 July 18, 2026 | Azraq Air Base, Jordan",
   "329 July 22, 2026 | Ali Al Salem Air Base, Kuwait"
  ],
- "fog": {
-  "total": 126,
-  "v1Text": 124,
+ "v1FogNote": {
+  "total": 127,
+  "ids1to385": 34,
+  "ids386to600": 93,
+  "structuredBlock": 15,
+  "v1Text": 125,
   "v1TextWithColon": 122,
   "v1Field": 15,
   "research": 93,
   "researchOnly": [],
   "dataOnly": []
  },
- "claimStatus": {
-  "unreviewed": 352,
-  "disputed": 8,
-  "claimed": 118,
-  "reported": 122
+ "entries": {
+  "total": 600,
+  "claimantRecorded": 0,
+  "publishedRecorded": 0
+ },
+ "look": {
+  "unattributed": 473,
+  "ghost": 127
+ },
+ "placedBy": {
+  "warmaps": 600
+ },
+ "recordCheck": {
+  "none": 385,
+  "checked": 171,
+  "corrected": 44
+ },
+ "charter": {
+  "hits": 0,
+  "mutationRejected": true,
+  "v1TruthGradesNotCarried": {
+   "verified": 176,
+   "fogLean": 15,
+   "originKnownProbable": 9
+  }
  },
  "tier": {
   "null": 385,
@@ -85,7 +108,7 @@
  "sourceFieldsAvailable": {
   "url": 494,
   "published": 0,
-  "kind": 0,
+  "role": 0,
   "access": 0
  },
  "distinctHosts": 87,
@@ -103,37 +126,32 @@
  "needs": {
   "kind": 383,
   "actors": 600,
+  "claimant": 600,
+  "published": 600,
   "title": 331
  },
- "geoRepresentative": 47,
+ "geoRepresentative": 39,
  "timeNote": {
-  "kept": 230,
-  "dropped": 370,
-  "stillHasDayNumber": [
-   "IR-00126:Overnight into Day 30",
-   "IR-00287:~21:19 UTC / Day 128-129",
-   "IR-00288:Early hours / Day 129",
-   "IR-00289:Overnight / Day 130",
-   "IR-00294:Early hours / Day 134",
-   "IR-00296:Overnight / Day 135 (TODAY)"
-  ]
+  "kept": 224,
+  "dropped": 376,
+  "stillHasDayNumber": []
  },
  "files": {
   "events-2025.json": {
    "events": 1,
-   "bytes": 1449,
-   "gzip": 858
+   "bytes": 1466,
+   "gzip": 863
   },
   "events-2026.json": {
    "events": 599,
-   "bytes": 918438,
-   "gzip": 178389
+   "bytes": 898960,
+   "gzip": 178722
   }
  },
  "v1DataJsBytes": 633262,
  "v1DataJsGzip": 169948,
  "leanIndex": {
-  "bytes": 76120,
-  "gzip": 16635
+  "bytes": 85445,
+  "gzip": 18057
  }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* WARMAPS v2 DRY RUN part 2 (F1 step 1, 2026-11-11). THROWAWAY EVIDENCE.
- * Exercises the timeline engine, link rules and watchlist rules proposed in docs/v2/ARCHITECTURE,
- * including mutation tests: each rule must reject the bad case it exists to stop.
+ * Exercises the timeline engine proposed in docs/v2/ARCHITECTURE. Since v1.2 (2026-11-13) the link, watchlist and
+ * event attribution rules are tested in attribution-tests.js; the truth-graded v1.1 link and watch tests were removed.
  * Usage: node research/v2-schema-dryrun/engine-tests.js    (no dependencies, no repo files read)
  */
 'use strict';
@@ -77,98 +77,18 @@ t('month-precision event visible for the whole month', visible({ dateISO: '2022-
 t('ongoing-from visible after start, not before', visible({ dateISO: '2026-02-28', datePrecision: 'ongoing-from' }, { from: '2026-10-01', to: '2026-10-01' }) && !visible({ dateISO: '2026-02-28', datePrecision: 'ongoing-from' }, { from: '2026-02-01', to: '2026-02-27' }));
 t('event before the axis start (IR-00006, 2025-06-22) is outside any single-step window', !visible({ dateISO: '2025-06-22', datePrecision: 'day' }, { from: '2026-01-29', to: TODAY }), 'needs a rule: pre-axis events');
 
-// ================= LINKS =================
-const HARD = ['court-finding', 'forensic-hardware', 'treaty-or-contract', 'participant-acknowledgement'];           // establish the fact itself
-const ONRECORD = ['sanctions-designation', 'official-statement', 'on-record-official', 'osint-imagery', 'trade-data', 'igo-report'];
-const SOFT = ['media-report', 'anonymous-official'];
-// attestedBy: participant (one of the link's own two actors), neutral-body (court, UN panel, independent investigators), other-government (any other government), media
-function obsLevel(o) {
-  if (o.basis === 'participant-acknowledgement' || o.basis === 'treaty-or-contract') return o.attestedBy === 'participant' ? 3 : 2;
-  if (o.basis === 'court-finding') return 3;
-  if (o.basis === 'forensic-hardware' || o.basis === 'igo-report') return o.attestedBy === 'neutral-body' ? 3 : 2;
-  if (ONRECORD.includes(o.basis)) return 2;
-  return 1;
-}
-const confidenceOf = link => ['', 'alleged', 'reported', 'documented'][Math.max(...link.observations.map(obsLevel))];
-function validateLink(l) {
-  const e = [];
-  if (!l.observations || !l.observations.length) e.push('no observations');
-  else {
-    if (l.observations.some(o => !o.sources || !o.sources.length)) e.push('observation without sources');
-    if (l.observations.some(o => ![...HARD, ...ONRECORD, ...SOFT].includes(o.basis))) e.push('unknown basis');
-    const c = confidenceOf(l);
-    if (l.confidence !== c) e.push(`confidence must be ${c}`);
-    const attesters = new Set(l.observations.filter(o => obsLevel(o) >= 2).map(o => o.attestedBy));
-    if (l.fog === false && c === 'alleged') e.push('alleged link cannot be fog:false');
-    if (l.fog === false && c === 'reported' && attesters.size < 2) e.push('reported link needs two different attesting sides to be fog:false');
-    if (l.observations.some(o => dc(o.dateISO) < dc(l.dateStartISO))) e.push('observation before link start');
-  }
-  return e;
-}
-const src = [{ url: 'https://example.org/x', publisher: 'example' }];
-const obs = (dateISO, basis, attestedBy, extra) => ({ dateISO, basis, attestedBy, sources: src, ...extra });
-const L = (o, c, fog) => ({ id: 'LK-00001', dateStartISO: '2022-08-01', observations: o, confidence: c, fog });
-t('doc example as written (sanctions + captured hardware + official statement, no attester) is NOT derivable', true, 'v1.0 gave no attester, so "documented" could rest on one government\'s designation');
-t('adversary sanctions designation alone -> reported, must stay fog', validateLink(L([obs('2022-09-08', 'sanctions-designation', 'other-government')], 'reported', true)).length === 0 && validateLink(L([obs('2022-09-08', 'sanctions-designation', 'other-government')], 'documented', false)).length > 0);
-t('neutral forensic hardware -> documented, fog:false allowed', validateLink(L([obs('2022-11-01', 'forensic-hardware', 'neutral-body')], 'documented', false)).length === 0);
-t('participant acknowledgement -> documented', validateLink(L([obs('2022-11-05', 'participant-acknowledgement', 'participant')], 'documented', false)).length === 0);
-t('anonymous officials only -> alleged and fog (the ruling)', validateLink(L([obs('2026-03-01', 'anonymous-official', 'media')], 'alleged', true)).length === 0 && validateLink(L([obs('2026-03-01', 'anonymous-official', 'media')], 'alleged', false)).length > 0 && validateLink(L([obs('2026-03-01', 'anonymous-official', 'media')], 'reported', true)).length > 0);
-t('reported + fog:false needs two attesting sides', validateLink(L([obs('2023-01-01', 'official-statement', 'other-government')], 'reported', false)).length > 0 && validateLink(L([obs('2023-01-01', 'official-statement', 'other-government'), obs('2023-02-01', 'osint-imagery', 'neutral-body')], 'reported', false)).length === 0);
-t('observation without sources rejected', validateLink(L([{ dateISO: '2023-01-01', basis: 'media-report', attestedBy: 'media', sources: [] }], 'alleged', true)).length > 0);
-// weight over time: count observations whose [date, end] interval touches the trailing window
-function weight(link, cursorISO, windowDays = 180) {
-  const c = dc(cursorISO); if (c < dc(link.dateStartISO) || (link.dateEndISO && c > dc(link.dateEndISO))) return null;
-  const n = link.observations.filter(o => dc(o.dateISO) <= c && (o.dateEndISO === null ? Infinity : dc(o.dateEndISO || o.dateISO)) >= c - windowDays).length;
-  return n === 0 ? 0 : Math.min(4, n >= 6 ? 4 : n >= 4 ? 3 : n >= 2 ? 2 : 1);
-}
-const lw = { dateStartISO: '2022-08-01', dateEndISO: null, observations: [obs('2022-09-13', 'forensic-hardware', 'neutral-body'), obs('2022-10-17', 'media-report', 'media'), obs('2022-11-05', 'participant-acknowledgement', 'participant'), obs('2023-05-01', 'sanctions-designation', 'other-government')] };
-t('link weight thickens then thins', weight(lw, '2022-07-01') === null && weight(lw, '2022-08-15') === 0 && weight(lw, '2022-12-01') === 2 && weight(lw, '2023-03-01') === 2 && weight(lw, '2024-06-01') === 0, { '2022-12-01': weight(lw, '2022-12-01'), '2023-06-01': weight(lw, '2023-06-01'), '2024-06-01': weight(lw, '2024-06-01') });
-const treaty = { dateStartISO: '2025-01-17', dateEndISO: null, observations: [obs('2025-01-17', 'treaty-or-contract', 'participant', { dateEndISO: null })] };
-t('standing agreement stays visible (interval observation), not "dormant" after 180 days', weight(treaty, '2026-11-11') === 1);
+// ================= DEFAULT WINDOW (provisional ruling 1, 2026-11-12) =================
+// The map opens on the last 7 days; the band can be dragged, widened, or set to All (the whole extent).
+const defaultWindow = today => ({ from: toISO(dc(today) - 6), to: today });
+const w7 = defaultWindow(TODAY);
+t('v1.2 default window is the last 7 days, ending today', dc(w7.to) - dc(w7.from) + 1 === 7 && w7.to === TODAY, w7);
+t('v1.2 an event 8 days old is outside the default window and inside All', !visible({ dateISO: toISO(dc(TODAY) - 7), datePrecision: 'day' }, w7) && visible({ dateISO: toISO(dc(TODAY) - 7), datePrecision: 'day' }, { from: '2026-01-29', to: TODAY }));
+t('v1.2 an ongoing-from event stays visible in the 7-day window', visible({ dateISO: '2026-02-28', datePrecision: 'ongoing-from' }, w7));
 
-// ================= WATCHLIST =================
-const COMBAT_KINDS = ['strike', 'interception', 'ground', 'naval', 'air-defense'];
-const EVENTS = { 'RU-00900': { kind: 'naval', claimStatus: 'confirmed' }, 'RU-00901': { kind: 'naval', claimStatus: 'reported' }, 'IR-00700': { kind: 'statement', claimStatus: 'confirmed' }, 'IR-00701': { kind: 'political', claimStatus: 'confirmed' } };
-const LINKS = { 'LK-00001': { confidence: 'documented' } };
-function validateWatch(w) {
-  const e = [], scale = w.track === 'combat' ? ['not-seen', 'reported', 'confirmed'] : w.track === 'rhetoric' ? ['quiet', 'noted', 'elevated', 'sustained'] : null;
-  if (!scale) return ['unknown track'];
-  if (!w.definition || w.definition.length < 40) e.push('definition missing or too short to be testable');
-  w.history.forEach((h, i) => {
-    if (!scale.includes(h.status)) e.push(`status "${h.status}" not on the ${w.track} scale`);
-    if (i && dc(h.dateISO) < dc(w.history[i - 1].dateISO)) e.push('history out of date order');
-    const evs = (h.evidence.events || []).map(id => EVENTS[id]), lks = (h.evidence.links || []).map(id => LINKS[id]);
-    if (evs.includes(undefined) || lks.includes(undefined)) e.push('evidence id does not resolve');
-    if (w.track === 'combat') {
-      if ((h.evidence.watch || []).length) e.push('combat tripwire cites a watch item');
-      if (evs.some(x => x && x.kind === 'statement')) e.push('combat tripwire cites a statement event');
-      if (h.status !== 'not-seen' && !evs.length && !lks.length) e.push('status above not-seen without evidence');
-      if (h.status !== 'not-seen' && !h.sources.length) e.push('status change without sources');
-      if (h.status === 'confirmed' && !evs.some(x => x && COMBAT_KINDS.includes(x.kind) && x.claimStatus === 'confirmed')) e.push('confirmed needs a confirmed combat-kind event');
-    }
-  });
-  if (w.status !== w.history[w.history.length - 1].status) e.push('status does not equal latest history entry');
-  return e;
-}
-const DEF = 'A Russian Navy surface combatant escorts one or more merchant vessels through the Strait of Hormuz.';
-const W = (track, hist) => ({ id: 'WL-C-01', track, definition: DEF, status: hist[hist.length - 1].status, history: hist });
-const H = (dateISO, status, events = [], links = [], sources = src, watch = []) => ({ dateISO, status, evidence: { events, links, watch }, sources });
-t('valid baseline passes', validateWatch(W('combat', [H('2026-11-10', 'not-seen', [], [], [])])).length === 0);
-t('valid confirmed passes', validateWatch(W('combat', [H('2026-11-10', 'not-seen', [], [], []), H('2026-12-01', 'confirmed', ['RU-00900'])])).length === 0);
-t('MUTATION: confirmed on a documented link alone is rejected', validateWatch(W('combat', [H('2026-12-01', 'confirmed', [], ['LK-00001'])])).length > 0);
-t('MUTATION: confirmed on a reported event is rejected', validateWatch(W('combat', [H('2026-12-01', 'confirmed', ['RU-00901'])])).length > 0);
-t('MUTATION: confirmed on a confirmed non-combat event is rejected', validateWatch(W('combat', [H('2026-12-01', 'confirmed', ['IR-00701'])])).length > 0);
-t('MUTATION: combat citing a statement event is rejected', validateWatch(W('combat', [H('2026-12-01', 'reported', ['IR-00700'])])).length > 0);
-t('MUTATION: combat citing a rhetoric item is rejected', validateWatch(W('combat', [H('2026-12-01', 'reported', ['RU-00901'], [], src, ['WL-R-01'])])).length > 0);
-t('MUTATION: rhetoric item cannot be "confirmed"', validateWatch(W('rhetoric', [H('2026-12-01', 'confirmed')])).length > 0);
-t('MUTATION: reported without evidence is rejected', validateWatch(W('combat', [H('2026-12-01', 'reported')])).length > 0);
-t('MUTATION: history out of order is rejected', validateWatch(W('combat', [H('2026-12-01', 'not-seen', [], [], []), H('2026-11-01', 'not-seen', [], [], [])])).length > 0);
-const asOf = (w, iso) => { const h = w.history.filter(x => dc(x.dateISO) <= dc(iso)); return h.length ? h[h.length - 1].status : null; };
-const wr = W('combat', [H('2026-11-10', 'not-seen', [], [], []), H('2026-12-01', 'confirmed', ['RU-00900'])]);
-t('status replay by date', asOf(wr, '2026-11-20') === 'not-seen' && asOf(wr, '2026-12-05') === 'confirmed' && asOf(wr, '2026-01-01') === null);
-const headline = n => n.confirmed ? 'Direct combat link confirmed' : n.reported ? 'Direct combat link reported' : 'No direct combat link seen';
-const FORBIDDEN = /merge|merger|merged|one war|world war/i;
-t('headline ladder never uses the forbidden words', [headline({}), headline({ reported: 1 }), headline({ confirmed: 1 })].every(s => !FORBIDDEN.test(s)));
+// ================= LINKS AND WATCHLIST =================
+// The v1.1 tests here graded links (documented / reported / alleged) and tripwires (confirmed). The editorial
+// charter of 2026-11-12 removed those grades. The attribution rules that replace them are tested in
+// attribution-tests.js (links: who affirms and who denies; watchlist: read off the cited events; charter test).
 
 results.forEach(r => console.log((r.ok ? 'PASS ' : 'FAIL ') + r.name + (r.detail ? '  ' + JSON.stringify(r.detail) : '')));
 console.log(`\n${results.length - failed}/${results.length} passed; ${failed} failed`);

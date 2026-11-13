@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-/* WARMAPS v2 schema DRY RUN (F1 step 1, 2026-11-11). THROWAWAY EVIDENCE, NOT THE SLICE-1 MIGRATION.
- * Runs all v1 events through the schema proposed in docs/v2/ARCHITECTURE_v1.md and reports what breaks.
+/* WARMAPS v2 schema DRY RUN (F1 step 1, 2026-11-11; re-run for ARCHITECTURE v1.2 on 2026-11-13). THROWAWAY EVIDENCE,
+ * NOT THE SLICE-1 MIGRATION. Runs all v1 events through the schema in docs/v2/ARCHITECTURE_v1.md and reports what breaks.
+ * v1.2 (editorial charter): no claim status, no origin, no stored fog flag. Each event becomes a record with one
+ * dated entry whose claimant is not yet recorded. R1 fixes M2 (a)(b)(c) applied. The charter test runs on the output.
  * Reads:  warmaps-data.js, research/backfill-pass2/events_386-600_with_tiers_sources.json
  * Writes: research/v2-schema-dryrun/out/ (summary.json, uncertain-dates.json, sample-events.json)
  * No dependencies. Does not touch the live app. Usage: node research/v2-schema-dryrun/dryrun.js [repoDir]
@@ -8,6 +10,7 @@
 'use strict';
 const fs = require('fs'), path = require('path'), vm = require('vm'), zlib = require('zlib');
 const repo = path.resolve(process.argv[2] || '.');
+const ATTR = require('./attribution.js');
 const outDir = path.join(repo, 'research/v2-schema-dryrun/out');
 fs.mkdirSync(outDir, { recursive: true });
 
@@ -71,7 +74,9 @@ const KINDS = ['strike','interception','ground','naval','air-defense','infrastru
 const SIGNIF = ['world-changing','strategic','escalatory','tactical-pivot','infrastructure','political'];
 const NONSTRIKE_RX = /ceasefire|talks|negotiat|statement|\bsays\b|announc|sanction|evacuat|deploy|arrest|protest|intercept|shot down|incursion|demolition|ground (op|offensive|forces)|blockade|seiz|summit|resolution|\bUN\b|warn|threat/i;
 
-const isFogV1 = e => e.fogOfWar === true || /FOG OF WAR/.test(e.misc || '');
+const isFogV1 = e => e.fogOfWar === true || /FOG OF WAR/i.test(e.misc || '');   // M2(a): case-insensitive (id 217 writes "Fog of war note:")
+// M2(b): only text that speaks about the coordinates themselves; "approximately 92%" and "Houthi representatives" no longer match
+const GEO_RX = /(coordinates?|location|position)\b[^.;]{0,60}?\b(approx|representative)|approx\.?\s*-?\d{1,3}(\.\d+)?\s*°?\s*[NS]\b|representative\s+(point|location|coordinates?|position)/i;
 const padId = n => 'IR-' + String(n).padStart(5, '0');
 const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (_) { return null; } };
 
@@ -79,29 +84,25 @@ const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } 
 // v1.1 rule under test: title = v1 `city` verbatim; a bare place name is flagged in needs[] for a later editorial title.
 function title(e) { return { title: e.city, bare: !/ [—–-] /.test(e.city) }; }
 const UNAMBIGUOUS_KIND = new Set(['naval', 'radar', 'energy', 'airport', 'launch', 'platform', 'political']);
-function timeNote(tm) { if (!tm) return null; const r = String(tm).replace(/^Days? -?\d+(\s*-\s*-?\d+)?\s*([—–\/-]\s*)?/, '').trim(); return r || null; }
+// M2(c): a day number left mid-text means the note is dropped (7.1 default); the original stays in legacy.time
+function timeNote(tm) { if (!tm) return null; const r = String(tm).replace(/^Days? -?\d+(\s*-\s*-?\d+)?\s*([—–\/-]\s*)?/, '').trim(); return r && !/Day -?\d/.test(r) ? r : null; }
 const prune = o => { if (Array.isArray(o)) return o.map(prune); if (o && typeof o === 'object') { const r = {}; for (const [k, v] of Object.entries(o)) { if (v === null || v === undefined) continue; const pv = prune(v); if (pv && typeof pv === 'object' && !Array.isArray(pv) && !Object.keys(pv).length) continue; r[k] = pv; } return r; } return o; };
 
 function migrate(e) {
   const r = R.get(e.id), d = parseDate(e.date), t = title(e);
   const fog = isFogV1(e) || !!(r && r.fog);
-  let claimStatus;
-  if (e.fogStatus === 'disputed') claimStatus = 'disputed';
-  else if (fog) claimStatus = 'claimed';
-  else if (r) claimStatus = 'reported';
-  else claimStatus = 'unreviewed';
   // sources: research urls > urls found in misc/evidenceUrl > publisher names in `source` / "Source:" tails
   const sources = [];
   const urls = new Set();
   if (r && Array.isArray(r.sources)) r.sources.forEach(u => urls.add(u));
   ((e.misc || '').match(/https?:\/\/[^\s)\]]+/g) || []).forEach(u => urls.add(u.replace(/[.,;]+$/, '')));
   if (e.evidenceUrl) urls.add(e.evidenceUrl);
-  urls.forEach(u => sources.push({ url: u, publisher: hostOf(u), published: null, kind: null, access: 'unrecorded' }));
+  urls.forEach(u => sources.push({ url: u, publisher: hostOf(u) }));   // no role: not yet sorted into original or carrier
   const names = [];
   if (e.source) e.source.split(/\s*[\/|]\s*/).forEach(n => n && names.push(n.trim()));
   const tail = (e.misc || '').match(/Source:\s*([^.]+)\./);
   if (tail) tail[1].split(/\s*[\/|]\s*/).forEach(n => n && names.push(n.trim()));
-  if (!urls.size) names.forEach(n => sources.push({ url: null, publisher: n, published: null, kind: null, access: 'unrecorded' }));
+  if (!urls.size) names.forEach(n => sources.push({ publisher: n }));
   const sourcesStatus = urls.size ? 'listed' : names.length ? 'named-only' : 'legacy-unlisted';
   const ks = D.keyStrikeTiers[e.id];
   return {
@@ -109,19 +110,22 @@ function migrate(e) {
     dateISO: d.dateISO, dateEndISO: d.dateEndISO, datePrecision: d.datePrecision, timeNote: timeNote(e.time),
     kind: LEGACY_KIND[e.type] || null, legacyType: e.type,
     title: t.title, place: e.city.split(/ [—–-] /)[0], country: e.country,
-    lat: e.lat, lng: e.lng, geoPrecision: /approx|representative/i.test((e.misc || '') + e.city) ? 'representative' : 'unknown',
+    lat: e.lat, lng: e.lng, geoPrecision: GEO_RX.test((e.misc || '') + ' ' + e.city) ? 'representative' : 'unknown',
     actors: { by: [], against: [] }, attackerText: e.attacker,
     tier: r ? r.tier : null, significance: ks !== undefined ? SIGNIF[ks] : null,
-    fog, fogDetail: e.fogOfWar === true ? { status: e.fogStatus, lean: e.fogLean, note: e.fogNote, parties: e.fogSources, checkpoint: e.fogCheckpoint } : null,
-    claimStatus, origin: { class: 'unknown', party: null, name: null },
-    sources, sourcesStatus,
-    verification: r ? { status: String(r.verified).toLowerCase(), pass: 'backfill-pass2', date: '2026-11-09' } : { status: 'none', pass: null, date: null },
+    // one entry per migrated event: what was said is the v1 text; who said it and when it was published are not recorded
+    entries: [{ n: 1, stance: 'claims', published: d.dateISO, sources }],
+    sourcesStatus,
+    // charter rule 5: whether the record was checked against its sources. Says nothing about the claim
+    recordCheck: r ? { status: String(r.verified).toUpperCase() === 'FIX' ? 'corrected' : 'checked', pass: 'backfill-pass2', date: '2026-11-09' } : { status: 'none' },
     detail: { target: e.target ?? null, weapon: e.weapon ?? null, weaponCap: e.weaponCap ?? null, structuralDmg: e.structuralDmg, humanCasualties: e.humanCasualties, launchOrigin: e.launchOrigin ?? null, misc: e.misc ?? null },
-    launch: e.originLat !== undefined ? { lat: e.originLat, lng: e.originLng, name: e.originName, known: e.originKnown } : null,
-    legacy: Object.fromEntries(['time','perspective','verified','weaponType','intercepted','source'].filter(k => e[k] !== undefined).map(k => [k, e[k]])),
-    needs: [!UNAMBIGUOUS_KIND.has(e.type) && 'kind', t.bare && 'title', 'actors'].filter(Boolean),   // only fields whose migration default is not self-describing
+    launch: e.originLat !== undefined ? { lat: e.originLat, lng: e.originLng, name: e.originName, precision: e.originKnown === 'approximate' ? 'approximate' : null } : null,   // v1 originKnown 'probable' grades truth: not carried
+    // v1 values kept as an archive. NOT carried: v1 `verified` and `fogLean` grade truth; they stay in warmaps-data.js only
+    legacy: { ...Object.fromEntries(['time','perspective','weaponType','intercepted','source'].filter(k => e[k] !== undefined).map(k => [k, e[k]])),
+      ...(fog ? { fog: e.fogOfWar === true ? { status: e.fogStatus, note: e.fogNote, parties: e.fogSources, checkpoint: e.fogCheckpoint } : { marker: true } } : {}) },
+    needs: [!UNAMBIGUOUS_KIND.has(e.type) && 'kind', t.bare && 'title', 'actors', 'claimant', 'published'].filter(Boolean),   // only fields whose migration default is not self-describing
     rev: 1,
-    _dry: { dateCertain: d.certain, dateWhy: d.why || null, titleBare: t.bare }
+    _dry: { dateCertain: d.certain, dateWhy: d.why || null, titleBare: t.bare, v1Fog: fog }
   };
 }
 
@@ -139,17 +143,24 @@ function check(x) {
   req(KINDS.includes(x.kind), 'kind enum (' + x.legacyType + ')');
   req(typeof x.title === 'string' && x.title.length > 0, 'title empty');
   req(x.title.length <= 120, 'title > 120 chars');
-  req(Array.isArray(x.needs) && x.needs.every(n => ['kind','title','actors'].includes(n)), 'needs enum');
-  req(!/Day -?\d/.test(x.timeNote || '') || true, 'day number in timeNote (reported separately; six need a ruling)');
+  req(Array.isArray(x.needs) && x.needs.every(n => ['kind','title','actors','claimant','published'].includes(n)), 'needs enum');
+  req(!/Day -?\d/.test(x.timeNote || ''), 'day number in timeNote');   // M2(c): the check is now on
   req(typeof x.lat === 'number' && typeof x.lng === 'number' && Math.abs(x.lat) <= 90 && Math.abs(x.lng) <= 180, 'lat/lng');
   req(x.tier === null || ['milestone','major','standard'].includes(x.tier), 'tier');
   req(x.significance === null || SIGNIF.includes(x.significance), 'significance');
-  req(typeof x.fog === 'boolean', 'fog');
-  req(['confirmed','reported','claimed','disputed','denied','retracted','unreviewed'].includes(x.claimStatus), 'claimStatus');
-  req(!(x.fog && ['confirmed','reported','unreviewed'].includes(x.claimStatus)), 'fog with non-fog claimStatus');
-  req(x.sources.every(s => s.url || s.publisher), 'source without url or publisher');
-  req(x.sources.length > 0 || x.sourcesStatus === 'legacy-unlisted', 'no sources and not marked legacy-unlisted');
-  req(['pass','fix','none'].includes(x.verification.status), 'verification.status');
+  req(Array.isArray(x.entries) && x.entries.length >= 1, 'no entry');
+  x.entries.forEach((en, i) => {
+    req(en.n === i + 1, 'entry numbers not 1..n');
+    req(['claims','denies','acknowledges','withdraws'].includes(en.stance), 'entry stance');
+    req(validISO(en.published) && dayCount(en.published) >= dayCount(x.dateISO), 'entry published missing or before the event');
+    req(en.claimedBy || x.needs.includes('claimant'), 'entry without a claimant and claimant not in needs');
+    req(en.sources.every(s => s.publisher && (!s.url || /^https?:\/\//.test(s.url))), 'source without publisher, or url not http(s) (M3)');
+    req(en.sources.every(s => s.role || x.needs.includes('claimant')), 'unsorted source on an attributed entry');
+  });
+  req(x.entries[0].sources.length > 0 || x.sourcesStatus === 'legacy-unlisted', 'no sources and not marked legacy-unlisted');
+  req(['checked','corrected','none'].includes(x.recordCheck.status), 'recordCheck.status');
+  req(x.fog === undefined && x.claimStatus === undefined && x.origin === undefined && x.verification === undefined, 'a v1.1 field survived (fog, claimStatus, origin, verification)');
+  req(ATTR.charterScan(x).length === 0, 'charter test: ' + ATTR.charterScan(x).join('; '));
   req(x.detail.structuralDmg !== undefined && x.detail.humanCasualties !== undefined, 'detail core');
   return errs;
 }
@@ -158,7 +169,7 @@ function check(x) {
 const out = V1.map(migrate);
 const S = {};
 S.total = out.length;
-S.idsContinuous = out.every((x, i) => x.legacyId === i + 1) || [...new Set(out.map(x => x.legacyId))].length === out.length && Math.min(...out.map(x => x.legacyId)) === 1 && Math.max(...out.map(x => x.legacyId)) === out.length;
+S.idsUnique = new Set(out.map(x => x.id)).size === out.length;   // M1: unique and never reused; continuity is no longer a rule
 S.idRoundTrip = out.every(x => parseInt(x.id.slice(3), 10) === x.legacyId);
 
 // 1. date parity with v1 (every event must land on the same start day v1 uses)
@@ -189,11 +200,21 @@ S.whoTypeAttackerDisagreesSample = who.filter(e => !LEGACY_BY[e.type].some(a => 
 S.standingPlatforms = V1.filter(e => e.type === 'launch' || e.type === 'platform').map(e => `${e.id} ${e.date} | ${e.city.slice(0, 40)}`);
 
 // 3. fog and claim status
-S.fog = { total: out.filter(x => x.fog).length, v1Text: V1.filter(e => /FOG OF WAR/.test(e.misc || '')).length, v1TextWithColon: V1.filter(e => /FOG OF WAR:/.test(e.misc || '')).length,
+S.v1FogNote = { total: out.filter(x => x._dry.v1Fog).length, ids1to385: out.filter(x => x._dry.v1Fog && x.legacyId <= 385).length, ids386to600: out.filter(x => x._dry.v1Fog && x.legacyId > 385).length,
+  structuredBlock: out.filter(x => x.legacy.fog && x.legacy.fog.note !== undefined).length,
+  v1Text: V1.filter(e => /FOG OF WAR/i.test(e.misc || '')).length, v1TextWithColon: V1.filter(e => /FOG OF WAR:/.test(e.misc || '')).length,
   v1Field: V1.filter(e => e.fogOfWar === true).length, research: research.filter(e => e.fog).length,
   researchOnly: research.filter(e => e.fog && !isFogV1(V1.find(v => v.id === e.id))).map(e => e.id),
   dataOnly: V1.filter(e => e.id > 385 && isFogV1(e) && !(R.get(e.id) || {}).fog).map(e => e.id) };
-S.claimStatus = out.reduce((a, x) => (a[x.claimStatus] = (a[x.claimStatus] || 0) + 1, a), {});
+// attribution under the charter: derived by the reference rules (attribution.js), never typed
+const REG = { actors: {}, outlets: {} }, TODAY = '2026-11-13';
+const derived = out.map(x => ATTR.deriveEvent(x, TODAY, REG));
+S.entries = { total: out.reduce((n, x) => n + x.entries.length, 0), claimantRecorded: out.filter(x => x.entries.some(en => en.claimedBy)).length, publishedRecorded: out.filter(x => !x.needs.includes('published')).length };
+S.look = derived.reduce((a, d) => (a[d.look] = (a[d.look] || 0) + 1, a), {});
+S.placedBy = derived.reduce((a, d) => (a[d.position.placedBy] = (a[d.position.placedBy] || 0) + 1, a), {});
+S.recordCheck = out.reduce((a, x) => (a[x.recordCheck.status] = (a[x.recordCheck.status] || 0) + 1, a), {});
+S.charter = { hits: out.reduce((n, x) => n + ATTR.charterScan(x).length, 0), mutationRejected: ATTR.charterScan({ ...out[0], claimStatus: 'confirmed' }).length > 0,
+  v1TruthGradesNotCarried: { verified: V1.filter(e => e.verified !== undefined).length, fogLean: V1.filter(e => e.fogLean !== undefined).length, originKnownProbable: V1.filter(e => e.originKnown === 'probable').length } };
 S.tier = out.reduce((a, x) => (a[String(x.tier)] = (a[String(x.tier)] || 0) + 1, a), {});
 S.significance = out.reduce((a, x) => (x.significance && (a[x.significance] = (a[x.significance] || 0) + 1), a), {});
 S.keyStrikeIdsWithoutTier = D.keyStrikeIds.filter(id => D.keyStrikeTiers[id] === undefined);
@@ -201,9 +222,9 @@ S.tierKeysNotInKeyStrikeIds = Object.keys(D.keyStrikeTiers).map(Number).filter(i
 
 // 4. sources
 S.sourcesStatus = out.reduce((a, x) => (a[x.sourcesStatus] = (a[x.sourcesStatus] || 0) + 1, a), {});
-S.sourceObjects = out.reduce((n, x) => n + x.sources.length, 0);
-S.sourceFieldsAvailable = { url: out.reduce((n, x) => n + x.sources.filter(s => s.url).length, 0), published: 0, kind: 0, access: 0 };
-S.distinctHosts = new Set(out.flatMap(x => x.sources.map(s => s.url && s.publisher)).filter(Boolean)).size;
+S.sourceObjects = out.reduce((n, x) => n + x.entries[0].sources.length, 0);
+S.sourceFieldsAvailable = { url: out.reduce((n, x) => n + x.entries[0].sources.filter(s => s.url).length, 0), published: 0, role: 0, access: 0 };
+S.distinctHosts = new Set(out.flatMap(x => x.entries[0].sources.map(s => s.url && s.publisher)).filter(Boolean)).size;
 
 // 5. titles, text, legacy
 S.titleBarePlaceName = out.filter(x => x._dry.titleBare).length;
@@ -231,7 +252,7 @@ S.files = Object.fromEntries(Object.entries(byYear).map(([y, a]) => { const j = 
 S.v1DataJsBytes = fs.statSync(path.join(repo, 'warmaps-data.js')).size;
 S.v1DataJsGzip = zlib.gzipSync(fs.readFileSync(path.join(repo, 'warmaps-data.js'))).length;
 // lean index (what the map and timeline need before any card is opened)
-const idx = clean.map(x => [x.id, x.dateISO, x.dateEndISO, x.datePrecision, x.lat, x.lng, x.kind, x.legacyType, x.tier, x.fog ? 1 : 0, x.claimStatus, x.title]);
+const idx = clean.map((x, i) => [x.id, x.dateISO, x.dateEndISO, x.datePrecision, x.lat, x.lng, x.kind, x.legacyType, x.tier, derived[i].look, derived[i].firstPublished, [], x.title]);
 S.leanIndex = { bytes: JSON.stringify(idx).length, gzip: zlib.gzipSync(JSON.stringify(idx)).length };
 
 fs.writeFileSync(path.join(outDir, 'summary.json'), JSON.stringify(S, null, 1));
