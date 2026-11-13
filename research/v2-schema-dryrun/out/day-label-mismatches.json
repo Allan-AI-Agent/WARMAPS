@@ -1,0 +1,362 @@
+[
+ {
+  "id": "IR-00109",
+  "date": "Feb 28, 2026",
+  "timeLabel": "Day 0 — opening hours",
+  "computedDay": 1
+ },
+ {
+  "id": "IR-00110",
+  "date": "Mar 1-2, 2026",
+  "timeLabel": "Day 1-2",
+  "computedDay": 2
+ },
+ {
+  "id": "IR-00111",
+  "date": "Feb 28 - Mar 1, 2026",
+  "timeLabel": "Day 0-1",
+  "computedDay": 1
+ },
+ {
+  "id": "IR-00112",
+  "date": "Mar 1, 2026",
+  "timeLabel": "Day 1",
+  "computedDay": 2
+ },
+ {
+  "id": "IR-00113",
+  "date": "Feb 28, 2026",
+  "timeLabel": "Day 0 — first night",
+  "computedDay": 1
+ },
+ {
+  "id": "IR-00116",
+  "date": "Mar 2, 2026",
+  "timeLabel": "Day 2",
+  "computedDay": 3
+ },
+ {
+  "id": "IR-00118",
+  "date": "Feb 28, 2026",
+  "timeLabel": "Day 0",
+  "computedDay": 1
+ },
+ {
+  "id": "IR-00122",
+  "date": "Mar 2, 2026",
+  "timeLabel": "Day 2",
+  "computedDay": 3
+ },
+ {
+  "id": "IR-00238",
+  "date": "May 4, 2026",
+  "timeLabel": "Day 65",
+  "computedDay": 66
+ },
+ {
+  "id": "IR-00239",
+  "date": "May 4, 2026",
+  "timeLabel": "Day 65",
+  "computedDay": 66
+ },
+ {
+  "id": "IR-00240",
+  "date": "May 6, 2026",
+  "timeLabel": "Day 67",
+  "computedDay": 68
+ },
+ {
+  "id": "IR-00241",
+  "date": "May 7, 2026",
+  "timeLabel": "Day 68",
+  "computedDay": 69
+ },
+ {
+  "id": "IR-00242",
+  "date": "May 6, 2026",
+  "timeLabel": "Day 67",
+  "computedDay": 68
+ },
+ {
+  "id": "IR-00243",
+  "date": "May 4, 2026",
+  "timeLabel": "Day 65",
+  "computedDay": 66
+ },
+ {
+  "id": "IR-00244",
+  "date": "May 5, 2026",
+  "timeLabel": "Day 66",
+  "computedDay": 67
+ },
+ {
+  "id": "IR-00245",
+  "date": "May 6, 2026",
+  "timeLabel": "Day 67",
+  "computedDay": 68
+ },
+ {
+  "id": "IR-00246",
+  "date": "May 6, 2026",
+  "timeLabel": "Day 67",
+  "computedDay": 68
+ },
+ {
+  "id": "IR-00247",
+  "date": "May 7, 2026",
+  "timeLabel": "Day 68",
+  "computedDay": 69
+ },
+ {
+  "id": "IR-00248",
+  "date": "May 8, 2026",
+  "timeLabel": "Day 69",
+  "computedDay": 70
+ },
+ {
+  "id": "IR-00249",
+  "date": "May 8, 2026",
+  "timeLabel": "Day 69",
+  "computedDay": 70
+ },
+ {
+  "id": "IR-00250",
+  "date": "May 8, 2026",
+  "timeLabel": "Day 69",
+  "computedDay": 70
+ },
+ {
+  "id": "IR-00251",
+  "date": "May 9, 2026",
+  "timeLabel": "Day 70",
+  "computedDay": 71
+ },
+ {
+  "id": "IR-00252",
+  "date": "May 8, 2026",
+  "timeLabel": "Day 69 (cumulative)",
+  "computedDay": 70
+ },
+ {
+  "id": "IR-00253",
+  "date": "May 7, 2026",
+  "timeLabel": "Day 68",
+  "computedDay": 69
+ },
+ {
+  "id": "IR-00254",
+  "date": "May 10-11, 2026",
+  "timeLabel": "Days 71-72",
+  "computedDay": 72
+ },
+ {
+  "id": "IR-00255",
+  "date": "May 14-15, 2026",
+  "timeLabel": "Days 75-76",
+  "computedDay": 76
+ },
+ {
+  "id": "IR-00256",
+  "date": "May 15, 2026",
+  "timeLabel": "Day 76",
+  "computedDay": 77
+ },
+ {
+  "id": "IR-00258",
+  "date": "May 17, 2026",
+  "timeLabel": "Day 78",
+  "computedDay": 79
+ },
+ {
+  "id": "IR-00259",
+  "date": "May 17, 2026",
+  "timeLabel": "Day 78",
+  "computedDay": 79
+ },
+ {
+  "id": "IR-00262",
+  "date": "May 18, 2026",
+  "timeLabel": "Day 79",
+  "computedDay": 80
+ },
+ {
+  "id": "IR-00263",
+  "date": "May 18, 2026",
+  "timeLabel": "Day 79 (strategic summary)",
+  "computedDay": 80
+ },
+ {
+  "id": "IR-00264",
+  "date": "May 18, 2026",
+  "timeLabel": "Day 79",
+  "computedDay": 80
+ },
+ {
+  "id": "IR-00265",
+  "date": "May 19-27, 2026",
+  "timeLabel": "Days 80-88",
+  "computedDay": 81
+ },
+ {
+  "id": "IR-00266",
+  "date": "May 26, 2026",
+  "timeLabel": "Day 87",
+  "computedDay": 88
+ },
+ {
+  "id": "IR-00267",
+  "date": "May 30-31, 2026",
+  "timeLabel": "Days 91-92",
+  "computedDay": 92
+ },
+ {
+  "id": "IR-00268",
+  "date": "May 29, 2026",
+  "timeLabel": "Day 90",
+  "computedDay": 91
+ },
+ {
+  "id": "IR-00269",
+  "date": "June 1, 2026",
+  "timeLabel": "Day 93",
+  "computedDay": 94
+ },
+ {
+  "id": "IR-00270",
+  "date": "June 1, 2026",
+  "timeLabel": "Day 93",
+  "computedDay": 94
+ },
+ {
+  "id": "IR-00271",
+  "date": "June 1, 2026",
+  "timeLabel": "Day 93",
+  "computedDay": 94
+ },
+ {
+  "id": "IR-00272",
+  "date": "June 2, 2026",
+  "timeLabel": "Day 94",
+  "computedDay": 95
+ },
+ {
+  "id": "IR-00273",
+  "date": "June 3, 2026",
+  "timeLabel": "Day 95",
+  "computedDay": 96
+ },
+ {
+  "id": "IR-00274",
+  "date": "June 3-4, 2026",
+  "timeLabel": "Days 95-96",
+  "computedDay": 96
+ },
+ {
+  "id": "IR-00275",
+  "date": "June 3, 2026",
+  "timeLabel": "Day 95",
+  "computedDay": 96
+ },
+ {
+  "id": "IR-00276",
+  "date": "June 3-5, 2026",
+  "timeLabel": "Days 95-97",
+  "computedDay": 96
+ },
+ {
+  "id": "IR-00277",
+  "date": "June 5, 2026",
+  "timeLabel": "Day 97",
+  "computedDay": 98
+ },
+ {
+  "id": "IR-00278",
+  "date": "June 5, 2026",
+  "timeLabel": "Day 97",
+  "computedDay": 98
+ },
+ {
+  "id": "IR-00279",
+  "date": "June 5, 2026",
+  "timeLabel": "Day 97",
+  "computedDay": 98
+ },
+ {
+  "id": "IR-00280",
+  "date": "June 5-6, 2026",
+  "timeLabel": "Days 97-98",
+  "computedDay": 98
+ },
+ {
+  "id": "IR-00281",
+  "date": "June 6, 2026",
+  "timeLabel": "Day 98",
+  "computedDay": 99
+ },
+ {
+  "id": "IR-00282",
+  "date": "June 6, 2026",
+  "timeLabel": "Day 98",
+  "computedDay": 99
+ },
+ {
+  "id": "IR-00283",
+  "date": "June 7, 2026",
+  "timeLabel": "Day 99",
+  "computedDay": 100
+ },
+ {
+  "id": "IR-00284",
+  "date": "June 5, 2026",
+  "timeLabel": "Day 97",
+  "computedDay": 98
+ },
+ {
+  "id": "IR-00285",
+  "date": "June 15-18, 2026",
+  "timeLabel": "Day 107-110",
+  "computedDay": 108
+ },
+ {
+  "id": "IR-00286",
+  "date": "July 6, 2026",
+  "timeLabel": "Day 128",
+  "computedDay": 129
+ },
+ {
+  "id": "IR-00290",
+  "date": "July 8, 2026",
+  "timeLabel": "Day 130",
+  "computedDay": 131
+ },
+ {
+  "id": "IR-00291",
+  "date": "July 9, 2026",
+  "timeLabel": "Day 131",
+  "computedDay": 132
+ },
+ {
+  "id": "IR-00292",
+  "date": "July 11, 2026",
+  "timeLabel": "Day 133",
+  "computedDay": 134
+ },
+ {
+  "id": "IR-00293",
+  "date": "July 11, 2026",
+  "timeLabel": "Day 133",
+  "computedDay": 134
+ },
+ {
+  "id": "IR-00295",
+  "date": "July 12, 2026",
+  "timeLabel": "Day 134",
+  "computedDay": 135
+ },
+ {
+  "id": "IR-00297",
+  "date": "July 13, 2026",
+  "timeLabel": "Day 135 (TODAY)",
+  "computedDay": 136
+ }
+]

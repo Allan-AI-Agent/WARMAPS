@@ -1,0 +1,442 @@
+[
+ {
+  "id": "IR-00001",
+  "legacyId": 1,
+  "theater": [
+   "iran-war"
+  ],
+  "dateISO": "2026-02-28",
+  "datePrecision": "day",
+  "timeNote": "~10:00 IRST (06:30 UTC)",
+  "kind": "strike",
+  "legacyType": "joint",
+  "title": "Tehran — Khamenei Compound",
+  "place": "Tehran",
+  "country": "Iran",
+  "lat": 35.694,
+  "lng": 51.422,
+  "geoPrecision": "unknown",
+  "actors": {
+   "by": [],
+   "against": []
+  },
+  "attackerText": "US + Israel",
+  "significance": "strategic",
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-02-28",
+    "sources": []
+   }
+  ],
+  "sourcesStatus": "legacy-unlisted",
+  "recordCheck": {
+   "status": "none"
+  },
+  "detail": {
+   "target": "Khamenei leadership compound — office of Supreme Leader, national security apparatus, Iranian Presidency complex",
+   "weapon": "Precision-guided munitions / B-2 payload",
+   "weaponCap": "B-2 Spirit stealth bomber: flies at altitude undetectable by most radar. Delivers 40,000 lb payload. Used GBU-28 bunker-busters. F-35s used simultaneously for SEAD.",
+   "structuralDmg": "Compound destroyed. Multiple government buildings leveled.",
+   "humanCasualties": "Supreme Leader Ali Khamenei KILLED. SNSC Secretary Ali Shamkhani KILLED. Multiple senior officials killed. Trump: \"large amount of leadership\" eliminated.",
+   "launchOrigin": "USS Gerald R. Ford CSG (Mediterranean) + Diego Garcia B-2 base + IDF Tel Nof Airbase",
+   "misc": "CIA + Israeli intelligence tracked Khamenei for months. Op codenamed \"Roaring Lion\" (IDF) / \"Epic Fury\" (DoD). Executed while top officials gathered at compound. One of most significant leadership kills in modern warfare."
+  },
+  "legacy": {
+   "time": "~10:00 IRST (06:30 UTC)"
+  },
+  "needs": [
+   "kind",
+   "actors",
+   "claimant",
+   "published"
+  ],
+  "rev": 1
+ },
+ {
+  "id": "IR-00006",
+  "legacyId": 6,
+  "theater": [
+   "iran-war"
+  ],
+  "dateISO": "2025-06-22",
+  "datePrecision": "day",
+  "timeNote": "Multiple waves",
+  "kind": "strike",
+  "legacyType": "us",
+  "title": "Fordow / Natanz — Nuclear Sites",
+  "place": "Fordow / Natanz",
+  "country": "Iran",
+  "lat": 34.878,
+  "lng": 50.96,
+  "geoPrecision": "unknown",
+  "actors": {
+   "by": [],
+   "against": []
+  },
+  "attackerText": "United States (CENTCOM)",
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2025-06-22",
+    "sources": []
+   }
+  ],
+  "sourcesStatus": "legacy-unlisted",
+  "recordCheck": {
+   "status": "none"
+  },
+  "detail": {
+   "target": "Fordow uranium enrichment facility (buried 80m underground). Natanz centrifuge halls.",
+   "weapon": "GBU-57 Massive Ordnance Penetrator (MOP)",
+   "weaponCap": "GBU-57A/B MOP: 30,000-lb penetrating bomb, only weapon capable of reaching deeply buried/hardened targets. Penetrates 60+ meters of earth before detonating. Carried exclusively by B-2.",
+   "structuralDmg": "Significant. IAEA later discovered hidden enriched uranium in undamaged underground facility, suggesting program not fully destroyed.",
+   "humanCasualties": "Not confirmed.",
+   "launchOrigin": "B-2 Spirit bombers from Diego Garcia (BIOT)",
+   "misc": "DoD estimated Iranian nuclear program set back 2 years after June 2025 strikes. Feb 27, 2026: IAEA confirmed Iran had hidden HEU in undamaged facility — triggered current escalation."
+  },
+  "legacy": {
+   "time": "Multiple waves"
+  },
+  "needs": [
+   "kind",
+   "actors",
+   "claimant",
+   "published"
+  ],
+  "rev": 1
+ },
+ {
+  "id": "IR-00040",
+  "legacyId": 40,
+  "theater": [
+   "iran-war"
+  ],
+  "dateISO": "2026-02-28",
+  "datePrecision": "day",
+  "timeNote": "~10:15 IRST",
+  "kind": "infrastructure",
+  "legacyType": "airport",
+  "title": "Imam Khomeini International Airport",
+  "place": "Imam Khomeini International Airport",
+  "country": "Iran",
+  "lat": 35.42,
+  "lng": 51.15,
+  "geoPrecision": "unknown",
+  "actors": {
+   "by": [],
+   "against": []
+  },
+  "attackerText": "Israel (IDF)",
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-02-28",
+    "sources": [
+     {
+      "publisher": "Iran International"
+     },
+     {
+      "publisher": "Al Jazeera"
+     },
+     {
+      "publisher": "Reuters"
+     }
+    ]
+   }
+  ],
+  "sourcesStatus": "named-only",
+  "recordCheck": {
+   "status": "none"
+  },
+  "detail": {
+   "target": "Tehran main international airport - runways, ATC tower, cargo terminal.",
+   "weapon": "Rampage air-launched ballistic missile",
+   "weaponCap": "Rampage specifically targets airfield infrastructure - craters runways and destroys hardened aircraft shelters.",
+   "structuralDmg": "Two runways cratered. ATC tower struck. Cargo terminal destroyed. Airport non-operational.",
+   "humanCasualties": "4 airport workers killed.",
+   "launchOrigin": "IDF F-35I strike package via Iraq airspace",
+   "misc": "Iran was using IKA for IRGC resupply. Destroying it cut aerial logistics and prevented leadership from fleeing by air."
+  },
+  "legacy": {
+   "time": "~10:15 IRST",
+   "perspective": "multi",
+   "source": "Iran International / Al Jazeera / Reuters"
+  },
+  "needs": [
+   "title",
+   "actors",
+   "claimant",
+   "published"
+  ],
+  "rev": 1
+ },
+ {
+  "id": "IR-00108",
+  "legacyId": 108,
+  "theater": [
+   "iran-war"
+  ],
+  "dateISO": "2026-02-25",
+  "dateEndISO": "2026-02-27",
+  "datePrecision": "range",
+  "timeNote": "Continuous",
+  "kind": "unclassified",
+  "legacyType": "prewar",
+  "title": "Muwaffaq Salti AB — F-15E/F-35/Growler Buildup",
+  "place": "Muwaffaq Salti AB",
+  "country": "Jordan",
+  "lat": 31.83,
+  "lng": 36.78,
+  "geoPrecision": "unknown",
+  "actors": {
+   "by": [],
+   "against": []
+  },
+  "attackerText": "United States (Deployment)",
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-02-25",
+    "sources": [
+     {
+      "publisher": "Al Jazeera"
+     },
+     {
+      "publisher": "Reuters"
+     },
+     {
+      "publisher": "AP"
+     }
+    ]
+   }
+  ],
+  "sourcesStatus": "named-only",
+  "recordCheck": {
+   "status": "none"
+  },
+  "detail": {
+   "target": "N/A — Forward deployment for Iran strikes.",
+   "weapon": "35+ F-15E Strike Eagles, 18+ F-35s, EA-18G Growlers",
+   "weaponCap": "Largest USAF fighter deployment to Jordan ever. F-15E: 11-ton payload, BVR missiles. F-35: stealth 5th-gen. EA-18G: electronic warfare / SEAD. New air defense installation visible in satellite imagery.",
+   "structuralDmg": "N/A.",
+   "humanCasualties": "N/A.",
+   "launchOrigin": "N/A — IS deployment",
+   "misc": "CNN satellite imagery + Planet Labs. 494th Expeditionary Fighter Squadron from RAF Lakenheath UK. Air defense installation expanded to protect US assets. Part of buildup described as largest since 2003."
+  },
+  "legacy": {
+   "time": "Continuous",
+   "perspective": "multi",
+   "source": "Al Jazeera / Reuters / AP"
+  },
+  "needs": [
+   "kind",
+   "actors",
+   "claimant",
+   "published"
+  ],
+  "rev": 1
+ },
+ {
+  "id": "IR-00257",
+  "legacyId": 257,
+  "theater": [
+   "iran-war"
+  ],
+  "dateISO": "2026-04-28",
+  "dateEndISO": "2026-05-15",
+  "datePrecision": "range",
+  "kind": "strike",
+  "legacyType": "isr",
+  "title": "South Lebanon — Demolition Campaign During Ceasefire (Apr 28-May 15)",
+  "place": "South Lebanon",
+  "country": "Lebanon",
+  "lat": 33.31,
+  "lng": 35.45,
+  "geoPrecision": "unknown",
+  "actors": {
+   "by": [],
+   "against": []
+  },
+  "attackerText": "IDF (cumulative campaign)",
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-04-28",
+    "sources": [
+     {
+      "publisher": "ACLED"
+     },
+     {
+      "publisher": "NBC News"
+     },
+     {
+      "publisher": "Reuters satellite analysis"
+     },
+     {
+      "publisher": "Lebanese NNA"
+     }
+    ]
+   }
+  ],
+  "sourcesStatus": "named-only",
+  "recordCheck": {
+   "status": "none"
+  },
+  "detail": {
+   "target": "120+ towns and villages across south Lebanon (ACLED count)",
+   "structuralDmg": "ACLED data: 120+ towns/villages hit at least once by IDF since April 17 ceasefire. Satellite imagery confirms systematic demolition in Khiam, Bint Jbeil, Mais al-Jabal, Jebchit, Beit Lif.",
+   "humanCasualties": "Apr 28 \"double tap\" strike in Majdal Zoun kills 9 including 3 emergency workers. Apr 30: 28+ killed across multiple south Lebanon strikes. May 15: Harouf airstrike kills 6+ including 3 paramedics.",
+   "misc": "Source: ACLED | NBC News | Reuters satellite analysis | Lebanese NNA. Israel maintains \"security zone\" up to ~6 miles inside Lebanon. Human rights organizations: demolition pattern is a potential war crime. Israel: necessary to prevent Hezbollah return."
+  },
+  "legacy": {
+   "time": "Days 60-76"
+  },
+  "needs": [
+   "kind",
+   "actors",
+   "claimant",
+   "published"
+  ],
+  "rev": 1
+ },
+ {
+  "id": "IR-00412",
+  "legacyId": 412,
+  "theater": [
+   "iran-war"
+  ],
+  "dateISO": "2026-08-28",
+  "datePrecision": "day",
+  "kind": "strike",
+  "legacyType": "isr",
+  "title": "Khan Younis / Gaza City",
+  "place": "Khan Younis / Gaza City",
+  "country": "Palestine (Gaza)",
+  "lat": 31.34,
+  "lng": 34.3,
+  "geoPrecision": "unknown",
+  "actors": {
+   "by": [],
+   "against": []
+  },
+  "attackerText": "Israel (IDF)",
+  "tier": "standard",
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-08-28",
+    "sources": [
+     {
+      "url": "https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8",
+      "publisher": "apnews.com"
+     }
+    ]
+   }
+  ],
+  "sourcesStatus": "listed",
+  "recordCheck": {
+   "status": "checked",
+   "pass": "backfill-pass2",
+   "date": "2026-11-09"
+  },
+  "detail": {
+   "target": "Family home outside Khan Younis; two targets in Gaza City",
+   "weapon": "Airstrikes",
+   "weaponCap": "N/A",
+   "structuralDmg": "Home struck",
+   "humanCasualties": "5 killed (Nasser and Shifa hospitals)",
+   "launchOrigin": "IDF",
+   "misc": "Strikes killed two brothers and a relative in their family home near Khan Younis and one person each in two Gaza City strikes, despite the US-brokered ceasefire. Source: AP https://apnews.com/article/middle-east-iran-israel-august-28-2026-6c8334dbec806f41666ff75e728768b8"
+  },
+  "legacy": {
+   "time": "Day 182"
+  },
+  "needs": [
+   "kind",
+   "title",
+   "actors",
+   "claimant",
+   "published"
+  ],
+  "rev": 1
+ },
+ {
+  "id": "IR-00540",
+  "legacyId": 540,
+  "theater": [
+   "iran-war"
+  ],
+  "dateISO": "2026-10-14",
+  "datePrecision": "day",
+  "kind": "naval",
+  "legacyType": "naval",
+  "title": "Strait of Hormuz",
+  "place": "Strait of Hormuz",
+  "country": "International waters",
+  "lat": 26.57,
+  "lng": 56.25,
+  "geoPrecision": "unknown",
+  "actors": {
+   "by": [],
+   "against": []
+  },
+  "attackerText": "Unknown; IRGC claimed a mine",
+  "tier": "milestone",
+  "entries": [
+   {
+    "n": 1,
+    "stance": "claims",
+    "published": "2026-10-14",
+    "sources": [
+     {
+      "url": "https://www.hawaiitribune-herald.com/2026/10/15/nation-world-news/two-ships-sink-near-hormuz-after-being-hit-by-projectiles-amid-surge-in-attacks/",
+      "publisher": "hawaiitribune-herald.com"
+     },
+     {
+      "url": "https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-14_index.htm",
+      "publisher": "globalsecurity.org"
+     },
+     {
+      "url": "https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/",
+      "publisher": "gcaptain.com"
+     }
+    ]
+   }
+  ],
+  "sourcesStatus": "listed",
+  "recordCheck": {
+   "status": "checked",
+   "pass": "backfill-pass2",
+   "date": "2026-11-09"
+  },
+  "detail": {
+   "target": "Singapore-flagged container ship GFS Pride",
+   "weapon": "Projectile (Reuters sources) / naval mine (IRGC claim)",
+   "weaponCap": "N/A",
+   "structuralDmg": "Ship caught fire and sank; Cape Dao (hit Sept 23) also confirmed sunk.",
+   "humanCasualties": "GFS Pride: all 21 crew evacuated safely; Cape Dao: 1 killed at time of Sept 23 strike.",
+   "launchOrigin": "Unknown / Iran (claimed)",
+   "misc": "FOG OF WAR on cause: the Singapore-flagged container ship GFS Pride caught fire and sank in the Strait of Hormuz; Reuters sources said a projectile, while the IRGC Navy said it hit a mine on an 'unauthorized route'. The Antigua-flagged bulk carrier Cape Dao, hit Sept 23, was also confirmed sunk. RFE/RL said attacks on Hormuz shipping hit a wartime high with at least 10 ships attacked in recent days. Source: Reuters via Hawaii Tribune-Herald https://www.hawaiitribune-herald.com/2026/10/15/nation-world-news/two-ships-sink-near-hormuz-after-being-hit-by-projectiles-amid-surge-in-attacks/ ; GlobalSecurity (RFE/RL, IRNA) https://www.globalsecurity.org/wmd/library/news/iran/2026/10/10-14_index.htm ; gCaptain https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/"
+  },
+  "legacy": {
+   "time": "Day 229",
+   "fog": {
+    "marker": true
+   }
+  },
+  "needs": [
+   "title",
+   "actors",
+   "claimant",
+   "published"
+  ],
+  "rev": 1
+ }
+]
