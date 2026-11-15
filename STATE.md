@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-12 (MST), **Day 258** (editorial charter ruled; documents only). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-14 (MST), **Day 260** (v2 design documents rewritten under the editorial charter, session F1b-1; documents only). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -43,10 +43,14 @@ never been the intent.
   still use the latest available number; a disputed figure shows who disputes it, with their source (rule 8).
 - **How to read older text:** "claim status" in the 2026-11-10 sourcing rule below means attribution status
   (claimed, denied, acknowledged, carried by), not a truth grade.
-- **Known conflicts, rewritten by session F1b:** `docs/v2/ARCHITECTURE_v1.md` principle 2, 3.2 `claimStatus`, 3.4
-  (`confirmed`), 4.1 (link confidence documented/reported/alleged), 4.2 (tripwire `confirmed` and its headline),
-  4.5 (independence used to reach `confirmed`); "fill = confidence" and "line style = link confidence" in
-  `DESIGN_SYSTEM_v1.md` and the other v2 documents. Each carries a banner until rewritten. Do not build them.
+- **Known conflicts in the v2 design: RESOLVED 2026-11-14 (session F1b-1).** The five design documents were
+  rewritten around attribution and their banners removed: `ARCHITECTURE_v1.md` v1.2 (no `claimStatus`, no link
+  confidence, no tripwire `confirmed`, no independence test), `DESIGN_SYSTEM_v1.md` v1.1, `LAYOUT_ENGINE_SPEC_v1.md`
+  v1.1, `RELEASE_PLAN_v1.md` v1.2, `F1_DECISIONS_FOR_ALLAN.md` v1.2. Charter check result: see the F1b-1 status
+  line below and `docs/v2/F1_PROGRESS.md`.
+- **Still conflicting, by design until Allan rules: the live v1 site.** It shows truth grades (naval assets
+  "Verified / Unverified", the stat label "Confirmed Dead (Iran Military)", the launch-origin value from
+  `originKnown`). Allan ruled 2026-11-13 that the stats wording be updated; see OPEN ITEMS.
 - **Copy for other AIs:** Drive `WARMAPS/_RULES/_WARMAPS_EDITORIAL_CHARTER_v1.0.md` (id `1lwpZUu_Qc9GTTtwqCa3W5xZ8Gmr2-Xne`).
   Change this section first; then re-issue the Drive copy as a new version so the two never differ.
 - **Drift is a known failure:** `KNOWN_FAILURES.md` F-010. **Enforced by a test:** the v2 validator rejects
@@ -79,7 +83,7 @@ from all sides, without putting a thumb on the scale; Allan's own opinion, when 
 Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js` unchanged; version stays v01.09.03.**
 - `docs/v2/ARCHITECTURE_v1.md` — event schema v2 (REV B), links, watchlist, actors, theater config, timeline engine, migration, app architecture.
 - `docs/v2/DESIGN_SYSTEM_v1.md`, `docs/v2/LAYOUT_ENGINE_SPEC_v1.md`, `docs/v2/RELEASE_PLAN_v1.md`.
-- `docs/v2/F1_DECISIONS_FOR_ALLAN.md` — **7 decisions awaiting Allan.** Nothing in these documents is ruled until he answers.
+- `docs/v2/F1_DECISIONS_FOR_ALLAN.md` — **8 decisions awaiting Allan (1-7 and 9; 8 is reserved for F1b-2)** as of 2026-11-14. Nothing in these documents is ruled until he answers.
 - `docs/v2/F1_PROGRESS.md` — resume file. **Part B (prototype at `prototype/v2/`) not started; starts on Allan's "continue with Part B".**
 - Validators run before each push: `validate.js` PASS, `test-timeline.js` PASS.
 - **2026-11-11 dry run (F1 step 1):** all 600 events run through the proposed schema by throwaway scripts in
@@ -107,7 +111,17 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
   before S3/S4/S7. Nothing ruled yet; F1b applies what Allan accepts.
 - **Data gap confirmed by Allan 2026-11-11:** Days 57-140 (25 Apr to 17 Jul) are thin, 84 events with empty runs up
   to 20 days. Backfill pass 3 is later work (E1 prompt).
-- Known stale item, not fixed in this docs-only PR: the KEY FIELDS table below still says 385 events / Day 170 (header above is correct: 600 / Day 254).
+- **2026-11-13/14 F1b-1 (attribution, fog and lenses) DONE.** Rulings by Allan 2026-11-13: R1 fixes **M1-M4
+  accepted** (M4 as a claimant on each entry); an independent Sonnet 5.5 charter checker authorised; the live v1
+  stats wording to be updated (OPEN ITEMS). Written: ARCHITECTURE v1.2 (dated entries per happening, `claimedBy`
+  apart from carriers, four derived looks, links and watchlist without grades, lenses, 7-day window, As known
+  then, tombstones), DESIGN_SYSTEM v1.1, LAYOUT_ENGINE_SPEC v1.1, RELEASE_PLAN v1.2 (Track P added),
+  F1_DECISIONS v1.2 (decisions 5 and 6 reworded, decision 9 added). Dry run re-baselined: 600/600 pass; 127 events
+  carry a v1 fog marker and draw as ghosts, 473 are "not yet attributed"; charter test 0 hits.
+  **Charter check 2026-11-14 (self-check plus independent Sonnet 5.5 checker): nothing found that grades truth (0 violations). 13 risks and notes were reported and are NOT yet fixed; list in `docs/v2/F1_PROGRESS.md`.**
+- **Next:** F1b-2 (themes, detail levels, screen size; `SESSION_PROMPT_F1b_theme_amendments.md`), then the F1c
+  prototype. The three 2026-11-12 rulings stay PROVISIONAL until Allan has tried the prototype.
+- KEY FIELDS table below corrected 2026-11-14 (it had said 385 events / Day 170).
 
 ## RULINGS 2026-11-09 18:03 (Allan) — queued for after the weekly reset (Fable gets tonight's allowance)
 1. Iran military dead stat box: **keep 1,937+**; next research pass looks for a first-hand US/Israeli figure.
@@ -370,9 +384,9 @@ F-001 has **two variants** and they need different defences:
 | live | https://warmaps.allan-ai-agent.workers.dev/ (Cloudflare Pages/Workers) |
 | GitHub access | Claude account linked to GitHub `Allan-AI-Agent` (relinked 2026-11-02; was `sanceau`). Cloud sessions push directly; no PAT needed |
 | index.html | 310,138 bytes, sha256 `d4e4b1e1...7287` (was 308,634) |
-| warmaps-data.js | 418,656 bytes (was 381,963) |
-| events | **385**, IDs 1-385, no gaps, no duplicates |
-| latest event | 2026-08-16 = **Day 170** |
+| warmaps-data.js | 633,262 bytes (measured 2026-11-14; was 418,656 at 385 events) |
+| events | **600**, IDs 1-600 (dry run 2026-11-14: 600 parsed, no schema failures) |
+| latest event | 2026-11-08 = **Day 254** |
 | timeline end | **Dynamic** (`setDynamicTimelineEnd`). Static fallback in HTML: -30 / 220. `WARMAPS_CONFIG.maxDay` is not read |
 | validators | `tools/validate.js`, `tools/test-timeline.js` |
 
@@ -416,6 +430,13 @@ F-001 has **two variants** and they need different defences:
 
 
 ## OPEN ITEMS
+
+- **[NEW 2026-11-13, RULED by Allan] Reword the live v1 stats under the charter.** His words: "We should include
+  updating the live v1 site stats wording." A small v1 change on its own branch and PR (version bump, validators,
+  cold read): the stat label "Confirmed Dead (Iran Military)" (`index.html` line 1666) and any stat label that
+  grades, reworded to say who reports the figure and as of when. **Not done yet. Ask Allan first** whether the
+  naval "Verified / Unverified" labels (lines 3187-3204) and the launch-origin value shown from `originKnown`
+  (line 3508) go in the same PR; he named the stats wording only.
 
 - **Still open from v01.09.02:** confirm the `_headers` no-store fix works (the cold read used
   a fresh tab, so it does not prove this), and look at the two layout collisions.

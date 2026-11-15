@@ -1,7 +1,7 @@
 ---
 title: WARMAPS v2 — common brief for every v2 session
-version: v1.2 (2026-11-12: editorial charter; R1 done; section 3b direction for fog, lenses, detail and screen size)
-date: 2026-11-11 (Iran-war Day 257); amended 2026-11-12 (Day 258)
+version: v1.3 (2026-11-14: section 2 updated after F1b-1; decisions now eight). v1.2 (2026-11-12): editorial charter; R1 done; section 3b
+date: 2026-11-11 (Iran-war Day 257); amended 2026-11-12 (Day 258) and 2026-11-14 (Day 260)
 author: Claude (Fable 5.2), end of session F1 day 2, for Allan Sanceau; v1.1 by Claude (Opus 5.5)
 status: STANDING — every SESSION_PROMPT_* file in this folder tells the session to read this first
 branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
@@ -13,6 +13,7 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
   every side, and lets readers judge. It never rules on whether a claim is true.** No field, badge, colour or score
   grades truth. A dispute or a "disinformation" label is a claim with an author and a source. Where any design document
   says `confirmed`, `documented` or "confidence" about a claim, the charter wins: flag it, do not build it.
+  (The five design documents were rewritten under the charter by F1b-1, 2026-11-13/14; this rule stays for drift.)
 - **You are continuing a design-then-build project.** Nothing of v2 is built yet. The live site (v1) must not change.
 - **Start cold from the repo, not from chat memory.** Read, in order: `STATE.md` (wins over everything),
   `SESSION_BOOTSTRAP.md`, `KNOWN_FAILURES.md`, this file, `docs/v2/F1_PROGRESS.md`, then what your own prompt lists.
@@ -20,7 +21,9 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
   He sets both himself. Repeat this before each further step. (His standing instruction, 2026-11-11.)
 - **Spend usage carefully.** One step per chat. Push after every finished deliverable. Update `F1_PROGRESS.md`
   so a fresh chat can resume. Do not re-read files you do not need. Fable 5.2 is reserved for the steps marked Fable.
-- **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-11). Do not treat a recommendation as a ruling.
+- **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-14; eight are waiting: 1-7 and 9).
+  Do not treat a recommendation as a ruling. Ruled outside that file: R1 fixes M1-M4 accepted (2026-11-13); the
+  three section 3b rulings are PROVISIONAL until Allan has tried the prototype.
 
 # 1. Rules that apply to every v2 session
 
@@ -39,16 +42,16 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 | Independent checking | The agent that checks work did not produce it |
 | Reply style to Allan | He reads on a phone: conclusions first, short, plain. Timestamp at the start of a new chat (day, date, time MST) |
 
-# 2. Where things stand (2026-11-11)
+# 2. Where things stand (2026-11-14)
 
 | Item | State |
 |---|---|
-| Part A documents | Done: `ARCHITECTURE_v1.md` (v1.1), `DESIGN_SYSTEM_v1.md`, `LAYOUT_ENGINE_SPEC_v1.md`, `RELEASE_PLAN_v1.md`, `F1_DECISIONS_FOR_ALLAN.md` |
-| Schema dry run | Done: `research/v2-schema-dryrun/` (`REPORT.md`). 600/600 events pass the v1.1 schema; its numbers are the acceptance test for the slice-1 migration |
-| Independent schema review | Done 2026-11-11: `research/v2-schema-review/REVIEW.md` (read its 2026-11-12 addendum under the charter) |
-| Editorial charter | Ruled 2026-11-12 (`STATE.md`). The truth-grading parts of the v2 design carry a banner; F1b rewrites them |
-| F1b-1 attribution, fog and lenses | Not started. `SESSION_PROMPT_F1b1_attribution_fog_lenses.md` |
-| F1b-2 themes, detail levels, screen size | Not started; after F1b-1. `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2) |
+| Part A documents | Done and rewritten under the charter: `ARCHITECTURE_v1.md` (v1.2), `DESIGN_SYSTEM_v1.md` (v1.1), `LAYOUT_ENGINE_SPEC_v1.md` (v1.1), `RELEASE_PLAN_v1.md` (v1.2), `F1_DECISIONS_FOR_ALLAN.md` (v1.2) |
+| Schema dry run | Re-run for v1.2: `research/v2-schema-dryrun/` (`REPORT.md` v1.1). 600/600 events pass; 127 ghost, 473 not yet attributed; charter test 0 hits; `attribution.js` is the reference derivation (66 tests). Its numbers are the acceptance test for the slice-1 migration |
+| Independent schema review | Done 2026-11-11: `research/v2-schema-review/REVIEW.md` (read its 2026-11-12 addendum under the charter). M1-M4 accepted by Allan 2026-11-13 and applied; S10, S12, S13 open |
+| Editorial charter | Ruled 2026-11-12 (`STATE.md`). The v2 design documents no longer carry truth grades or banners (F1b-1). The live v1 site still does; rewording its stats is ruled and open (`STATE.md` OPEN ITEMS) |
+| F1b-1 attribution, fog and lenses | **Done 2026-11-14.** Charter check: see `F1_PROGRESS.md` |
+| F1b-2 themes, detail levels, screen size | **Next.** `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2). Adds decision 8; cap is nine decisions |
 | Prototype (Part B) | Not started. `SESSION_PROMPT_F1c_prototype.md` |
 | Slice 1 build | Blocked on decisions 1-3. `SESSION_PROMPT_S1_shell.md` |
 | Backfill pass 3 and enrichment | Not started. `SESSION_PROMPT_E1_backfill3_enrichment.md` |
