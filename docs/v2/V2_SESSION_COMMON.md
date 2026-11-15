@@ -21,7 +21,7 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
   He sets both himself. Repeat this before each further step. (His standing instruction, 2026-11-11.)
 - **Spend usage carefully.** One step per chat. Push after every finished deliverable. Update `F1_PROGRESS.md`
   so a fresh chat can resume. Do not re-read files you do not need. Fable 5.2 is reserved for the steps marked Fable.
-- **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-14; eight are waiting: 1-7 and 9).
+- **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-14; five are waiting: 4-7 and 9; decisions 1-3 were RULED A by Allan on 2026-11-14).
   Do not treat a recommendation as a ruling. Ruled outside that file: R1 fixes M1-M4 accepted (2026-11-13); the
   three section 3b rulings are PROVISIONAL until Allan has tried the prototype.
 
@@ -53,7 +53,7 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 | F1b-1 attribution, fog and lenses | **Done 2026-11-14.** Charter check: see `F1_PROGRESS.md` |
 | F1b-2 themes, detail levels, screen size | **Next.** `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2). Adds decision 8; cap is nine decisions |
 | Prototype (Part B) | Not started. `SESSION_PROMPT_F1c_prototype.md` |
-| Slice 1 build | Blocked on decisions 1-3. `SESSION_PROMPT_S1_shell.md` |
+| Slice 1 build | Decisions 1-3 ruled 2026-11-14 (no build step; v1 file stays Iran master; `IR-00001` IDs). `SESSION_PROMPT_S1_shell.md` |
 | Backfill pass 3 and enrichment | Not started. `SESSION_PROMPT_E1_backfill3_enrichment.md` |
 
 # 3. What Allan said on 2026-11-11 that is not yet in the design documents

@@ -27,7 +27,7 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | 2a | F1b-1 attribution, fog and lenses (Fable 5.2, high): charter rewrite + common brief section 3b | documents | **DONE 2026-11-14 except the checker follow-ups. See "F1b-1 close-out" below** |
 | 2b | F1b-2 themes, detail levels, screen size (Fable 5.2, medium): design system, patches, decisions 7 and 8 | documents | NEXT — `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2; cap now nine decisions) |
 | 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | after step 2 — `SESSION_PROMPT_F1c_prototype.md` |
-| S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | blocked on decisions 1-3 — `SESSION_PROMPT_S1_shell.md` |
+| S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | decisions 1-3 RULED A 2026-11-14; ready once Allan says go — `SESSION_PROMPT_S1_shell.md` |
 | E1 | Backfill pass 3 and enrichment batch 1 (Sonnet 5.5, medium) | `research/`, and `warmaps-data.js` only on Allan's go | any time — `SESSION_PROMPT_E1_backfill3_enrichment.md` |
 
 **Every session reads `docs/v2/V2_SESSION_COMMON.md` first** (rules, where things stand, Allan's 2026-11-11 direction, model and effort plan).
@@ -67,7 +67,7 @@ Also: ARCHITECTURE line 1167 says the v1.2 rules "have had a charter check by a 
 **Not applied, need Allan:** rows 1, 2, 3, 4, 7, 9, 13; the single shared forbidden-word list; photos and video in the
 status line.
 
-**Still open for Allan:** eight decisions (1-7, 9); merge and cold read of PR #19 (v01.09.04, option B: stat label, naval
+**Still open for Allan:** five decisions (4-7, 9; 1-3 ruled A on 2026-11-14); merge and cold read of PR #19 (v01.09.04, option B: stat label, naval
 popups, launch popups; ruled 2026-11-14, built by Sonnet 5.5; ~20 other "confirmed"/"verified" wordings in v1 left for a
 follow-up if he wants it). v1 is otherwise untouched on this branch.
 

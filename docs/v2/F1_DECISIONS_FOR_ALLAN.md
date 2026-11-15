@@ -3,7 +3,7 @@ title: F1 — Decisions for Allan
 version: v1.2 (2026-11-14: rewritten under the editorial charter; decisions 5 and 6 reworded, decision 9 added; see "What changed" below)
 date: 2026-11-14 (Iran-war Day 260); v1.1 was 2026-11-11
 author: Claude (Fable 5.2), sessions F1 and F1b-1
-status: AWAITING RULING — eight decisions (1-7 and 9; number 8 is reserved for the default theme, added by session F1b-2); a one-word answer works for each
+status: decisions 1-3 RULED 2026-11-14 (all A, as recommended); five still waiting (4-7 and 9; number 8 is reserved for the default theme, added by session F1b-2)
 how to answer: reply with eight letters in the order of the answer sheet, for example "A A A A A A A A", or "all recommended"
 ---
 
@@ -15,9 +15,9 @@ decision card rates my own recommendation, not any claim.
 
 | # | Decision | Recommended | One-line reason | Can it wait for the prototype? |
 |---|---|---|---|---|
-| 1 | Build step for v2 | **A: none** (plain files) | Keeps the phone-driven validate-then-push workflow; can be added later without rework | No — S1 needs it |
-| 2 | Iran data master until cutover | **A: v1 file stays master**, v2 files generated from it | One edit updates both sites; v1 never at risk | No — S1 needs it |
-| 3 | Event ID format | **A: `IR-00001`** with the old number kept | Unique across theaters, mechanical, reversible | No — S1 needs it |
+| 1 | Build step for v2 | **RULED A: none** (plain files), Allan 2026-11-14 | Keeps the phone-driven validate-then-push workflow; can be added later without rework | Done |
+| 2 | Iran data master until cutover | **RULED A: v1 file stays master**, v2 files generated from it, Allan 2026-11-14 | One edit updates both sites; v1 never at risk | Done |
+| 3 | Event ID format | **RULED A: `IR-00001`** with the old number kept, Allan 2026-11-14 | Unique across theaters, mechanical, reversible | Done |
 | 4 | Shared timeline label | **A: calendar date first**, day numbers second | The two wars have different Day 1s; a date is the only label true for both | Yes |
 | 5 | Watchlist headline | **A: a count** ("N of M combat tripwires have a claim on record") | Shows where things stand without the site drawing a conclusion | Yes |
 | 6 | How the 600 Iran events look before anyone has recorded who said them | **A: 473 plain "not yet attributed", 127 ghosts** | Says exactly what the data holds: v1 flagged fog on 127 and recorded a claimant on none | **Yes — judge it on the prototype** |
