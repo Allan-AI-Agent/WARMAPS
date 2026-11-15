@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-14 19:08 MST (F1b-1: deliverables 1-6 pushed and charter check run; the checker's 13 risk/note findings are NOT yet fixed; stopped on Allan's usage notice)
+updated: 2026-11-15 05:00 MST (F1b-2 done: themes, detail levels, screen size written into the five documents; decision 8 added. Next: the F1c prototype)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -25,13 +25,60 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | C1 | Editorial charter: attribution, not verification (Allan, 2026-11-12) | `STATE.md` ruling; common brief; KNOWN_FAILURES F-010; S1/F1b/F1c/E1 prompts; banners on five design docs; REVIEW addendum | DONE 2026-11-12. Charter check: nothing added grades truth |
 | C2 | Fog, lens, timeline, detail-level and screen-size direction (Allan, 2026-11-12, provisional until the demo) | `V2_SESSION_COMMON.md` section 3b; new F1b-1 prompt; F1b-2 and F1c prompts updated; charter copy on Drive (`WARMAPS/_RULES`) | DONE 2026-11-12. Charter check: nothing added grades truth |
 | 2a | F1b-1 attribution, fog and lenses (Fable 5.2, high): charter rewrite + common brief section 3b | documents | **DONE 2026-11-14 except the checker follow-ups. See "F1b-1 close-out" below** |
-| 2b | F1b-2 themes, detail levels, screen size (Fable 5.2, medium): design system, patches, decisions 7 and 8 | documents | NEXT — `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2; cap now nine decisions) |
-| 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | after step 2 — `SESSION_PROMPT_F1c_prototype.md` |
+| 2b | F1b-2 themes, detail levels, screen size (Fable 5.2, medium): design system, patches, decisions 7 and 8 | documents; `research/v2-theme-check/` | **DONE 2026-11-15. See "F1b-2 close-out" below** |
+| 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | **NEXT** — `SESSION_PROMPT_F1c_prototype.md` (v1.2) |
 | S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | decisions 1-3 RULED A 2026-11-14; ready once Allan says go — `SESSION_PROMPT_S1_shell.md` |
 | E1 | Backfill pass 3 and enrichment batch 1 (Sonnet 5.5, medium) | `research/`, and `warmaps-data.js` only on Allan's go | any time — `SESSION_PROMPT_E1_backfill3_enrichment.md` |
 
 **Every session reads `docs/v2/V2_SESSION_COMMON.md` first** (rules, where things stand, Allan's 2026-11-11 direction, model and effort plan).
 The 2026-11-11 chat was closed after writing these prompts to save usage; nothing from it lives only in chat.
+
+# F1b-2 close-out (2026-11-15 05:00 MST; Fable 5.2, medium; one session, run unattended)
+
+**Done and pushed (validators PASS and live files identical to `main` before each push, except the second push,
+which was documents only and was validated straight after):**
+
+| # | Deliverable | Where | Commit |
+|---|---|---|---|
+| 1 | Design system restructured: grammar (fixed) and skin (theme); theme contract; three built-in themes with full token tables and computed figures; map styles; Share Tech Mono Cyrillic check | `DESIGN_SYSTEM_v1.md` v1.2 sections 0-2, 12-15, 17 | `6236440` |
+| 1 | Reference theme check and the three theme files | `research/v2-theme-check/` (`theme-check.js`, `themes/`, `out-table.txt`) | `6236440` |
+| 1b | Detail levels: per-level budget in one config file, automatic pick, Settings override, offered step-down, the reach rule and its four guards, per-module declarations | `ARCHITECTURE_v1.md` v1.3 section 9.4, 9.2, 9.3, 7.4 K | `390a8fc` |
+| 1b | Declutter in screen pixels; clean view; phone landscape with 2D or globe | `LAYOUT_ENGINE_SPEC_v1.md` v1.2 sections 8b, 2.5, 4.2 | `390a8fc` |
+| 1b | What each level changes to the eye | `DESIGN_SYSTEM_v1.md` section 16 | `6236440` |
+| 2 | Patches: theme files' home, store keys, theme validator (ARCHITECTURE 6.1, 9.1, 7.4 J); Settings pickers, studio, Help panel, tour (LAYOUT 8c, 8d); audience, slices, three-theme cap, S9 AI briefing, public-use check, backfill pass 3 (RELEASE_PLAN v1.3); decision 7 reworded, decision 8 added (F1_DECISIONS v1.3) | as named | `390a8fc`, `7e95649` |
+| 3 | `V2_SESSION_COMMON.md` v1.5 section 2; `STATE.md` status; this file; `SESSION_PROMPT_F1c_prototype.md` v1.2 | as named | `7e95649` and the close-out commit |
+
+**Found while doing it (VERIFIED by computation or by reading the file):**
+- **The v1.1 theater colours were not colour-blind safe, though v1.1 said so.** Under a standard simulation, green
+  against rose scored 3.6 under deuteranopia (minimum set at 10) and sky blue against green 3.8 under tritanopia
+  (minimum 8). Re-tuned in all three themes; every pair now passes. The check is in the theme contract.
+- Share Tech Mono, as Google Fonts serves it, has no Cyrillic (216 characters mapped, none in U+0400 to U+052F).
+  Classic falls back to IBM Plex Mono for Cyrillic. The font's master file was not read (outside this session's access).
+- v1's dim text and border colours miss the contrast minimums on some surfaces; Classic lifts them (DESIGN_SYSTEM 14.1).
+- v1 hides the map provider's attribution line (`index.html` line 33). v2 does not copy that.
+
+**Calls I made without asking (0b rule 2; each is listed for veto in the decisions file):**
+1. Decision 7 was already ruled A, so it was reworded, not reopened: the AI briefing is slice S9 after cutover,
+   on its own ruling.
+2. A theme's colours are any six-digit hex that passes the computed check (the common brief had "curated swatches"
+   only); the studio still offers swatches.
+3. Clean view keeps a date tag as well as the lens tag.
+4. Theme, map style and detail level are not carried in a shared view link.
+5. The Standard and Full budget numbers and the draw-test thresholds are my proposals (SPECULATION, unmeasured).
+6. `compare-b` changed from teal to sand in the dark themes, because the re-tuned mint sat too close to it.
+7. The theme studio is its own small optional slice (S2b), after S2.
+8. The second and later pushes went to `v2/f1-architecture`, as the prompt says; nothing went to `main`.
+
+**Not done, by design:** the prototype; any real event, link or watch item; any change to v1.
+
+**Open for Allan:** decision 8 (default theme; best judged on the prototype). Still provisional until he has
+tried the prototype: decisions 6 and 9, charter-check item d, and the three 2026-11-12 rulings. PR #19 (v1 stats
+wording) still awaits his merge and cold read.
+
+**Next step: the F1c prototype. Fable 5.2, High, a fresh chat started right after a usage refill, two sittings.**
+`In the WARMAPS repo, check out branch v2/f1-architecture, read docs/v2/SESSION_PROMPT_F1c_prototype.md and follow it.`
+
+**Charter check (self-check, 2026-11-15): nothing added grades truth.** Word sweep of all 1,417 added lines: every hit is an evidence label on my own statement, a decision-card CONFIDENCE, or a rule that bans the word. **Independent checker (Sonnet 5.5): RUNNING at the time of this commit; its result is added below when it reports. Until then treat the independent check as not done.**
 
 # F1b-1 close-out (2026-11-14 19:08 MST; Fable 5.2 medium; stopped at Allan's usage notice, about 99%)
 
