@@ -223,7 +223,7 @@ that carry a v1 fog note draw as ghosts.
   cannot be mistaken for a ghost.
 
 The tap target is always 48 px regardless of drawn size (section 8). Where markers crowd, they cluster into a
-count badge in the theater colour; a cluster containing a milestone keeps the halo. A cluster badge shows a count
+count badge in the theater colour; milestones stay out of clusters and are drawn on top (LAYOUT_ENGINE_SPEC 8b). A cluster badge shows a count
 only: it has no look of its own, and ghosts are never merged into one large fog mark. With the Fog layer on, a
 cluster's badge is outlined rather than filled when every member is a ghost.
 
@@ -304,7 +304,7 @@ first party, right = the second**, in `compare-a` and `compare-b`. Shape still g
   ("IRAN WAR · Day 256"). No fill. In single-theater mode the area outside the AOI is dimmed by 20%.
 - **Label order (bottom to top):** basemap → outlines → context layers → link arcs → events → tracks → selection →
   place labels. Events always sit above arcs: what happened outranks what is connected.
-- **Declutter:** at theater zoom, standard-tier events may collapse to clusters; solid or split milestones never do.
+- **Declutter:** marks group by distance in screen pixels (LAYOUT_ENGINE_SPEC 8b); milestones never group, whatever their look.
 - **Fog layer look:** with **On the record** and **Fog** both on (the default), ghosts sit under solid and split
   marks in the draw order, so where they overlap, records with more than one side on record stay on top. Draw order counts accounts on record only; it says nothing about which account is right.
 

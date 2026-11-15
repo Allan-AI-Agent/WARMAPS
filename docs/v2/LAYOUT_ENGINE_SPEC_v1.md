@@ -1,10 +1,10 @@
 ---
 title: WARMAPS v2 — Layout Engine Spec v1 (the panel system)
-version: v1.1 (2026-11-13: lens, fog layers, 7-day band, record switch and status line under the editorial charter; theme controls, clean view and screen-size rules come in session F1b-2)
-date: 2026-11-13 (Iran-war Day 259)
-author: Claude (Fable 5.2), sessions F1 and F1b-1, for Allan Sanceau
+version: v1.2 (2026-11-15: clean view, decluttering by screen size, phone landscape with 2D or globe, Settings with theme, map-style and detail pickers, theme studio, Help panel and first-run tour. v1.1, 2026-11-13: lens, fog layers, 7-day band, record switch and status line under the editorial charter)
+date: 2026-11-15 (Iran-war Day 261)
+author: Claude (Fable 5.2), sessions F1, F1b-1 and F1b-2, for Allan Sanceau
 status: DRAFT FOR RULING — exact behaviour for the prototype (Part B) and slice 1
-companions: ARCHITECTURE_v1.md v1.2 (store, selectors, renderer contract), DESIGN_SYSTEM_v1.md v1.1 (how things look)
+companions: ARCHITECTURE_v1.md v1.3 (store, selectors, renderer contract, detail levels), DESIGN_SYSTEM_v1.md v1.2 (how things look; themes)
 ---
 
 > **Editorial charter (STATE.md, 2026-11-12) governs this document.** No control, chip, legend line or panel here
@@ -36,6 +36,19 @@ The only things allowed to float above the map are the sheet on a phone, popover
 
 Layout is chosen from the **viewport size and pointer type**, never from a device name, so a resized PC window
 or a foldable gets the right layout automatically.
+
+**Three separate axes (v1.2). None of them changes another.**
+
+| Axis | Decided by | Changes | Section |
+|---|---|---|---|
+| **Layout** | Viewport size and pointer | Where the rail, panels and timeline go | 1, 4 |
+| **Declutter** | Screen pixels available to the stage | How marks group, how many labels show, how tracks thin | 8b |
+| **Detail level** | What the device can draw (a draw test) | Effects and ceilings. Never what can be reached | ARCHITECTURE 9.4; DESIGN_SYSTEM 16 |
+
+The S22 is a powerful phone with a small screen: it gets a phone layout, heavy decluttering and, if the draw test
+says so, Full detail. Samsung DeX on the same phone gets the PC layout, light decluttering and the same detail level.
+
+**Clean view (v1.2):** one tap hides everything except the stage (2.5).
 
 Sizes below are CSS pixels. The device figures (S22 about 360 x 780, Fire HD 10 about 1280 x 800) are INFERRED from
 published screen specifications, and browser bars take more off the height. The prototype shows the live viewport
@@ -171,8 +184,9 @@ would give about 1 px per day on a phone. Three heights:
 ## 2.4 Dock rail
 One item per registered panel, in a fixed order. Initial set:
 **Events** (list) · **Key events** · **Watchlist** · **Links** · **Stats** · **Theater brief** (airspace, naval,
-figures) · **Sources & method** · **Settings**. Layers is not a panel item: it has its own button in the top bar
-because it is used constantly.
+figures) · **Sources & method** · **Settings** (8c) · **Help** (8d). Layers is not a panel item: it has its own
+button in the top bar because it is used constantly. Help is always the last item and always reachable in one tap
+from "More" on a phone.
 
 | Class | Position | Size | Labels | Overflow |
 |---|---|---|---|---|
@@ -186,6 +200,20 @@ Rail item states: closed · open (highlight bar on the edge facing the stage) ·
 (a dot, only for Watchlist status changes and new data since last visit).
 Tapping a closed item opens it; tapping the open item closes it; tapping while another transient panel is open
 replaces that panel (section 3.2).
+
+## 2.5 Clean view (v1.2)
+For when the map should be the only thing on screen: reading, showing someone, taking a screenshot.
+
+| | Behaviour |
+|---|---|
+| Enter | One tap on the **clean view** button: at the trailing end of the top bar (tablet, PC), in the rail's top group (phone landscape), at the stage's top trailing corner (phone portrait). On PC also the `C` key |
+| Hidden | The top bar, dock rail, timeline, open panels and sheets, the lens banner, the layer switches and every map button. The stage runs edge to edge, inside the safe areas |
+| Always stays | **The lens tag**, whenever a lens is on (DESIGN_SYSTEM 5A.3). The **date tag** beside it (below). The map provider's attribution line. The error banner, if there is an error. The **restore button** |
+| Date tag | A chip in the same style as the lens tag: "08 NOV 2026 · LAST 7 DAYS", or "AS KNOWN ON 12 SEP 2026" when the record switch is on As known then. With the timeline hidden, nothing else on screen would say what period or which record a screenshot shows. (My addition to the agreed direction, on the same reasoning as the lens tag; veto it if it clutters) |
+| Restore | A 48 px button at the bottom trailing corner, `bg-surface` at 70%, dimming to 40% after 3 s and never vanishing. One tap, System Back, or Escape restores everything exactly as it was, including which panels were open |
+| Still works | Pan, zoom, rotate. Tapping a mark opens its card at peek over the clean stage; closing the card returns to clean view |
+| Not kept | Clean view is not remembered across visits and is not carried in a link (ARCHITECTURE 9.1) |
+| Same in 2D and 3D | Yes; it is a layout state, not a renderer feature |
 
 ---
 
@@ -291,6 +319,20 @@ Settings and is also offered by the error banner if the layout module fails.
 - Info card: same side sheet, same back-arrow stack as portrait.
 - The rail sits on the left because Android's back gesture uses both edges. Rail buttons are inset by the safe
   area, and nothing in the app uses an edge swipe (section 7).
+- **Kept and tested at 300 px of height** (check 5). There is no top bar and no header here: a header plus a side
+  window leaves no map on a phone (Allan, 2026-11-12).
+- **Two ways to see the stage in this class, both offered (v1.2):**
+
+| Option | What it is | Good for |
+|---|---|---|
+| **2D map** | The same map as portrait, decluttered for the small stage (8b) | Reading one theater closely |
+| **Zoomed-out globe, labels off** | The 3D view pulled back until the theaters in view fit, with place labels and event labels off and marks only. Tap a mark for its card; pinch in and labels return past theater zoom | Seeing where everything is at a glance; a small wide screen suits a globe better than a labelled map |
+
+  The 2D/3D switch in the rail's top group moves between them. **Which one opens by default in phone landscape is
+  Allan's call after trying both on the prototype (PROVISIONAL: 2D, because the globe is unmeasured on any device).**
+  The choice is remembered per device, separately from the other classes. If the device's detail level is Lite, the
+  globe option is still offered and the step-down rule of ARCHITECTURE 9.4.3 applies.
+- Clean view (2.5) is one tap from the rail's top group; in this class it gives the whole 780 x 300 to the stage.
 
 ## 4.3 Tablet portrait (about 800 x 1200)
 
@@ -491,7 +533,7 @@ Guards:
   on the map, and the legend never uses the words confirmed, verified or unconfirmed.
 - "Reset to default view" returns to events and outlines only.
 
-# 8a. Help: how the site assigns its marks (wording for the Help panel; F1b-2 places it)
+# 8a. Help: how the site assigns its marks (fixed wording; shown in the Help panel, 8d)
 
 Help carries this section under the title **"What the marks mean"**. The wording is fixed here so every build
 says the same thing.
@@ -522,6 +564,105 @@ says the same thing.
 > grey, shown for today only, and never take these marks.
 > **Opinion** appears only in notes signed by Allan Sanceau, kept apart from the record.
 
+# 8b. Decluttering by screen size (v1.2)
+
+Computed in **screen pixels**, from the size of the stage and the zoom. It does not read the detail level, the
+device name or the layout class. A small screen therefore groups more, and zooming in separates, with no special
+case for any device.
+
+| What | Rule (stage pixels) | Notes |
+|---|---|---|
+| **Grouping** | Marks of the same theater whose centres are within 24 px of each other form one group, shown as a count badge in the theater colour (DESIGN_SYSTEM 2.4). Zooming in separates them | 24 px is half a touch target: closer than that, two marks cannot be tapped apart. Groups never mix theaters |
+| **Milestones never group** | A milestone is always drawn as its own mark, whatever its look. Where it overlaps a group, the milestone sits on top | Section 3b. (A one-sided milestone is still drawn at standard size with no halo: DESIGN_SYSTEM 2.3) |
+| **A group has no look** | The badge shows a count only. It is outlined when every member is a ghost, filled otherwise; ghosts are never merged into one large fog mark | DESIGN_SYSTEM 2.4 |
+| **Opening a group** | Tap: zoom to the level that separates its members. If they share a place, a chooser lists them, each with its mark and status line | Every member stays reachable |
+| **Labels** | No label overlaps another label or a mark. At most one label for every 20,000 px² of stage. Priority: milestones, then majors, then place names | An S22 portrait stage (about 360 x 500) gets 9; a 1500 x 800 PC stage gets 60 |
+| **Tracks** | At most one track symbol in each 40 x 40 px cell of the stage; the rest are held back evenly, not by age or type. The layer row says "showing N of M" | Tracks only. Events are never held back |
+| **The Events list** | Shows every record in the window, grouped or not, at every screen size | The list is the complete view; the map is the picture |
+
+**How it meets the detail level.** Declutter gives a number from the screen; the detail level gives a ceiling from
+the device (ARCHITECTURE 9.4.1: labels 12 / 30 / 60, tracks 300 / 1,000 / 5,000). The lower of the two is used.
+Neither can hide an event, and neither changes the other's rule.
+
+**Samsung DeX and resized windows.** The same phone on a monitor has a large stage: it groups less and shows more
+labels, in the PC layout, at the phone's detail level.
+
+# 8c. Settings panel (v1.2)
+
+| Section | Controls |
+|---|---|
+| **Theme** | One card per theme: Classic, Ops, Paper, then any themes saved on this device. Each card shows the theme's name and a strip of its real colours with the four looks drawn in the four shapes, so the choice is made by eye. Tap to apply at once; no Save step |
+| **Map style** | Tactical dark · tinted variants · Light gray · Satellite (DESIGN_SYSTEM 15.1), each a small tile preview. With Satellite chosen: Dimming, Colour strength, Labels (15.2). Picking a style here overrides the theme's own default from then on; "Use the theme's map" returns to it |
+| **Detail** | Auto (shows what was picked) · Lite · Standard · Full, one line each on what changes; **Re-test this device**; the last draw-test result (ARCHITECTURE 9.4.3) |
+| **Layout** | Density (comfortable, compact; PC only) · Reset layout · the default view in phone landscape (2D or globe) |
+| **Motion** | Standard or Calm. A note when the device's reduced-motion setting is on, which wins |
+| **About** | App and data versions, the live viewport size and layout class, the detail level in use |
+
+- Theme, map style and detail are remembered **on this device**. There are no accounts, so nothing follows a person
+  to another device; export a theme to move it.
+- Changing the theme, the map style or the detail level never moves the map, closes a panel or changes the time,
+  the lens or the layers.
+
+## The theme studio
+An editor for making and trying themes. It is **not** in the app that every visitor loads: its code is fetched only
+when it is opened, and the entry to it appears in Settings only when the page address carries the studio flag
+(`?studio=1`). Without the flag there is no button and no download.
+
+| Part | Behaviour |
+|---|---|
+| Swatches | Each colour token is picked from a curated set of swatches for its role, or typed as a six-digit hex. Theater colours can be picked as a ready-made set of four, or one by one |
+| Other tokens | Fonts, icon stroke and style, corner radius, glow, density, motion, panel opacity, default map style: the fixed choices of DESIGN_SYSTEM 12.2, as segmented controls and one slider |
+| Live preview | The real app restyles as each value changes. A fixed preview strip stays in view: the four looks and the plain mark in all four shapes at all three sizes, a card with chip and status line, an arc of each line style, on this theme's ground |
+| Checks, live | The validator of DESIGN_SYSTEM 13.3 runs on every change. Failed checks are listed in words with the figure and the minimum ("East Asia and Caribbean look alike under red-green colour blindness: 6.2, needs 10"). **Save, Export and Copy link are disabled while any check fails** |
+| Save | To this device, 12 themes at most |
+| Export | A `.warmaps-theme.json` file, or a link to copy |
+| Import | Pick a file, or open a theme link. The theme is validated and shown as a **preview** with Keep and Discard. A rejected file changes nothing and says which checks failed |
+| Not there | No field for a shape, a size, a look, a chip word or a legend line: the studio cannot edit the grammar because the theme format has nowhere to put it |
+
+On a phone the studio opens as a full sheet and works, but it is laid out for a tablet or PC.
+
+# 8d. Help panel and the first-run tour (v1.2)
+
+Help is a normal panel (last rail item). Its sections, in this order:
+
+| # | Section | Content |
+|---|---|---|
+| 1 | **Legend** | The full legend, not only what is on the map right now: theater shapes and colours in the current theme, tier sizes, the four looks and the plain mark with their fixed lines (DESIGN_SYSTEM 2.3), the arc key, the compare key, track shapes. Footer: "The marks show who has spoken, not what is true." |
+| 2 | **What the marks mean** | The fixed wording of 8a |
+| 3 | **How WARMAPS is designed** | The fixed wording below |
+| 4 | **Using it** | Short how-tos: the timeline and the 7-day band · Record today and As known then · Lens and Compare · On the record, Fog, Contested · Layers · clean view · themes, map styles and detail |
+| 5 | **Take the tour again** | Replays the first-run tour |
+| 6 | **Sources and method** | A link to that panel |
+
+**"How WARMAPS is designed" (fixed wording):**
+
+> **A record, not a verdict.** WARMAPS keeps what each side has said, with the source, and leaves the judging to
+> you. It has no view of its own.
+> **One happening, one record.** Every claim, denial and report about the same event is kept together, so you can
+> see who said what about it and when.
+> **Every mark has one meaning.** Colour and shape tell you which war. Size tells you how much the event matters to
+> the story. Fill tells you who has spoken. Nothing else is hidden in a colour.
+> **Quiet on purpose.** Nothing flashes or scrolls by itself. The map changes when you move through time, or when
+> someone new speaks.
+> **What is missing is shown.** If a side directly involved has not been heard, the mark stays an outline and the
+> card names who is missing.
+> **Themes change the dress, never the meaning.** You can change the colours, the map and the fonts. A circle is
+> still the Iran war and an outline is still one side's account, in every theme.
+> **Observation is kept apart from statement.** Aircraft, ships and satellites are instrument readings, drawn in
+> grey. They are not claims and are not treated as claims.
+
+**First-run tour.**
+
+| Rule | Detail |
+|---|---|
+| When | Offered once per device, on the first visit, after the map has drawn: "New here? A one-minute tour." with **Start** and **Not now**. It never starts by itself and never blocks the app |
+| Steps | Six at most, each a short caption pointing at a real control: 1 the marks and what the four looks mean · 2 the timeline and the 7-day band · 3 a card, its chip and its status line · 4 On the record, Fog, Contested · 5 Lens · 6 Layers, clean view and Help |
+| Control | Next, Back and Skip on every step; System Back or Escape ends it. Ending it anywhere counts as done |
+| Data | The tour points at the live app. It adds no sample events to the map. If no mark is in view for step 3, it uses the legend |
+| Replay | Help, section 5, at any time |
+| Storage off | The offer is shown at each visit as a small "Take the tour" button, not as a prompt |
+| Wording | The tour's captions are fixed strings and are covered by the word check (check 17) |
+
 # 9. Watchlist panel
 - Two sections that look different on purpose: **Combat tripwires** and, below a divider and a heading in smaller
   type, **Rhetoric and mobilization** (four-step meter: quiet / noted / elevated / sustained, with the caption
@@ -545,6 +686,10 @@ says the same thing.
 | Lens with nothing in view | "Iran has no account on file in this period" in the Events panel and beside the lens tag; the banner stays |
 | Fog off and everything in view is a ghost | "Only one-sided accounts in this period · Show fog" on the stage |
 | A layer failed | Its row shows "unavailable" with the reason; everything else works |
+| A theme file was rejected | The current theme stays. A message lists the failed checks in words. Nothing from the file is applied |
+| A saved user theme no longer passes (a later version tightened a limit) | The app falls back to the default theme and says so once; the saved theme is kept and marked "needs fixing" in the studio |
+| The device is struggling | A toast offers one step down in detail, with Switch and Not now (ARCHITECTURE 9.4.3). Nothing changes without the tap |
+| Fewer tracks drawn than exist | The layer row says "showing N of M"; the layer's list holds all M |
 | A module failed | The error banner names it in plain words and offers Reload and Reset layout |
 | Offline | Banner "Offline — showing what was already loaded"; live layers switch off and say why |
 
@@ -565,5 +710,16 @@ says the same thing.
 14. As known then: stepping the cursor back before an entry's publication date removes that entry's effect (a solid sample event becomes a ghost; a moved marker returns to the first place named).
 15. Every event card at peek shows the attribution chip and the status line without scrolling, at all five classes.
 16. Compare two: the three sample cases (both say it, only one spoke, one denies) draw as the compare table says, with A on the left.
-17. No string in the legend, chips, cards, Help or Watchlist says confirmed, verified, unconfirmed, debunked, true or false in WARMAPS's own voice (checked by a script over the built strings).
+17. No string in the legend, chips, cards, Help, the tour or Watchlist says confirmed, verified, unconfirmed, debunked, true or false in WARMAPS's own voice (checked by a script over the built strings).
+18. Clean view, at all five classes: one tap leaves only the stage, the restore button, the date tag, the map attribution and (with a lens on) the lens tag; one tap, System Back or Escape restores the same panels as before.
+19. A screenshot taken in clean view with a lens on and As known then on shows whose account it is and which date's record it is.
+20. Switching between Classic, Ops and Paper changes no mark's shape, size, look, chip word or legend line; a screenshot of the legend differs only in colour, typeface and corners.
+21. Each of the three themes passes the theme validator; a theme file with an unknown key, markup in its name, or `url(...)` as a colour is rejected and nothing from it is applied.
+22. Changing theme, map style or detail level leaves the camera, time, lens, layers and open panels as they were.
+23. Satellite style: every mark, including a ghost, is readable against the brightest imagery in view (dark keyline and halo present); the three adjustments work.
+24. Detail: at Lite, Standard and Full the Events list for the same window has the same rows, and every card opens to the same entries and sources (the reach test, seen by eye).
+25. Declutter: narrowing the PC window to phone width groups more marks; widening separates them; no milestone is ever inside a group; every member of a group can be opened.
+26. Phone landscape at 300 px height: both the 2D map and the zoomed-out globe with labels off are usable, and tapping a mark opens its card in the side sheet.
+27. Without `?studio=1` there is no studio entry and no studio code is downloaded; with it, Save is disabled while a check fails.
+28. The first-run tour can be declined, skipped at any step, and replayed from Help; it never blocks a control.
 

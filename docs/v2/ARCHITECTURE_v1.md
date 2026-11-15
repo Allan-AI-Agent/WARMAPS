@@ -1,8 +1,8 @@
 ---
 title: WARMAPS v2 — Architecture (data model and app architecture)
-version: v1.2
-date: 2026-11-13 (Iran-war Day 259)
-author: Claude (Fable 5.2), sessions F1 and F1b-1, for Allan Sanceau
+version: v1.3 (2026-11-15: detail levels replace the single Fire budget in 9.4; theme, map style and detail-level store keys; theme validator and reach test; sections 3 to 8 are unchanged from v1.2)
+date: 2026-11-15 (Iran-war Day 261); v1.2 was 2026-11-13
+author: Claude (Fable 5.2), sessions F1, F1b-1 and F1b-2, for Allan Sanceau
 status: DRAFT FOR RULING — nothing here is built. Decisions are collected in F1_DECISIONS_FOR_ALLAN.md
 supersedes: v1.1 (2026-11-11). v1.2 rewrites the parts that graded truth, under the editorial charter (STATE.md, ruled 2026-11-12), writes in the fog, lens and timeline direction of V2_SESSION_COMMON.md section 3b, and applies R1 review fixes M1-M4 (accepted by Allan 2026-11-13)
 evidence: research/v2-schema-dryrun/ — REPORT.md (v1.1), dryrun.js (all 600 events), attribution.js + attribution-tests.js (the derivation rules, 66 tests), engine-tests.js (timeline, 16 tests)
@@ -759,10 +759,14 @@ end speaks; a revised figure shows as it stood.)
   index.html                    shell: markup, CSS links, one module entry
   app/
     core/     time.js  store.js  schema.js  attribution.js  loader.js  selectors.js  errors.js  config.js
-    ui/       layout/  panels/  cards/  timeline/  theme/
+    core/     detail-levels.json   the per-level budgets: the ONE place they live (9.4)
+    ui/       layout/  panels/  cards/  timeline/
+    ui/theme/ engine.js (applies one theme; every visitor gets it)  map-styles.js  validate-theme.js
+              studio/ (the theme editor; loaded only when opened, behind a URL flag)
     views/    view2d.js (Leaflet)   view3d.js (Cesium, lazy)   renderer-contract.md
     layers/   one module per layers.config.json entry; stubs until built
   assets/     fonts/  icons.svg  tokens.css
+  themes/     classic.json  ops.json  paper.json   built-in themes: ordinary theme files (DESIGN_SYSTEM 13)
 /theaters/
   theaters.json                 the theater index (order, ids, prefixes)
   manifest.json (generated)     counts per theater per step, file list, data version
@@ -783,7 +787,9 @@ end speaks; a revised figure shows as it stood.)
 /intake/                        unchanged; plus the candidates contract (section 8)
 /tools/                         validate.js, test-timeline.js (v1, unchanged)
                                 migrate-v1.js, build-manifest.js, validate-v2.js (new, slice 1)
+                                validate-theme.js (new, slice 2; the same module the browser loads from ui/theme/)
 /research/v2-schema-dryrun/     the F1 dry run: evidence only, not the slice-1 migration
+/research/v2-theme-check/       the three theme files and the reference theme check (F1b-2): evidence, moved in slice 2
 /prototype/v2/index.html        the F1 prototype (Part B), sample data only
 /docs/v2/                       these documents
 ```
@@ -963,6 +969,8 @@ Track E). Until it runs, v2 shows the Iran theater exactly as richly as v1 does 
 | G. Freshness | Generated files, index and manifest match their inputs |
 | H. Theaters | Theater AOIs agree with `layers.config.json` |
 | I. Text and links (M3) | Every `url` starts `https:` or `http:`; no text field contains markup that the app would have to escape to be safe (the app escapes anyway; this is a second line) |
+| **J. Themes** (v1.3; `tools/validate-theme.js`, slice 2) | Every file in `v2/themes/` passes the theme contract (DESIGN_SYSTEM 13.3): known keys only, closed lists, ranges, 22 colours as `#RRGGBB`; every contrast pair computed against its minimum; the four theater colours mutually distinguishable with and without colour vision; compare colours close in brightness and unlike any theater colour. A theme file has no field for anything in the grammar, and the validator rejects unknown keys, so a theme cannot carry a meaning. Mutation tests: markup in `name`, `url(...)` as a colour, an unknown key, a low-contrast text colour, two near-identical theater colours: each must be rejected. The browser runs the same module on any imported theme before applying it |
+| **K. Detail levels** (v1.3) | `detail-levels.json` has exactly the levels `lite`, `standard`, `full` and every budget key for each. Every renderer and every built layer module declares its behaviour at each level (9.3); a missing declaration fails. **Reach test:** see 9.4.4. **Import test:** no module reachable by static import from the app entry lies under a `full/` folder (Full-only code is fetched only by a dynamic import guarded by the level) |
 
 Every rule in E0 and E ships with a mutation test (a bad record that must be rejected), as `attribution-tests.js`
 already does. The v1 validators keep running unchanged; all must exit 0 before any push (Trap 6). Note for slice 1:
@@ -1035,7 +1043,7 @@ Live-track history (ruled 5C): samples go to a separate data branch (for example
             ▼
         core/store  (the only mutable state)
    { theaters[], time{extent,view,cursor,window,mode,record}, lens{mode,parties[]}, show{onRecord,fog,contestedOnly},
-     viewMode, layersOn{}, selection, filters, layout, theme }
+     viewMode, layersOn{}, selection, filters, layout, theme, mapStyle, detailLevel, cleanView }
             │  subscribe
    ┌────────┼─────────────┬───────────────┬──────────────┐
    ▼        ▼             ▼               ▼              ▼
@@ -1061,6 +1069,18 @@ Live-track history (ruled 5C): samples go to a separate data branch (for example
 
   `unattributed` records belong to the On the record layer until enrichment gives them a look (decision 6). These
   filters count sides heard; none of them selects which side to believe.
+- **State added in v1.3** (presentation only; none of these is read by a selector):
+
+| Key | Values | Default | Kept | Meaning |
+|---|---|---|---|---|
+| `theme` | The id of a built-in theme (`classic`, `ops`, `paper`) or of a user theme saved on this device | Decision 8; Paper on first visit if the device asks for a light scheme | Per device | Which theme file the engine applies (DESIGN_SYSTEM 13) |
+| `mapStyle` | A map style id from the app's own table (DESIGN_SYSTEM 15.1) | The active theme's `mapStyle` until the user picks one; then the user's pick | Per device | Which basemap. Separate from the theme |
+| `detailLevel` | `{ choice: auto / lite / standard / full, level: lite / standard / full }` | `auto`; `level` from the pick in 9.4.2 | Per device | How much drawing effort the device spends (9.4) |
+| `cleanView` | boolean | false | Not kept; never in a link | Stage edge to edge with the rail, timeline and buttons hidden (LAYOUT spec 2.5) |
+
+  `theme`, `mapStyle` and `detailLevel` are **not** carried in a view link: a shared link reproduces what is shown
+  (theaters, date, window, lens, record switches), not how the sender's device dresses or draws it. A theme travels
+  only in its own theme link or file, and opens as a preview (DESIGN_SYSTEM 13.2).
 - **Selectors added in v1.2**, all pure and all thin wrappers over `core/attribution.js`:
   `stateOf(record, T)` (3.4.2-3.4.5: look, sides on record, observers, missing, position, alternates, targets,
   drawn tier, status-line parts) · `visibleEvents()` (window, then `show.*`, then lens) · `lensView(record,
@@ -1076,8 +1096,10 @@ Live-track history (ruled 5C): samples go to a separate data branch (for example
 - **Failure isolation (F-001 lesson):** `core/errors.js` owns a visible banner. Every module's `init()` runs inside
   a guard that reports `{module, message}` there. A failed layer disables itself and says so in the layers menu.
 - **CSS:** separate `.css` files. Nothing is appended into inline blocks, which retires Traps 2-4 by construction.
-- **Imported data is data.** Anything loaded from outside the repo's own files (a shared view link, later a theme
-  file) is validated against a schema of fixed choices, numbers and colours. No imported string is ever used as
+- **Imported data is data.** Anything loaded from outside the repo's own files (a shared view link, a theme file
+  or theme link) is validated against a schema of fixed choices, numbers and colours. A theme is rebuilt from its
+  known keys after validation and applied one validated value at a time; it can name a bundled font or map style
+  by id and nothing else (DESIGN_SYSTEM 13.2). No imported string is ever used as
   markup, a style rule or a web address. A lens id in a link is accepted only if it is in the actor registry.
 - **The repo's own data is data too (R1 fix M3).** Every text field is rendered as text. URLs are checked (3.2).
 
@@ -1097,7 +1119,8 @@ setTracks(layerId, tracks)          // live/archived OBSERVED tracks
 setLayer(layerId, on, data)         // context layers
 select(ref) / highlight(ref)        // ref = {type:'event'|'link'|'track', id}
 getCamera() → {lat,lng,zoomEq}  /  setCamera(cam, animate)
-on('select' | 'camera' | 'ready' | 'degraded', fn)
+on('select' | 'camera' | 'ready' | 'degraded' | 'thinned', fn)
+setDetail(row)                      // v1.3: the active level's budgets (9.4)
 ```
 - `zoomEq` is a Leaflet-style zoom number. The globe converts height to it, so switching 2D↔3D keeps you looking
   at the same place.
@@ -1107,7 +1130,14 @@ on('select' | 'camera' | 'ready' | 'degraded', fn)
 - Events stay on the surface in 3D; height is used only for real altitude. Aircraft, vessel and satellite tracks
   are OBSERVED: they go through `setTracks`, never through `setEvents`, and never take a ghost or solid look.
 - Arcs are great circles in both views (sampled polylines in Leaflet), so a link looks like the same object in 2D and 3D.
-- `degraded` lets the globe report sustained low frame rate; the shell then **offers** 2D (it does not switch by itself).
+- `degraded` lets a renderer report sustained low frame rate; the shell then **offers** a step down (to 2D from the
+  globe, or to the next detail level), and never switches by itself (9.4.3).
+- **Detail (v1.3).** `init(container, ctx)` receives `ctx.detail`, the active level's row of `detail-levels.json`,
+  and `setDetail(row)` when it changes. Each renderer exports a `detail` declaration: for each of `lite`,
+  `standard`, `full`, what it does (resolution scale, effects, label cap, track cap, terrain). A renderer may draw
+  **fewer tracks or labels** than it is given and must then emit `on('thinned', {layerId, drawn, given})`. It may
+  **never drop an event**: every mark passed to `setEvents` is drawn, or is a member of a drawn group that opens to
+  a list of its members.
 
 ## 9.3 Layer contract
 Each entry in `layers.config.json` with state `on` or `available` has a module:
@@ -1115,27 +1145,89 @@ Each entry in `layers.config.json` with state `on` or `available` has a module:
 `dormant` modules sit under `layers/_dormant/` and are never imported. Live layers obey `only_when: scrubber_is_today`
 by checking the store's cursor, and every track they emit carries `source`, `observedAt` and the label OBSERVED.
 
-## 9.4 Performance budget — Fire HD 10
+**Detail (v1.3).** `meta.detail` is required: for each of `lite`, `standard`, `full`, the most items the layer
+draws, its refresh interval, and any effect it adds. Example: `{ lite: {max: 150, refreshS: 60}, standard: {max:
+600, refreshS: 30}, full: {max: 3000, refreshS: 15} }`. A layer that draws fewer items than it holds reports the two
+numbers, and its row in the layers menu shows "showing N of M". A layer's code that only Full uses lives under
+the layer's `full/` folder and is fetched by a dynamic import, so Lite never downloads it.
 
-Targets are **SPECULATION** until measured on Allan's tablet, except where a size is marked VERIFIED. The hardware
-assumption is INFERRED: recent Fire HD 10 models have about 3 GB RAM, a mid-range ARM chip and a 1920x1200 screen,
-and their browser reports roughly 1280x800 CSS pixels. The prototype prints the real viewport and a frame-rate
-reading so these can be replaced with measurements.
+## 9.4 Detail levels and performance budgets (v1.3; replaces the single Fire HD 10 budget)
 
-| Budget | Target | How it is held |
-|---|---|---|
-| First usable paint (2D, cold, home Wi-Fi) | 3 s or less | Shell + manifest + index first; fonts self-hosted, `font-display: swap` |
-| App code before Leaflet | 150 KB gzipped or less | No framework; panels load on first open |
-| Data for first view | 60 KB gzipped or less | The index is 17 KB gzipped for 600 events (VERIFIED); full records (178 KB gzipped) load in the background |
-| 2D markers | 1,500 visible without clustering | Canvas renderer (already used in v1); cluster above that |
-| Scrub rate (2D) | 30 frames/s or more | Selectors work on the pre-sorted index; markers toggle, not rebuild |
-| Globe load | First globe frame in 6 s or less; only on request | Cesium lazy from CDN |
-| Globe frame rate | 24 frames/s or more while moving, idle when still | `requestRenderMode` (upstream's render-governor idea), resolution scale capped at device ratio 1.0, no terrain, no 3D tiles |
-| Globe entities | 2,000 points, 60 arcs, 300 tracks at most | Point primitives, not entities; arcs bundled per actor pair |
-| Memory | Stay under about 350 MB tab memory | One renderer alive at a time on phone and Fire |
-| Fallback | If the globe holds under 20 frames/s for 5 s, offer 2D | `degraded` event; 2D stays the default view until the globe is measured |
+Three levels: **Lite**, **Standard**, **Full**. Lite is exactly v1.2's Fire HD 10 budget. Full is for a PC, where
+most readers will be. The level is a property of the **device**, not of the layout: Samsung DeX on the S22 gets a
+desktop layout with the phone's detail level.
+
+Every number below is **SPECULATION** until measured, except where marked VERIFIED. The Fire's hardware is INFERRED:
+recent Fire HD 10 models have about 3 GB RAM, a mid-range ARM chip and a 1920x1200 screen, and their browser reports
+roughly 1280x800 CSS pixels. The Standard and Full columns are my proposals and have no measurement behind them at
+all. The prototype prints the real viewport, the draw-test result and a frame-rate reading so all three columns can
+be replaced with measurements.
+
+### 9.4.1 The budgets (one config file: `v2/app/core/detail-levels.json`)
+The table is that file, written out. No other module holds a limit; a renderer or layer reads its row.
+
+| Budget | Lite (v1.2's Fire budget) | Standard | Full | How it is held |
+|---|---|---|---|---|
+| First usable paint (2D, cold, home Wi-Fi) | 3 s or less | 3 s or less | 2 s or less | Shell + manifest + index first; fonts self-hosted, `font-display: swap` |
+| App code before Leaflet | 150 KB gzipped or less | same | same | No framework; panels load on first open. Full-only code is not in this figure and is never downloaded at Lite or Standard |
+| Data for first view | 60 KB gzipped or less | same | same | The index is 17 KB gzipped for 600 events (VERIFIED); full records (178 KB gzipped) load in the background at every level |
+| 2D marks drawn before grouping is tightened | 1,500 | 4,000 | 10,000 | Canvas renderer. Grouping itself is decided by screen pixels (LAYOUT spec 8b), the same at every level; this ceiling only matters if more separate marks than this are on screen at once |
+| Scrub rate (2D) | 30 frames/s or more | 45 | 60 | Selectors work on the pre-sorted index; markers toggle, not rebuild |
+| Globe load | First frame in 6 s or less; only on request | 5 s | 4 s | Cesium lazy from CDN |
+| Globe frame rate while moving | 24 frames/s or more, idle when still | 30 | 60 | `requestRenderMode` (upstream's render-governor idea) |
+| Globe resolution scale | Capped at device ratio 1.0 | 1.5 | The device's own ratio, 2.0 at most | — |
+| Globe terrain and extras | No terrain, no 3D tiles, no atmosphere | No terrain; atmosphere and night side | Terrain; full-resolution imagery. Never photorealistic 3D tiles (DESIGN_SYSTEM 4.2) | Terrain code lives under `views/full/` |
+| Globe points / tracks | 2,000 / 300 | 5,000 / 1,000 | 20,000 / 5,000 | Point primitives, not entities |
+| Arcs | 60 bundled, 12 drawn | same | same | The cap of 12 is grammar (DESIGN_SYSTEM 5), not a budget |
+| Tracks drawn in 2D | 300 | 1,000 | 5,000 | Thinned evenly; the layer row says "showing N of M" |
+| Map labels on screen | 12 | 30 | 60 | DESIGN_SYSTEM 16 |
+| Effects | Opaque panels, no blur, glow capped at level 1, instant look changes | Theme as written | Theme as written, eased camera flights | DESIGN_SYSTEM 16 |
+| Memory | Under about 350 MB tab memory | 600 MB | 1.2 GB | One renderer alive at a time at Lite and Standard; at Full both may stay alive so 2D to 3D is instant |
+| Offer a step down when | The globe holds under 20 frames/s for 5 s: offer 2D | Under 24 frames/s for 5 s: offer Lite | Under 30 frames/s for 5 s: offer Standard | `degraded` event; 9.4.3 |
 
 Default view by device, until measured: 2D everywhere; the last choice is remembered per device.
+
+### 9.4.2 How the level is picked
+1. **Remembered.** If this device has a stored level (`{choice, level, measuredAt, appVersion}` in `localStorage`),
+   use it. If the user chose it, it is never changed automatically.
+2. **Two-second draw test**, on first visit only. After the first paint, on an off-screen canvas, the app draws a
+   fixed synthetic scene (2,000 moving marks of the four shapes; no real data) for two seconds and takes the median
+   frame time. 50 frames/s or more suggests Full; 28 or more, Standard; below that, Lite. The thresholds are
+   SPECULATION until the prototype has been run on the S22, the Fire and a PC.
+3. **Browser hints can only lower the answer.** Reported device memory of 2 GB or less: Lite. 4 GB or less: at most
+   Standard. The browser's data-saver flag: Lite. Hints are missing on some browsers (device memory is reported by
+   Chromium browsers only: INFERRED from current documentation; confirm at build); a missing hint changes nothing.
+   The hints are read once, stored only as the resulting level, and sent nowhere.
+4. **The globe is measured when it is first opened**, by its own frame rate, since the 2D test says little about it.
+5. The result is stored with the app version. Settings has **Re-test this device**.
+
+### 9.4.3 Settings and the offered step-down
+- **Settings, Detail:** Auto (shows what was picked: "Auto: Standard") · Lite · Standard · Full. A choice other
+  than Auto holds until the user changes it.
+- **Offered, never forced.** On sustained low frame rate (last row of the table) a toast offers one step down:
+  "This device is working hard. Use Standard detail?" with **Switch** and **Not now**. Not now is remembered for the
+  session. At most one offer per level per session. The app never steps down, or up, by itself.
+- A step up is never offered automatically; the user can pick it and will be offered the step down again if it struggles.
+
+### 9.4.4 The rule: detail changes drawing, never what can be reached
+Every record, entry, source, link and watch item that can be opened at Full can be opened at Lite, in the same
+number of steps. Held four ways:
+
+| # | Guard | Where |
+|---|---|---|
+| 1 | **Selectors cannot see the level.** `core/selectors.js`, `core/attribution.js`, the Events list, cards and panels do not import `detail-levels.json` or read `detailLevel`. Checked by a scan of imports and of store reads | `validate-v2.js` group K |
+| 2 | **Reach test.** With one fixture and one store state, the selector outputs (`visibleEvents`, `stateOf` for each, `visibleLinks`, `watchAsOf`, the Events list rows, the card for each record) are produced under each of the three levels and compared: they must be identical | `tools/` test, slice 1 for 2D, extended in S5 |
+| 3 | **Renderer accounting.** For a fixture of N events, at every level, the count of marks drawn plus the members of drawn groups equals N. Tracks and labels may be fewer, and then `thinned` reports drawn and given | Renderer test, each renderer |
+| 4 | **It says so.** Wherever fewer are drawn than exist, the interface shows "showing N of M" on that layer's row, and the list for that layer still holds all M | LAYOUT spec 8b |
+
+Events are never thinned. Tracks and labels are the only things a level draws fewer of.
+
+### 9.4.5 What each module declares
+- **Renderers** (`view2d`, `view3d`): a `detail` declaration per level (9.2).
+- **Layer modules:** `meta.detail` per level (9.3).
+- **Panels and the theme engine:** nothing, except that blur and glow follow the level (DESIGN_SYSTEM 16).
+- **Full-only code** (terrain, full-resolution imagery, any future effect) sits under a `full/` folder and is
+  fetched only by a dynamic import guarded by the level. Lite and Standard never download it (group K import test).
 
 ---
 
@@ -1149,8 +1241,10 @@ Default view by device, until measured: 2D everywhere; the last choice is rememb
 - The approval page and candidate-drafting task (v2 plan P3).
 - The key-brokering Worker for vessels and FIRMS (GEV spec).
 - Whether East Asia and Caribbean ever get curated events.
-- Theming. The store has a `theme` key and 9.1 has the import rule; the theme contract itself belongs to the design
-  system and is the next F1 step.
+- The numbers in the Standard and Full columns of 9.4.1 and the draw-test thresholds: proposals, to be replaced by
+  measurements from the prototype and from S5.
+- Whether a view link should be able to carry a map style (it does not, 9.1). Revisit if shared screenshots and
+  shared links are found to disagree in practice.
 
 # 11. Risks carried into the build
 
@@ -1214,3 +1308,16 @@ Sources: the editorial charter (STATE.md, 2026-11-12), V2_SESSION_COMMON.md sect
 | 14 | Renderer contract `setLinks(... confidence ...)`, `setEvents(visibleEvents)` | Charter; lenses | `lineState`; marks carry a derived `look`, `halves`, `age` (9.2) |
 | 15 | v1 `verified`, `fogLean`, `originKnown` carried into `legacy` and `launch` | They grade truth; the charter test caught the third | Not carried; they stay in the v1 file (7.1) |
 
+# 14. Changes from v1.2 (2026-11-13) to v1.3 (2026-11-15)
+
+Sources: V2_SESSION_COMMON.md sections 3 (themes), 3b (detail levels, screen size, clean view) and 4. Sections 3 to
+8 (the data model, timeline engine, migration and intake) are untouched.
+
+| # | v1.2 said | v1.3 |
+|---|---|---|
+| 1 | 9.4: one performance budget, for the Fire HD 10 | Three detail levels held in one config file; Lite is the old Fire budget; the automatic pick, Settings override and offered step-down; the rule that detail never changes what can be reached, with four guards (9.4) |
+| 2 | Store has a `theme` key, undefined | `theme`, `mapStyle`, `detailLevel`, `cleanView` defined; none is read by a selector; none travels in a view link (9.1) |
+| 3 | Validators A to I | J (themes) and K (detail levels, reach test, import test) added (7.4) |
+| 4 | Renderer and layer contracts say nothing about detail | Each declares its behaviour per level; `thinned` event; events are never dropped (9.2, 9.3) |
+| 5 | Theme files had no home | `v2/themes/`, `v2/app/ui/theme/` (engine, map styles, validator, studio), `tools/validate-theme.js` (6.1) |
+| 6 | "Theming" listed as not decided | Decided in DESIGN_SYSTEM v1.2 sections 12 to 15 |
