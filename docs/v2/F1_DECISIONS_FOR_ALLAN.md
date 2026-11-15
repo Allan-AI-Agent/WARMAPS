@@ -3,7 +3,7 @@ title: F1 — Decisions for Allan
 version: v1.2 (2026-11-14: rewritten under the editorial charter; decisions 5 and 6 reworded, decision 9 added; see "What changed" below)
 date: 2026-11-14 (Iran-war Day 260); v1.1 was 2026-11-11
 author: Claude (Fable 5.2), sessions F1 and F1b-1
-status: decisions 1-3 RULED 2026-11-14 (all A, as recommended); five still waiting (4-7 and 9; number 8 is reserved for the default theme, added by session F1b-2)
+status: decisions 1-3 RULED 2026-11-14 (all A); 4, 5, 7 RULED A 2026-11-14; 6 and 9 RULED A PROVISIONAL (confirm after the prototype); number 8 is reserved for the default theme, added by session F1b-2
 how to answer: reply with eight letters in the order of the answer sheet, for example "A A A A A A A A", or "all recommended"
 ---
 
@@ -18,11 +18,11 @@ decision card rates my own recommendation, not any claim.
 | 1 | Build step for v2 | **RULED A: none** (plain files), Allan 2026-11-14 | Keeps the phone-driven validate-then-push workflow; can be added later without rework | Done |
 | 2 | Iran data master until cutover | **RULED A: v1 file stays master**, v2 files generated from it, Allan 2026-11-14 | One edit updates both sites; v1 never at risk | Done |
 | 3 | Event ID format | **RULED A: `IR-00001`** with the old number kept, Allan 2026-11-14 | Unique across theaters, mechanical, reversible | Done |
-| 4 | Shared timeline label | **A: calendar date first**, day numbers second | The two wars have different Day 1s; a date is the only label true for both | Yes |
-| 5 | Watchlist headline | **A: a count** ("N of M combat tripwires have a claim on record") | Shows where things stand without the site drawing a conclusion | Yes |
-| 6 | How the 600 Iran events look before anyone has recorded who said them | **A: 473 plain "not yet attributed", 127 ghosts** | Says exactly what the data holds: v1 flagged fog on 127 and recorded a claimant on none | **Yes — judge it on the prototype** |
-| 7 | v1's AI summary panel | **A: leave it out of v2 for now** | Stores users' API keys in the browser on a public site; off-mission for a source-disciplined map | Yes |
-| 9 | When a ghost becomes solid | **A: a side from each end has said it happened** | A strike is solid when the one who struck and the one struck both say so | **Yes — judge it on the prototype** |
+| 4 | Shared timeline label | **RULED A, 2026-11-14: calendar date first**, day numbers second | The two wars have different Day 1s; a date is the only label true for both | Yes |
+| 5 | Watchlist headline | **RULED A, 2026-11-14: a count** ("N of M combat tripwires have a claim on record") | Shows where things stand without the site drawing a conclusion | Yes |
+| 6 | How the 600 Iran events look before anyone has recorded who said them | **PROVISIONAL A, 2026-11-14 (confirm after the prototype): 473 plain "not yet attributed", 127 ghosts** | Says exactly what the data holds: v1 flagged fog on 127 and recorded a claimant on none | **Yes — judge it on the prototype** |
+| 7 | v1's AI summary panel | **RULED A, 2026-11-14: leave it out of v2 for now** | Stores users' API keys in the browser on a public site; off-mission for a source-disciplined map | Yes |
+| 9 | When a ghost becomes solid | **PROVISIONAL A, 2026-11-14 (confirm after the prototype): a side from each end has said it happened** | A strike is solid when the one who struck and the one struck both say so | **Yes — judge it on the prototype** |
 
 Not a decision (already ruled 2026-11-09, recorded in STATE.md): the globe is a copy of selected parts into
 `globe/`, not a fork. The F1 prompt listed it as "confirm"; it is confirmed.
@@ -306,3 +306,17 @@ must-fix items are applied. Its items S10, S12 and S13 remain open (ARCHITECTURE
 
 Also noticed, not changed: the KEY FIELDS table in `STATE.md` still shows 385 events and Day 170, while its header
 correctly says 600 and Day 254. A one-line fix for the next session that rewrites STATE.md.
+
+
+# Rulings on the charter-check items (Allan, 2026-11-14, "as recommended")
+
+| Item | Ruling | Build note |
+|---|---|---|
+| a. Record-level "who did it" and "kind" | **DECIDED:** derive from the entries; allow `unclassified` when accounts differ | Shapes published in S1 cannot be renamed later: S1 stores the entry-derived form only (typed fields optional and unused), carries a `schemaVersion`, and ships a migration script; re-run the dry run before merge |
+| b. Outlet ownership | **DECIDED:** ownership carries its own source; rename `independent` to "no state or party owner on file" | Same version-number rule as (a); do it in S1 before enrichment; keep the old value as a read alias for one version |
+| c. Dropping a source | **DECIDED:** only when shown not to have issued what we attribute to it (impersonation, forgery) | Tombstones keep history |
+| d. "ONE SIDE" chip, "On the record" and "clean map" wording | **CONFIRM AFTER PROTOTYPE**, together with decision 6 | |
+| e. Tracks labelled OBSERVED above claims | **No change** | |
+| Follow-up v1 PR for the other ~20 "confirmed"/"verified" wordings | **Yes, later**, its own small PR | After S1 |
+
+Hard-to-reverse points and their mitigations (listed to Allan 2026-11-14): the S1 record shapes; the outlet registry rename; entries about named parties once public (run the record check first, publish a small reviewed batch first); `IR-` IDs (keep `legacyId`, resolver accepts both); and the v1 cutover (keep v1 preserved and deployable until v2 has run beside it with Allan's sign-off). Decision 9 changes old marks retroactively, so settle it on the prototype before sharing the site.

@@ -83,7 +83,7 @@ from all sides, without putting a thumb on the scale; Allan's own opinion, when 
 Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js` unchanged; version stays v01.09.03.**
 - `docs/v2/ARCHITECTURE_v1.md` — event schema v2 (REV B), links, watchlist, actors, theater config, timeline engine, migration, app architecture.
 - `docs/v2/DESIGN_SYSTEM_v1.md`, `docs/v2/LAYOUT_ENGINE_SPEC_v1.md`, `docs/v2/RELEASE_PLAN_v1.md`.
-- `docs/v2/F1_DECISIONS_FOR_ALLAN.md` — **5 decisions awaiting Allan (4-7 and 9; 8 is reserved for F1b-2)**; 1-3 ruled 2026-11-14. Nothing in these documents is ruled until he answers.
+- `docs/v2/F1_DECISIONS_FOR_ALLAN.md` — **all open decisions ruled 2026-11-14; 6 and 9 are PROVISIONAL (confirm after the prototype); 8 (default theme) is added by F1b-2**. Charter-check rulings a-e are in the same file. Nothing in these documents is ruled until he answers.
 - `docs/v2/F1_PROGRESS.md` — resume file. **Part B (prototype at `prototype/v2/`) not started; starts on Allan's "continue with Part B".**
 - Validators run before each push: `validate.js` PASS, `test-timeline.js` PASS.
 - **2026-11-11 dry run (F1 step 1):** all 600 events run through the proposed schema by throwaway scripts in
@@ -120,6 +120,7 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
   carry a v1 fog marker and draw as ghosts, 473 are "not yet attributed"; charter test 0 hits.
   **Charter check 2026-11-14 (self-check plus independent Sonnet 5.5 checker): nothing found that grades truth (0 violations). 13 risks and notes were reported and are NOT yet fixed; list in `docs/v2/F1_PROGRESS.md`.**
 - **RULED by Allan 2026-11-14 (as recommended): decisions 1-3 of `F1_DECISIONS_FOR_ALLAN.md`.** (1) No build step: plain files. (2) v1's `warmaps-data.js` stays the Iran data master until cutover; v2 files are generated from it plus a sidecar. (3) Event IDs `IR-00001` style, old number kept as `legacyId`. This unblocks slice S1 on its decisions; S1 still needs the other gates in `SESSION_PROMPT_S1_shell.md`. Decisions 4-7 and 9 remain open.
+- **RULED by Allan 2026-11-14 ("as recommended"): decisions 4, 5, 7 = A; 6 and 9 = A, PROVISIONAL until he has tried the prototype; charter-check items a, b, c decided (S1 record shapes must carry a `schemaVersion` and a migration script), d to be confirmed after the prototype, e no change; v1 wording follow-up PR later.** Details and the hard-to-reverse list: `F1_DECISIONS_FOR_ALLAN.md`.
 - **Next:** F1b-2 (themes, detail levels, screen size; `SESSION_PROMPT_F1b_theme_amendments.md`), then the F1c
   prototype. The three 2026-11-12 rulings stay PROVISIONAL until Allan has tried the prototype.
 - KEY FIELDS table below corrected 2026-11-14 (it had said 385 events / Day 170).

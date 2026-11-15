@@ -21,7 +21,7 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
   He sets both himself. Repeat this before each further step. (His standing instruction, 2026-11-11.)
 - **Spend usage carefully.** One step per chat. Push after every finished deliverable. Update `F1_PROGRESS.md`
   so a fresh chat can resume. Do not re-read files you do not need. Fable 5.2 is reserved for the steps marked Fable.
-- **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-14; five are waiting: 4-7 and 9; decisions 1-3 were RULED A by Allan on 2026-11-14).
+- **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-14 the file's decisions are RULED A by Allan: 1-5 and 7 firmly, 6 and 9 PROVISIONAL until the prototype; 8 comes with F1b-2; charter-check items a-c decided, d after the prototype). S1 must give record shapes a `schemaVersion` and a migration script.
   Do not treat a recommendation as a ruling. Ruled outside that file: R1 fixes M1-M4 accepted (2026-11-13); the
   three section 3b rulings are PROVISIONAL until Allan has tried the prototype.
 

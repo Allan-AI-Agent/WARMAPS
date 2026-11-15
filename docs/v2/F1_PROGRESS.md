@@ -67,7 +67,7 @@ Also: ARCHITECTURE line 1167 says the v1.2 rules "have had a charter check by a 
 **Not applied, need Allan:** rows 1, 2, 3, 4, 7, 9, 13; the single shared forbidden-word list; photos and video in the
 status line.
 
-**Still open for Allan:** five decisions (4-7, 9; 1-3 ruled A on 2026-11-14); merge and cold read of PR #19 (v01.09.04, option B: stat label, naval
+**Open for Allan:** nothing blocking; decisions 6 and 9 and item d are PROVISIONAL until he has tried the prototype (all other decisions and items a-c, e ruled 2026-11-14); merge and cold read of PR #19 (v01.09.04, option B: stat label, naval
 popups, launch popups; ruled 2026-11-14, built by Sonnet 5.5; ~20 other "confirmed"/"verified" wordings in v1 left for a
 follow-up if he wants it). v1 is otherwise untouched on this branch.
 
