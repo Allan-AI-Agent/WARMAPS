@@ -1,6 +1,6 @@
 ---
 title: WARMAPS v2 — common brief for every v2 session
-version: v1.3 (2026-11-14: section 2 updated after F1b-1; decisions now eight). v1.2 (2026-11-12): editorial charter; R1 done; section 3b
+version: v1.4 (2026-11-15: section 0b, how every session runs). v1.3 (2026-11-14: section 2 updated after F1b-1; decisions now eight). v1.2 (2026-11-12): editorial charter; R1 done; section 3b
 date: 2026-11-11 (Iran-war Day 257); amended 2026-11-12 (Day 258) and 2026-11-14 (Day 260)
 author: Claude (Fable 5.2), end of session F1 day 2, for Allan Sanceau; v1.1 by Claude (Opus 5.5)
 status: STANDING — every SESSION_PROMPT_* file in this folder tells the session to read this first
@@ -24,6 +24,13 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 - **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-14 the file's decisions are RULED A by Allan: 1-5 and 7 firmly, 6 and 9 PROVISIONAL until the prototype; 8 comes with F1b-2; charter-check items a-c decided, d after the prototype). S1 must give record shapes a `schemaVersion` and a migration script.
   Do not treat a recommendation as a ruling. Ruled outside that file: R1 fixes M1-M4 accepted (2026-11-13); the
   three section 3b rulings are PROVISIONAL until Allan has tried the prototype.
+
+# 0b. How every session runs (Allan's rule, 2026-11-15)
+
+1. **Ask first, once.** Before any work, read the session prompt, `STATE.md` and this file, then send ONE message with every decision you need from Allan to finish the whole task: questions with a recommended answer and a one-line reason, answerable in one word each. Include anything you need him to change before you start: model, thinking effort, branch, environment, usage left. If you need nothing, say "No questions, starting."
+2. **Then run unattended.** After his answers, work through to the end of the task without asking more. Where something unexpected needs a call, take the most reasonable reading, write it down in the progress file (`docs/v2/F1_PROGRESS.md` or the session's own note), and carry on. Save and push at each milestone so a stop never loses work.
+3. **Stop only at a boundary.** Stop and prompt Allan only when (a) the task is finished, (b) the next step needs a different model or thinking effort, a different repo, branch or location, or a different environment, (c) usage is near its limit (then wrap up cleanly: save, push, write the progress note), or (d) a decision cannot be undone and could reasonably go either way. At a stop, say in one short message what is done, what is next, and exactly what to change (for example: "switch to Opus 5.5, High, then send: ...") and give the next prompt to paste.
+4. **Phone-readable.** Allan reads on a phone: short messages, conclusions first, depth in the files.
 
 # 1. Rules that apply to every v2 session
 
