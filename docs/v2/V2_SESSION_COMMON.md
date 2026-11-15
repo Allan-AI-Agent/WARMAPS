@@ -58,7 +58,7 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 | Independent schema review | Done 2026-11-11: `research/v2-schema-review/REVIEW.md` (read its 2026-11-12 addendum under the charter). M1-M4 accepted by Allan 2026-11-13 and applied; S10, S12, S13 open |
 | Editorial charter | Ruled 2026-11-12 (`STATE.md`). The v2 design documents carry no truth grades (F1b-1). The live v1 site: stats wording reworded in PR #19 (awaiting Allan's merge); about 20 other wordings left for a later PR |
 | F1b-1 attribution, fog and lenses | Done 2026-11-14 |
-| F1b-2 themes, detail levels, screen size | **Done 2026-11-15.** Grammar and skin split; theme contract; three themes checked by `research/v2-theme-check/theme-check.js` (78 computed checks each, all pass); map styles; detail levels; clean view; declutter; Settings, studio, Help and tour. Charter check: see `F1_PROGRESS.md` |
+| F1b-2 themes, detail levels, screen size | **Done 2026-11-15.** Grammar and skin split; theme contract; three themes checked by `research/v2-theme-check/theme-check.js` (86 computed checks each, all pass); map styles; detail levels; clean view; declutter; Settings, studio, Help and tour. Charter check: see `F1_PROGRESS.md` |
 | Decisions | 1-5 and 7 ruled A; 6 and 9 provisional A; **8 open** (default theme); charter-check item d provisional |
 | Prototype (Part B) | **Next.** `SESSION_PROMPT_F1c_prototype.md` (v1.2). Fable 5.2, High, two sittings |
 | Slice 1 build | Decisions 1-3 ruled 2026-11-14 (no build step; v1 file stays Iran master; `IR-00001` IDs). `SESSION_PROMPT_S1_shell.md`. S1 now also carries the theme engine with one theme, the detail-level config and its reach test (RELEASE_PLAN v1.3 section 2) |

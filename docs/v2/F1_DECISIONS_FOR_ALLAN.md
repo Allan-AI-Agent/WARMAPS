@@ -226,8 +226,8 @@ joint purple.
   keep the map from looking like a conspiracy board, and its hot pink for the Caribbean sits close to the red of
   the error banner (difference 8.3 against a minimum of 8). On a Fire tablet at the Lite detail level its glow is
   capped anyway.
-- **Answer:** the glow is on the chrome and on milestones, never on ghosts and never different between looks, so
-  it cannot make one account look stronger than another. Every Classic colour passes the same computed checks as
+- **Answer:** the glow is on the chrome and on whichever mark you have selected, never on a mark because of its
+  look, so a theme cannot make one kind of account stand out more than another. Every Classic colour passes the same computed checks as
   Ops. But "louder" is a matter for the eye on a real screen, which is why the prototype shows all three and this
   can wait for it. Changing the default later is one value and affects only people who have never chosen.
 - **A finding you should know:** the four theater colours in the earlier design were described as colour-blind
@@ -316,12 +316,12 @@ small change to v1, its own branch and PR).
 | A theme is accepted only if it passes a computed check: contrast for every text and mark, and the four theater colours told apart with and without colour vision | DESIGN_SYSTEM 13.3 | No theme, built-in or user-made, can make a ghost unreadable or two wars look alike |
 | An imported theme is data: fixed choices, numbers and six-digit colours only; unknown fields rejected; a theme link opens as a preview you keep or discard | DESIGN_SYSTEM 13.2 | Your security rule: no imported text ever becomes markup, a style or a web address |
 | The theater colours were re-tuned in all three themes; the compare pair in the dark themes is now violet and sand | DESIGN_SYSTEM 2.2, 14 | The earlier set failed the colour-vision check |
-| Glow never differs between looks; ghosts never glow | DESIGN_SYSTEM 12.2 | A glow on solid marks only would make one kind of account look stronger |
+| A theme's glow touches the chrome and the selected mark only, never a mark because of its look | DESIGN_SYSTEM 12.2 | Otherwise a theme could make one kind of account stand out more |
 | Map style is a setting separate from the theme; on satellite every mark gets a dark outline and halo | DESIGN_SYSTEM 15 | So Classic can be read over imagery and Paper over a light map |
 | Three detail levels (Lite, Standard, Full), picked by a two-second draw test, changeable in Settings, stepped down only if you accept the offer | ARCHITECTURE 9.4 | Section 3b. The Standard and Full numbers are my proposals, unmeasured |
 | Detail never changes what can be reached; events are never thinned, only tracks and labels | ARCHITECTURE 9.4.4 | Enforced by a test, not by intention |
 | Theme, map style and detail level are not carried in a shared view link | ARCHITECTURE 9.1 | A link shares what is shown, not how the sender's device dresses it |
-| Clean view keeps a small **date tag** beside the lens tag | LAYOUT 2.5 | My addition: with the timeline hidden, a screenshot would not say which period or which record it shows |
+| Clean view keeps a small **view tag** beside the lens tag: the period, the record date, and any record layer that is switched off ("FOG HIDDEN") | LAYOUT 2.5 | My addition: with the controls hidden, a screenshot would otherwise not say which period it shows or that one-sided accounts were switched off |
 | Phone landscape offers the 2D map and a zoomed-out globe with labels off; 2D opens first until you choose | LAYOUT 4.2 | The globe is unmeasured on any device |
 | Three themes until cutover; the theme studio is its own small optional slice behind a URL flag | RELEASE_PLAN rule 11, S2b | Keeps device testing to three passes |
 | A first-run tour that is offered, never forced, and replayable from Help | LAYOUT 8d | Your 2026-11-11 direction, for readers who are not you |
@@ -333,6 +333,7 @@ small change to v1, its own branch and PR).
 - **Decision 7** is reworded around your AI direction. Its ruling (A: leave the v1 panel out of v2 for now) is
   unchanged. The follow-on choice (a daily brief after cutover) is recorded with a recommendation and asked at cutover.
 - Fourteen theme-session design calls are listed above for veto.
+- Three points from the independent charter check are added to item d, to judge on the prototype (see the item d row).
 
 # What changed in v1.2 (2026-11-14, charter rewrite)
 
@@ -393,7 +394,7 @@ correctly says 600 and Day 254. A one-line fix for the next session that rewrite
 | a. Record-level "who did it" and "kind" | **DECIDED:** derive from the entries; allow `unclassified` when accounts differ | Shapes published in S1 cannot be renamed later: S1 stores the entry-derived form only (typed fields optional and unused), carries a `schemaVersion`, and ships a migration script; re-run the dry run before merge |
 | b. Outlet ownership | **DECIDED:** ownership carries its own source; rename `independent` to "no state or party owner on file" | Same version-number rule as (a); do it in S1 before enrichment; keep the old value as a read alias for one version |
 | c. Dropping a source | **DECIDED:** only when shown not to have issued what we attribute to it (impersonation, forgery) | Tombstones keep history |
-| d. "ONE SIDE" chip, "On the record" and "clean map" wording | **CONFIRM AFTER PROTOTYPE**, together with decision 6 | |
+| d. "ONE SIDE" chip, "On the record" and "clean map" wording | **CONFIRM AFTER PROTOTYPE**, together with decision 6 | Added 2026-11-15 from the independent charter check, same timing: (d1) a milestone more than one side has spoken on gets a halo and a label, a one-sided one gets neither, so it is more prominent: keep, or give every milestone the same halo? (d2) the faintest marks, "not yet attributed" and the faded ghost, are allowed under 3:1 contrast (2.3:1 and 2.5:1), and "not yet attributed" is most of the Iran map at launch: keep, or require 3:1 for every look (Paper would need heavier strokes)? (d3) a group badge is drawn filled if any member has more than one side on record, so one such mark among forty ghosts reads as filled: keep, or show the one-sided count on the badge? |
 | e. Tracks labelled OBSERVED above claims | **No change** | |
 | Follow-up v1 PR for the other ~20 "confirmed"/"verified" wordings | **Yes, later**, its own small PR | After S1 |
 

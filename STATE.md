@@ -122,14 +122,14 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
 - **RULED by Allan 2026-11-14 (as recommended): decisions 1-3 of `F1_DECISIONS_FOR_ALLAN.md`.** (1) No build step: plain files. (2) v1's `warmaps-data.js` stays the Iran data master until cutover; v2 files are generated from it plus a sidecar. (3) Event IDs `IR-00001` style, old number kept as `legacyId`. This unblocks slice S1 on its decisions; S1 still needs the other gates in `SESSION_PROMPT_S1_shell.md`. Decisions 4-7 and 9 remain open.
 - **RULED by Allan 2026-11-14 ("as recommended"): decisions 4, 5, 7 = A; 6 and 9 = A, PROVISIONAL until he has tried the prototype; charter-check items a, b, c decided (S1 record shapes must carry a `schemaVersion` and a migration script), d to be confirmed after the prototype, e no change; v1 wording follow-up PR later.** Details and the hard-to-reverse list: `F1_DECISIONS_FOR_ALLAN.md`.
 - **F1b-2 DONE 2026-11-15 (documents only; v1 untouched).** `DESIGN_SYSTEM_v1.md` v1.2 (fixed grammar and theme-set
-  skin; theme contract; three built-in themes, Classic, Ops and Paper, each passing 78 computed checks in
+  skin; theme contract; three built-in themes, Classic, Ops and Paper, each passing 86 computed checks in
   `research/v2-theme-check/`; map styles; what each detail level changes), `ARCHITECTURE_v1.md` v1.3 (Lite / Standard
   / Full budgets in one config file, the automatic pick, the rule that detail never changes what can be reached and
   its tests; `theme`, `mapStyle`, `detailLevel` store keys; theme validator), `LAYOUT_ENGINE_SPEC_v1.md` v1.2 (clean
   view, declutter by screen pixels, phone landscape with 2D or globe, Settings, theme studio, Help and tour),
   `RELEASE_PLAN_v1.md` v1.3, `F1_DECISIONS_FOR_ALLAN.md` v1.3. **Found:** the earlier theater colours failed a
   colour-vision check they had been described as meeting; re-tuned in all three themes. Share Tech Mono has no
-  Cyrillic (checked). Charter check result: `docs/v2/F1_PROGRESS.md`, section "F1b-2 close-out".
+  Cyrillic (checked). **Charter check 2026-11-15 (self-check plus independent Sonnet 5.5 checker): nothing added grades truth, after one fix** (clean view could hide that Fog was off; fixed). Three points left for Allan on the prototype (item d1-d3). Table: `docs/v2/F1_PROGRESS.md`, section "F1b-2 close-out".
 - **Next:** the F1c prototype (`SESSION_PROMPT_F1c_prototype.md`; Fable 5.2, High). Decision 8 is open; the three
   2026-11-12 rulings, decisions 6 and 9 and item d stay PROVISIONAL until Allan has tried the prototype.
 - KEY FIELDS table below corrected 2026-11-14 (it had said 385 events / Day 170).

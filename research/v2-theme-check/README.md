@@ -14,7 +14,7 @@ themes to `v2/themes/`.
 |---|---|
 | `themes/classic.json`, `themes/ops.json`, `themes/paper.json` | The built-in themes, in the theme file format (DESIGN_SYSTEM 13.1) |
 | `theme-check.js` | The checks and limits of DESIGN_SYSTEM 13.3. No dependencies |
-| `out-table.txt` | Every computed figure, as run on 2026-11-15 (78 checks per theme, all pass) |
+| `out-table.txt` | Every computed figure, as run on 2026-11-15 (86 checks per theme, all pass) |
 
 Run: `node theme-check.js themes/*.json` (add `--table` for every figure). Exit code 0 means every file passed.
 

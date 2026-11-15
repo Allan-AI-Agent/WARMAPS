@@ -208,8 +208,8 @@ For when the map should be the only thing on screen: reading, showing someone, t
 |---|---|
 | Enter | One tap on the **clean view** button: at the trailing end of the top bar (tablet, PC), in the rail's top group (phone landscape), at the stage's top trailing corner (phone portrait). On PC also the `C` key |
 | Hidden | The top bar, dock rail, timeline, open panels and sheets, the lens banner, the layer switches and every map button. The stage runs edge to edge, inside the safe areas |
-| Always stays | **The lens tag**, whenever a lens is on (DESIGN_SYSTEM 5A.3). The **date tag** beside it (below). The map provider's attribution line. The error banner, if there is an error. The **restore button** |
-| Date tag | A chip in the same style as the lens tag: "08 NOV 2026 · LAST 7 DAYS", or "AS KNOWN ON 12 SEP 2026" when the record switch is on As known then. With the timeline hidden, nothing else on screen would say what period or which record a screenshot shows. (My addition to the agreed direction, on the same reasoning as the lens tag; veto it if it clutters) |
+| Always stays | **The lens tag**, whenever a lens is on (DESIGN_SYSTEM 5A.3). The **view tag** beside it (below). The map provider's attribution line. The error banner, if there is an error. The **restore button** |
+| View tag | A chip in the same style as the lens tag, always present in clean view, saying everything about the view that the hidden controls would have said: **the period** ("LAST 7 DAYS TO 08 NOV 2026"); **which record** ("RECORD AS OF 15 NOV 2026", the day it was read, or "AS KNOWN ON 12 SEP 2026"); and **any record layer that is not at its default**: "FOG HIDDEN" when the Fog layer is off, "ON THE RECORD HIDDEN" when that layer is off, "CONTESTED ONLY" when the Contested filter is on. Without it, a clean screenshot with Fog off would show a map with the one-sided accounts silently missing, which the charter's fog rule does not allow (found by the independent checker, 2026-11-15). The tag is my addition to the agreed direction, on the same reasoning as the lens tag |
 | Restore | A 48 px button at the bottom trailing corner, `bg-surface` at 70%, dimming to 40% after 3 s and never vanishing. One tap, System Back, or Escape restores everything exactly as it was, including which panels were open |
 | Still works | Pan, zoom, rotate. Tapping a mark opens its card at peek over the clean stage; closing the card returns to clean view |
 | Browser full screen | Clean view hides WARMAPS's own controls; it does not hide the browser's bars. Where the browser allows it, a second button beside Restore asks the browser for full screen, as v1's full-screen control does (VERIFIED in `index.html`). The two are independent |
@@ -574,11 +574,11 @@ case for any device.
 | What | Rule (stage pixels) | Notes |
 |---|---|---|
 | **Grouping** | Marks of the same theater whose centres are within 24 px of each other form one group, shown as a count badge in the theater colour (DESIGN_SYSTEM 2.4). Zooming in separates them | 24 px is half a touch target: closer than that, two marks cannot be tapped apart. Groups never mix theaters |
-| **Milestones never group** | A milestone is always drawn as its own mark, whatever its look. Where it overlaps a group, the milestone sits on top | Section 3b. (A one-sided milestone is still drawn at standard size with no halo: DESIGN_SYSTEM 2.3) |
+| **Milestones never group** | A milestone is always drawn as its own mark, whatever its look. Where it overlaps a group, the milestone sits on top | V2_SESSION_COMMON section 3b. (A one-sided milestone is still drawn at standard size with no halo: DESIGN_SYSTEM 2.3) |
 | **A group has no look** | The badge shows a count only. It is outlined when every member is a ghost, filled otherwise; ghosts are never merged into one large fog mark | DESIGN_SYSTEM 2.4 |
 | **Opening a group** | Tap: zoom to the level that separates its members. If they share a place, a chooser lists them, each with its mark and status line | Every member stays reachable |
 | **Labels** | No label overlaps another label or a mark. At most one label for every 20,000 px² of stage. Priority: milestones, then majors, then place names | An S22 portrait stage (about 360 x 500) gets 9; a 1500 x 800 PC stage gets 60 |
-| **Tracks** | At most one track symbol in each 40 x 40 px cell of the stage; the rest are held back evenly, not by age or type. The layer row says "showing N of M" | Tracks only. Events are never held back |
+| **Tracks** | At most one track symbol in each 40 x 40 px cell of the stage; the one kept is chosen by a fixed rule that looks at nothing about the track but its id (the lowest hash of the track id), never its operator, flag, type or age, so the same tracks are kept on every device and no party's tracks are preferred. The layer row says "showing N of M" | Tracks only. Events are never held back |
 | **The Events list** | Shows every record in the window, grouped or not, at every screen size | The list is the complete view; the map is the picture |
 
 **How it meets the detail level.** Declutter gives a number from the screen; the detail level gives a ceiling from
@@ -628,7 +628,7 @@ Help is a normal panel (last rail item). Its sections, in this order:
 
 | # | Section | Content |
 |---|---|---|
-| 1 | **Legend** | The full legend, not only what is on the map right now: theater shapes and colours in the current theme, tier sizes, the four looks and the plain mark with their fixed lines (DESIGN_SYSTEM 2.3), the arc key, the compare key, track shapes. Footer: "The marks show who has spoken, not what is true." |
+| 1 | **Legend** | A note first: "One-sided marks carry no label on the map and are never hidden by grouping; every record is named in the Events list." Then the full legend, not only what is on the map right now: theater shapes and colours in the current theme, tier sizes, the four looks and the plain mark with their fixed lines (DESIGN_SYSTEM 2.3), the arc key, the compare key, track shapes. Footer: "The marks show who has spoken, not what is true." |
 | 2 | **What the marks mean** | The fixed wording of 8a |
 | 3 | **How WARMAPS is designed** | The fixed wording below |
 | 4 | **Using it** | Short how-tos: the timeline and the 7-day band · Record today and As known then · Lens and Compare · On the record, Fog, Contested · Layers · clean view · themes, map styles and detail |
@@ -649,8 +649,9 @@ Help is a normal panel (last rail item). Its sections, in this order:
 > card names who is missing.
 > **Themes change the dress, never the meaning.** You can change the colours, the map and the fonts. A circle is
 > still the Iran war and an outline is still one side's account, in every theme.
-> **Observation is kept apart from statement.** Aircraft, ships and satellites are instrument readings, drawn in
-> grey. They are not claims and are not treated as claims.
+> **Positions are kept apart from statements.** Aircraft, ships and satellites are positions reported by tracking
+> services, each named on its card with the time. They are drawn in grey and never take the marks used for what
+> people have said. WARMAPS passes them on as reported and does not vouch for them.
 
 **First-run tour.**
 
@@ -711,9 +712,9 @@ Help is a normal panel (last rail item). Its sections, in this order:
 14. As known then: stepping the cursor back before an entry's publication date removes that entry's effect (a solid sample event becomes a ghost; a moved marker returns to the first place named).
 15. Every event card at peek shows the attribution chip and the status line without scrolling, at all five classes.
 16. Compare two: the three sample cases (both say it, only one spoke, one denies) draw as the compare table says, with A on the left.
-17. No string in the legend, chips, cards, Help, the tour or Watchlist says confirmed, verified, unconfirmed, debunked, true or false in WARMAPS's own voice (checked by a script over the built strings).
-18. Clean view, at all five classes: one tap leaves only the stage, the restore button, the date tag, the map attribution and (with a lens on) the lens tag; one tap, System Back or Escape restores the same panels as before.
-19. A screenshot taken in clean view with a lens on and As known then on shows whose account it is and which date's record it is.
+17. No string in the legend, chips, cards, Help, the tour, theme names or Watchlist uses, in WARMAPS's own voice, any word on the single forbidden-word list of ARCHITECTURE 7.4 E0 (confirmed, verified, unconfirmed, debunked, credible, reliable, likely, proven, fake, accurate, disinformation, true, false and the rest), checked by a script over the built strings.
+18. Clean view, at all five classes: one tap leaves only the stage, the restore button, the view tag, the map attribution and (with a lens on) the lens tag; one tap, System Back or Escape restores the same panels as before.
+19. A screenshot taken in clean view shows, on the stage itself: whose account it is (lens on); the period; the date the record was read, or the As known date; and every record layer that is not at its default (Fog hidden, On the record hidden, Contested only). Tested with each of those switched in turn.
 20. Switching between Classic, Ops and Paper changes no mark's shape, size, look, chip word or legend line; a screenshot of the legend differs only in colour, typeface and corners.
 21. Each of the three themes passes the theme validator; a theme file with an unknown key, markup in its name, or `url(...)` as a colour is rejected and nothing from it is applied.
 22. Changing theme, map style or detail level leaves the camera, time, lens, layers and open panels as they were.

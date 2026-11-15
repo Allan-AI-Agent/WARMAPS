@@ -298,6 +298,15 @@ This slice is where that goes, and it is not started without a new ruling.
   who has not been heard, in attribution verbs only; it adds no fact that is not in the record; it does not
   predict, rank likelihood or say which account is right; a validator rejects a brief with an uncited sentence, an
   unknown id or a forbidden word; Allan approves the first two weeks of briefs before they publish unattended.
+- **Guards against framing (added after the independent charter check, 2026-11-15).** A citation check cannot
+  catch slant, so the form is fixed: (1) **what the brief covers is mechanical, not the model's choice**: every
+  record that gained an entry in the period, newest first, up to a stated cap, and it says "N more not shown";
+  (2) **one verb set for every side**, from the attribution verbs of DESIGN_SYSTEM 9, never "says" for one party
+  and "claims" for another; (3) **sides are named in alphabetical order** in every sentence; (4) **one source per
+  sentence**, never two accounts blended; (5) each brief ends with a count of sentences per side, so imbalance is
+  visible; (6) fixed sentence templates, filled from the record. **Residual risk, stated plainly:** even so, a
+  summary shortens, and shortening is a choice. That is why S9 is a separate ruling, labelled machine-written, and
+  kept apart from the record.
 - **S9b, later and optional: questions with your own key.** A reader may bring their own key to ask questions of
   the record. Conditions (Allan's): the key lives on that person's device only and in memory by default;
   "remember on this device" is opt-in; it is never in a theme, export, link or the repo; Allan's own test key

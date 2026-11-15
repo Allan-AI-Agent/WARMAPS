@@ -11,8 +11,8 @@
     "accent": "#14202E", "focus": "#14202E", "selected": "#14202E", "lens": "#14202E",
     "theater-iran": "#9A4D00", "theater-ru": "#1F5FCC", "theater-ea": "#14401A", "theater-cb": "#7A2E5C",
     "link": "#5F5400", "track": "#4A5D73",
-    "compare-a": "#5B3FB5", "compare-b": "#0F6E63",
-    "state-error": "#C62828", "state-ok": "#14401A"
+    "compare-a": "#5B3FB5", "compare-b": "#5E5A4A",
+    "state-error": "#C62828", "state-ok": "#2E7D32"
   },
   "fonts": { "display": "plex-condensed", "ui": "plex-sans", "data": "plex-mono" },
   "iconStroke": 1.75, "iconStyle": "outline", "radius": "standard", "glow": 0,

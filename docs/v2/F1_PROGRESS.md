@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-15 05:00 MST (F1b-2 done: themes, detail levels, screen size written into the five documents; decision 8 added. Next: the F1c prototype)
+updated: 2026-11-15 05:15 MST (F1b-2 done, independent charter check applied: themes, detail levels, screen size written into the five documents; decision 8 added. Next: the F1c prototype)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -62,7 +62,7 @@ which was documents only and was validated straight after):**
    on its own ruling.
 2. A theme's colours are any six-digit hex that passes the computed check (the common brief had "curated swatches"
    only); the studio still offers swatches.
-3. Clean view keeps a date tag as well as the lens tag.
+3. Clean view keeps a view tag as well as the lens tag (period, record date, any record layer that is off).
 4. Theme, map style and detail level are not carried in a shared view link.
 5. The Standard and Full budget numbers and the draw-test thresholds are my proposals (SPECULATION, unmeasured).
 6. `compare-b` changed from teal to sand in the dark themes, because the re-tuned mint sat too close to it.
@@ -78,7 +78,30 @@ wording) still awaits his merge and cold read.
 **Next step: the F1c prototype. Fable 5.2, High, a fresh chat started right after a usage refill, two sittings.**
 `In the WARMAPS repo, check out branch v2/f1-architecture, read docs/v2/SESSION_PROMPT_F1c_prototype.md and follow it.`
 
-**Charter check (self-check, 2026-11-15): nothing added grades truth.** Word sweep of all 1,417 added lines: every hit is an evidence label on my own statement, a decision-card CONFIDENCE, or a rule that bans the word. **Independent checker (Sonnet 5.5): RUNNING at the time of this commit; its result is added below when it reports. Until then treat the independent check as not done.**
+**Charter check, 2026-11-15: nothing added grades truth, after one fix.**
+- **Self-check:** word sweep of every added line: each hit is an evidence label on my own statement, a decision-card
+  CONFIDENCE, or a rule that bans the word.
+- **Independent checker (Sonnet 5.5; read the charter, the full diff, ran the theme check, grepped v1): 1 violation,
+  10 risks, 2 inconsistencies, 1 fact error.** The v1 facts I marked VERIFIED all held except one.
+
+| # | Finding | Handling |
+|---|---|---|
+| 1 | **VIOLATION:** clean view hid the layer switches, so a screenshot with Fog off showed a map with one-sided accounts silently missing (charter rule 4) | **Fixed.** The view tag names any record layer that is off ("FOG HIDDEN", "CONTESTED ONLY"); check 19 tests it (LAYOUT 2.5) |
+| 2 | Clean-view tag did not date "Record today" | Fixed: always "RECORD AS OF [date]" |
+| 3 | I wrote that glow "never differs between looks", but one-sided milestones have no halo, so a theme's glow could widen that gap | Fixed: a theme's glow now touches only the chrome and the selected mark; the milestone halo is fixed grammar. The halo asymmetry itself is F1b-1's rule: listed for Allan as d1 |
+| 4 | Faintest marks (not yet attributed, faded ghost) are allowed under 3:1 contrast, and not-yet-attributed is most of the Iran map at launch | **For Allan, on the prototype (d2).** Not changed |
+| 5 | Ghosts carry no label, so scarce labels go to solid and split marks; a mixed group badge reads as filled | Help now says so; the badge question is **for Allan (d3)** |
+| 6 | Track thinning did not say which track is kept | Fixed: a rule that looks only at the track id |
+| 7 | Help said tracks are "instrument readings, not claims", which vouches for them | Fixed: "positions reported by tracking services ... WARMAPS does not vouch for them" |
+| 8, 13 | Validator did not check compare colours against error and ok colours; Paper's compare-b was teal-green and its state-ok equalled a theater colour | Fixed: checks added (now 86 per theme), two Paper colours changed, all three themes pass |
+| 9 | A theme name from a link could carry a slogan into the app | Fixed: 24 characters, word list applied, shown only in Settings |
+| 10 | AI brief: citation checks do not catch framing | Six guards added to RELEASE_PLAN S9; residual risk stated |
+| 11 | Check 17's word list was short | Fixed: points to the single list in ARCHITECTURE 7.4 E0 |
+| 12 | FACT ERROR: v1 dims its labels with a brightness filter, not opacity | Fixed |
+| 14 | A wrong cross-reference; "milestones never group" missing from ARCHITECTURE | Fixed |
+
+The fixes above were made after the checker reported and have **not** been re-read by an independent agent; the
+theme check was re-run (all pass) and both v1 validators pass. The prototype session's own charter check covers them.
 
 # F1b-1 close-out (2026-11-14 19:08 MST; Fable 5.2 medium; stopped at Allan's usage notice, about 99%)
 

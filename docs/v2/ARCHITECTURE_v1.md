@@ -1076,7 +1076,7 @@ Live-track history (ruled 5C): samples go to a separate data branch (for example
 | `theme` | The id of a built-in theme (`classic`, `ops`, `paper`) or of a user theme saved on this device | Decision 8; Paper on first visit if the device asks for a light scheme | Per device | Which theme file the engine applies (DESIGN_SYSTEM 13) |
 | `mapStyle` | A map style id from the app's own table (DESIGN_SYSTEM 15.1) | The active theme's `mapStyle` until the user picks one; then the user's pick | Per device | Which basemap. Separate from the theme |
 | `detailLevel` | `{ choice: auto / lite / standard / full, level: lite / standard / full }` | `auto`; `level` from the pick in 9.4.2 | Per device | How much drawing effort the device spends (9.4) |
-| `cleanView` | boolean | false | Not kept; never in a link | Stage edge to edge with the rail, timeline and buttons hidden (LAYOUT spec 2.5) |
+| `cleanView` | boolean | false | Not kept; never in a link | Stage edge to edge with the rail, timeline and buttons hidden; a view tag on the stage states the period, the record date and any record layer that is off (LAYOUT spec 2.5) |
 
   `theme`, `mapStyle` and `detailLevel` are **not** carried in a view link: a shared link reproduces what is shown
   (theaters, date, window, lens, record switches), not how the sender's device dresses or draws it. A theme travels
@@ -1217,7 +1217,7 @@ number of steps. Held four ways:
 |---|---|---|
 | 1 | **Selectors cannot see the level.** `core/selectors.js`, `core/attribution.js`, the Events list, cards and panels do not import `detail-levels.json` or read `detailLevel`. Checked by a scan of imports and of store reads | `validate-v2.js` group K |
 | 2 | **Reach test.** With one fixture and one store state, the selector outputs (`visibleEvents`, `stateOf` for each, `visibleLinks`, `watchAsOf`, the Events list rows, the card for each record) are produced under each of the three levels and compared: they must be identical | `tools/` test, slice 1 for 2D, extended in S5 |
-| 3 | **Renderer accounting.** For a fixture of N events, at every level, the count of marks drawn plus the members of drawn groups equals N. Tracks and labels may be fewer, and then `thinned` reports drawn and given | Renderer test, each renderer |
+| 3 | **Renderer accounting.** For a fixture of N events, at every level, the count of marks drawn plus the members of drawn groups equals N, **for each look separately** (a level may not drop ghosts and keep solid marks), and no milestone is inside a group (LAYOUT spec 8b). Tracks and labels may be fewer, and then `thinned` reports drawn and given | Renderer test, each renderer |
 | 4 | **It says so.** Wherever fewer are drawn than exist, the interface shows "showing N of M" on that layer's row, and the list for that layer still holds all M | LAYOUT spec 8b |
 
 Events are never thinned. Tracks and labels are the only things a level draws fewer of.

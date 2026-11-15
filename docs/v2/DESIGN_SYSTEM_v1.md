@@ -50,7 +50,7 @@ Google Fonts, a near-black ground `#060a0f`, and side-coded neon accents. v2 kee
 Classic theme keeps v1's typefaces and neon feel. What v2 replaces in every theme is the *meaning* of colour.
 
 All contrast ratios and colour differences in this document were computed, not eyeballed: the three theme files in
-`research/v2-theme-check/themes/` were run through `theme-check.js` on 2026-11-15 (78 computed checks each, all
+`research/v2-theme-check/themes/` were run through `theme-check.js` on 2026-11-15 (86 computed checks each, all
 pass; `out-table.txt` holds every figure). They are VERIFIED arithmetic on the hex values. Ratios are rounded
 **down**. How the themes look on the S22 and the Fire panel is untested until the prototype (Part B).
 
@@ -177,6 +177,11 @@ that carry a v1 fog note draw as ghosts.
 
 - **No glow, halo or label on a ghost or faded ghost.** A milestone that is still one-sided has no halo and no map
   label until another side is on record; its tick on the timeline is hollow.
+- **Known asymmetry, for Allan to judge on the prototype (raised by the independent checker, 2026-11-15):** this rule
+  means a milestone that more than one side has spoken on gets a halo and a label, and a one-sided one gets neither.
+  It counts sides heard, like the size cap, but it does make such marks more prominent. Also: because ghosts carry
+  no label, when labels are scarce only solid and split marks are labelled. Both are F1b-1 grammar and are left as
+  they are; they are listed with item d in the decisions file.
 - **No uncertainty circles.** Where sides name different places, the marker stays at the first claim and the other
   places appear only when it is tapped: each a ghost-style mark at 70% of standard size, joined to the marker by a
   1 px dotted line in `text-muted`, with a text tag naming who said so ("per Iran"). Further targets of a
@@ -187,7 +192,8 @@ that carry a v1 fog note draw as ghosts.
 - **Contrast (computed; Ops):** ghost outlines 5.06:1 to 10.16:1 on `bg-base` across the four theater colours.
   Faded-ghost outlines 3.03:1 to 5.46:1. Not-yet-attributed fills 2.69:1 to 4.71:1, with size and shape intact.
   The floors every theme must hold are in 13.3 (ghost 3:1; faded ghost 2.5:1; not yet attributed 2.3:1). The last
-  two sit under 3:1 on purpose: they are the faintest marks by design, their dashes or flat fill carry the meaning,
+  two sit under 3:1 on purpose (the independent checker flags this as a risk, since not-yet-attributed marks are
+  most of the Iran map at launch; it is listed for Allan in the decisions file): they are the faintest marks by design, their dashes or flat fill carry the meaning,
   and the Events list states every record's look in words. Paper sits closest to these floors (14.3).
 - **The opacities, strokes and dash pattern in this table are grammar.** A theme changes the colour they are drawn
   in, nothing else.
@@ -270,7 +276,7 @@ first party, right = the second**, in `compare-a` and `compare-b`. Shape still g
 
 - **Why these two colours:** neither is a national colour of any party in the four theaters, neither is red, blue
   or green in the partisan sense, and neither is a theater colour. They are close in brightness on purpose (1.11:1
-  between them in Ops and Classic, 1.21:1 in Paper; the contract caps it at 1.5:1) so neither party looks more important. Because of that, colour is never the only cue: **position
+  between them in Ops and Classic, 1.07:1 in Paper; the contract caps it at 1.5:1) so neither party looks more important. Because of that, colour is never the only cue: **position
   (left or right) and a letter (A, B) in the banner and the legend** carry the same meaning.
 - The compare legend is one line: "A (left) = [party] · B (right) = [party] · filled = says it happened · outline =
   the only one of the two to speak · slash = denies".
@@ -298,8 +304,7 @@ first party, right = the second**, in `compare-a` and `compare-b`. Shape still g
 
 ## 4.1 2D map (Leaflet)
 - **Basemap:** chosen by the **map style** setting (15), which is separate from the theme. The default style,
-  Tactical dark, is the Esri World Dark Gray base without labels, then reference labels above the data at reduced
-  opacity (as v1 does, VERIFIED). No key.
+  Tactical dark, is the Esri World Dark Gray base without labels, then reference labels above the data dimmed (v1 dims its label layer with a brightness filter: VERIFIED, `index.html` line 1545). No key.
 - **Theater outlines:** the AOI drawn as a 1.5 px line in theater colour at 60%, corner ticks, and a small label tab
   ("IRAN WAR · Day 256"). No fill. In single-theater mode the area outside the AOI is dimmed by 20%.
 - **Label order (bottom to top):** basemap → outlines → context layers → link arcs → events → tracks → selection →
@@ -513,7 +518,7 @@ A theme file has no field for anything in this table, so a theme cannot change i
 | `iconStroke` | `1.5`, `1.75`, `2` | Icon line weight in px |
 | `iconStyle` | `outline`, `filled` | Dock and button icons only. Map marks are not icons and are untouched |
 | `radius` | `sharp`, `standard`, `soft` | The three corner sets in section 3 |
-| `glow` | `0`, `1`, `2` | 0: none. 1: the milestone halo and the selected mark get a soft bloom. 2: also the app title, active controls and the timeline cursor (v1's neon). **Glow never differs by look**, except the standing rule that a ghost has none; a theme cannot make one look glow more than another |
+| `glow` | `0`, `1`, `2` | 0: none. 1: a soft bloom on the **selected** mark (whatever its look) and on the timeline cursor. 2: also the app title and active controls (v1's neon). **Glow is never applied to a mark because of its look or its tier.** The milestone halo ring of 2.4 is grammar, drawn the same at every glow level, and (F1b-1's rule, 2.3) a one-sided milestone has no halo. A theme therefore cannot widen or narrow any difference between looks |
 | `density` | `auto`, `comfortable`, `compact` | Row height. Coarse pointers always get comfortable |
 | `motion` | `standard`, `calm` | Calm halves the durations in section 6 and cuts camera easing. The device's reduced-motion setting always wins over either |
 | `panelOpacity` | `0.80` to `1.00` in steps of `0.01` | Translucency of bars over the map |
@@ -552,7 +557,9 @@ The complete files for the three built-in themes are in `research/v2-theme-check
   needs a newer WARMAPS", never half-applied.
 - **Fixed choices, numbers and colours only.** Every value is a member of a closed list, a number in a stated
   range, or a `#RRGGBB` colour. The only free text is `id` (lower-case letters, digits and hyphens, 32 at most) and
-  `name` (letters, digits, spaces and `. , ' -`, 40 at most).
+  `name` (letters, digits, spaces and `. , ' -`, 24 at most). The name is shown only in the Settings theme list and
+  the studio, never on the stage, in a banner or in a screenshot, and it is run through the forbidden-word list of
+  ARCHITECTURE 7.4 E0, so a theme arriving by link cannot put a slogan or a verdict word into the app's own chrome.
 - **Unknown keys are an error**, not ignored. A file with one extra field is rejected.
 - **A theme holds no keys, tokens, accounts or personal data**, and has no field that could hold one.
 
@@ -570,7 +577,7 @@ ARCHITECTURE 9.1 treats every imported file.
 | Storage | User themes are kept in this browser on this device (`localStorage`), 12 at most. There are no accounts. Export gives a `.warmaps-theme.json` file or a copyable link; Allan can send an exported file to be committed as a built-in |
 
 ## 13.3 What the validator checks
-The reference implementation is `research/v2-theme-check/theme-check.js` (no dependencies; 78 computed checks per
+The reference implementation is `research/v2-theme-check/theme-check.js` (no dependencies; 86 computed checks per
 theme). Slice 2 moves it to `tools/validate-theme.js`, where CI runs it on the built-in themes, and loads the same
 module in the browser for imports and for the studio's live preview.
 
@@ -584,7 +591,7 @@ module in the browser for imports and for the studio's live preview.
 | Marks | The same colour as a ghost outline (85%), as a faded ghost (60%), as not yet attributed (55%), each composited over `bg-base` | 3:1 · 2.5:1 · 2.3:1 or more |
 | Theater set | Every pair of the four theater colours: difference with full colour vision; under red-green colour blindness (the lower of protanopia and deuteranopia); under blue-yellow colour blindness (tritanopia) | 15 · 10 · 8 or more |
 | Compare pair | Brightness ratio between `compare-a` and `compare-b`; their difference | 1.5:1 or less · 12 or more |
-| No look-alikes | `compare-a`, `compare-b`, `link`, `track`, `state-error` against each theater colour | difference 8 or more |
+| No look-alikes | `compare-a`, `compare-b`, `link`, `track`, `state-error`, `state-ok` against each theater colour; `compare-a` and `compare-b` against `state-error` and `state-ok` (so the two parties in a comparison can never be dressed as "error" and "ok") | difference 8 or more |
 
 - **Contrast** is the WCAG 2 relative-luminance ratio, rounded down to two places.
 - **Difference** is the distance between two colours in OKLab, times 100. **Colour-vision simulation** is Machado,
@@ -618,7 +625,7 @@ popup badges use a second, different set.
 | Border colour `#1A2535`, as the decorative hairline | It is 1.23:1 on panels, far under the 3:1 a control outline needs. Control outlines use `#5C7A9C` |
 | Oswald for headings; Share Tech Mono for data | Reading text moves to IBM Plex Sans; all-caps paragraphs are gone; nothing under 0.75 rem (v1 goes down to 8 px) |
 | Yellow `#FFEE00`, now the link colour | — |
-| The neon feel: glow level 2, sharp corners | Glow follows the rules in 12.2: never on a ghost, never different by look |
+| The neon feel: glow level 2, sharp corners | Glow is on the chrome and on whatever mark is selected, never on a mark because of its look (12.2) |
 | Amber `#FFAA00`, from v1's palette, for the Iran war | **Actor colour-coding is not kept** (proposal; decision 8). Colour means theater in every theme |
 
 | Token | Hex | Computed |
@@ -690,9 +697,9 @@ For reading outdoors, for printing and for screenshots pasted into documents.
 | `theater-cb` | `#7A2E5C` (plum) | 7.84 · 5.54 · 3.07 · 2.75 |
 | `link` | `#5F5400` | 6.75 on base; nearest theater colour 11.1 away |
 | `track` | `#4A5D73` | 5.99 on base |
-| `compare-a` / `compare-b` | `#5B3FB5` / `#0F6E63` | 6.59 / 5.42 on base; 1.21:1 between them |
+| `compare-a` / `compare-b` | `#5B3FB5` (violet) / `#5E5A4A` (stone) | 6.59 / 6.12 on base; 1.07:1 between them. (`compare-b` was teal-green `#0F6E63`; the checker pointed out that 2.8 says neither compare colour is green) |
 | `state-error` | `#C62828` | 5.62 on surface (v1.1's `#B84A00` sat 5.8 from the amber theater colour and failed) |
-| `state-ok` | `#14401A` | 11.81 on surface |
+| `state-ok` | `#2E7D32` | 5.12 on surface. (Was `#14401A`, the same ink as the East Asia theater colour; now 20.0 away from it, and the validator checks it) |
 
 Theater set: closest pair with full colour vision 16.0 (amber and plum); red-green 10.7 (green and plum);
 blue-yellow 9.3. **Paper is the theme nearest the floors**: on a light ground a see-through mark loses contrast
@@ -713,7 +720,7 @@ or Paper over the light map. A theme only names the style it opens with. Store k
 
 | Id | What it is | Ground | Source | State |
 |---|---|---|---|---|
-| `tactical-dark` | Dark grey base, no labels; reference labels above the data at reduced opacity | Dark | Esri World Dark Gray Base + Reference. What v1 uses (VERIFIED in `index.html`). No key | Slice 1 |
+| `tactical-dark` | Dark grey base, no labels; reference labels above the data, dimmed | Dark | Esri World Dark Gray Base + Reference. What v1 uses (VERIFIED in `index.html`). No key | Slice 1 |
 | `tactical-blue`, `tactical-green` | The same tiles with a colour tint applied in the browser | Dark | Same tiles; a CSS filter on the tile layer only. No extra downloads | Slice 2 |
 | `light-gray` | Light grey base and labels | Light | Esri World Light Gray Base + Reference. No key | Slice 2 |
 | `satellite` | Imagery with boundaries and place names | Dark | Esri World Imagery + Boundaries and Places. What v1 uses (VERIFIED). No key | Slice 2 |
@@ -761,7 +768,7 @@ section 8b and is a separate axis. This table is only what a person would see.
 | | **Lite** (the Fire budget) | **Standard** | **Full** (PC) |
 |---|---|---|---|
 | Panel translucency | Opaque; no blur | Theme's opacity; blur where supported | Same as Standard |
-| Glow | Capped at level 1, whatever the theme asks | As the theme | As the theme |
+| Glow (chrome and the selected mark only; 12.2) | Capped at level 1, whatever the theme asks | As the theme | As the theme |
 | Marker edges | Same looks; no soft halo on imagery (keyline only) | Keyline and halo | Keyline and halo |
 | Motion | Look changes and position changes are instant; panels 120 ms; camera cuts | Section 6 as written | Section 6, plus eased camera flights |
 | Map labels | Milestones only, at most 12 on screen | Milestones and majors at close zoom, at most 30 | Up to 60; place names at full density |
@@ -787,7 +794,7 @@ or re-saved; the cap is applied at draw time.
 | 2 | Theme contract (13): a versioned JSON file of fixed choices, numbers and colours; imported themes are data; the validator's checks and limits | Common brief section 4; security rule in section 1 |
 | 3 | Three built-in themes with full token tables and computed figures (14): Classic, Ops, Paper | Same |
 | 4 | **Theater colours re-tuned in all three themes.** v1.1's set failed the colour-vision check it had claimed to meet (2.2) | Found by the new check |
-| 5 | `compare-b` changed from teal to sand in the dark themes; Paper's `text-muted` and `state-error` changed | Each failed a computed check |
+| 5 | `compare-b` changed from teal to sand in the dark themes and to stone in Paper; Paper's `text-muted`, `state-error` and `state-ok` changed | Each failed a computed check or was caught by the independent checker |
 | 6 | Share Tech Mono's Cyrillic coverage checked: none (1.1) | The session prompt asked for a real check |
 | 7 | Map styles are a setting separate from the theme (15); satellite adjustments; marks on imagery and on the other ground | Common brief section 4 |
 | 8 | What each detail level changes visually (16) | Common brief section 3b |

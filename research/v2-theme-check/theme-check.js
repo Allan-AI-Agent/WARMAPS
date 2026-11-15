@@ -65,7 +65,7 @@ function check(t) {
   if (t.formatVersion !== 1) err.push('formatVersion must be 1');
   for (const k of Object.keys(t)) if (!TOP_KEYS.includes(k)) err.push(`unknown key "${k}"`);
   if (typeof t.id !== 'string' || !/^[a-z0-9-]{1,32}$/.test(t.id)) err.push('id: lower-case letters, digits, hyphen, 32 at most');
-  if (typeof t.name !== 'string' || !/^[\p{L}\p{N} .,'-]{1,40}$/u.test(t.name)) err.push('name: letters, digits, spaces and . , \' - only, 40 at most');
+  if (typeof t.name !== 'string' || !/^[\p{L}\p{N} .,'-]{1,24}$/u.test(t.name)) err.push('name: letters, digits, spaces and . , \' - only, 24 at most');
   const c = t.colors || {};
   for (const k of Object.keys(c)) if (!COLOR_KEYS.includes(k)) err.push(`unknown colour "${k}"`);
   for (const k of COLOR_KEYS) if (typeof c[k] !== 'string' || !HEX.test(c[k])) err.push(`colour "${k}" must be #RRGGBB`);
@@ -108,7 +108,11 @@ function check(t) {
   const cl = r(c['compare-a'],c['compare-b']), cd = Math.round(dE(c['compare-a'],c['compare-b'])*10)/10;
   add('compare-a vs compare-b brightness ratio (at most)', cl, LIMITS.compareLumMax, cl <= LIMITS.compareLumMax);
   add('compare-a vs compare-b difference', cd, LIMITS.comparePair, cd >= LIMITS.comparePair);
-  for (const s of ['compare-a','compare-b','link','track','state-error']) for (const k of THEATERS) {
+  for (const s of ['compare-a','compare-b']) for (const k of ['state-error','state-ok']) {
+    const d = Math.round(dE(c[s],c[k])*10)/10;
+    add(`${s} vs ${k} difference`, d, LIMITS.semanticVsTheater, d >= LIMITS.semanticVsTheater);
+  }
+  for (const s of ['compare-a','compare-b','link','track','state-error','state-ok']) for (const k of THEATERS) {
     const d = Math.round(dE(c[s],c[k])*10)/10;
     add(`${s} vs ${k} difference`, d, LIMITS.semanticVsTheater, d >= LIMITS.semanticVsTheater);
   }
