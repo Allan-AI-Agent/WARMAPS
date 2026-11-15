@@ -57,7 +57,7 @@ screen size, clean view and phone landscape (common brief section 3b), into the 
    - `F1_DECISIONS_FOR_ALLAN.md`: rewrite decision 7 around the new AI direction (options: daily published brief
      after cutover; plus bring-your-own-key later; neither). Add **decision 8**: default theme (Classic, Ops),
      and whether Classic keeps v1's actor colours. Keep the one-table answer sheet at the top. No more than
-     eight decisions.
+     nine decisions (F1b-1 added decision 9, when a ghost becomes solid; 8 was left free for the default theme).
 3. Update `V2_SESSION_COMMON.md` section 2 and `F1_PROGRESS.md`; add a short status line to `STATE.md`.
 
 ## Limits
