@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-10 (MST), **Day 256**. Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-10 (MST), **Day 256**. Version: **v01.09.04** (branch `v01.09.04`, PR #19 awaiting merge; main is v01.09.03). Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -17,6 +17,16 @@ a fresh tab and read the values **without being told them first**:
 | Timeline last day | 248 | 248 (Nov 2 2026; Feb 28 = Day 1; same in 4 TZs) | match |
 
 This also closes v01.09.02's open item "confirm badge text on a cold load".
+
+## STATUS 2026-11-14: v01.09.04 — v1 WORDING UNDER THE EDITORIAL CHARTER (PR #19, awaiting Allan's merge and cold read)
+Ruled by Allan 2026-11-13 (stats wording) and 2026-11-14 (option B: also the naval and launch popups). **No event data changed.**
+The editorial charter itself is in STATE.md on branch `v2/f1-architecture` (ruled 2026-11-12).
+- Stat label "Confirmed Dead (Iran Military)" -> "Iran Military Dead (Hengaw, Mar 18)" (the 4,800+ figure is Hengaw's, per event text). The figure is stale; the stat-box refresh in OPEN ITEMS is separate.
+- Naval popups: the "Verified / Unverified" line and the grey/red marker colouring by a verified flag are removed; markers colour by side and damage/withdrawn status; the popup shows the source string already on all 36 position records. "UNVERIFIED DMG" -> "DAMAGE REPORTED, SEE SOURCE".
+- Launch popups: the CONFIDENCE row (from `originKnown`) -> "ORIGIN BASIS" (location per event sources / approximate location / not stated).
+- `warmaps-data.js`: seven naval source/note strings reworded to attribution ("confirmed" -> "reported"; the Ford rumour note without its "treat as unverified" instruction). The `verified` flags stay in the data, unused by the display.
+- **Not changed (outside the ruling):** about 20 other "confirmed"/"verified" wordings in v1: missile-base popup notes, Help text "multi-source verified", "Iranian Ships Destroyed", "Targets Struck".
+- Validators: validate.js PASS, test-timeline.js PASS. **Cold read by Allan needed after merge (Trap 12):** read the badge (expect v01.09.04), open one ship popup and one launch popup.
 
 ## RULING 2026-11-10 11:18 (Allan): SOURCING AND ACCESS RULE v2 (replaces "never bypass blocks")
 WARMAPS is a journalistic endeavor and follows ethical-journalism practice: get the information and get it out,
