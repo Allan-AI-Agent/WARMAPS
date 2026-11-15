@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-15 05:15 MST (F1b-2 done, independent charter check applied: themes, detail levels, screen size written into the five documents; decision 8 added. Next: the F1c prototype)
+updated: 2026-11-15 05:00 MST (F1b-2 done, independent charter check applied: themes, detail levels, screen size written into the five documents; decision 8 added. Next: the F1c prototype)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
