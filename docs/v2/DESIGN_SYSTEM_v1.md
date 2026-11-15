@@ -162,9 +162,8 @@ that carry a v1 fog note draw as ghosts.
 | not rated (`null`) | 7 / 8 px | Same as standard. Tier is never guessed upward |
 
 - **Size cap for one-sided claims (provisional ruling 2, 2026-11-12):** a ghost or faded ghost is drawn at standard
-  size whatever its tier, and takes its tier's size the moment it becomes solid or split. A dramatic claim by one
-  side cannot dominate the map before anyone else has spoken. Tier is a rating of importance to the story, never
-  of truth.
+  size whatever its tier, and takes its tier's size the moment it becomes solid or split. Size counts how many accounts
+  are on record, never how likely a claim is. Tier is a rating of importance to the story, never of truth.
 - **Age in long ranges:** when the window is longer than 30 days, a marker's whole opacity is multiplied by 1.0 if
   its date is within 30 days of the window's end, 0.7 within 180 days, 0.5 beyond. In the default 7-day window
   nothing is faded. Age changes opacity only; it never changes fill, outline style or size, so an old solid event
@@ -263,7 +262,7 @@ first party, right = the second**, in `compare-a` and `compare-b`. Shape still g
   place labels. Events always sit above arcs: what happened outranks what is connected.
 - **Declutter:** at theater zoom, standard-tier events may collapse to clusters; solid or split milestones never do.
 - **Fog layer look:** with **On the record** and **Fog** both on (the default), ghosts sit under solid and split
-  marks in the draw order, so where they overlap, what more than one side has said stays on top.
+  marks in the draw order, so where they overlap, records with more than one side on record stay on top. Draw order counts accounts on record only; it says nothing about which account is right.
 
 ## 4.2 3D globe (Cesium)
 - **Surface:** dark imagery tinted to the same `map-land` / `bg-base` pair so the two views feel like one product.
@@ -280,7 +279,7 @@ first party, right = the second**, in `compare-a` and `compare-b`. Shape still g
 ## 4.3 Tracks (OBSERVED)
 Aircraft are chevrons, vessels are hull outlines, satellites are small rings with a ground-track line. All in
 `track` grey with a 1 px dark keyline. Each carries a time tag in its card ("OBSERVED 14:32 UTC · adsb.lol").
-Vessels inside a GNSS-interference tint get a hatched ring and the words "position may be spoofed".
+Vessels inside a GNSS-interference tint get a hatched ring and the words "inside a GNSS-interference zone reported by [provider]".
 Tracks never take the ghost, solid or split looks: those belong to what people have said, and a transponder says
 nothing. Today only, one tap away.
 

@@ -122,7 +122,7 @@ function migrate(e) {
     launch: e.originLat !== undefined ? { lat: e.originLat, lng: e.originLng, name: e.originName, precision: e.originKnown === 'approximate' ? 'approximate' : null } : null,   // v1 originKnown 'probable' grades truth: not carried
     // v1 values kept as an archive. NOT carried: v1 `verified` and `fogLean` grade truth; they stay in warmaps-data.js only
     legacy: { ...Object.fromEntries(['time','perspective','weaponType','intercepted','source'].filter(k => e[k] !== undefined).map(k => [k, e[k]])),
-      ...(fog ? { fog: e.fogOfWar === true ? { status: e.fogStatus, note: e.fogNote, parties: e.fogSources, checkpoint: e.fogCheckpoint } : { marker: true } } : {}) },
+      ...(fog ? { fog: e.fogOfWar === true ? { note: e.fogNote, parties: e.fogSources, checkpoint: e.fogCheckpoint } : { marker: true } } : {}) },
     needs: [!UNAMBIGUOUS_KIND.has(e.type) && 'kind', t.bare && 'title', 'actors', 'claimant', 'published'].filter(Boolean),   // only fields whose migration default is not self-describing
     rev: 1,
     _dry: { dateCertain: d.certain, dateWhy: d.why || null, titleBare: t.bare, v1Fog: fog }

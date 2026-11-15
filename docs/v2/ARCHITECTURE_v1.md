@@ -23,7 +23,7 @@ types, one clock, two renderers:
 |---|---|---|
 | **Event** | One happening: a date, a place if anyone has named one, and the dated statements (**entries**) of everyone who has spoken about it, each with its claimant and source. Belongs to one or more theaters | `theaters/<theater>/events-<year>.json` |
 | **Link** | A relationship between two actors that someone has stated (weapons, intelligence, finance, energy/shipping, personnel, backing), with every statement for and against it attributed | `links/links.json` |
-| **Watch item** | A convergence tripwire (combat track) or a rhetoric/mobilization signal (weaker track). Its status says who has claimed, acknowledged or denied the events it cites | `watchlist/watchlist.json` |
+| **Watch item** | A convergence tripwire (combat track) or a rhetoric/mobilization signal (separate track). Its status says who has claimed, acknowledged or denied the events it cites | `watchlist/watchlist.json` |
 | **Track** | A live or archived aircraft/vessel position. OBSERVED, never an event | provider (live) or the history data branch |
 
 - **One clock:** the shared timeline runs on calendar dates. "Day N" is a per-theater label derived from the date.
@@ -319,7 +319,7 @@ that order never signals rank. No score, no percentage, no graded colour.
 | 1 | `On record: Iran (state media), Israel` | Sides with an in-force entry. "(state media)" when that side is on record only through its state or party media |
 | 2 | `Also reporting: Monitor X, United Nations` | Observers with an in-force entry |
 | 3 | `Missing: Hezbollah` | Involved sides not on record. `Missing: not yet established` while `actors` is in `needs`. Omitted when none |
-| 4 | `Agree it happened; disagree on damage; figures differ on killed` | Two or more accounts and not split. "disagree on" lists the scopes of in-force partial denials. "figures differ on" lists every `what` (with its `scope`) for which two accounts have different in-force values |
+| 4 | `Agree it happened; disagree on damage; figures differ on killed` | Two or more accounts that claim or acknowledge it, and not split. "disagree on" lists the scopes of in-force partial denials. "figures differ on" lists every `what` (with its `scope`) for which two accounts have different in-force values |
 | 4 (split) | `Denied by Iran` and/or `Who did it is disputed by Israel` | Split |
 | 5 | `Satellite images: 1 (published by Imagery Co)` | Count of in-force `media` of kind `satellite-image`, with publishers |
 | 6 | `Unresolved: no account from Iran as of 31 Dec 2026` | Faded ghost: the missing sides and the date of the last check |
@@ -379,7 +379,7 @@ State lives in the store (9.1); the selectors below are pure functions of the en
 
 - A new claim from the intake is **matched** to an existing record or opens a new one. Allan approves every merge.
 - **Merge** of two records: the entries of one move into the other and are renumbered after its last entry; each
-  moved entry keeps `movedFrom: "IR-00598#1"`. The emptied record becomes a tombstone (`reason: "merged"`, `into`).
+  moved entry keeps `movedFrom: "IR-00598#1"`. The emptied record becomes a tombstone (`reason: "combined"`, `into`).
 - **Split** is always possible: a new record with a new id takes the entries that belong to it (each with
   `movedFrom`), and both records note the other in `relatedIds`.
 - **During the overlap** the Iran master is still `warmaps-data.js` (7.2). Tombstones for Iran records are written
@@ -880,8 +880,8 @@ theater file is the switchboard for theaters. `validate-v2.js` checks the two ag
   the source list are shown as v1 wrote them until the enrichment pass turns them into real entries (7.3).
 - **v1 fog marker:** present when any of three is found: the structured block, the words "fog of war" anywhere in
   `misc` in any letter case, or the pass-2 fog flag. Result: **127** (34 in ids 1-385, 93 in ids 386-600; R1 fix
-  M2a added id 217). It is stored as `legacy.fog` (the structured block's status, note, parties and checkpoint text
-  where they exist; otherwise just a marker). It is **not** a v2 fog flag. Its only effect is decision 6: these 127
+  M2a added id 217). It is stored as `legacy.fog` (the structured block's note, parties and checkpoint text
+  where they exist; otherwise just a marker). v1's `fogStatus` value (disputed, partial, unresolved) is not carried: it is an unattributed label. It is **not** a v2 fog flag. Its only effect is decision 6: these 127
   draw as ghosts, the other 473 as `unattributed`.
 - **v1 truth grades are not carried:** `verified` (176 events), `fogLean` (15) and `originKnown: "probable"` (9).
   `originKnown: "approximate"` (3) becomes `launch.precision`. The pass-2 verifier results (PASS 171, FIX 44) are
@@ -957,7 +957,7 @@ Track E). Until it runs, v2 shows the Iran theater exactly as richly as v1 does 
 | B. IDs | Unique; shape; **never reused**: an id present in the previous published data version must still be present, as a record or a tombstone (M1). No continuity rule; the prefix is not checked against the home theater |
 | C. Legacy | Every v1 event has exactly one record or tombstone; text fields byte-identical |
 | D. Dates | Valid; end on or after start; precision consistent with `dateEndISO`; no day number in `timeNote`; every entry has a valid `published` |
-| **E0. Charter test** | **No field name and no closed-list value grades truth.** Rejected, at any depth, case-insensitive: `confirmed`, `verified`, `documented`, `credible`, `credibility`, `reliable`, `reliability`, `debunked`, `confidence`, `probable`, `likely`, `alleged`, `disinformation`, `misinformation`, `fake`, the strings `true` and `false` as values of a closed list, any field named `claimStatus` or `truthStatus`, and any true/false flag whose name is a verdict (`isTrue`, `genuine`, `accurate`). Free text that carries sources' words (`text`, `title`, `covers`, `note`, `detail.*`) is exempt: quoted source text is not ours to edit. `recordCheck` is allowed and is named as what it is: a record-to-source check under charter rule 5. Mutation test: adding `"claimStatus": "confirmed"` to one event must fail. The word list lives in one place and is extended when drift finds a new word. (The test already earned its keep in the dry run: it caught v1's `originKnown: "probable"`.) |
+| **E0. Charter test** | **No field name and no closed-list value grades truth.** Rejected, at any depth, case-insensitive: `confirmed`, `verified`, `documented`, `credible`, `credibility`, `reliable`, `reliability`, `debunked`, `confidence`, `probable`, `likely`, `alleged`, `proven`, `disproven`, `unconfirmed`, `unverified`, `disinformation`, `misinformation`, `fake`, matched as whole tokens inside camelCase and snake_case names (`isVerified`, `confidenceLevel`, `toward_confirmed`), the strings `true` and `false` as values of a closed list, any field named `claimStatus` or `truthStatus`, and any true/false flag whose name is a verdict (`isTrue`, `genuine`, `accurate`). Free text that carries sources' words (`text`, `title`, `covers`, `note`, `detail.*`) and any value containing spaces is exempt; `reason` and `label` are not exempt: quoted source text is not ours to edit. `recordCheck` is allowed and is named as what it is: a record-to-source check under charter rule 5. Mutation test: adding `"claimStatus": "confirmed"` to one event must fail. The word list lives in one place and is extended when drift finds a new word. (The test already earned its keep in the dry run: it caught v1's `originKnown: "probable"`.) |
 | E. Attribution rules | Every entry has a claimant, or the record has `claimant` in `needs`. `supersedes` names an earlier entry by the same claimant. `scope` only on `denies` and `acknowledges`. On records authored in v2: every source has a `role` and an `access`; `leaked` has a `recordCheckNote`; stored `lat`/`lng` equal the derived position. The index's `look`, `accounts` and `steps` equal the derivation. Nothing derived is stored in a full record. Links: every entry has `covers`. Watchlist: the rules in 4.2, including "stale". Forbidden words absent from generated strings (whole words) |
 | F. References | Actors, registry ids, entry numbers (`respondsTo`, `supersedes`, `movedFrom`), events cited by links and watch items; a citation of a tombstone is flagged |
 | G. Freshness | Generated files, index and manifest match their inputs |

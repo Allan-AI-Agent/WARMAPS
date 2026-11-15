@@ -394,7 +394,7 @@ One component, three variants. Two sizes: **peek** (what you need to decide whet
 | Header line | Tier dot · title | Category glyph · title | Type glyph · callsign or name |
 | Chips | Theater chip(s) · **attribution chip** (ONE SIDE, SIDES AGREE, CONTESTED, UNRESOLVED, NOT YET ATTRIBUTED) · kind | Theater chips · **who-has-spoken chip** (BOTH ACTORS, ONE ACTOR, OTHERS ONLY, DENIED BY SOMEONE) · direction | **OBSERVED** chip · source · time |
 | Status line | "On record: Iran, Israel · Missing: Hezbollah · Agree it happened; disagree on damage" (ARCHITECTURE 3.4.4) | "Affirmed by: ... · Acknowledged by: ... · Denied by: ... · No statement from: ..." | — |
-| Peek body | Date (and day number) · place and who placed it · first sentence | Actors A → B · date range · number of voices in the window | Position time, speed, heading; warning line if in a jamming area |
+| Peek body | Date (and day number) · place and who placed it · first sentence | Actors A → B · date range · number of voices in the window | Position time, speed, heading; line "inside a GNSS-interference zone reported by [provider]" if applicable |
 | Expanded | **Entries, oldest first:** each row = claimant · what they did (says, acknowledges, denies, withdraws) · date published · their words in brief · figures · source link · "carried by" list. Superseded entries are shown struck through under the entry that replaced them. Then: the look-again line ("Checked after 1, 3 and 7 days: no account from Iran found. Next check: 30 days"); other places named, each with who named it; the v1 note where there is one; the record-check line ("Record compared with its sources on 9 Nov 2026"); related links | Summary; **statements by date**, each = claimant · affirms, acknowledges or denies · the `covers` sentence · source; the fixed line "WARMAPS does not rate this link"; the legend sentence about weight | "Transponder data is self-reported. Absence is not evidence of no activity." Provider attribution |
 | Actions | Show on map · Show on timeline · Copy link · Previous / next in time | Show both ends · Filter events to these actors · Copy link | Follow (today only) · Copy link |
 
@@ -525,7 +525,7 @@ says the same thing.
 # 9. Watchlist panel
 - Two sections that look different on purpose: **Combat tripwires** and, below a divider and a heading in smaller
   type, **Rhetoric and mobilization** (four-step meter: quiet / noted / elevated / sustained, with the caption
-  "Statements and preparations. Weaker signal. Cannot change a tripwire.").
+  "Statements and preparations. Counted separately. Cannot change a tripwire.").
 - **Combat tripwire rows** carry one chip, all in the same neutral chip style with the small mark of the cited
   events' look: NO CLAIM ON FILE · CLAIMED BY ONE SIDE · CLAIMED AND DENIED · STATED BY BOTH ENDS (ARCHITECTURE 4.2).
   Under the chip, the names: "Claimed by: Ukraine (names Iran) · Denied by: Iran · No account from: Russia".

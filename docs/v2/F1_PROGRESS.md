@@ -61,6 +61,12 @@ None is fixed yet. Recommended handling (INFERRED; Allan rules where marked):
 
 Also: ARCHITECTURE line 1167 says the v1.2 rules "have had a charter check by a separate agent"; that is true as of 2026-11-14.
 
+**Applied 2026-11-14 (Sonnet 5.5, after the table above was written):** rows 11 (status line fixed, 4 new tests, 70/70),
+12 (token-match charter test, `reason`/`label` no longer exempt, word list extended and ARCHITECTURE E0 updated), 10
+(`fogStatus` not carried), 5, 6, 8, and the notes on "weaker signal" and `reason: "merged"` (now `"combined"`).
+**Not applied, need Allan:** rows 1, 2, 3, 4, 7, 9, 13; the single shared forbidden-word list; photos and video in the
+status line.
+
 **Still open for Allan:** eight decisions (1-7, 9); whether the v1 stats-wording PR also takes the naval "Verified / Unverified"
 labels and the launch-origin value (STATE.md OPEN ITEMS; v1 not touched).
 

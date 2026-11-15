@@ -152,7 +152,7 @@ function deriveEvent(rec, T, reg, cfg = CONFIG) {
   if (obsIds.length) p.push('Also reporting: ' + names(obsIds));
   p.push(missing === null ? 'Missing: not yet established' : missing.length ? 'Missing: ' + names(missing) : null);
   if (out.look === 'split') p.push([denyIds.length ? 'Denied by ' + names(denyIds) : null, attrDisputeIds.length ? 'Who did it is disputed by ' + names(attrDisputeIds) : null].filter(Boolean).join('; '));
-  else if (new Set(acct.map(x => x.a.id)).size > 1) p.push(['Agree it happened', aspects.length ? 'disagree on ' + aspects.join(', ') : null, figDiff.length ? 'figures differ on ' + figDiff.join(', ') : null].filter(Boolean).join('; '));
+  else if (new Set(acct.filter(x => x.e.stance === 'claims' || x.e.stance === 'acknowledges').map(x => x.a.id)).size > 1) p.push(['Agree it happened', aspects.length ? 'disagree on ' + aspects.join(', ') : null, figDiff.length ? 'figures differ on ' + figDiff.join(', ') : null].filter(Boolean).join('; '));
   if (sat.length) p.push('Satellite images: ' + sat.length + ' (published by ' + out.imagery.publishers.join(', ') + ')');
   if (out.look === 'faded') p.push('Unresolved: no account from ' + names(missing && missing.length ? missing : ['any other side']) + ' as of ' + lastCheck.dateISO);
   out.statusLine = p.filter(Boolean).join(' · ');
@@ -241,19 +241,22 @@ function validateWatch(w, events, reg, today, cfg = CONFIG) {
 }
 
 /* Charter test (7.4 E0): no field name or closed-list value grades truth. Free text is not scanned. */
-const TRUTH_WORDS = ['confirmed', 'verified', 'documented', 'credible', 'credibility', 'reliable', 'reliability', 'debunked', 'confidence', 'true', 'false', 'disinformation', 'misinformation', 'fake', 'probable', 'likely', 'alleged'];
-const FREE_TEXT = new Set(['title', 'text', 'note', 'place', 'country', 'attackerText', 'timeNote', 'summary', 'definition', 'publisher', 'url', 'reason', 'name', 'long', 'label', 'covers', 'citing', 'quote']);
+const TRUTH_WORDS = ['confirmed', 'unconfirmed', 'verified', 'unverified', 'documented', 'credible', 'credibility', 'reliable', 'reliability', 'debunked', 'confidence', 'true', 'false', 'disinformation', 'misinformation', 'fake', 'probable', 'likely', 'alleged', 'proven', 'disproven'];
+// Match whole camelCase / snake_case tokens so `isVerified`, `confidenceLevel`, `toward_confirmed` are caught. `confirm*`-style stems are matched by prefix.
+const tokens = s => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+const isTruthWord = s => tokens(s).some(t => TRUTH_WORDS.includes(t));
+const FREE_TEXT = new Set(['title', 'text', 'note', 'place', 'country', 'attackerText', 'timeNote', 'summary', 'definition', 'publisher', 'url', 'long', 'covers', 'citing', 'quote']);
 function charterScan(obj, path = '') {
   const hits = [];
   const walk = (v, p, key) => {
     if (Array.isArray(v)) return v.forEach((x, i) => walk(x, p + '[' + i + ']', key));
     if (v && typeof v === 'object') { for (const [k, x] of Object.entries(v)) {
       if (k === 'detail') continue;                                     // v1 descriptive text, byte-identical, quoted
-      if (TRUTH_WORDS.includes(k.toLowerCase())) hits.push(p + '.' + k + ' (field name)');
+      if (isTruthWord(k)) hits.push(p + '.' + k + ' (field name)');
       if (/status$/i.test(k) && /^(claim|truth)/i.test(k)) hits.push(p + '.' + k + ' (field name)');
       walk(x, p + '.' + k, k); } return; }
     if (typeof v === 'boolean' && key && /^(is)?(true|real|genuine|accurate)$/i.test(key)) hits.push(p + ' (verdict flag)');
-    if (typeof v === 'string' && key && !FREE_TEXT.has(key) && TRUTH_WORDS.includes(v.toLowerCase())) hits.push(p + ' = "' + v + '" (value)');
+    if (typeof v === 'string' && key && !FREE_TEXT.has(key) && !/\s/.test(v) && isTruthWord(v)) hits.push(p + ' = "' + v + '" (value)');
   };
   walk(obj, path, null);
   return hits;

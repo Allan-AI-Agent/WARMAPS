@@ -164,6 +164,11 @@ t('charter test passes a clean record', A.charterScan(both).length === 0, A.char
 t('MUTATION: "claimStatus": "confirmed" is rejected (the test named in the S1 prompt)', A.charterScan({ ...both, claimStatus: 'confirmed' }).length > 0);
 t('MUTATION: a field named "confidence" is rejected', A.charterScan({ id: 'LK-00001', confidence: 'high' }).length > 0);
 t('MUTATION: a truth word as a closed-list value is rejected', A.charterScan({ ...both, entries: [{ ...both.entries[0], stance: 'debunked' }] }).length > 0);
+t('MUTATION: camelCase truth fields are rejected (isVerified, confidenceLevel, credibilityScore)', ['isVerified','confidenceLevel','credibilityScore'].every(k => A.charterScan({ ...both, [k]: 1 }).length > 0));
+t('MUTATION: unconfirmed, proven and toward_confirmed values are rejected', ['unconfirmed','proven','toward_confirmed'].every(v => A.charterScan({ ...both, entries: [{ ...both.entries[0], stance: v }] }).length > 0));
+t('MUTATION: a truth word in `reason` or `label` is rejected', A.charterScan({ id: 'x', reason: 'confirmed' }).length > 0 && A.charterScan({ id: 'x', label: 'verified' }).length > 0);
+d = D(ev([en(1, 'irgc', 'denies', '2026-12-01'), en(2, 'idf', 'denies', '2026-12-02')]));
+t('two denials and no affirming account never print "Agree it happened"', !/Agree it happened/.test(d.statusLine), d.statusLine);
 t('quoted source text is exempt', A.charterScan({ ...both, entries: [{ ...both.entries[0], text: 'The ministry said it had confirmed the strike.' }] }).length === 0);
 
 results.forEach(r => console.log((r.ok ? 'PASS ' : 'FAIL ') + r.name + (r.detail && !r.ok ? '  ' + JSON.stringify(r.detail) : '')));
