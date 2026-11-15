@@ -431,7 +431,7 @@ F-001 has **two variants** and they need different defences:
 
 ## OPEN ITEMS
 
-- **[NEW 2026-11-13, RULED by Allan] Reword the live v1 stats under the charter.** His words: "We should include
+- **[DONE 2026-11-14, PR #19, branch `v01.09.04`, awaiting Allan's merge and cold read] Reword the live v1 stats under the charter.** Allan chose option B: the stat label, the naval Verified/Unverified line and colour split, and the launch CONFIDENCE row. About 20 other "confirmed"/"verified" wordings in v1 were left alone (listed in the PR's STATE.md status). Original note: His words: "We should include
   updating the live v1 site stats wording." A small v1 change on its own branch and PR (version bump, validators,
   cold read): the stat label "Confirmed Dead (Iran Military)" (`index.html` line 1666) and any stat label that
   grades, reworded to say who reports the figure and as of when. **Not done yet. Ask Allan first** whether the
