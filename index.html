@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#070d14">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WarMaps - Iran vs US-Israel 2026 v01.09.03 | OPERATION ROARING LION / EPIC FURY</title>
+<title>WarMaps - Iran vs US-Israel 2026 v01.09.04 | OPERATION ROARING LION / EPIC FURY</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1657,13 +1657,13 @@
       </svg>
       <div class="wm-logo-text"><span class="wm-war">WAR</span><span class="wm-maps">MAPS</span></div>
     </div>
-    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.03">v01.09.03</div>
+    <div class="wm-version" id="wm-version" title="WarMaps - Iran vs US-Israel 2026 v01.09.04">v01.09.04</div>
   </div>
   <div class="header-right">
     <div class="stat-group">
     <div class="stat-box stat-red" id="statbox-kills" title="Right-click to switch perspective" style="cursor:context-menu">
       <div class="val" id="stat-kills">4,800+</div>
-      <div class="lbl" id="stat-kills-lbl">Confirmed Dead (Iran Military)</div>
+      <div class="lbl" id="stat-kills-lbl">Iran Military Dead (Hengaw, Mar 18)</div>
     </div>
     <div class="stat-box stat-cyan" id="statbox-strikes" title="Right-click to switch perspective" style="cursor:context-menu">
       <div class="val" id="stat-strikes">7,800+</div>
@@ -1909,7 +1909,7 @@ const WARMAPS_CONFIG = {
 
   // Version string — short form (hover expands to full version)
   versionShort: 'v01.09',
-  versionFull:  'v01.09.03',
+  versionFull:  'v01.09.04',
 
   // When the conflict started (Day 1 on the timeline)
   conflictStart: 'February 28, 2026',
@@ -3159,9 +3159,8 @@ const navalSVGs = {
   bomber:     `<svg viewBox="0 0 36 20" width="36" height="20" xmlns="http://www.w3.org/2000/svg"><polygon points="18,1 34,16 28,16 18,10 8,16 2,16" fill="COLOR" opacity="0.90"/><rect x="16" y="9" width="4" height="8" rx="1" fill="COLOR" opacity="0.6"/></svg>`,
 };
 
-function getNavalColor(side, status, verified) {
-  if (!verified && status === 'rumored_damage') return '#ff4444';
-  if (!verified) return '#888888';
+function getNavalColor(side, status) {
+  // v01.09.04: colour no longer varies by a verified flag (editorial charter: no mark grades truth)
   if (status === 'damaged')   return '#ff2222';
   if (status === 'withdrawn') return '#ff9800';
   if (side === 'us')          return '#1e90ff';
@@ -3171,7 +3170,7 @@ function getNavalColor(side, status, verified) {
 }
 
 function createNavalMarker(asset, pos, currentDay) {
-  const color  = getNavalColor(asset.side, pos.status, pos.verified);
+  const color  = getNavalColor(asset.side, pos.status);
   const svgStr = (navalSVGs[asset.type] || navalSVGs.destroyer).replace(/COLOR/g, color);
   // Reduced ship icon sizes — were too large when zoomed out
   const svgW = asset.type === 'carrier' ? 28 : asset.type === 'bomber' ? 26 :
@@ -3184,7 +3183,7 @@ function createNavalMarker(asset, pos, currentDay) {
   const label = asset.designation || asset.name.split(' ').pop();
   let labelHtml = `<div class="naval-ship-label">${label}</div>`;
   if (isLastKnown && !isRumor) labelHtml += `<div class="naval-last-known">⚠ LAST KNOWN</div>`;
-  if (isRumor)                 labelHtml += `<div class="naval-rumor-badge">● UNVERIFIED DMG</div>`;
+  if (isRumor)                 labelHtml += `<div class="naval-rumor-badge">● DAMAGE REPORTED, SEE SOURCE</div>`;
 
   const icon = L.divIcon({
     className: '',
@@ -3200,8 +3199,7 @@ function createNavalMarker(asset, pos, currentDay) {
 
   const marker = L.marker([pos.lat, pos.lng], { icon, zIndexOffset: 500 });
   const statusLabels = { active:'OPERATIONAL', transit:'IN TRANSIT', withdrawn:'WITHDRAWN',
-                         damaged:'BATTLE DAMAGE', rumored_damage:'DAMAGE RUMORED (UNVERIFIED)', unknown:'UNKNOWN' };
-  const verStr = pos.verified ? '<span style="color:#33dd66">✓ Verified</span>' : '<span style="color:#ff9800">⚠ Unverified</span>';
+                         damaged:'BATTLE DAMAGE', rumored_damage:'DAMAGE REPORTED (SEE SOURCE)', unknown:'UNKNOWN' };
   marker.bindPopup(`
     <div style="font-family:'Share Tech Mono',monospace;font-size:11px;min-width:270px">
       <div style="font-size:13px;font-weight:700;color:${color};margin-bottom:6px">
@@ -3209,11 +3207,10 @@ function createNavalMarker(asset, pos, currentDay) {
       </div>
       <div style="margin-bottom:3px"><span style="color:#6b7f99">STATUS: </span>
         <span style="color:${color};font-weight:700">${statusLabels[pos.status] || pos.status.toUpperCase()}</span>
-        <span style="margin-left:8px">${verStr}</span>
       </div>
       <div style="margin-bottom:6px;color:#888;font-size:10px">SOURCE: ${pos.source}</div>
       <div style="color:#e8edf5;line-height:1.5">${pos.note}</div>
-      ${pos._rumorNote ? `<div style="margin-top:8px;padding:6px;background:rgba(255,40,40,0.1);border:1px solid rgba(255,40,40,0.3);border-radius:3px"><div style="color:#ff6666;font-size:9px;font-weight:700;margin-bottom:3px">&#9888; UNVERIFIED INTELLIGENCE</div><div style="color:#ffaaaa;font-size:10px;line-height:1.4">${pos._rumorNote}</div><div style="color:#888;font-size:9px;margin-top:3px">SRC: ${pos._rumorSource}</div></div>` : ''}
+      ${pos._rumorNote ? `<div style="margin-top:8px;padding:6px;background:rgba(255,40,40,0.1);border:1px solid rgba(255,40,40,0.3);border-radius:3px"><div style="color:#ff6666;font-size:9px;font-weight:700;margin-bottom:3px">&#9888; DAMAGE REPORT (SEE SOURCE)</div><div style="color:#ffaaaa;font-size:10px;line-height:1.4">${pos._rumorNote}</div><div style="color:#888;font-size:9px;margin-top:3px">SRC: ${pos._rumorSource}</div></div>` : ''}
     </div>
   `, { maxWidth: 380, minWidth: 280, autoPan: false });
   return marker;
@@ -3504,8 +3501,8 @@ strikes.forEach(s => {
       (s.weaponType === 'drone' ? 'DRONE BASE' : 'MISSILE BASE') + '</div></div>' +
       '<div class="popup-body"><div class="popup-row"><div class="key">FIRED AT</div>' +
       '<div class="val">' + s.city.split('—')[0].trim() + '</div></div>' +
-      '<div class="popup-row"><div class="key">CONFIDENCE</div>' +
-      '<div class="val">' + (s.originKnown || 'unknown').toUpperCase() + '</div></div></div></div>',
+      '<div class="popup-row"><div class="key">ORIGIN BASIS</div>' +
+      '<div class="val">' + ({probable:'Location per event sources', approximate:'Approximate location'}[s.originKnown] || 'Not stated') + '</div></div></div></div>',
       { maxWidth: 280, autoPan: false }
     );
     launchIconGroup.addLayer(_om);
@@ -5049,7 +5046,7 @@ window._sidebarPreset = function(preset) {
 (function() {
   var vEl = document.getElementById('wm-version');
   if (!vEl) return;
-  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.03';
+  var full  = (typeof WARMAPS_CONFIG !== 'undefined') ? WARMAPS_CONFIG.versionFull  : 'v01.09.04';
   vEl.textContent = full;
 })();
 

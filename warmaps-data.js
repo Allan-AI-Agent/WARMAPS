@@ -8861,8 +8861,8 @@ const navalAssets = [
       {
         day: 18, lat: 35.48, lng: 24.07,
         status: 'rumored_damage',
-        note: 'UNVERIFIED: Multiple OSINT accounts allege Ford was struck by Iranian mine, drone, or missile. Fire described as cover story. No official confirmation. Treat as unverified intelligence pending corroboration from secondary sources.',
-        source: 'RUMOR — unverified OSINT / social media', verified: false,
+        note: 'Multiple OSINT accounts allege Ford was struck by Iranian mine, drone, or missile, and describe the reported fire as a cover story. No official statement on file. Source type: social media.',
+        source: 'OSINT accounts / social media; no official statement', verified: false,
       },
     ],
   },
@@ -8933,7 +8933,7 @@ const navalAssets = [
         day: 0, lat: 26.00, lng: 58.00,
         status: 'active',
         note: 'Strait of Hormuz approach — Los Angeles-class attack submarine. Submerged patrol. Fired Tomahawk cruise missiles at IRGC naval targets. Exact position classified — estimated.',
-        source: 'Confirmed strike event / position estimated', verified: false,
+        source: 'Strike event reported / position estimated', verified: false,
       },
       {
         day: 15, lat: 25.30, lng: 57.00,
@@ -9002,7 +9002,7 @@ const navalAssets = [
       {
         day: 0, lat: 23.50, lng: 61.50,
         status: 'active',
-        note: 'Arabian Sea — Arleigh Burke-class guided missile destroyer. Part of Lincoln CSG escort. Confirmed Tomahawk strikes on Fordow area alongside USS Chafee. 154 Tomahawk capacity.',
+        note: 'Arabian Sea — Arleigh Burke-class guided missile destroyer. Part of Lincoln CSG escort. Reported Tomahawk strikes on Fordow area alongside USS Chafee. 154 Tomahawk capacity.',
         source: 'Strike event data / open reporting', verified: true,
       },
       {
@@ -9033,7 +9033,7 @@ const navalAssets = [
       {
         day: 20, lat: 28.50, lng: 34.20,
         status: 'active',
-        note: 'Northern Red Sea — sustained operations. Supporting expanding IDF Lebanon ground campaign. 3 warships and 2,500 additional Marines confirmed deploying (open reporting).',
+        note: 'Northern Red Sea — sustained operations. Supporting expanding IDF Lebanon ground campaign. 3 warships and 2,500 additional Marines reported deploying (open reporting).',
         source: 'Open reporting Day 22 / estimated position', verified: false,
       },
     ],
@@ -9090,7 +9090,7 @@ const navalAssets = [
       {
         day: 3, lat: 36.00, lng: 22.00,
         status: 'transit',
-        note: 'Eastern Mediterranean — Italy, Netherlands, Spain confirmed sending warships to defend Cyprus. Includes Cristobal Colon frigate (Spain). France contributing vessel. Defensive coalition assembled within first 72 hours. UK already forward positioned.',
+        note: 'Eastern Mediterranean — Italy, Netherlands, Spain reported sending warships to defend Cyprus. Includes Cristobal Colon frigate (Spain). France contributing vessel. Defensive coalition assembled within first 72 hours. UK already forward positioned.',
         source: 'Wikipedia Timeline / House of Commons briefing', verified: true,
       },
       {
@@ -9164,7 +9164,7 @@ const navalAssets = [
       {
         day: 4, lat: 27.18, lng: 56.27,
         status: 'damaged',
-        note: 'Bandar Abbas — withdrawn after US Navy engagement. Confirmed damage. Non-operational.',
+        note: 'Bandar Abbas — withdrawn after US Navy engagement. Damage reported (USNI News). Non-operational.',
         source: 'USNI News / open reporting', verified: true,
       },
     ],
