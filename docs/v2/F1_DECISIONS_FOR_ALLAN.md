@@ -1,10 +1,10 @@
 ---
 title: F1 — Decisions for Allan
-version: v1.2 (2026-11-14: rewritten under the editorial charter; decisions 5 and 6 reworded, decision 9 added; see "What changed" below)
-date: 2026-11-14 (Iran-war Day 260); v1.1 was 2026-11-11
-author: Claude (Fable 5.2), sessions F1 and F1b-1
-status: decisions 1-3 RULED 2026-11-14 (all A); 4, 5, 7 RULED A 2026-11-14; 6 and 9 RULED A PROVISIONAL (confirm after the prototype); number 8 is reserved for the default theme, added by session F1b-2
-how to answer: reply with eight letters in the order of the answer sheet, for example "A A A A A A A A", or "all recommended"
+version: v1.3 (2026-11-15: decision 8 added, the default theme; decision 7 reworded around the AI briefing, its ruling unchanged; theme design calls listed for veto. v1.2, 2026-11-14: rewritten under the editorial charter)
+date: 2026-11-15 (Iran-war Day 261); v1.2 was 2026-11-14
+author: Claude (Fable 5.2), sessions F1, F1b-1 and F1b-2
+status: decisions 1-5 and 7 RULED A (2026-11-14); 6 and 9 RULED A PROVISIONAL (confirm after the prototype); **8 is OPEN** (new 2026-11-15; best answered after the prototype). Nine decisions; this is the cap
+how to answer: only decision 8 is open. Reply "8 A", "8 B" or "8 C", or wait and answer it on the prototype, where you also confirm 6 and 9 and item d
 ---
 
 **Under the editorial charter (ruled 2026-11-12, `STATE.md`).** WARMAPS records who said what, with sources, and
@@ -21,14 +21,15 @@ decision card rates my own recommendation, not any claim.
 | 4 | Shared timeline label | **RULED A, 2026-11-14: calendar date first**, day numbers second | The two wars have different Day 1s; a date is the only label true for both | Yes |
 | 5 | Watchlist headline | **RULED A, 2026-11-14: a count** ("N of M combat tripwires have a claim on record") | Shows where things stand without the site drawing a conclusion | Yes |
 | 6 | How the 600 Iran events look before anyone has recorded who said them | **PROVISIONAL A, 2026-11-14 (confirm after the prototype): 473 plain "not yet attributed", 127 ghosts** | Says exactly what the data holds: v1 flagged fog on 127 and recorded a claimant on none | **Yes — judge it on the prototype** |
-| 7 | v1's AI summary panel | **RULED A, 2026-11-14: leave it out of v2 for now** | Stores users' API keys in the browser on a public site; off-mission for a source-disciplined map | Yes |
+| 7 | v1's AI summary panel, and what follows it | **RULED A, 2026-11-14: leave it out of v2 for now.** What follows after cutover is asked then; my recommendation on file is a daily published brief with no keys (slice S9) | Stores users' API keys in the browser on a public site. The brief keeps the idea and drops the keys | Done; the follow-on waits for cutover |
+| 8 | Default theme, and whether Classic keeps v1's side colours | **OPEN. Recommended A: Classic is the default; colour means theater, not side** | Your direction was to target v1's look; side colours cannot extend to four theaters and read as partisan | **Yes — judge it on the prototype** |
 | 9 | When a ghost becomes solid | **PROVISIONAL A, 2026-11-14 (confirm after the prototype): a side from each end has said it happened** | A strike is solid when the one who struck and the one struck both say so | **Yes — judge it on the prototype** |
 
 Not a decision (already ruled 2026-11-09, recorded in STATE.md): the globe is a copy of selected parts into
 `globe/`, not a fork. The F1 prompt listed it as "confirm"; it is confirmed.
 
-To start the prototype, say: **"continue with Part B"**. Decisions 4-7 and 9 can be ruled after you have seen it.
-Decision 8 (default theme) is added by session F1b-2 and is not in this version.
+To start the prototype, say: **"continue with Part B"**. Nothing blocks it. On the prototype you answer 8 and
+confirm 6, 9 and item d.
 
 Each decision below has: the options, a decision card in your format, the strongest objection to my
 recommendation, and my answer to it. Evidence labels as usual.
@@ -159,31 +160,82 @@ pass records who said what, how should they look?
   and its legend line and card chip say what it is; the prototype shows A and B side by side so you can judge by
   eye. The cure is the enrichment pass, which starts with these 127 and makes the question fade as it proceeds.
 
-# 7. v1's AI summary panel
+# 7. v1's AI summary panel, and what follows it
 
-**Question:** v1 has an "AI intelligence" panel where a visitor pastes their own Anthropic, OpenAI or Gemini key.
-Does v2 carry it?
+**RULED A by Allan, 2026-11-14: the v1 panel is left out of v2 for now.** That ruling stands and is not reopened
+here. This section is reworded (2026-11-15) to record your direction on what could follow, so it is on file when
+cutover comes. **Nothing here needs an answer now.**
+
+**Your direction (2026-11-11, OBSERVED):** the v1 panel, where a visitor pastes their own Anthropic, OpenAI or
+Gemini key, never worked properly and is legacy. You like AI adding something beyond "a map with a pretty
+interface" and are fine extending it in v2, on conditions: a user brings their own key and it lives on their own
+device; your own test key never ships to anyone; key handling is not intermingled with the app; it has real security.
+
+**The follow-on choice, to be asked at cutover (slice S9 in the release plan):**
 
 | Option | What it means |
 |---|---|
-| **A. Leave it out of v2 for now (recommended)** | Not built in S1-S8. v1 keeps it until cutover. Revisit after cutover as an optional module |
-| B. Carry it over in S2 | Same behaviour, restyled |
-| C. Rebuild it properly later | A server-side summary generated nightly from the curated events and shown to everyone, with no visitor keys |
+| **A. A daily published brief (recommended)** | A scheduled task on your own subscription writes a short brief each day from the curated, sourced record and publishes it as a file. The site shows it stamped as machine-written. Every sentence cites the events it rests on. No key exists in any browser |
+| B. A, and later questions with your own key | As A. Later, a reader may bring their own key to ask questions of the record, under your conditions above, as separate code that loads only when switched on |
+| C. Neither | v2 has no AI feature |
 
-**Card:** VALUE low-medium · EFFORT none (A), about half a session (B), a slice plus metered cost (C) · CONFIDENCE medium · COST nominal (A, B) / METERED (C) · RECOMMEND A · GATE not auto-approved (removes a v1 feature at cutover)
+**Card (for the follow-on):** VALUE medium · EFFORT one slice (A); a second slice and a security review (B) · CONFIDENCE medium-high for A, medium for B · COST nominal for A (it uses your subscription's scheduled-task allowance; INFERRED no new charge) · RECOMMEND A first, B only if A proves useful · GATE not auto-approved (new feature; B handles keys)
 
-- **Why A:** two reasons. Security: the panel keeps a visitor's API key in the browser's local storage (VERIFIED in
-  `index.html`). On a public site that is a habit worth not carrying forward: any script that ever ran on the page
-  could read it. Mission: an unsourced model-written summary sits awkwardly on a map whose point is that every
-  claim has a source and a named claimant.
-- **Strongest objection:** you use it, and "second brain" assistance is one of your stated goals.
-- **Answer:** then C is the right shape for it, not B: a summary written from the curated, sourced events, labelled
-  as machine-written, with no keys in any browser. C is metered, so it needs its own ruling and belongs after
-  cutover. If you rely on the panel today, say B and it goes into S2 unchanged.
+- **Why A:** it keeps what you liked and removes what was wrong. v1's panel keeps a visitor's key in the browser's
+  local storage (VERIFIED in `index.html`), where any script that ever ran on the page could read it. A published
+  brief needs no key at all, and because it is written only from the record it can be held to the charter by a
+  check: every sentence cited, attribution verbs only, no fact added, no prediction, nothing said about which
+  account is right.
+- **Strongest objection:** a model-written summary is still a summary. Choosing which events to mention and in
+  what order is a form of judgment, and on a site whose rule is "we do not judge" a daily brief could become the
+  one place where a view creeps in. It also spends usage every day.
+- **Answer:** the objection is real, and it is why this is a separate, later ruling and not part of v2's core. The
+  guards: the brief is labelled as machine-written and kept apart from the record, as your own notes are; a
+  validator rejects an uncited sentence or a verdict word; an independent reader checks the first weeks sentence
+  by sentence; and you approve those weeks before it runs unattended. If it still reads as a view, choose C.
+- **On B:** it meets your conditions on paper, but a key in a browser is a risk however carefully it is held, and
+  the site gains nothing a reader could not get by pasting the record into their own AI tool. I would want A in
+  use for a while before building it.
+
+# 8. Default theme, and whether Classic keeps v1's side colours
+
+**OPEN (new 2026-11-15).** v2 ships three themes: **Classic** (v1's look, upgraded), **Ops** (quieter, no glow)
+and **Paper** (light). Anyone can switch in Settings. Two linked questions: which one a new visitor sees first, and
+whether Classic keeps v1's habit of colouring markers by who acted.
+
+**What v1 does (VERIFIED in `index.html`):** markers are coloured by actor: Israel red, US orange, Iran blue,
+joint purple.
+
+| Option | What it means |
+|---|---|
+| **A. Classic is the default; colour means theater (recommended)** | A new visitor sees v1's near-black ground, neon accents, Oswald and Share Tech Mono, with the glow. Markers are coloured by **which war** (amber for the Iran war), never by who acted. Ops and Paper are one tap away |
+| B. Ops is the default; colour means theater | A new visitor sees the quieter look. Classic and Paper are one tap away |
+| C. Classic is the default and keeps v1's side colours in the Iran-only view | As A, but when only the Iran theater is shown, markers are coloured by actor as in v1 |
+
+**Card:** VALUE medium (first impression; nothing is locked in) · EFFORT none: one value in the config · CONFIDENCE medium for A over B; high against C · COST nominal · RECOMMEND A, **but decide on the prototype** · GATE not auto-approved (it is the face of the site, and yours to choose)
+
+- **Why A over B:** your direction on 2026-11-11 was to target the current look and raise its quality. Classic is
+  that. It is also what your testers have already seen. Ops is my design, and I should not make my own taste the
+  default over your stated one.
+- **Why not C:** three reasons. (1) Under the charter the fill of a mark shows who has spoken; a second colour
+  code for who acted puts two meanings on one mark, and red-for-one-side reads as taking a side. (2) It cannot
+  extend: four theaters have dozens of actors and no colour set that stays readable. (3) Where accounts dispute who
+  did it, a side colour would be the site choosing (ruled item a: "who did it" is derived from the entries and may
+  be `unclassified`). Who acted is on every card in words, and a lens shows any party's account.
+- **Strongest objection to A:** Classic is louder. Its glow and neon sit uneasily with the restraint rules that
+  keep the map from looking like a conspiracy board, and its hot pink for the Caribbean sits close to the red of
+  the error banner (difference 8.3 against a minimum of 8). On a Fire tablet at the Lite detail level its glow is
+  capped anyway.
+- **Answer:** the glow is on the chrome and on milestones, never on ghosts and never different between looks, so
+  it cannot make one account look stronger than another. Every Classic colour passes the same computed checks as
+  Ops. But "louder" is a matter for the eye on a real screen, which is why the prototype shows all three and this
+  can wait for it. Changing the default later is one value and affects only people who have never chosen.
+- **A finding you should know:** the four theater colours in the earlier design were described as colour-blind
+  safe and that had not been measured. A computed check on 2026-11-15, using a standard simulation of colour
+  blindness, found two pairs that came out nearly identical. All three themes now use re-tuned colours that pass, and no theme is accepted without the check. Shape
+  still does the guaranteed work.
 
 # 9. When a ghost becomes solid
-
-(Number 8 is reserved for the default theme, which session F1b-2 adds.)
 
 **Question:** a ghost is an event with one side on record. Solid means "the sides on record agree it happened",
 and nothing more. How many sides, and which, must say it happened before the mark turns solid?
@@ -232,8 +284,8 @@ small change to v1, its own branch and PR).
 
 | Call | Where | Why |
 |---|---|---|
-| Typefaces: IBM Plex Sans, Sans Condensed and Mono, self-hosted | DESIGN_SYSTEM 1 | Cyrillic coverage for the RU theater; no third-party font call |
-| Theater = colour **and** shape (circle, diamond, triangle, hexagon) | DESIGN_SYSTEM 2.2 | Amber and sky blue have near-identical brightness (computed 1.02:1); shape keeps them apart in sunlight and greyscale |
+| Typefaces: IBM Plex Sans for all reading text; Plex Condensed and Plex Mono in Ops and Paper; Oswald and Share Tech Mono in Classic; all self-hosted | DESIGN_SYSTEM 1 | Cyrillic coverage for the RU theater (Share Tech Mono has none: checked 2026-11-15; it falls back to Plex Mono); no third-party font call |
+| Theater = colour **and** shape (circle, diamond, triangle, hexagon) | DESIGN_SYSTEM 2.2 | Hue alone fails in sunlight, in greyscale and for some colour-blind readers (amber and blue differ in brightness by only 1.30:1 in Ops and 1.04:1 in Paper); shape keeps them apart |
 | Colour never marks a side | DESIGN_SYSTEM 0 | v1 colours markers by actor (Israel red, US orange, Iran blue); that reads as partisan and cannot extend to four theaters |
 | All link arcs one colour; line style shows who has spoken (both actors, one, others only, or denied by someone); at most 12 arcs; no animation | DESIGN_SYSTEM 5 | The anti-"conspiracy board" rules |
 | No scrolling ticker by default; no national flags as icons | DESIGN_SYSTEM 6, 7 | Restraint; flags take sides and fail at small sizes |
@@ -255,6 +307,32 @@ small change to v1, its own branch and PR).
 | v1's `verified`, `fogLean` and `originKnown: "probable"` are **not carried** into v2 files; they stay in the preserved v1 file | ARCHITECTURE 7.1 | They grade truth |
 | Link line weight counts **separate voices** that have affirmed the link lately; repeats by one voice and outlets that only carry it add nothing | ARCHITECTURE 5.6 | Repetition is not corroboration (charter rule 3) |
 | A ghost fades only when the 30-day check was **actually run and logged** | ARCHITECTURE 3.4.5 | The site never says it looked when it did not |
+
+**Added by the theme session (2026-11-15). Design calls; none grades a claim.**
+
+| Call | Where | Why |
+|---|---|---|
+| A theme can change colours, typefaces, corners, glow, density, motion and panel opacity, and **nothing about what a mark means** | DESIGN_SYSTEM 12 | The theme file has no field for shape, size, look or wording, so a theme cannot change them even by mistake |
+| A theme is accepted only if it passes a computed check: contrast for every text and mark, and the four theater colours told apart with and without colour vision | DESIGN_SYSTEM 13.3 | No theme, built-in or user-made, can make a ghost unreadable or two wars look alike |
+| An imported theme is data: fixed choices, numbers and six-digit colours only; unknown fields rejected; a theme link opens as a preview you keep or discard | DESIGN_SYSTEM 13.2 | Your security rule: no imported text ever becomes markup, a style or a web address |
+| The theater colours were re-tuned in all three themes; the compare pair in the dark themes is now violet and sand | DESIGN_SYSTEM 2.2, 14 | The earlier set failed the colour-vision check |
+| Glow never differs between looks; ghosts never glow | DESIGN_SYSTEM 12.2 | A glow on solid marks only would make one kind of account look stronger |
+| Map style is a setting separate from the theme; on satellite every mark gets a dark outline and halo | DESIGN_SYSTEM 15 | So Classic can be read over imagery and Paper over a light map |
+| Three detail levels (Lite, Standard, Full), picked by a two-second draw test, changeable in Settings, stepped down only if you accept the offer | ARCHITECTURE 9.4 | Section 3b. The Standard and Full numbers are my proposals, unmeasured |
+| Detail never changes what can be reached; events are never thinned, only tracks and labels | ARCHITECTURE 9.4.4 | Enforced by a test, not by intention |
+| Theme, map style and detail level are not carried in a shared view link | ARCHITECTURE 9.1 | A link shares what is shown, not how the sender's device dresses it |
+| Clean view keeps a small **date tag** beside the lens tag | LAYOUT 2.5 | My addition: with the timeline hidden, a screenshot would not say which period or which record it shows |
+| Phone landscape offers the 2D map and a zoomed-out globe with labels off; 2D opens first until you choose | LAYOUT 4.2 | The globe is unmeasured on any device |
+| Three themes until cutover; the theme studio is its own small optional slice behind a URL flag | RELEASE_PLAN rule 11, S2b | Keeps device testing to three passes |
+| A first-run tour that is offered, never forced, and replayable from Help | LAYOUT 8d | Your 2026-11-11 direction, for readers who are not you |
+
+# What changed in v1.3 (2026-11-15, theme session)
+
+- **Decision 8** is new: the default theme, and whether Classic keeps v1's side colours. It is the ninth and last
+  decision this file may hold.
+- **Decision 7** is reworded around your AI direction. Its ruling (A: leave the v1 panel out of v2 for now) is
+  unchanged. The follow-on choice (a daily brief after cutover) is recorded with a recommendation and asked at cutover.
+- Fourteen theme-session design calls are listed above for veto.
 
 # What changed in v1.2 (2026-11-14, charter rewrite)
 

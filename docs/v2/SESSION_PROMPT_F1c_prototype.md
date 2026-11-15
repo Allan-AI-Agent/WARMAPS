@@ -1,6 +1,6 @@
 ---
 title: Session prompt F1c — the WARMAPS v2 interactive prototype (F1 Part B)
-version: v1.1 (2026-11-12: attribution looks, fog layers, lenses, As known then, detail levels, clean view, phone-landscape globe)
+version: v1.2 (2026-11-15: decisions list and watchlist headline brought up to date after F1b-2; date tag in clean view). v1.1 (2026-11-12: attribution looks, fog layers, lenses, As known then, detail levels, clean view, phone-landscape globe)
 date: 2026-11-11 (Iran-war Day 257)
 for: a fresh Claude Code session, model Fable 5.2, thinking effort High, repository Allan-AI-Agent/WARMAPS
 how to use: send "In the WARMAPS repo, check out branch v2/f1-architecture, read docs/v2/SESSION_PROMPT_F1c_prototype.md and follow it."
@@ -32,11 +32,11 @@ It proves the design documents; it is not the start of the app.
 | Attribution (charter 2026-11-12: who says what, never how true) | The four looks (ghost, solid, split, faded ghost) as F1b-1 defined them; the size cap for one-sided claims; the On the record / Fog layers and the Contested filter; location history (a marker moving when a more specific location arrives, alternative locations as linked ghosts on tap); the status line on cards. The decision 6 options as F1b-1 rewrote them |
 | Lenses | Lens: All, one party, several parties, and compare two, with markers moving to each party's stated location when the lens changes; the persistent banner (also on a shared link); neutral compare colours and halves |
 | Links | A few sample arcs with line style by attribution state (F1b), weight changing as time is scrubbed, bundling, the legend sentence, off by default |
-| Watchlist | Both tracks, visibly different, statuses as of the cursor date, the fixed headline ladder |
+| Watchlist | Both tracks, visibly different, statuses as of the cursor date, the count headline (decision 5: "N of M combat tripwires have a claim on record") |
 | Cards | Event, link and track cards at peek and expanded: status line first, then entries by date (who, stance, source), original claim kept in the history |
-| Themes | Switcher for Classic, Ops and Paper; the swatch-based studio with live preview; export and import of a theme as a file and as a link, with strict validation of imported data; map-style picker including satellite with its adjustments |
+| Themes | The three theme files in `research/v2-theme-check/themes/`, used as they are. Switcher for Classic, Ops and Paper; the swatch-based studio with live preview; export and import of a theme as a file and as a link, with strict validation of imported data; map-style picker including satellite with its adjustments |
 | Help | Legend that reflects what is on ("solid = the sides on record agree it happened"); a first-run tour that can be replayed |
-| Detail and screen | A Lite / Standard / Full switch (plus the automatic pick) and screen-pixel decluttering; clean view (one tap; lens tag stays); phone landscape offering both 2D and a zoomed-out globe with labels off |
+| Detail and screen | A Lite / Standard / Full switch (plus the automatic pick) and screen-pixel decluttering; clean view (one tap; lens tag and date tag stay); phone landscape offering both 2D and a zoomed-out globe with labels off |
 | About | Live viewport size, device pixel ratio, layout class, detail level (picked and current), and a frame-rate reading in 2D and 3D, so Allan can report real numbers from his S22, Fire HD 10 and PC |
 
 ## Rules
@@ -68,5 +68,5 @@ the go, model and effort for sitting 2.
 
 ## Finish
 End with the charter check. Phone-length reply: where to open it once merged (`/prototype/v2/`), what to try on each device (including the three provisional rulings to confirm), which decisions
-it helps him rule on (4 to 8), and the list of document problems found. Update `STATE.md`, `F1_PROGRESS.md` and
+it helps him rule on (8 is open; 6, 9 and charter-check item d are provisional and confirmed here), and the list of document problems found. Update `STATE.md`, `F1_PROGRESS.md` and
 `V2_SESSION_COMMON.md` section 2. Do not merge.

@@ -1,8 +1,8 @@
 ---
 title: WARMAPS v2 — Release Plan v1 (design whole, build thin)
-version: v1.2 (2026-11-13: slices re-cut for the attribution model under the editorial charter; Track P added)
-date: 2026-11-13 (Iran-war Day 259)
-author: Claude (Fable 5.2), sessions F1 and F1b-1, for Allan Sanceau
+version: v1.3 (2026-11-15: audience assumption; themes, map styles, detail levels, clean view, Help and tour placed in slices; three-theme cap; public-use check; S9 AI briefing after cutover; backfill pass 3 inside Track E. v1.2, 2026-11-13: slices re-cut for the attribution model; Track P added)
+date: 2026-11-15 (Iran-war Day 261)
+author: Claude (Fable 5.2), sessions F1, F1b-1 and F1b-2, for Allan Sanceau
 status: DRAFT FOR RULING — slice order and model assignments proposed; nothing scheduled until Allan says GO
 companions: ARCHITECTURE_v1.md, DESIGN_SYSTEM_v1.md, LAYOUT_ENGINE_SPEC_v1.md, WARMAPS_v2_PLAN v0.1 (phases P0-P7)
 ---
@@ -21,11 +21,18 @@ companions: ARCHITECTURE_v1.md, DESIGN_SYSTEM_v1.md, LAYOUT_ENGINE_SPEC_v1.md, W
 - **v1 stays live and current the whole time.** It is never edited for v2's sake, and both sites update from one
   data edit. The only one-way step is the final cutover, taken on your word.
 
+**Who it is built for (Allan, 2026-11-11).** Not a one-person tool. As soon as there is a usable v2, Allan shares
+it with his sons and a couple of friends to test, and long term he wants more people using it. So every slice is
+built for **more than one user**: nothing assumes the reader is Allan, knows the history, or has his devices.
+What that changes is in rule 10 below. It is built for him first: his devices are the test devices and his cold
+read is every exit test.
+
 | # | Slice | You can now... | Builder | Your part |
 |---|---|---|---|---|
 | S0 | Prototype (F1 Part B) | Judge the look and the layout on phone, tablet, PC with sample data | Fable 5.2 (this touchpoint) | Try it on three devices; rule on the decisions file |
 | **S1** | **Shell + Iran 2D + timeline** | **Use v2 daily on the phone for the Iran war** | Opus 5.5 (build), Haiku 5.5 (independent check) | Cold read on the phone |
-| S2 | Panels, lenses and the full attribution grammar | See key events, stats and theater brief; read one party's account through a lens; show only contested events; arrange panels on tablet and PC | Sonnet 5.5, Haiku check | Try tablet and PC layouts |
+| S2 | Panels, lenses, the full attribution grammar, **themes** | See key events, stats and theater brief; read one party's account through a lens; show only contested events; arrange panels on tablet and PC; **switch between Classic, Ops and Paper and between map styles; use clean view; read Help and take the tour** | Sonnet 5.5, Haiku check | Try tablet and PC layouts; pick the default theme (decision 8) |
+| S2b | Theme studio (small, optional) | Make, try, save, export and import a theme | Sonnet 5.5, Haiku check | Try it; send back any theme worth keeping |
 | — | *F2 review* | — | Fable 5.2 (short) | Read one page of findings |
 | S3 | Russia-Ukraine, lean; As known then; compare two | Switch theaters; scrub 2022 to today; replay the record as it was known on any day; compare two parties' accounts | Opus 5.5 research, Sonnet drafting and code, independent checker | Approve merges of claims into happenings |
 | S4 | All theaters + links | See both wars at once, with stated connections as arcs and who affirms or denies each (2D) | Sonnet code; Opus research; Haiku check | Approve each link |
@@ -35,6 +42,7 @@ companions: ARCHITECTURE_v1.md, DESIGN_SYSTEM_v1.md, LAYOUT_ENGINE_SPEC_v1.md, W
 | S7 | Watchlist | Follow tripwires and rhetoric over time, each showing who claims, acknowledges or denies | Sonnet code; Opus drafts definitions | Rule on every definition (statuses are derived, not ruled) |
 | — | *F4 audit* | — | Fable 5.2 | Read the audit |
 | S8 | Cutover | v2 becomes the site; v1 is archived at `/v1/` | Opus 5.5, Haiku check | Say GO; cold read |
+| S9 | AI briefing (after cutover; needs its own ruling) | Read a short daily brief written from the record, every sentence citing its events | Sonnet 5.5; Haiku check | Rule on it when cutover is done |
 
 Timing: the prompt's intent is roughly one slice a week at your 2-5 hours a week. That pace is a **target
 (SPECULATION)**, not a promise: S1, S2, S4, S6 and S7 are mostly build sessions and should hold it; S3 is research
@@ -62,6 +70,19 @@ and is the one most likely to take two weeks (section 4).
    because v2 lives under `/v2/`.
 9. **No new cost without a ruling.** Everything through S5 is static files on the current free hosting. The first
    item that could cost money is the vessels relay in S6 (section 6).
+10. **Built for more than one user** (section 0). In practice: no key, token or personal detail anywhere in the app,
+    the repo, a theme, an export or a link; settings live on each person's own device; Help, the legend and the
+    tour explain the site to someone who has never seen it; nothing is labelled by Allan's devices or habits; and
+    every wording is read as a stranger would read it.
+11. **Three themes until cutover.** Classic, Ops and Paper, and no fourth built-in before S8. The studio (S2b) lets
+    anyone try others on their own device; a theme Allan likes can replace one of the three, not join them. The cap
+    keeps every screenshot check and device test to three passes.
+12. **Public-use check before a live layer or a map source is public.** Live layers and basemap tiles are fetched
+    by each visitor's browser from a provider. Before a slice that adds one is shared beyond Allan's testers, the
+    builder reads the provider's current terms for a public site, its rate limits and its attribution rule, works
+    out what ten and a hundred daily visitors would cost or trip, and writes the result into STATE.md. A layer that
+    fails the check stays "not built yet" or goes behind a relay with a ceiling. This applies to the Esri basemaps
+    from S1 (v1 already uses them for a small audience; the check has not been done for a wider one: PENDING).
 
 ---
 
@@ -93,9 +114,16 @@ and is the one most likely to take two weeks (section 4).
   present as "no curated events yet"), the 2D/3D switch (3D disabled, "coming"), the Layers menu with only Events
   and Outlines live and the other rows visible but disabled.
 - Version and data-version badge; error banner; `_headers` rules for `/v2/*` and `/theaters/*`.
+- **The theme engine and one theme.** The engine that applies a theme file is part of the shell, because the tokens
+  are how anything is coloured at all. S1 ships the default theme only (decision 8; Classic until ruled) and the
+  Tactical dark map style. The `theme`, `mapStyle` and `detailLevel` store keys exist from day one.
+- **Detail levels.** `detail-levels.json`, the two-second draw test and browser hints, the stored pick, and the
+  **reach test** (ARCHITECTURE 9.4.4) for the 2D renderer. S1 has little that differs between levels yet; the point
+  is that the rule and its test exist before anything is built that could break it.
+- **Decluttering by screen pixels** (LAYOUT spec 8b): grouping and labels; milestones never group.
 
 **Out (on purpose):** other panels, stats, key events, links, watchlist, globe, context layers, Russia-Ukraine data,
-light theme, panel dragging, the lens picker and banner, the Contested filter, the As known then switch (each
+the theme picker and the other two themes, other map styles, Settings, Help and the tour, clean view, panel dragging, the lens picker and banner, the Contested filter, the As known then switch (each
 needs data or registries that arrive in S2 and S3).
 
 **Why this is not throwaway:** every piece listed is the permanent one. Later slices only add modules beside them.
@@ -128,19 +156,37 @@ each in `core/attribution.js` and can be changed after the prototype without tou
 ## S2 — Panels, lenses and the full attribution grammar
 - **Adds:** Key events, Stats (latest figure with as-of date and who published it), Theater brief (airspace status,
   naval positions by day), Sources & method, Settings; `enrich.json` seeded from the pass-2 research file so ids
-  386-600 show tier and their record-check line; light theme; tablet and PC slots, pin, snap, Move menu, layout
+  386-600 show tier and their record-check line; tablet and PC slots, pin, snap, Move menu, layout
   persistence; side-by-side with two 2D views.
+- **Themes and the rest of F1b-2:** the three built-in themes as files in `v2/themes/` and the theme picker in
+  Settings; `tools/validate-theme.js` in CI and the same module in the browser; map styles (tinted variants, Light
+  gray, Satellite with its three adjustments, the outline rule on imagery); the Detail control and Re-test; **clean
+  view**; the **Help panel** (legend, What the marks mean, How WARMAPS is designed, Using it) and the **first-run
+  tour**, replayable from Help. Phone landscape gets its default-view setting (2D now; the globe option arrives
+  with S5).
 - **Attribution, completed:** `actors/actors.json` and `sources/registry.json` starter sets (moved up from S4:
   sides, lenses and the enrichment pass all need them); the **lens** picker, banner and tag for one or more
   parties; the **Contested** filter; other places and further targets shown on tap; the look-again line and the
   faded ghost on cards; Help's "What the marks mean".
 - **Usable alone:** yes; this is the point where v2 covers most of what v1 shows. Lenses become interesting as
   Track E attributes Iran events; until then the picker truthfully lists few parties.
-- **Exit test:** layout acceptance checks 1-17 except 14 and 16 on phone, Fire tablet and PC; a cold read of one
-  stat box value; with a lens on, Allan reads out the banner text cold.
+- **Exit test:** layout acceptance checks 1-25 and 28 except 14 and 16 on phone, Fire tablet and PC (26 waits for
+  the globe, 27 for S2b); a cold read of one stat box value; with a lens on, Allan reads out the banner text cold;
+  the theme validator passes all three themes and rejects its mutation set.
 - **Builder:** Sonnet 5.5 (well-specified component work); Haiku check, including the charter check.
 - **Then F2 (Fable, short):** compare the build with the three F1 specs from screenshots at the five classes; list
   drift and anything in the specs that reality proved wrong; update the specs. One session, findings on one page.
+
+## S2b — Theme studio (small, optional, can slip without harm)
+- **Adds:** the studio of LAYOUT spec 8c: swatches, the other tokens, live preview with the fixed preview strip,
+  live checks, save to this device, export and import as a file or a link with preview-before-keep. Its code is
+  fetched only when opened, and its entry shows only with `?studio=1`.
+- **Usable alone:** yes; and v2 loses nothing if it is never built, because the three themes do not need it.
+- **Exit test:** check 27; a theme made in the studio, exported, and imported on a second device looks the same
+  there; the mutation set is rejected through the import path as well as in CI.
+- **Builder:** Sonnet 5.5; Haiku check, including an attempt to get markup, a web address or an unknown key through
+  an imported theme.
+- **When:** after S2 and F2. It may also wait until after S5.
 
 ## S3 — Russia-Ukraine, lean
 - **Adds:** `theaters/russia-ukraine/` with about 350-400 events per the 2026-11-09 ruling (about 60 milestones for
@@ -189,8 +235,12 @@ each in `core/attribution.js` and can be changed after the prototype without tou
   `globe/UPSTREAM.md` and licence notice; the render-governor idea from upstream; the frame-rate reading and the
   "offer 2D" fallback; 2D + 3D side-by-side on PC.
 - **Usable alone:** yes; and nothing is lost if the Fire cannot run it, because 2D remains the default there.
-- **Exit test:** measured frame rate and load time on the Fire HD 10, the S22 and the PC, written into STATE.md,
-  replacing the SPECULATION numbers in ARCHITECTURE 9.4; same selection shows the same event in 2D and 3D.
+- **Detail levels on the globe:** the `view3d` declaration per level, Full-only terrain under `views/full/`, the
+  reach test extended to the globe, the offered step-down; the zoomed-out globe with labels off as the second
+  option in phone landscape (LAYOUT spec 4.2).
+- **Exit test:** measured frame rate, load time and draw-test result on the Fire HD 10, the S22 and the PC, written
+  into STATE.md, replacing the SPECULATION numbers in all three columns of ARCHITECTURE 9.4.1; same selection shows
+  the same event in 2D and 3D; layout check 26.
 - **Builder:** Opus 5.5 (new renderer, performance work).
 - **Then F3 (Fable, short):** review the all-theaters globe view against the design system's restraint rules, on
   real data. This is the picture the project exists for; it gets a designer's eye before layers pile onto it.
@@ -202,6 +252,9 @@ each in `core/attribution.js` and can be changed after the prototype without tou
   attribution line, an info-card variant for tracks, and the OBSERVED label. Live layers work only when the cursor
   is today; history comes from the track data branch as it accumulates (ruling 5C).
 - **Usable alone:** each layer is its own merge and can be skipped or postponed without affecting the rest.
+- **Before a layer is shared beyond Allan's testers:** the public-use check of rule 12, written into STATE.md.
+- **Each layer declares its behaviour at Lite, Standard and Full** (ARCHITECTURE 9.3) and says "showing N of M"
+  when it draws fewer than it holds.
 - **Exit test per layer:** on by one tap, off by one tap, "Reset to default view" clears it, source and time shown
   on a tapped track, no frame-rate drop below the S5 measurement by more than a stated margin on the Fire.
 - **Builder:** Sonnet 5.5; Haiku check. Opus only for the vessels relay design.
@@ -231,6 +284,29 @@ each in `core/attribution.js` and can be changed after the prototype without tou
 - **Exit test:** Trap 12 cold read of version and timeline end at `/`; `/v1/` still loads.
 - **This is the only irreversible step in the plan** (after it, new events exist only in v2 format). Everything
   before it can be backed out.
+
+## S9 — AI briefing (after cutover; not scheduled; needs its own ruling)
+Decision 7 is ruled (2026-11-14): v1's key-in-the-browser AI panel is **not** carried into v2. Allan's direction of
+2026-11-11 still stands: he likes AI adding something beyond "a map with a pretty interface", on strict conditions.
+This slice is where that goes, and it is not started without a new ruling.
+
+- **S9a, a daily published brief.** A scheduled task, run on Allan's own subscription, writes a short brief from
+  the curated, sourced record and commits it as a data file (`briefs/<date>.json`). The site shows it in a panel,
+  stamped "Written by an AI model from the WARMAPS record" with its date. **No key exists anywhere** in the app or
+  in any visitor's browser.
+- **Rules for the brief (charter):** every sentence cites the event ids it rests on; it reports who said what and
+  who has not been heard, in attribution verbs only; it adds no fact that is not in the record; it does not
+  predict, rank likelihood or say which account is right; a validator rejects a brief with an uncited sentence, an
+  unknown id or a forbidden word; Allan approves the first two weeks of briefs before they publish unattended.
+- **S9b, later and optional: questions with your own key.** A reader may bring their own key to ask questions of
+  the record. Conditions (Allan's): the key lives on that person's device only and in memory by default;
+  "remember on this device" is opt-in; it is never in a theme, export, link or the repo; Allan's own test key
+  never ships; the AI module is separate code, loaded only when switched on; the interface advises a spend-capped
+  key. S9b needs a security review of its own before it is built.
+- **Cost:** S9a uses the existing subscription's scheduled-task allowance (INFERRED: no new charge; it does use
+  usage). S9b costs the reader, not the site.
+- **Builder:** Sonnet 5.5 for the task and panel; Haiku check; an independent reader checks a week of briefs
+  against the record sentence by sentence.
 
 ---
 
@@ -270,6 +346,13 @@ each in `core/attribution.js` and can be changed after the prototype without tou
   (S4) are better with it but do not wait for it.
 - **Builder:** Sonnet 5.5 drafting; Haiku 5.5 or Sonnet record-to-source checking by a different agent; Opus 5.5
   only for hard matching calls. Allan approves merges.
+
+- **Backfill pass 3 sits inside this track** (`SESSION_PROMPT_E1_backfill3_enrichment.md`). Allan confirmed
+  (2026-11-11) the thin stretch from about 25 April to 17 July 2026 (about Days 57 to 140): partly a period when he
+  was not working on WARMAPS, partly data not brought up to the current model. Pass 3 finds the events missing
+  from that stretch and re-checks older events against the current model, by the same method and under the same
+  authorisation rule: nothing changes live data without Allan's go. It runs before the attribution batches for
+  the same date range, so a new event is attributed once, not twice.
 
 ## Track P — Intake: missing sides, candidates and the look-again job (runs beside the slices; v2 plan phase P3)
 - **What:** (1) add each involved side's own outlets to the feed list, within the sourcing and access rule (the R1
@@ -316,9 +399,10 @@ v1 features found in `index.html` this session (VERIFIED: each was located by se
 | Airspace status panel | S2 (Theater brief) |
 | Naval assets with positions by day | S2 (Theater brief + map symbols) |
 | Launch-origin arcs for the 12 events that have them | S2 |
-| Dark / satellite basemap choice, full-screen control | S2 |
-| Help panel, settings panel | S2 |
-| AI intelligence summary (user-supplied provider key) | **Open:** carry over in S2, or retire. See decisions file |
+| Dark / satellite basemap choice, full-screen control | S2 (map styles; clean view, with the browser's full-screen offered inside it where the browser supports it) |
+| Help panel, settings panel | S2 (Help gains the legend, the marks, the design note and a replayable tour) |
+| v1's look (neon on near-black, Share Tech Mono, Oswald) | S1 as the default theme if decision 8 is A; S2 as a choice either way (Classic) |
+| AI intelligence summary (user-supplied provider key) | **Not carried** (decision 7, ruled A 2026-11-14). v1 keeps it until cutover, when it goes with v1. A daily published brief with no keys is proposed as S9, after cutover, on its own ruling |
 | News ticker, missile-wave badge | Replaced by a "latest" list in the Events panel; not carried as-is |
 | Active fires via a user-supplied FIRMS key | S6 (as a proper layer) |
 

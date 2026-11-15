@@ -212,6 +212,7 @@ For when the map should be the only thing on screen: reading, showing someone, t
 | Date tag | A chip in the same style as the lens tag: "08 NOV 2026 · LAST 7 DAYS", or "AS KNOWN ON 12 SEP 2026" when the record switch is on As known then. With the timeline hidden, nothing else on screen would say what period or which record a screenshot shows. (My addition to the agreed direction, on the same reasoning as the lens tag; veto it if it clutters) |
 | Restore | A 48 px button at the bottom trailing corner, `bg-surface` at 70%, dimming to 40% after 3 s and never vanishing. One tap, System Back, or Escape restores everything exactly as it was, including which panels were open |
 | Still works | Pan, zoom, rotate. Tapping a mark opens its card at peek over the clean stage; closing the card returns to clean view |
+| Browser full screen | Clean view hides WARMAPS's own controls; it does not hide the browser's bars. Where the browser allows it, a second button beside Restore asks the browser for full screen, as v1's full-screen control does (VERIFIED in `index.html`). The two are independent |
 | Not kept | Clean view is not remembered across visits and is not carried in a link (ARCHITECTURE 9.1) |
 | Same in 2D and 3D | Yes; it is a layout state, not a renderer feature |
 

@@ -1,6 +1,6 @@
 ---
 title: WARMAPS v2 — common brief for every v2 session
-version: v1.4 (2026-11-15: section 0b, how every session runs). v1.3 (2026-11-14: section 2 updated after F1b-1; decisions now eight). v1.2 (2026-11-12): editorial charter; R1 done; section 3b
+version: v1.5 (2026-11-15: section 2 updated after F1b-2; sections 3, 3b and 4 are now written into the design documents; decisions now nine). v1.4 (2026-11-15: section 0b, how every session runs). v1.3 (2026-11-14: section 2 updated after F1b-1; decisions now eight). v1.2 (2026-11-12): editorial charter; R1 done; section 3b
 date: 2026-11-11 (Iran-war Day 257); amended 2026-11-12 (Day 258) and 2026-11-14 (Day 260)
 author: Claude (Fable 5.2), end of session F1 day 2, for Allan Sanceau; v1.1 by Claude (Opus 5.5)
 status: STANDING — every SESSION_PROMPT_* file in this folder tells the session to read this first
@@ -21,7 +21,7 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
   He sets both himself. Repeat this before each further step. (His standing instruction, 2026-11-11.)
 - **Spend usage carefully.** One step per chat. Push after every finished deliverable. Update `F1_PROGRESS.md`
   so a fresh chat can resume. Do not re-read files you do not need. Fable 5.2 is reserved for the steps marked Fable.
-- **No decision in `F1_DECISIONS_FOR_ALLAN.md` is ruled yet** (as of 2026-11-14 the file's decisions are RULED A by Allan: 1-5 and 7 firmly, 6 and 9 PROVISIONAL until the prototype; 8 comes with F1b-2; charter-check items a-c decided, d after the prototype). S1 must give record shapes a `schemaVersion` and a migration script.
+- **Decisions in `F1_DECISIONS_FOR_ALLAN.md` (v1.3):** RULED A by Allan on 2026-11-14: 1-5 and 7 firmly, 6 and 9 PROVISIONAL until the prototype. **Decision 8 (default theme) is OPEN**, added 2026-11-15, best answered on the prototype. Charter-check items a-c decided, d after the prototype. S1 must give record shapes a `schemaVersion` and a migration script.
   Do not treat a recommendation as a ruling. Ruled outside that file: R1 fixes M1-M4 accepted (2026-11-13); the
   three section 3b rulings are PROVISIONAL until Allan has tried the prototype.
 
@@ -49,24 +49,26 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 | Independent checking | The agent that checks work did not produce it |
 | Reply style to Allan | He reads on a phone: conclusions first, short, plain. Timestamp at the start of a new chat (day, date, time MST) |
 
-# 2. Where things stand (2026-11-14)
+# 2. Where things stand (2026-11-15)
 
 | Item | State |
 |---|---|
-| Part A documents | Done and rewritten under the charter: `ARCHITECTURE_v1.md` (v1.2), `DESIGN_SYSTEM_v1.md` (v1.1), `LAYOUT_ENGINE_SPEC_v1.md` (v1.1), `RELEASE_PLAN_v1.md` (v1.2), `F1_DECISIONS_FOR_ALLAN.md` (v1.2) |
-| Schema dry run | Re-run for v1.2: `research/v2-schema-dryrun/` (`REPORT.md` v1.1). 600/600 events pass; 127 ghost, 473 not yet attributed; charter test 0 hits; `attribution.js` is the reference derivation (66 tests). Its numbers are the acceptance test for the slice-1 migration |
+| Part A documents | Done: `ARCHITECTURE_v1.md` (v1.3), `DESIGN_SYSTEM_v1.md` (v1.2), `LAYOUT_ENGINE_SPEC_v1.md` (v1.2), `RELEASE_PLAN_v1.md` (v1.3), `F1_DECISIONS_FOR_ALLAN.md` (v1.3) |
+| Schema dry run | Re-run for v1.2: `research/v2-schema-dryrun/` (`REPORT.md` v1.1). 600/600 events pass; 127 ghost, 473 not yet attributed; charter test 0 hits; `attribution.js` is the reference derivation (70 tests). Its numbers are the acceptance test for the slice-1 migration |
 | Independent schema review | Done 2026-11-11: `research/v2-schema-review/REVIEW.md` (read its 2026-11-12 addendum under the charter). M1-M4 accepted by Allan 2026-11-13 and applied; S10, S12, S13 open |
-| Editorial charter | Ruled 2026-11-12 (`STATE.md`). The v2 design documents no longer carry truth grades or banners (F1b-1). The live v1 site still does; rewording its stats is ruled and open (`STATE.md` OPEN ITEMS) |
-| F1b-1 attribution, fog and lenses | **Done 2026-11-14.** Charter check: see `F1_PROGRESS.md` |
-| F1b-2 themes, detail levels, screen size | **Next.** `SESSION_PROMPT_F1b_theme_amendments.md` (v1.2). Adds decision 8; cap is nine decisions |
-| Prototype (Part B) | Not started. `SESSION_PROMPT_F1c_prototype.md` |
-| Slice 1 build | Decisions 1-3 ruled 2026-11-14 (no build step; v1 file stays Iran master; `IR-00001` IDs). `SESSION_PROMPT_S1_shell.md` |
+| Editorial charter | Ruled 2026-11-12 (`STATE.md`). The v2 design documents carry no truth grades (F1b-1). The live v1 site: stats wording reworded in PR #19 (awaiting Allan's merge); about 20 other wordings left for a later PR |
+| F1b-1 attribution, fog and lenses | Done 2026-11-14 |
+| F1b-2 themes, detail levels, screen size | **Done 2026-11-15.** Grammar and skin split; theme contract; three themes checked by `research/v2-theme-check/theme-check.js` (78 computed checks each, all pass); map styles; detail levels; clean view; declutter; Settings, studio, Help and tour. Charter check: see `F1_PROGRESS.md` |
+| Decisions | 1-5 and 7 ruled A; 6 and 9 provisional A; **8 open** (default theme); charter-check item d provisional |
+| Prototype (Part B) | **Next.** `SESSION_PROMPT_F1c_prototype.md` (v1.2). Fable 5.2, High, two sittings |
+| Slice 1 build | Decisions 1-3 ruled 2026-11-14 (no build step; v1 file stays Iran master; `IR-00001` IDs). `SESSION_PROMPT_S1_shell.md`. S1 now also carries the theme engine with one theme, the detail-level config and its reach test (RELEASE_PLAN v1.3 section 2) |
 | Backfill pass 3 and enrichment | Not started. `SESSION_PROMPT_E1_backfill3_enrichment.md` |
 
-# 3. What Allan said on 2026-11-11 that is not yet in the design documents
+# 3. What Allan said on 2026-11-11 (written into the design documents by F1b-2, 2026-11-15; kept as the source)
 
 These are his statements (OBSERVED), lightly cleaned of phone-typing errors. They are direction, not formal rulings,
-except where marked. The theme-amendments session writes them into the documents.
+except where marked. Where each went: audience, RELEASE_PLAN section 0 and rule 10; look, DESIGN_SYSTEM 12 to 15;
+AI feature, RELEASE_PLAN S9 and decision 7; Help, LAYOUT spec 8a and 8d; data, RELEASE_PLAN Track E.
 
 | Topic | Allan's direction |
 |---|---|
@@ -118,6 +120,11 @@ except where marked. The theme-amendments session writes them into the documents
 
 # 4. Design positions Claude proposed on 2026-11-11 (NOT ruled; Allan has read them and not objected)
 
+Written into the documents by F1b-2 as proposals, each listed for veto in `F1_DECISIONS_FOR_ALLAN.md` ("Added by the
+theme session"). Two details changed in the writing: a theme's colours are six-digit hex values that must pass a
+computed check (the studio offers curated swatches; a file may carry any colour that passes), and the theater
+colours are any set of four that passes the colour-vision check, not only pre-made sets.
+
 | Topic | Proposal |
 |---|---|
 | Theme engine | Built into the app: a small engine every visitor gets (applies one theme config), plus an editor ("studio") that loads only when opened, behind a URL flag. Not a separate app. The theme format is a plain versioned config file |
@@ -139,7 +146,7 @@ except where marked. The theme-amendments session writes them into the documents
 |---|---|---|---|
 | R1 independent schema review | Opus 5.5 | High | Fresh chat |
 | F1b-1 attribution, fog and lenses (charter rewrite + section 3b) | Fable 5.2 | High | Fresh chat; documents only |
-| F1b-2 themes, detail levels, screen size | Fable 5.2 | Medium (Allan decides) | Fresh chat after F1b-1; documents only |
+| F1b-2 themes, detail levels, screen size | Fable 5.2 | Medium (Allan decides) | DONE 2026-11-15 |
 | F1c prototype | Fable 5.2 | High | Fresh chat, started right after a usage refill; two sittings (build, then five-form-factor review) |
 | S1 slice 1 build | Opus 5.5 | High | Independent Haiku 5.5 check; needs decisions 1-3 |
 | E1 backfill pass 3, enrichment | Sonnet 5.5 | Medium | Different agent verifies; needs Allan's authorisation to change live data |
