@@ -77,6 +77,45 @@ function badge(o) {
   return { w, h, html: `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true">${o.allGhost && o.imagery ? `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${o.shape === 'circle' ? 11 : 3}" fill="${KEY}" fill-opacity="0.55" stroke="${KEY}" stroke-opacity="0.8" stroke-width="3.25"/>` : ''}<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${o.shape === 'circle' ? 11 : 3}" fill="${fill}" stroke="${o.allGhost ? o.color : KEY}" stroke-width="${o.allGhost ? 1.25 : 1}"/><text x="${w / 2}" y="16.5" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" font-weight="600" fill="${ink}">${text}</text></svg>` };
 }
 
+/* Launch-origin icons: Allan's rocket and drone drawings, carried over from v1 (index.html "Missile: vertical
+ * rocket" and "Drone: delta wing"), shapes and colours unchanged. They are their own symbols, like tracks: not a
+ * theater shape, and they carry no ghost or solid look. bold = v1's bold mode: the rocket's exhaust flame (three
+ * variants, cycled by index) and the drone's glow and contrail. The animation classes are in app.css. */
+let originSeq = 0;
+function origin(kind, o) {
+  o = o || {}; const bm = !!o.bold, uid = 'wmo' + (originSeq++), pre = 'drop-shadow(0 0 1.5px rgba(255,255,255,0.7)) ';
+  if (kind === 'drone') {
+    const iC = '#ff6600', iC2 = 'rgba(255,102,0,0.50)', dLO = 'rgba(255,200,100,0.90)';
+    const glow = pre + (bm ? `drop-shadow(0 0 5px ${iC}) drop-shadow(0 0 12px ${iC}88)` : `drop-shadow(0 0 4px ${iC}) drop-shadow(0 0 8px ${iC}55)`);
+    const anim = bm ? `<ellipse class="wmo-dof" cx="15" cy="12" rx="14" ry="10" fill="none" stroke="rgba(255,160,40,0.42)" stroke-width="5"/>
+      <path class="wmo-doa" d="M15 22 A14 10 0 0 1 1 12" fill="none" stroke="rgba(255,160,40,0.50)" stroke-width="4" stroke-linecap="round"/>
+      <path class="wmo-dw" d="M2 5 L15 30 L28 5" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse class="wmo-dw" cx="15" cy="27" rx="13" ry="6" fill="rgba(255,255,255,0.12)" stroke="none"/>
+      <ellipse class="wmo-db" cx="15" cy="29" rx="11" ry="5" fill="rgba(100,160,255,0.10)" stroke="rgba(100,180,255,0.15)" stroke-width="0.5"/>` : '';
+    return `<svg viewBox="0 0 30 24" width="30" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;overflow:visible;filter:${glow}">${anim}
+      <path d="M15 3 L26 19 L20 17 L15 21 L10 17 L4 19 Z" stroke="${bm ? '#cc2200' : dLO}" stroke-width="${bm ? '2.0' : '1.2'}" fill="${iC2}"/>
+      <line x1="15" y1="3" x2="15" y2="19" stroke="${bm ? iC : '#888888'}" stroke-width="${bm ? '1.5' : '0.9'}" opacity="0.85"/>
+      <circle cx="15" cy="19" r="2" stroke="${dLO}" stroke-width="1" fill="${iC2}"/><circle cx="15" cy="4" r="1.2" fill="${iC}" opacity="0.9"/></svg>`;
+  }
+  const iC = '#aa0000', iC2 = 'rgba(180,0,0,0.55)', sw = bm ? '2.8' : '2.0', v = (o.variant || 0) % 3;
+  const wGlow = bm ? ' drop-shadow(2px 0 5px rgba(255,255,255,0.42)) drop-shadow(-2px 0 5px rgba(255,255,255,0.42)) drop-shadow(0 -3px 6px rgba(255,255,255,0.38))' : '';
+  const glow = pre + (bm ? `drop-shadow(0 0 5px ${iC}) drop-shadow(0 0 14px ${iC}cc)` + wGlow : `drop-shadow(0 0 4px ${iC}) drop-shadow(0 0 8px ${iC}55)`);
+  const flag = o.flag === 'iran' ? `<rect x="5" y="10" width="6" height="2.7" fill="#239f40"/><rect x="5" y="12.7" width="6" height="2.6" fill="#f0f0f0"/><path d="M7.8 13.1 L8 12.9 L8.2 13.1 L8.2 14.8 L8 15.0 L7.8 14.8 Z" fill="#da0000" opacity="0.85"/><rect x="5" y="15.3" width="6" height="2.7" fill="#da0000"/>` : '';
+  let ex = '';
+  if (bm) {
+    const A = `url(#${uid}A)`, S = `url(#${uid}S)`;
+    ex = `<defs><radialGradient id="${uid}A" cx="50%" cy="100%" r="65%" fx="50%" fy="98%"><stop offset="0%" stop-color="#ffe060" stop-opacity="0.95"/><stop offset="28%" stop-color="#ff6600" stop-opacity="0.75"/><stop offset="60%" stop-color="#cc1100" stop-opacity="0.40"/><stop offset="100%" stop-color="#880000" stop-opacity="0"/></radialGradient>
+      <radialGradient id="${uid}S" cx="50%" cy="100%" r="55%" fx="50%" fy="98%"><stop offset="0%" stop-color="#ffdd40" stop-opacity="0.85"/><stop offset="40%" stop-color="#ff4400" stop-opacity="0.50"/><stop offset="100%" stop-color="#880000" stop-opacity="0"/></radialGradient></defs>` +
+      (v === 0 ? `<ellipse class="wmo-ex" cx="8" cy="33" rx="3.5" ry="10" fill="${A}"/><ellipse class="wmo-exb" cx="8" cy="36" rx="3.5" ry="14" fill="${A}" opacity="0.5"/><ellipse class="wmo-exs" cx="4.5" cy="34" rx="1.8" ry="6" fill="${S}"/><ellipse class="wmo-exs" cx="11.5" cy="34" rx="1.8" ry="6" fill="${S}"/>`
+        : v === 1 ? `<ellipse class="wmo-ex" cx="8" cy="33" rx="7.5" ry="11" fill="${A}"/><ellipse class="wmo-exb" cx="8" cy="37" rx="7.5" ry="15" fill="${A}" opacity="0.45"/>`
+          : `<ellipse class="wmo-ex" cx="8" cy="33" rx="3" ry="10" fill="${A}"/><ellipse class="wmo-exb" cx="8" cy="37" rx="3" ry="14" fill="${A}" opacity="0.5"/><ellipse class="wmo-exs" cx="5" cy="34" rx="2.2" ry="7" fill="${S}" style="animation-delay:0.7s"/><ellipse class="wmo-exs" cx="11" cy="34" rx="2.2" ry="7" fill="${S}" style="animation-delay:0.7s"/>`);
+  }
+  return `<svg viewBox="0 0 16 38" width="16" height="38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;overflow:visible;filter:${glow}">${ex}
+    <path d="M8 1 L11 6 L11 22 L8 29 L5 22 L5 6 Z" stroke="${iC}" stroke-width="${sw}" fill="${bm ? iC : iC2}"/>${flag}
+    <path d="M5 20 L2 27 L5 25" stroke="${iC}" stroke-width="${sw}" fill="${iC}"/><path d="M11 20 L14 27 L11 25" stroke="${iC}" stroke-width="${sw}" fill="${iC}"/>
+    <ellipse cx="8" cy="28" rx="2" ry="1.2" fill="${iC}" opacity="0.8"/></svg>`;
+}
+
 /* OBSERVED tracks: their own shapes, one neutral colour, a dark keyline. Never a ghost or solid look. */
 function track(type, color, heading) {
   const d = type === 'aircraft' ? 'M0,-7L5,6L0,3L-5,6Z' : 'M0,-7L3.5,-2L3.5,6L-3.5,6L-3.5,-2Z';
@@ -120,5 +159,5 @@ const ICON = {
 };
 const icon = (name, px) => `<svg class="ico" width="${px || 22}" height="${px || 22}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${ICON[name] || ''}"/></svg>`;
 
-WM.marks = { SHAPE, TOKEN, SIZES, KEY, path, size, svg, dataUri, badge, track, catGlyph, CAT_NAME, ARC, icon, ICON };
+WM.marks = { SHAPE, TOKEN, SIZES, KEY, path, size, svg, dataUri, badge, track, catGlyph, CAT_NAME, ARC, icon, ICON, origin };
 })();

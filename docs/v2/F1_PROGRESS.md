@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-16 07:10 MST (F1c sitting 2 done: five-form-factor self-review run headless, seven failures fixed, `prototype/v2/REVIEW.md` written, pushed. Part B is complete as far as a headless browser can take it. Next: Allan tries it on his devices)
+updated: 2026-11-16 05:50 MST (F1c sitting 2 done: five-form-factor self-review run headless, seven failures fixed, `prototype/v2/REVIEW.md` written, pushed. Part B is complete as far as a headless browser can take it. Next: Allan tries it on his devices)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -33,7 +33,7 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 **Every session reads `docs/v2/V2_SESSION_COMMON.md` first** (rules, where things stand, Allan's 2026-11-11 direction, model and effort plan).
 The 2026-11-11 chat was closed after writing these prompts to save usage; nothing from it lives only in chat.
 
-# F1c sitting 2 close-out (2026-11-16 07:10 MST; Fable 5.2, high; started by a scheduled task at 05:07 after Allan's go, run unattended)
+# F1c sitting 2 close-out (2026-11-16 05:50 MST; Fable 5.2, high; started by a scheduled task at 05:07 after Allan's go, run unattended)
 
 **Bottom line: the self-review is done and pushed. All 28 acceptance checks pass where a script can test them; four
 only in part. Seven failures were fixed. Nothing has been seen on a real device or over real map tiles. Nothing is
@@ -46,13 +46,13 @@ merged.**
 | Fixed | Touch targets were 44 px or less in many places, now 48 · Layers pushed off screen at phone portrait · Layers and Clean view pushed off screen by a long lens label (tablet portrait, PC) · Back or Escape in clean view closed a hidden panel first · no keyline on outlined group badges over imagery · 200% text cut controls off on a phone · a notice sat mid-stage at phone landscape |
 | Passed only in part | 6 (band drag by finger), 22 (map style and detail against every state item), 23 (readability over real imagery), 25 (a resize does not regroup), 26 (tap on a globe mark). 27's "Save disabled" and 28's Help button were not clicked |
 | Document problems | 7 more, 31 in all: `NOTES_FOR_F2.md` A7, A8, B19 to B23 |
-| Allan's v1 items (asked 2026-11-16) | **Author credit with the red name wave: built**, lower left of the stage, hidden in clean view. **Rocket and drone launch-origin icons: not built**, recorded as requirement D1 in `NOTES_FOR_F2.md` section D with the v1 line numbers |
+| Allan's v1 items (asked 2026-11-16) | **Both built.** Author credit with the red name wave: lower left of the stage, hidden in clean view. Rocket and drone launch-origin icons with the exhaust flame: a "Launch origins" layer, off by default, 2D only, drawings carried over unchanged from v1 (`check/headless/origins.js`, 21 of 21). What the design documents still need for both: `NOTES_FOR_F2.md` section D |
 | Calls made without asking | Phone-landscape timeline 48 px, not 44. Phone timeline track 48 px, not 36 (the timeline is about 128 px). Four small controls keep their drawn size with a 48 px touch area. Clean view closes before panels on Back. The author credit is hidden in clean view |
 | Not done | An independent checker on the prototype (needs Allan's go). The prototype has not been seen over real tiles: allow `cdn.jsdelivr.net` and `server.arcgisonline.com` in the environment, or open it on a device |
 | Harness | `prototype/v2/check/headless/` (`README.md` there). `npm install` the pinned packages into that folder first; Playwright is already in the workspace |
 
 **Charter check (sitting 2): nothing added grades truth.** Sizes, positions, a keyline, a closing order and the
-author credit. The word check still passes. NOTES B1 and B2 are unchanged and still Allan's to rule on.
+author credit and the Launch origins layer (who named each point; no look, no grade). The word check still passes. NOTES B1 and B2 are unchanged and still Allan's to rule on.
 
 **Next:** Allan opens `/prototype/v2/` on the S22 and the Fire (after PR #17 is merged, or served from the branch)
 and answers the nine questions in `REVIEW.md` section 7. Then decisions 6, 8, 9 and item d can be ruled, and F2 (the

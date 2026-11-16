@@ -698,6 +698,7 @@ WM.buildSampleData = function (todayISO) {
     { group: 'Connections', rows: [
       { id: 'links', name: 'Links', desc: 'Stated connections between parties, as arcs', note: 'sample data' },
       { id: 'watch-markers', name: 'Watchlist markers', desc: 'Where cited events are', disabled: true, note: 'not built yet' }] },
+    { group: 'Launch points', rows: [{ id: 'origins', name: 'Launch origins', desc: 'Launch points named in statements. Rocket = missiles, delta wing = drones', note: 'sample data · 2D map only in the prototype' }] },
     { group: 'Air', rows: [
       { id: 'flights', name: 'Military flights', desc: 'OBSERVED transponder positions', note: 'today only · sample data', source: 'sample-provider' },
       { id: 'airspace', name: 'Airspace notices', disabled: true, note: 'not built yet' }] },
@@ -713,7 +714,17 @@ WM.buildSampleData = function (todayISO) {
   ];
 
   const byId = xs => Object.fromEntries(xs.map(x => [x.id, x]));
-  return { todayISO, actors, outlets, theaters, events, links, watch, tracks, layers,
+  // PROTOTYPE SAMPLE - NOT REAL DATA. Launch points for the "Launch origins" layer (v1's launch-origin markers, carried over).
+  // Invented places inside the theater; `namedBy` is the party whose sample statement names the point.
+  const launchSites = [
+    { id: 'LS-A', theater: 'iran-war', name: 'Launch area A', kind: 'missile', flag: 'iran', lat: 34.3, lng: 47.1, namedBy: 'irgc' },
+    { id: 'LS-B', theater: 'iran-war', name: 'Launch area B', kind: 'drone', lat: 30.3, lng: 56.9, namedBy: 'irgc' },
+    { id: 'LS-C', theater: 'iran-war', name: 'Launch area C', kind: 'missile', flag: 'iran', lat: 35.9, lng: 52.6, namedBy: 'idf' },
+    { id: 'LS-D', theater: 'iran-war', name: 'Launch area D', kind: 'drone', lat: 27.4, lng: 55.6, namedBy: 'idf' },
+    { id: 'LS-E', theater: 'iran-war', name: 'Launch area E', kind: 'missile', flag: 'iran', lat: 37.9, lng: 46.4, namedBy: 'irgc' },
+    { id: 'LS-F', theater: 'iran-war', name: 'Launch area F', kind: 'missile', flag: 'iran', lat: 31.6, lng: 49.3, namedBy: 'irgc' }
+  ];
+  return { todayISO, actors, outlets, theaters, events, links, watch, tracks, layers, launchSites,
     reg: { actors: byId(actors), outlets: byId(outlets) }, eventsById: byId(events), theatersById: byId(theaters), linksById: byId(links) };
 };
 

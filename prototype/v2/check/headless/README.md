@@ -5,6 +5,7 @@ Headless checks for the prototype (not part of the page). Playwright is expected
     node functional.js                       # 38 behaviour checks at 1280 x 760 (touch)
     node sweep.js [sizes] [states]           # five sizes x states: a screenshot and a measured audit each (pp,pl,tp,tl,pc)
     node checks2.js                          # 64 checks: the rest of LAYOUT spec section 11, and contrast as drawn
+    node origins.js                          # 21 checks on the Launch origins layer (Allan's rocket and drone icons)
     node shot.js name 360x700 touch          # one screenshot; optional: query, hash, script to run first
     node globe.js 780x320 name               # the globe, both theaters, links on
 

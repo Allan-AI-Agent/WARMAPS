@@ -379,3 +379,18 @@ html[data-layout="phone-portrait"] #topbar .seg button { padding: 0 var(--s1); }
 html[data-layout="phone-portrait"] #timeline .tl-ctl { flex-wrap: wrap; height: auto; min-height: 48px; }
 .panel:not(.is-card) .pb .chip { white-space: normal; max-width: 100%; }
 html:not([data-layout="pc"]) #timeline .tl-orow .btn.small, html:not([data-layout="pc"]) #timeline .tl-orow .rangechip { min-height: 32px; }   /* drawn small in the 28 px overview row; the touch area is still 48 px */
+/* launch-origin icons carried over from v1 (Allan's rocket and drone): the flame and contrail animations */
+.wm-origin { cursor: default; } .wm-origin svg { overflow: visible; }
+@keyframes wmoExh { 0%,100% { opacity: .9; transform: scaleY(1) } 50% { opacity: .35; transform: scaleY(.55) } }
+@keyframes wmoExhB { 0%,100% { opacity: .9; transform: scaleY(1) } 33% { opacity: .6; transform: scaleY(.85) } 66% { opacity: .2; transform: scaleY(.4) } }
+@keyframes wmoExhS { 0%,100% { opacity: 0 } 30% { opacity: .6 } 60% { opacity: .3 } }
+@keyframes wmoOrbFull { 0%,65%,100% { opacity: .55 } 33% { opacity: .15 } }
+@keyframes wmoOrbArc { 0%,40%,100% { opacity: 0 } 20% { opacity: .45 } }
+@keyframes wmoWht { 0%,100% { opacity: .22; transform: scaleX(1) } 50% { opacity: .06; transform: scaleX(.85) } }
+@keyframes wmoBlu { 0%,100% { opacity: .18; transform: scaleX(.9) } 60% { opacity: .05; transform: scaleX(1.1) } }
+.wmo-ex { transform-origin: 8px 32px; animation: wmoExh .9s ease-in-out infinite; } .wmo-exb { transform-origin: 8px 32px; animation: wmoExhB 2.7s ease-in-out infinite; } .wmo-exs { transform-origin: 8px 32px; animation: wmoExhS 2.1s ease-in-out infinite; }
+.wmo-dof { animation: wmoOrbFull 4.2s ease-in-out infinite; } .wmo-doa { animation: wmoOrbArc 4.2s ease-in-out infinite; animation-delay: -1.4s; }
+.wmo-dw { transform-origin: 15px 20px; animation: wmoWht 5.8s ease-in-out infinite; } .wmo-db { transform-origin: 15px 22px; animation: wmoBlu 7.1s ease-in-out infinite; animation-delay: -2.3s; }
+html[data-motion="calm"] .wm-origin svg * { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .wm-origin svg * { animation: none !important; } }
+.leaflet-tooltip.wmo-tip { background: var(--bg-raised); color: var(--text-primary); border: 1px solid var(--border-control); border-radius: var(--r-control); box-shadow: none; font: inherit; font-size: var(--t-meta); padding: 4px 8px; } .leaflet-tooltip.wmo-tip::before { display: none; }

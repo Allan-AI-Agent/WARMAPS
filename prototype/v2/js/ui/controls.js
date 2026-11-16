@@ -142,6 +142,7 @@ function legendHtml(scope) {
   }
   if (full || s.layersOn.links) h += `<div class="legend-row">${WM.cards.arcSample('solid', 3, 30)}${WM.cards.arcSample('split', 2, 30)}${WM.cards.arcSample('ghost', 1, 30)}</div><div class="legend-row"><span>${esc(STR.fixed.linkLegend)}</span></div>`;
   if (full || s.layersOn.flights || s.layersOn.vessels) h += `<div class="legend-row">${M.track('aircraft', c.track, 0)}${M.track('vessel', c.track, 0)}<span>Aircraft and ships: positions reported by tracking services (OBSERVED), today only. Not claims.</span></div>`;
+  if (full || s.layersOn.origins) h += `<div class="legend-row"><span style="display:inline-flex;gap:10px;align-items:center;transform:scale(.6);transform-origin:left center;margin-right:-14px">${M.origin('missile', { flag: 'iran' })}${M.origin('drone')}</span><span>Launch points named in statements: rocket = missiles, delta wing = drones. Tap or point at one to see who named it.</span></div>`;
   h += `<div class="legend-foot">${esc(full ? STR.fixed.legendFooter + '.' : STR.fixed.legendFooterShort)}</div>`;
   return h;
 }

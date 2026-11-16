@@ -137,8 +137,8 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
 - **F1c sitting 2 DONE 2026-11-16 (prototype only; v1 untouched).** Self-review at five form factors, headless:
   all 28 acceptance checks pass where a script can test them (four in part), seven failures fixed (48 px touch
   targets, controls pushed off screen, clean view and Back, a keyline, 200% text). `prototype/v2/REVIEW.md`. Not seen
-  on a real device or over real map tiles. Allan's author credit with the name wave is in the prototype; his rocket and
-  drone icons are a recorded requirement (`NOTES_FOR_F2.md` D1). Charter check: nothing added grades truth.
+  on a real device or over real map tiles. Allan's author credit with the name wave and his rocket and drone
+  launch-origin icons (a "Launch origins" layer) are in the prototype; what the documents need for them: `NOTES_FOR_F2.md` D. Charter check: nothing added grades truth.
 - **Next:** Allan tries the prototype on the S22 and the Fire (`REVIEW.md` section 7). Decision 8 is open; the three
   2026-11-12 rulings, decisions 6 and 9 and item d stay PROVISIONAL until Allan has tried the prototype.
 - KEY FIELDS table below corrected 2026-11-14 (it had said 385 events / Day 170).

@@ -41,7 +41,7 @@ WM.geo = { greatCircle, hash, group };
 
 WM.createView2D = function () {
   const L = window.L;
-  let map, ctx, el, handlers = {}, marks = [], markers = new Map(), groupLayer, labelLayer, outlineLayer, arcLayer, detailLayer, trackLayer;
+  let map, ctx, el, handlers = {}, marks = [], markers = new Map(), groupLayer, labelLayer, outlineLayer, arcLayer, detailLayer, trackLayer, originLayer;
   let baseTiles, labelTiles, selected = null, theaters = [], mode = 'single', arcs = [], tracks = {}, detailRow, opts = { labels: true, haloAll: false, badgeCount: false, phone: false, animate: false };
   let lastStats = { given: 0, drawn: 0, grouped: 0, groups: 0, labels: 0 }, eventDetail = null, regroupTimer = 0, style = null, satAdj = null;
   const emit = (name, arg) => (handlers[name] || []).forEach(fn => { try { fn(arg); } catch (e) { WM.reportError('2D map', e); } });
@@ -53,9 +53,9 @@ WM.createView2D = function () {
       maxBounds: [[-75, -210], [84, 210]], maxBoundsViscosity: 0.8, preferCanvas: false, fadeAnimation: false, inertia: true });
     map.attributionControl.setPrefix(false);
     const pane = (name, z, noPointer) => { const p = map.createPane(name); p.style.zIndex = z; if (noPointer) p.style.pointerEvents = 'none'; return p; };
-    pane('wm-outlines', 410, true); pane('wm-arcs', 420); pane('wm-events', 600); pane('wm-tracks', 620); pane('wm-detail', 630, true); pane('wm-labels', 640, true); pane('wm-reflabels', 650, true);
+    pane('wm-outlines', 410, true); pane('wm-arcs', 420); pane('wm-events', 600); pane('wm-origins', 590); pane('wm-tracks', 620); pane('wm-detail', 630, true); pane('wm-labels', 640, true); pane('wm-reflabels', 650, true);
     outlineLayer = L.layerGroup().addTo(map); arcLayer = L.layerGroup().addTo(map); groupLayer = L.layerGroup().addTo(map);
-    labelLayer = L.layerGroup().addTo(map); detailLayer = L.layerGroup().addTo(map); trackLayer = L.layerGroup().addTo(map);
+    labelLayer = L.layerGroup().addTo(map); detailLayer = L.layerGroup().addTo(map); trackLayer = L.layerGroup().addTo(map); originLayer = L.layerGroup().addTo(map);
     const cam = ctx.camera || { lat: 31.5, lng: 47.5, zoomEq: 5 };
     map.setView([cam.lat, cam.lng], cam.zoomEq, { animate: false });
     setStyle(ctx.mapStyle, ctx.sat);
@@ -229,6 +229,13 @@ WM.createView2D = function () {
   }
 
   /* ---- OBSERVED tracks: thinned to one per 40 x 40 px cell by a rule that looks only at the track id ----- */
+  /* Launch origins: Allan's v1 rocket and drone icons. Not events: no look, no grouping, not tappable; the name and who named the point are in the title. */
+  function setOrigins(list, o) {
+    if (!map) return; originLayer.clearLayers();
+    (list || []).forEach((x, i) => L.marker([x.lat, x.lng], { pane: 'wm-origins', keyboard: false, alt: x.name,
+      icon: L.divIcon({ className: 'wm-mk wm-origin', html: M.origin(x.kind, { bold: o && o.bold, variant: i, flag: x.flag }), iconSize: [48, 56], iconAnchor: [24, 28] }) })
+      .bindTooltip(esc(x.name) + ' · launch point named by ' + esc(x.by) + ' (sample)', { direction: 'bottom', offset: [0, 22], className: 'wmo-tip' }).on('click', () => { if (matchMedia('(pointer: coarse)').matches || opts.phone) WM.dom.toast(x.name + ' · launch point named by ' + x.by + ' (sample)'); }).addTo(originLayer));
+  }
   function setTracks(layerId, list) { if (list && list.length) tracks[layerId] = list; else delete tracks[layerId]; drawTracks(); }
   function drawTracks() {
     if (!map) return; trackLayer.clearLayers();
@@ -275,7 +282,7 @@ WM.createView2D = function () {
       (function step() { const t = (performance.now() - t0) / (ms || 3000); if (t >= 1) { map.setView(c0, map.getZoom(), { animate: false }); res(m.stop()); return; } map.panBy([Math.cos(t * 12) * 6, Math.sin(t * 12) * 6], { animate: false }); requestAnimationFrame(step); })();
     });
   }
-  return { kind: '2d', init, destroy, setTheaters, setEvents, setEventDetail, setLinks, setTracks, setLayer, select, highlight: select, getCamera, setCamera, focus, resize, fpsTest,
+  return { kind: '2d', init, destroy, setTheaters, setEvents, setEventDetail, setLinks, setTracks, setOrigins, setLayer, select, highlight: select, getCamera, setCamera, focus, resize, fpsTest,
     on(name, fn) { (handlers[name] = handlers[name] || []).push(fn); }, setDetail(row) { detailRow = row; redrawAll(); }, setStyle, setOptions(o) { Object.assign(opts, o); if (map) setStyle(ctx.mapStyleNow(), ctx.satNow()); },
     redraw: redrawAll, stats: () => lastStats,
     detail: { lite: 'no soft halo on imagery, 12 labels, 300 tracks, 16-point arcs, instant changes', standard: 'keyline and halo, 30 labels, 1,000 tracks, 32-point arcs', full: '60 labels, 5,000 tracks, 64-point arcs' } };

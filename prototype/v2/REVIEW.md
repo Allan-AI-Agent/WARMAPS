@@ -14,8 +14,8 @@ status: REVIEW of a throwaway prototype. Headless only. Nothing here has been se
 - **Seven failures were found and fixed** in this sitting (section 3). The largest: most touch controls were 44 px
   or smaller, not 48; and Back or Escape in clean view closed a hidden panel before restoring the controls.
 - **Text contrast as drawn: lowest 4.86:1** (Paper, PC), above the 4.5:1 rule, in all three themes at all five sizes.
-- **Your author credit with the red name wave is in the prototype.** The rocket and drone icons are not; they are
-  written down as a requirement (section 6).
+- **Your author credit with the red name wave, and your rocket and drone icons with the exhaust flame, are in the
+  prototype** (section 6). The icons are a new "Launch origins" layer, off by default.
 - **Not seen here at all:** real map tiles, real devices, touch feel, real frame rates, sunlight. Section 5.
 
 Evidence labels: VERIFIED = measured by a script in this sitting. OBSERVED = seen in a headless screenshot.
@@ -28,6 +28,7 @@ INFERRED = from reading the code. NOT TESTED = said so.
 | `node check/check.js` | Sample data against the schemas, charter test, rules against the reference, themes, word check | 5,532 pass |
 | `node check/headless/functional.js` | 38 behaviour checks at 1280 x 760 touch (sitting 1's script) | all pass |
 | `node check/headless/sweep.js` | 5 sizes x 15 states (3 themes; panel, card, panel + card, links, watchlist, lens, compare, clean view, As known then, settings, help, layers) plus the globe at phone landscape and PC: 77 screenshots, each measured for regions overlapping, controls under 48 px, things off screen, clipped text | clean after fixes, apart from the three expected items in section 4 |
+| `node check/headless/origins.js` | The Launch origins layer at PC, tablet and phone: off by default, six points, flame animated, Lite, calm motion, Reset, globe | 21 of 21 |
 | `node check/headless/checks2.js` | 64 checks: lens, card peek, clean view and contrast at each of the five sizes; rotate, Back, timeline steps, 200% text, storage off, view tag, tour, 300 px landscape, declutter, satellite | all pass after fixes |
 | By eye | About 20 of the screenshots, at least two per size | notes in sections 3 and 4 |
 
@@ -104,9 +105,9 @@ Sizes: 360 x 700 phone portrait, 780 x 320 phone landscape (also 780 x 300), 800
 | Item | State |
 |---|---|
 | **Author credit, "Allan Sanceau", lower left, red letter wave** | **In the prototype.** Lower left of the stage at all five sizes. One wave on load and every 60 seconds, half a second a letter, as in v1. No wave when the device asks for reduced motion or motion is set to calm. Hidden in clean view, because check 18 lists what clean view may show (question 7 below) |
-| **Rocket and drone launch-origin icons, with the exhaust flame in bold mode** | **Not built. Recorded as requirement D1 in `NOTES_FOR_F2.md`.** The v1 drawing code is self-contained (`index.html`, about lines 3281 to 3600) and can be carried over. v2 has the data field (`launch`) but no launch-origins layer in the design documents yet, and the icon must be squared with the rule that a mark's shape means its theater |
+| **Rocket and drone launch-origin icons, with the exhaust flame in bold mode** | **In the prototype**, as a "Launch origins" layer (Layers menu, off by default, 2D map only). Your drawings are carried over unchanged from v1 `index.html`: the upright rocket with the flag on its body and the three flame variants, and the delta-wing drone with its glow and contrail. The bold form with the moving flame shows at Standard and Full detail; at Lite the icons stay without the flame; reduced or calm motion stops the movement. Six invented sample launch points. Pointing at one (PC) or tapping it (touch) says who named the point. VERIFIED by `check/headless/origins.js`, 21 checks. Limits: not drawn on the globe; on a phone at the opening zoom the event marks' touch areas cover the icons, so a tap opens the event; sizes do not yet grow with zoom as in v1. What the documents need: `NOTES_FOR_F2.md` D1 |
 
-# 7. Questions only your devices can answer
+# 7. Questions only you and your devices can answer
 
 Open the page on the S22 and the Fire. Settings, "About this device", "Copy these numbers" gives me the measurements.
 
@@ -117,12 +118,15 @@ Open the page on the S22 and the Fire. Settings, "About this device", "Copy thes
 5. The three 2026-11-12 rulings: the 7-day opening window, the globe on phone landscape, clean view.
 6. Sizes: are 7 px dots and the ghost ring visible at arm's length? Do the compare half-marks read at all?
 7. Should your author credit also show in clean view, so it is on screenshots?
+10. Launch origins layer (Layers menu): do the rockets and drones look as you drew them, and is the flame right? The flag on the rocket is drawn where the sample statement names Iran as the launcher: keep it?
 8. Phone timeline at about 128 px: acceptable, or should the overview row go?
 9. Design system section 11, the rest: amber and sky blue in daylight, the single yellow for links, Paper's faded marks outdoors, the mint and coral theater colours.
 
 # 8. Charter check (sitting 2)
 
-**Nothing added in this sitting grades truth.** The changes are sizes, positions, a keyline, a closing order and
-the author credit. The credit names the author; it attaches to no event, link or watch item. The word check over the
+**Nothing added in this sitting grades truth.** The changes are sizes, positions, a keyline, a closing order, the
+Launch origins layer and
+the author credit. The credit names the author; it attaches to no event, link or watch item. The Launch origins
+layer says who named each launch point and gives it no look or grade; v1's `originKnown: "probable"` is not carried. The word check over the
 built strings still passes. The two wording points from sitting 1 (NOTES B1, B2) are unchanged and still yours to
 rule on. An independent checker has not been run on the prototype.

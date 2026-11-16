@@ -52,6 +52,7 @@ const syncView = guard('the map', function (changed) {
   if (has('selection')) v.select(selectedArcRef(s));
   if (has('time') || has('theaters') || has('lens') || has('show') || has('options') || has('layout') || has('selection') || has('viewMode')) v.setEvents(marksFrom(app.rows()), viewOptions(s));
   if (has('time') || has('theaters') || has('layersOn') || has('linkFilter') || has('options') || has('selection')) v.setLinks(s.layersOn.links ? app.links().arcs.map(a => Object.assign({ title: a.count > 1 ? a.count + ' links' : a.lead.link.title }, a)) : []);
+  if ((has('layersOn') || has('theaters') || has('detailLevel')) && v.setOrigins) v.setOrigins(s.layersOn.origins ? app.data.launchSites.filter(x => s.theaters.includes(x.theater)).map(x => Object.assign({ by: (app.data.reg.actors[x.namedBy] || {}).name || x.namedBy }, x)) : [], { bold: s.detailLevel.level !== 'lite' });
   if (has('time') || has('layersOn')) {
     const today = s.time.cursor === app.data.todayISO;        // live tracks obey "only when the scrubber is on today"
     v.setTracks('flights', s.layersOn.flights && today ? app.data.tracks.filter(t => t.type === 'aircraft') : []);
