@@ -60,7 +60,7 @@ branch: v2/f1-architecture (draft PR #17) until Allan merges it; then `main`
 | F1b-1 attribution, fog and lenses | Done 2026-11-14 |
 | F1b-2 themes, detail levels, screen size | **Done 2026-11-15.** Grammar and skin split; theme contract; three themes checked by `research/v2-theme-check/theme-check.js` (86 computed checks each, all pass); map styles; detail levels; clean view; declutter; Settings, studio, Help and tour. Charter check: see `F1_PROGRESS.md` |
 | Decisions | 1-5 and 7 ruled A; 6 and 9 provisional A; **8 open** (default theme); charter-check item d provisional |
-| Prototype (Part B) | **Next.** `SESSION_PROMPT_F1c_prototype.md` (v1.2). Fable 5.2, High, two sittings |
+| Prototype (Part B) | **Sitting 1 done 2026-11-16:** built at `prototype/v2/`, pushed, run headless (check script 5,532 pass; functional pass 38 of 38). **Sitting 2 next:** five-form-factor self-review and `REVIEW.md`. Document problems so far: `prototype/v2/NOTES_FOR_F2.md` |
 | Slice 1 build | Decisions 1-3 ruled 2026-11-14 (no build step; v1 file stays Iran master; `IR-00001` IDs). `SESSION_PROMPT_S1_shell.md`. S1 now also carries the theme engine with one theme, the detail-level config and its reach test (RELEASE_PLAN v1.3 section 2) |
 | Backfill pass 3 and enrichment | Not started. `SESSION_PROMPT_E1_backfill3_enrichment.md` |
 

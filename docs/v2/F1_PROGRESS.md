@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-15 05:00 MST (F1b-2 done, independent charter check applied: themes, detail levels, screen size written into the five documents; decision 8 added. Next: the F1c prototype)
+updated: 2026-11-16 00:30 MST (F1c sitting 1 done: the prototype is built at `prototype/v2/`, runs in a headless browser, pushed. Next: F1c sitting 2, the five-form-factor self-review)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -26,12 +26,38 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | C2 | Fog, lens, timeline, detail-level and screen-size direction (Allan, 2026-11-12, provisional until the demo) | `V2_SESSION_COMMON.md` section 3b; new F1b-1 prompt; F1b-2 and F1c prompts updated; charter copy on Drive (`WARMAPS/_RULES`) | DONE 2026-11-12. Charter check: nothing added grades truth |
 | 2a | F1b-1 attribution, fog and lenses (Fable 5.2, high): charter rewrite + common brief section 3b | documents | **DONE 2026-11-14 except the checker follow-ups. See "F1b-1 close-out" below** |
 | 2b | F1b-2 themes, detail levels, screen size (Fable 5.2, medium): design system, patches, decisions 7 and 8 | documents; `research/v2-theme-check/` | **DONE 2026-11-15. See "F1b-2 close-out" below** |
-| 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | **NEXT** — `SESSION_PROMPT_F1c_prototype.md` (v1.2) |
+| 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | **SITTING 1 DONE 2026-11-16 (built, pushed). SITTING 2 NEXT** (self-review at five form factors, `REVIEW.md`). See "F1c sitting 1 close-out" below |
 | S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | decisions 1-3 RULED A 2026-11-14; ready once Allan says go — `SESSION_PROMPT_S1_shell.md` |
 | E1 | Backfill pass 3 and enrichment batch 1 (Sonnet 5.5, medium) | `research/`, and `warmaps-data.js` only on Allan's go | any time — `SESSION_PROMPT_E1_backfill3_enrichment.md` |
 
 **Every session reads `docs/v2/V2_SESSION_COMMON.md` first** (rules, where things stand, Allan's 2026-11-11 direction, model and effort plan).
 The 2026-11-11 chat was closed after writing these prompts to save usage; nothing from it lives only in chat.
+
+# F1c sitting 1 close-out (2026-11-16 00:30 MST; Fable 5.2, high; run unattended after Allan's go)
+
+**Bottom line: the prototype is built and pushed. It is ready for a first look once served; the five-form-factor
+self-review (sitting 2) has not been done. Nothing is merged.**
+
+| Item | State |
+|---|---|
+| Where | `prototype/v2/` (about 4,800 lines, 520 KB, no build step). `README.md` there says how to open it and which address flags exist |
+| Built | All five layout classes by viewport and pointer; rail; phone sheet with three detents; side sheet; slots with pin and Move; floating panels (PC); two-level timeline with the 7-day band, range menu, Today, Play, Record today / As known then; theater filter and the "no curated events yet" state; 2D (Leaflet) and globe (CesiumJS 1.146, fetched only on request) on one store with the camera kept; the four looks, size cap, On the record / Fog / Contested, location history; lens (one, several, compare two) with banner and tag, carried in the link; link arcs with bundling and weight by cursor date; watchlist, two tracks, as of the cursor; event, link and track cards; three themes used unchanged, theme studio behind `?studio=1`, export and import as file and link with validation; map styles including satellite adjustments; legend, Help with the fixed wording, replayable tour; Lite / Standard / Full with the draw test; declutter by screen pixels; clean view with the view tag; phone landscape with 2D or globe; About numbers with frame-rate tests; "Try the open decisions" switches for decisions 6 and 9 and items d1 and d3 |
+| Sample data | 45 events, 6 links, 9 watch items, 114 tracks, all invented and stamped. Written to the schemas |
+| Checks run | `node prototype/v2/check/check.js`: 5,532 checks pass (shape, charter test with a mutation, the prototype's rules equal to the reference on 10,710 derivations, stored positions, watch validator, themes byte-identical and 86/86, seven theme rejection cases, word check). A headless functional pass (Chromium, 1280 x 760 touch): 38 of 38 pass, no page errors: 7-day default, All, Today, fog and contested switches, As known then (ghost at the first place, then solid at the site), lens moving a marker, compare cases, clean view and its tag, Back order, legend identical across themes, bad themes rejected, no studio code without the flag, bundling, weights changing with time, reset, intake-only state, same rows at all three detail levels, tour |
+| VERIFIED only headless | The globe runs under software WebGL in the workspace browser. Map tiles and the CDN could not be reached from this environment (hosts not allowed), so libraries and fonts were served from local copies of the same pinned packages and tiles were blank. **Not yet seen: the map over real tiles, real devices, touch feel, real frame rates** |
+| Document problems | 24 found; list in `prototype/v2/NOTES_FOR_F2.md` (6 layout sizes that do not fit, 18 unclear or missing rules) |
+| Calls made without asking (written down per the session rule) | Sample statements name real parties (the lens needs them) but every place is "Site A"-style and every item is stamped. Classic is the opening theme (decision 8 is open: provisional). Card peek is 132 px, not 96. Phone timeline is about 116 px, not 64. The studio is reachable by a "Reload with the theme studio" link under Prototype helpers. Side-by-side views and drag-to-snap are not built |
+| Not done | Sitting 2: screenshots at 360x700, 780x320, 800x1200, 1280x760, 1600x900 in each theme and state; LAYOUT spec section 11 checks one by one; contrast on screen; `prototype/v2/REVIEW.md`; then STATE.md and the common brief in full |
+
+**Charter check (sitting 1): nothing added grades truth.** Two wording points come from the reference rules, not
+from new work, and are listed for Allan in `NOTES_FOR_F2.md` (B1: party media labelled "state media"; B2: "Agree it
+happened" can appear on a one-sided mark when observers also report it). An independent checker has not run on the
+prototype yet; that belongs with sitting 2.
+
+**To resume (sitting 2):** same branch; read `SESSION_PROMPT_F1c_prototype.md` "Sitting 2"; the headless harness
+was in the session scratchpad and is gone with the container: rebuild it from `README.md` (serve the folder, answer
+`cdn.jsdelivr.net` from `npm install leaflet@1.9.4 cesium@1.146.0 @fontsource/...`), or allow the two hosts
+`cdn.jsdelivr.net` and `server.arcgisonline.com` in the environment so real tiles can be seen.
 
 # F1b-2 close-out (2026-11-15 05:00 MST; Fable 5.2, medium; one session, run unattended)
 

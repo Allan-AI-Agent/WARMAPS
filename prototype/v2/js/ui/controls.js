@@ -181,10 +181,10 @@ function openLayers(anchor) {
 }
 
 /* ---- clean view ----------------------------------------------------------------------------------------------------- */
-function setClean(onState) {
-  if (onState === S().cleanView) return;
-  app.store.set({ cleanView: onState });
-  document.documentElement.dataset.clean = onState ? '1' : '0';
+function setClean(onState) { if (onState !== S().cleanView) app.store.set({ cleanView: onState }); }
+// the page follows the store, so Escape, System Back and the restore button all leave clean view the same way
+function applyClean() {
+  const onState = S().cleanView; document.documentElement.dataset.clean = onState ? '1' : '0';
   const b = $('.clean-btns'); b.classList.remove('dim'); clearTimeout(dimTimer);
   if (onState) dimTimer = setTimeout(() => b.classList.add('dim'), 3000);       // dims after 3 s and never vanishes
   requestAnimationFrame(() => app.view && app.view.resize && app.view.resize());
@@ -222,6 +222,7 @@ function init(a) {
     const key = s.lens.mode + s.lens.parties.join(','); if (key !== lastLensKey) { lastLensKey = key; const lt = lensText(); if (lt && s.layout.cls === 'phone-landscape') toast(lt.full, null, 4000); }
   });
   app.store.subscribe(['lens', 'time', 'theaters', 'layout', 'options', 'show', 'layersOn', 'cleanView', 'viewMode'], renderStage);
+  app.store.subscribe(['cleanView'], applyClean);
   document.addEventListener('wm:theme', () => { renderTop(); renderStage(); });
   renderTop(); renderBanner(); renderStage();
 }

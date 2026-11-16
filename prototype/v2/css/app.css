@@ -195,7 +195,7 @@ html[data-layout="phone-portrait"] #legendchip, html[data-layout="phone-landscap
 .leaflet-bar { border: 1px solid var(--border-control) !important; border-radius: var(--r-control) !important; }
 .wm-mk { display: flex !important; align-items: center; justify-content: center; background: none; border: 0; cursor: pointer; }
 .wm-mk-in { display: flex; align-items: center; justify-content: center; pointer-events: none; }
-.wm-mk svg { display: block; overflow: visible; }
+.wm-mk svg { display: block; } .wm-mk-in > svg, .wm-group > svg { overflow: visible; }   /* never the nested viewports: they clip the halves */
 html[data-glow="1"] .wm-mk.is-selected svg, html[data-glow="2"] .wm-mk.is-selected svg { filter: drop-shadow(0 0 6px var(--selected)); }
 .wm-slide { transition: transform var(--d-camera) ease-out !important; } .wm-fade .wm-mk-in { animation: wmfade var(--d-panel) ease-out; }
 @keyframes wmfade { from { opacity: .2; } to { opacity: 1; } }

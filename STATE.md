@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-15 (MST), **Day 261** (v2 design documents: themes, detail levels and screen size written in, session F1b-2; documents only. Before that, 2026-11-14: rewritten under the editorial charter, session F1b-1). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-16 (MST), **Day 262** (v2 prototype built at `prototype/v2/`, session F1c sitting 1; the live app is unchanged. Before that, 2026-11-15, Day 261: v2 design documents: themes, detail levels and screen size written in, session F1b-2; documents only. Before that, 2026-11-14: rewritten under the editorial charter, session F1b-1). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -130,7 +130,11 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
   `RELEASE_PLAN_v1.md` v1.3, `F1_DECISIONS_FOR_ALLAN.md` v1.3. **Found:** the earlier theater colours failed a
   colour-vision check they had been described as meeting; re-tuned in all three themes. Share Tech Mono has no
   Cyrillic (checked). **Charter check 2026-11-15 (self-check plus independent Sonnet 5.5 checker): nothing added grades truth, after one fix** (clean view could hide that Fog was off; fixed). Three points left for Allan on the prototype (item d1-d3). Table: `docs/v2/F1_PROGRESS.md`, section "F1b-2 close-out".
-- **Next:** the F1c prototype (`SESSION_PROMPT_F1c_prototype.md`; Fable 5.2, High). Decision 8 is open; the three
+- **F1c sitting 1 DONE 2026-11-16 (prototype only; v1 untouched).** `prototype/v2/` is built and pushed on
+  `v2/f1-architecture`: sample data only, stamped; check script 5,532 pass; headless functional pass 38 of 38. Not yet
+  reviewed at the five form factors, not seen on a real device or over real map tiles. Document problems found:
+  `prototype/v2/NOTES_FOR_F2.md`. Charter check: nothing added grades truth. Detail: `docs/v2/F1_PROGRESS.md`.
+- **Next:** F1c sitting 2, the self-review (`SESSION_PROMPT_F1c_prototype.md`; Fable 5.2). Decision 8 is open; the three
   2026-11-12 rulings, decisions 6 and 9 and item d stay PROVISIONAL until Allan has tried the prototype.
 - KEY FIELDS table below corrected 2026-11-14 (it had said 385 events / Day 170).
 
