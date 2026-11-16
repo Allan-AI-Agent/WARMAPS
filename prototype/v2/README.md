@@ -1,6 +1,6 @@
 ---
 title: WARMAPS v2 prototype (F1 Part B) — read me
-version: v0.1 (2026-11-15, sitting 1 of 2: built and run headless; the five-form-factor review is sitting 2)
+version: v0.2 (2026-11-16, sitting 2 of 2: reviewed at five form factors, see `REVIEW.md`). v0.1 (2026-11-15, sitting 1: built and run headless)
 status: THROWAWAY. It proves the design documents in `docs/v2/`. It is not the start of the app
 ---
 

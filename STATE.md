@@ -1,6 +1,6 @@
 # WARMAPS — STATE OF RECORD
 
-**Last updated:** 2026-11-16 (MST), **Day 262** (v2 prototype built at `prototype/v2/`, session F1c sitting 1; the live app is unchanged. Before that, 2026-11-15, Day 261: v2 design documents: themes, detail levels and screen size written in, session F1b-2; documents only. Before that, 2026-11-14: rewritten under the editorial charter, session F1b-1). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
+**Last updated:** 2026-11-16 (MST), **Day 262** (v2 prototype self-reviewed at five form factors, session F1c sitting 2; the live app is unchanged. Earlier the same day: prototype built, sitting 1. Before that, 2026-11-15, Day 261: v2 design documents: themes, detail levels and screen size written in, session F1b-2; documents only. Before that, 2026-11-14: rewritten under the editorial charter, session F1b-1). Version unchanged: **v01.09.03**. Events: **600** (IDs 1-600), latest event **Day 254 (Nov 8 2026)**.
 **Verified by:** static validation + faked-clock behavioral test, run by an independent
 validator agent and re-run by the lead session (see "Validation evidence"). **Verified on-device 2026-11-02 (Day 248)** by Allan's Trap 12 cold read after merge (see below).
 **Update rule:** rewrite this file at every push. Trust it over memory, project
@@ -134,7 +134,12 @@ Branch `v2/f1-architecture`. **Documents only; `index.html` and `warmaps-data.js
   `v2/f1-architecture`: sample data only, stamped; check script 5,532 pass; headless functional pass 38 of 38. Not yet
   reviewed at the five form factors, not seen on a real device or over real map tiles. Document problems found:
   `prototype/v2/NOTES_FOR_F2.md`. Charter check: nothing added grades truth. Detail: `docs/v2/F1_PROGRESS.md`.
-- **Next:** F1c sitting 2, the self-review (`SESSION_PROMPT_F1c_prototype.md`; Fable 5.2). Decision 8 is open; the three
+- **F1c sitting 2 DONE 2026-11-16 (prototype only; v1 untouched).** Self-review at five form factors, headless:
+  all 28 acceptance checks pass where a script can test them (four in part), seven failures fixed (48 px touch
+  targets, controls pushed off screen, clean view and Back, a keyline, 200% text). `prototype/v2/REVIEW.md`. Not seen
+  on a real device or over real map tiles. Allan's author credit with the name wave is in the prototype; his rocket and
+  drone icons are a recorded requirement (`NOTES_FOR_F2.md` D1). Charter check: nothing added grades truth.
+- **Next:** Allan tries the prototype on the S22 and the Fire (`REVIEW.md` section 7). Decision 8 is open; the three
   2026-11-12 rulings, decisions 6 and 9 and item d stay PROVISIONAL until Allan has tried the prototype.
 - KEY FIELDS table below corrected 2026-11-14 (it had said 385 events / Day 170).
 

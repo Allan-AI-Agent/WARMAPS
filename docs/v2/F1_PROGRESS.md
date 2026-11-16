@@ -1,6 +1,6 @@
 ---
 title: F1 progress (resume file)
-updated: 2026-11-16 00:30 MST (F1c sitting 1 done: the prototype is built at `prototype/v2/`, runs in a headless browser, pushed. Next: F1c sitting 2, the five-form-factor self-review)
+updated: 2026-11-16 07:10 MST (F1c sitting 2 done: five-form-factor self-review run headless, seven failures fixed, `prototype/v2/REVIEW.md` written, pushed. Part B is complete as far as a headless browser can take it. Next: Allan tries it on his devices)
 branch: v2/f1-architecture
 rule: a fresh session resumes from this file; STATE.md still wins on build state
 ---
@@ -26,12 +26,37 @@ rule: a fresh session resumes from this file; STATE.md still wins on build state
 | C2 | Fog, lens, timeline, detail-level and screen-size direction (Allan, 2026-11-12, provisional until the demo) | `V2_SESSION_COMMON.md` section 3b; new F1b-1 prompt; F1b-2 and F1c prompts updated; charter copy on Drive (`WARMAPS/_RULES`) | DONE 2026-11-12. Charter check: nothing added grades truth |
 | 2a | F1b-1 attribution, fog and lenses (Fable 5.2, high): charter rewrite + common brief section 3b | documents | **DONE 2026-11-14 except the checker follow-ups. See "F1b-1 close-out" below** |
 | 2b | F1b-2 themes, detail levels, screen size (Fable 5.2, medium): design system, patches, decisions 7 and 8 | documents; `research/v2-theme-check/` | **DONE 2026-11-15. See "F1b-2 close-out" below** |
-| 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | **SITTING 1 DONE 2026-11-16 (built, pushed). SITTING 2 NEXT** (self-review at five form factors, `REVIEW.md`). See "F1c sitting 1 close-out" below |
+| 3 | Part B prototype (Fable 5.2, high, two sittings) | `prototype/v2/` | **BOTH SITTINGS DONE 2026-11-16.** Sitting 2: self-review at five form factors, `prototype/v2/REVIEW.md`. See "F1c sitting 2 close-out" below |
 | S1 | Slice 1 build (Opus 5.5, high; Haiku check) | `/v2/`, `theaters/`, `tools/` | decisions 1-3 RULED A 2026-11-14; ready once Allan says go — `SESSION_PROMPT_S1_shell.md` |
 | E1 | Backfill pass 3 and enrichment batch 1 (Sonnet 5.5, medium) | `research/`, and `warmaps-data.js` only on Allan's go | any time — `SESSION_PROMPT_E1_backfill3_enrichment.md` |
 
 **Every session reads `docs/v2/V2_SESSION_COMMON.md` first** (rules, where things stand, Allan's 2026-11-11 direction, model and effort plan).
 The 2026-11-11 chat was closed after writing these prompts to save usage; nothing from it lives only in chat.
+
+# F1c sitting 2 close-out (2026-11-16 07:10 MST; Fable 5.2, high; started by a scheduled task at 05:07 after Allan's go, run unattended)
+
+**Bottom line: the self-review is done and pushed. All 28 acceptance checks pass where a script can test them; four
+only in part. Seven failures were fixed. Nothing has been seen on a real device or over real map tiles. Nothing is
+merged.**
+
+| Item | State |
+|---|---|
+| Review | `prototype/v2/REVIEW.md`: the 28 checks one by one with evidence labels, what was fixed, what is left, what headless cannot tell, nine questions for Allan's devices |
+| Runs | `check/check.js` 5,532 pass · `functional.js` 38 of 38 · `sweep.js` 5 sizes x 15 states plus the globe, 77 screenshots, each measured · `checks2.js` 64 of 64. Text contrast as drawn: lowest 4.86:1 (Paper, PC) |
+| Fixed | Touch targets were 44 px or less in many places, now 48 · Layers pushed off screen at phone portrait · Layers and Clean view pushed off screen by a long lens label (tablet portrait, PC) · Back or Escape in clean view closed a hidden panel first · no keyline on outlined group badges over imagery · 200% text cut controls off on a phone · a notice sat mid-stage at phone landscape |
+| Passed only in part | 6 (band drag by finger), 22 (map style and detail against every state item), 23 (readability over real imagery), 25 (a resize does not regroup), 26 (tap on a globe mark). 27's "Save disabled" and 28's Help button were not clicked |
+| Document problems | 7 more, 31 in all: `NOTES_FOR_F2.md` A7, A8, B19 to B23 |
+| Allan's v1 items (asked 2026-11-16) | **Author credit with the red name wave: built**, lower left of the stage, hidden in clean view. **Rocket and drone launch-origin icons: not built**, recorded as requirement D1 in `NOTES_FOR_F2.md` section D with the v1 line numbers |
+| Calls made without asking | Phone-landscape timeline 48 px, not 44. Phone timeline track 48 px, not 36 (the timeline is about 128 px). Four small controls keep their drawn size with a 48 px touch area. Clean view closes before panels on Back. The author credit is hidden in clean view |
+| Not done | An independent checker on the prototype (needs Allan's go). The prototype has not been seen over real tiles: allow `cdn.jsdelivr.net` and `server.arcgisonline.com` in the environment, or open it on a device |
+| Harness | `prototype/v2/check/headless/` (`README.md` there). `npm install` the pinned packages into that folder first; Playwright is already in the workspace |
+
+**Charter check (sitting 2): nothing added grades truth.** Sizes, positions, a keyline, a closing order and the
+author credit. The word check still passes. NOTES B1 and B2 are unchanged and still Allan's to rule on.
+
+**Next:** Allan opens `/prototype/v2/` on the S22 and the Fire (after PR #17 is merged, or served from the branch)
+and answers the nine questions in `REVIEW.md` section 7. Then decisions 6, 8, 9 and item d can be ruled, and F2 (the
+document review) can start from `NOTES_FOR_F2.md`.
 
 # F1c sitting 1 close-out (2026-11-16 00:30 MST; Fable 5.2, high; run unattended after Allan's go)
 

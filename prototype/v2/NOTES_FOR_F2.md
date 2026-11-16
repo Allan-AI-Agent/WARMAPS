@@ -1,6 +1,6 @@
 ---
 title: Document problems found while building the prototype (for the F2 review)
-version: v0.1 (2026-11-15, after sitting 1; sitting 2 adds what the five-form-factor review finds)
+version: v0.2 (2026-11-16, sitting 2: A7, A8, B19 to B23 and section D added). v0.1 (2026-11-15, after sitting 1)
 author: Claude (Fable 5.2), session F1c
 status: FINDINGS, not rulings. Each row says what the prototype did instead
 ---
@@ -20,6 +20,8 @@ Evidence labels: VERIFIED = measured or run here; OBSERVED = seen in a headless 
 | A4 | **Card peek, 96 px**, against "chip and status line always visible at peek" (4.1 against 5) | VERIFIED: header 48 + chips + status line needs about 130 px | Card peek is 132 px; the record's title is in the sheet header; chips scroll sideways at peek |
 | A5 | **Tablet-portrait top bar at 800 px**: full filter with four names + lens text + 2D/3D + layers + clean view does not fit (2.2) | OBSERVED: layers button pushed off screen | Brand hidden in this class, tighter padding. Still tight |
 | A6 | Check 17 lists `true` and `false` as forbidden words, but the fixed legend footer and Help text say "not what is true" (DESIGN_SYSTEM 2.3, LAYOUT 8a) | VERIFIED by the word check | The word check allows `true` only inside the fixed wording |
+| A7 | **Phone-landscape slim timeline, 44 px** (4.2), against 48 px touch targets (check 2) | VERIFIED: every timeline control measured 44 px or less | The row is 48 px. Costs 4 px of stage; the stage is 412 x 252 at 780 x 300 with the sheet open |
+| A8 | **Controls that cannot be 48 px where the spec puts them:** the range chip and Today in the phone's 28 px overview row, the lens tag on the stage (28 px), the links in the 32 px lens banner | VERIFIED by measurement | Drawn small with an invisible 48 px touch area (DESIGN_SYSTEM 8 allows this for map markers; the documents do not say it for chrome) |
 
 # B. Rules that are unclear or missing
 
@@ -43,8 +45,20 @@ Evidence labels: VERIFIED = measured or run here; OBSERVED = seen in a headless 
 | B16 | LAYOUT 2.3, 7 | The band's right edge is the cursor, so "drag the right edge to narrow" and "drag to scrub" are the same gesture | Detail row: left handle changes the width, anything else scrubs. Overview: edges resize when the band is 40 px or wider |
 | B17 | DESIGN_SYSTEM 2.8 | Compare half-outlines at 12 px are thin slivers (OBSERVED). May need a larger compare mark | Drawn as specified, 12 px floor |
 | B18 | `_headers` | No cache rule for `/prototype/*` or `/v2/*`; a phone may hold an old copy after an update | Untouched (live config). Hard-refresh after updates |
+| B19 | LAYOUT 11 check 25 against check 22 | "Narrowing the PC window to phone width groups more marks": the camera is kept on resize, so the zoom and the pixel distances do not change and nothing regroups | Grouping differs between a fresh phone-width load and a fresh PC load (23 against 18 of 30). Say which is meant |
+| B20 | LAYOUT 7 against check 18 | Section 7 lists the Back order as popover, card, panel, clean view. Followed literally, Back in clean view closes a panel the reader cannot see, and check 18 ("restores the same panels") fails | Clean view closes before any panel |
+| B21 | LAYOUT 2.2 | At 800 px the top bar cannot hold the four theater names and a lens label such as "Compare: Iran / Israel" | The button reads "Compare" or "Lens on" at tablet portrait; banner and tag carry the names |
+| B22 | LAYOUT 11 check 7 | At 200% text on a 360 px phone the top bar holds only if a label gives way; which one is not said | The theater name shortens first |
+| B23 | DESIGN_SYSTEM 15.3 | The keyline rule names marks; a group badge that is outlined (all members one-sided) is not mentioned | Given the same keyline on imagery |
 
 # C. Not built in the prototype (so not yet tested)
 Side-by-side views (section 6) · drag-to-snap and slot dividers (the Move menu is there) · long-press "what's here" ·
 the events table in the PC bottom slot · night side and terrain on the globe · arc taper at Full · the Theater brief
 panel (stub) · keyboard-open behaviour on phones · offline banner beyond a toast.
+
+# D. Carried over from v1 at Allan's request (2026-11-16): requirements, not yet in the documents
+
+| # | Requirement | State | What the documents need |
+|---|---|---|---|
+| D1 | **Launch-origin icons: Allan's rocket and drone drawings**, the rocket upright with an animated exhaust flame at its base, three flame variants, and the bold-mode version. v1 code: `index.html` about lines 3281 to 3600 (`_originMarkerIdx`, `_exhaustVariant`, `_rebuildOriginIcons`) | Not built in the prototype | (1) A "Launch origins" layer in the Layers menu and `layers.config.json`, fed by the event field `launch` (ARCHITECTURE 3, v1 `originLat/originLng/originName`). (2) A line in DESIGN_SYSTEM 12.1 saying these icons are their own symbols, like tracks, and are not theater shapes. (3) The flame under the motion rules (section 6): still under reduced motion and at Lite. (4) The charter point: v1's `originKnown: "probable"` is a truth grade and is not carried; the layer shows who named the launch point |
+| D2 | **Author credit: "Allan Sanceau", lower left, a red letter-by-letter wave every 60 seconds** (v1 `index.html`, "AUTHOR NAME WAVE") | Built in the prototype: lower left of the stage, hidden in clean view, no wave under reduced or calm motion | A line in LAYOUT 2.1 placing it; whether it shows in clean view (check 18 lists what may); ARCHITECTURE 6 says the byline text is a setting, so the name comes from config |

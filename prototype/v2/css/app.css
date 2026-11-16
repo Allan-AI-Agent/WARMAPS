@@ -378,3 +378,4 @@ html[data-layout="phone-landscape"] #toasts { bottom: 56px; }                   
 html[data-layout="phone-portrait"] #topbar .seg button { padding: 0 var(--s1); }
 html[data-layout="phone-portrait"] #timeline .tl-ctl { flex-wrap: wrap; height: auto; min-height: 48px; }
 .panel:not(.is-card) .pb .chip { white-space: normal; max-width: 100%; }
+html:not([data-layout="pc"]) #timeline .tl-orow .btn.small, html:not([data-layout="pc"]) #timeline .tl-orow .rangechip { min-height: 32px; }   /* drawn small in the 28 px overview row; the touch area is still 48 px */
