@@ -316,3 +316,22 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: var(--t-meta); } 
 .ph h2.ttl { margin: 0; } .ph .ttl .mk { display: inline-flex; flex: none; } .ph .ttl .tx { overflow: hidden; text-overflow: ellipsis; }
 .is-card .chips { margin-top: 0; } .peek .chips, html[data-sheet="peek"] .is-card .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
 .card-head { padding-top: var(--s2); }
+.btn { white-space: nowrap; }
+.tl-orow { gap: var(--s1); } .tl-orow .tl-over { flex: 1; height: 28px; margin: 0; } .tl-orow .rangechip, .tl-orow .btn { min-height: 32px; min-width: 44px; }
+html[data-layout="phone-portrait"] #timeline .recseg button { min-height: 40px; }
+html[data-layout="phone-portrait"] #timeline .tl-read { flex: 1; min-width: 0; align-items: center; padding: 0 var(--s1); }
+
+/* timeline: stacked when narrow (controls on their own row) */
+#timeline.stack .tl-main { flex-direction: column; align-items: stretch; padding: 0; gap: 0; }
+#timeline.stack .tl-track { flex: none; height: 36px; margin: 0 var(--s1); }
+#timeline.stack .tl-ctl { padding: 0 var(--s1); }
+.tl-over { background: rgba(var(--bg-base-rgb), .6); border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline); }
+.tl-track { border-left: 1px solid var(--border-hairline); border-right: 1px solid var(--border-hairline); background: rgba(var(--bg-base-rgb), .35); }
+#topbar > * { flex: none; } #topbar .spacer { flex: 1 1 0; } #topbar #search { width: 180px; }
+#topbar { overflow-x: auto; scrollbar-width: none; }
+@media (max-width: 1799px) { #topbar .hdr-stamp { display: none; } }
+@media (max-width: 1500px) { #topbar #search { display: none; } }
+html[data-layout="tablet-portrait"] .theater-seg button .dim, html[data-layout="tablet-landscape"] .theater-seg button .dim { display: none; }
+html[data-layout="tablet-portrait"] .theater-seg button { padding: 0 var(--s2); }
+html[data-layout="tablet-portrait"] .brand { display: none; }
+html[data-layout="tablet-portrait"] .theater-seg button, html[data-layout="tablet-portrait"] #topbar .btn { padding: 0 var(--s2); }

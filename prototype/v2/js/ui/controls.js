@@ -146,7 +146,7 @@ function legendHtml(scope) {
   return h;
 }
 function renderLegendChip() {
-  const el = $('#legendchip'), cls = S().layout.cls; if (legendOpen === null) legendOpen = cls === 'pc';
+  const el = $('#legendchip'), cls = S().layout.cls; if (legendOpen === null) legendOpen = cls === 'pc' && $('#stage').clientWidth > 1000;
   el.innerHTML = `<button class="row" data-act="legend-toggle" aria-expanded="${legendOpen}" style="min-height:36px;padding:0 var(--s3)">${icon('info', 18)}<span class="grow">Legend</span>${icon(legendOpen ? 'chevron' : 'up', 16)}</button>${legendOpen ? `<div class="lg-body">${legendHtml('view')}</div>` : ''}`;
 }
 

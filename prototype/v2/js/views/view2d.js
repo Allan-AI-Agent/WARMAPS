@@ -23,7 +23,21 @@ function greatCircle(a, b, n) {
   return out;
 }
 const hash = s => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
-WM.geo = { greatCircle, hash };
+/* Declutter in SCREEN PIXELS (LAYOUT spec 8b): same-theater marks within 24 px form a group shown as a count.
+ * Milestones never group; nor does the selected mark or a compare half. It reads positions on screen only: never
+ * the detail level, the device or the layout class. items: [{ key, m, pt:{x,y}, free }] */
+function group(items) {
+  const used = new Set(), groups = [], pool = items.filter(i => !i.free).sort((a, b) => a.key.localeCompare(b.key));
+  for (const a of pool) {
+    if (used.has(a.key)) continue;
+    const g = [a]; used.add(a.key); let cx = a.pt.x, cy = a.pt.y;
+    for (const b of pool) { if (used.has(b.key) || b.m.theater !== a.m.theater) continue; if (Math.hypot(b.pt.x - cx, b.pt.y - cy) <= 24) { g.push(b); used.add(b.key); cx = g.reduce((s, x) => s + x.pt.x, 0) / g.length; cy = g.reduce((s, x) => s + x.pt.y, 0) / g.length; } }
+    if (g.length > 1) groups.push({ members: g, x: cx, y: cy }); else used.delete(a.key);
+  }
+  const grouped = new Set(); for (const g of groups) for (const i of g.members) grouped.add(i.key);
+  return { groups, grouped };
+}
+WM.geo = { greatCircle, hash, group };
 
 WM.createView2D = function () {
   const L = window.L;
@@ -147,15 +161,7 @@ WM.createView2D = function () {
     groupLayer.clearLayers(); labelLayer.clearLayers();
     const C = colors(), items = [];
     for (const [key, mk] of markers) { const m = mk._wm.mark, pt = map.latLngToContainerPoint(mk.getLatLng()); items.push({ key, mk, m, pt, free: m.milestone || (selected && selected.id === m.id) || !!m.halves }); }
-    const used = new Set(), groups = [];
-    const pool = items.filter(i => !i.free).sort((a, b) => a.key.localeCompare(b.key));
-    for (const a of pool) {
-      if (used.has(a.key)) continue;
-      const g = [a]; used.add(a.key); let cx = a.pt.x, cy = a.pt.y;
-      for (const b of pool) { if (used.has(b.key) || b.m.theater !== a.m.theater) continue; if (Math.hypot(b.pt.x - cx, b.pt.y - cy) <= 24) { g.push(b); used.add(b.key); cx = g.reduce((s, x) => s + x.pt.x, 0) / g.length; cy = g.reduce((s, x) => s + x.pt.y, 0) / g.length; } }
-      if (g.length > 1) groups.push({ members: g, x: cx, y: cy }); else used.delete(a.key);
-    }
-    const grouped = new Set(); for (const g of groups) for (const i of g.members) grouped.add(i.key);
+    const { groups, grouped } = group(items);
     let drawn = 0;
     for (const i of items) { const has = map.hasLayer(i.mk); if (grouped.has(i.key)) { if (has) map.removeLayer(i.mk); } else { if (!has) i.mk.addTo(map); drawn++; } }
     for (const g of groups) {

@@ -152,22 +152,21 @@ function draw() { if (!root) return; readout(); drawDetail(); drawOverview($('.t
 function build() {
   const c = S().layout.cls, reduced = WM.dom.prefersReducedMotion();
   const rec = `<div class="seg recseg" role="radiogroup" aria-label="Which record" data-tour="record"><button role="radio" data-rec="today" title="Each event as the record stands now">Record today</button><button role="radio" data-rec="then" title="Each event as the record stood on the cursor date">As known then</button></div>`;
-  root.innerHTML = `<div class="tl-main">
-      <div class="tl-ctl tl-row">${rec}
-        <button class="iconbtn tl-step" data-act="tl-prev" aria-label="Previous step">${icon('prev')}</button>
-        <button class="tl-read" data-act="tl-read" aria-haspopup="true"></button>
-        <button class="btn quiet rangechip" data-act="tl-range" aria-haspopup="true" title="Period shown"><span></span>${icon('chevron', 14)}</button>
-        ${reduced ? '' : `<button class="iconbtn" data-act="tl-play" aria-label="Play">${icon('play')}</button>`}
-        <button class="iconbtn tl-step" data-act="tl-next" aria-label="Next step">${icon('next')}</button>
-        <button class="btn small" data-act="tl-today" title="Back to today and the last 7 days">Today</button>
-      </div>
-      <div class="tl-track" role="slider" tabindex="0" aria-label="Timeline cursor" aria-valuemin="0" data-tour="timeline"><canvas></canvas></div>
-    </div>
-    <div class="tl-over" aria-hidden="true" title="The whole period. Drag the band to move it; drag an edge to widen it."><canvas></canvas></div>
-    <div class="tl-labels" aria-hidden="true"></div>`;
+  const btn = { prev: `<button class="iconbtn tl-step" data-act="tl-prev" aria-label="Previous step">${icon('prev')}</button>`, next: `<button class="iconbtn tl-step" data-act="tl-next" aria-label="Next step">${icon('next')}</button>`,
+    read: `<button class="tl-read" data-act="tl-read" aria-haspopup="true"></button>`, range: `<button class="btn quiet rangechip" data-act="tl-range" aria-haspopup="true" title="Period shown"><span></span>${icon('chevron', 14)}</button>`,
+    play: reduced ? '' : `<button class="iconbtn" data-act="tl-play" aria-label="Play">${icon('play')}</button>`, today: `<button class="btn small" data-act="tl-today" title="Back to today and the last 7 days">Today</button>` };
+  const track = `<div class="tl-track" role="slider" tabindex="0" aria-label="Timeline cursor" aria-valuemin="0" data-tour="timeline"><canvas></canvas></div>`;
+  const over = `<div class="tl-over" aria-hidden="true" title="The whole period. Drag the band to move it; drag an edge to widen it."><canvas></canvas></div>`;
+  // On a phone held upright one 44 px row cannot hold the track, the readout, Play, the range and the record switch
+  // (see the document notes): the controls get their own row and the range chip sits beside the overview.
+  root.innerHTML = c === 'phone-portrait'
+    ? `<div class="tl-main"><div class="tl-ctl tl-row">${rec}${btn.read}${btn.play}</div>${track}</div><div class="tl-row tl-orow">${over}${btn.range}${btn.today}</div>`
+    : `<div class="tl-main"><div class="tl-ctl tl-row">${rec}${btn.prev}${btn.read}${btn.range}${btn.play}${btn.next}${btn.today}</div>${track}</div>${over}<div class="tl-labels" aria-hidden="true"></div>`;
   if (reduced) for (const b of root.querySelectorAll('.tl-step')) b.style.display = 'inline-flex';
-  root.dataset.cls = c; viewStart = null; draw();
+  root.dataset.cls = c; root.classList.toggle('stack', stacked()); root.dataset.stack = String(stacked()); viewStart = null; draw();
 }
+// when the timeline is narrower than about 1000 px the controls take their own row, so the track keeps its width
+function stacked() { return S().layout.cls !== 'phone-landscape' && root.getBoundingClientRect().width < 1000; }
 
 /* ---- pointer work: one gesture, one owner; the timeline keeps a drag that started on it -------------------- */
 function bindTrack() {
@@ -260,7 +259,7 @@ function init(a) {
   app.store.subscribe(['time', 'theaters', 'options'], (s, ch) => { if (ch.has('theaters')) viewStart = null; draw(); });
   app.store.subscribe(['layout'], s => { if (root.dataset.cls !== s.layout.cls) build(); else { viewStart = null; draw(); } });
   document.addEventListener('wm:theme', draw);
-  if (window.ResizeObserver) new ResizeObserver(() => draw()).observe(root);
+  if (window.ResizeObserver) new ResizeObserver(() => { if (root.dataset.stack !== String(stacked())) build(); else draw(); }).observe(root);
 }
 WM.timeline = { init, draw, setCursorStep, setRange, goToday, togglePlay, stopPlay, rangeText, longRangeText, geom, stepPx: () => stepPx, trackInfo: () => ({ width: root._w, steps: root._v ? root._v.N : 0, stepW: root._v ? root._v.sw : 0 }) };
 })();

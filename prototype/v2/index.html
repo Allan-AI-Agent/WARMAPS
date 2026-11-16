@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-layout="phone-portrait" data-base="dark" data-glow="2" data-detail="standard">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1118">
+<title>WARMAPS v2 prototype — PROTOTYPE SAMPLE - NOT REAL DATA</title>
+<!--
+  WARMAPS v2 — interactive PROTOTYPE (session F1c). PROTOTYPE SAMPLE - NOT REAL DATA.
+  Throwaway: it proves the design documents in docs/v2/ and is not the start of the app.
+  No build step, no keys, no personal data, no service worker. Libraries come from one pinned CDN with integrity.
+  Every event, statement, link, watch item and track is invented (js/data/sample-data.js).
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar"></header>
+  <div id="lensbanner"></div>
+  <nav id="rail" aria-label="Panels"></nav>
+  <aside id="slot-left" class="slot" aria-label="Panel"></aside>
+  <main id="stage">
+    <div id="view2d" role="application" aria-label="Map. Every event on it is also in the Events list, which says each one in words."></div>
+    <div id="view3d" role="application" aria-label="Globe. Every event on it is also in the Events list."></div>
+    <div class="stage-ov stage-tl"><span class="tag stamp">PROTOTYPE SAMPLE - NOT REAL DATA</span></div>
+    <div class="stage-ov stage-tr"></div>
+    <div class="stage-ov stage-bl"><button class="tag" id="lenstag" hidden></button><span class="tag view clean-only" id="viewtag"></span></div>
+    <div class="stage-ov stage-br"><div id="legendchip" class="plate" data-tour="legend"></div>
+      <div class="clean-btns clean-only"><button class="iconbtn" data-act="fullscreen" aria-label="Browser full screen" title="Full screen"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6M4 4v6M20 4h-6M20 4v6M4 20h6M4 20v-6M20 20h-6M20 20v-6"/></svg></button>
+        <button class="iconbtn" data-act="clean-restore" aria-label="Leave clean view" title="Bring the controls back"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button></div></div>
+    <div class="stage-ov stage-c"><div id="stagemsg" class="plate stage-msg" role="status" hidden></div></div>
+    <div id="cleancard" hidden></div>
+  </main>
+  <div id="timeline" role="group" aria-label="Timeline"></div>
+  <aside id="slot-right" class="slot" aria-label="Panel"></aside>
+  <aside id="slot-bottom" class="slot" aria-label="Panel"></aside>
+  <div id="floats"></div>
+  <div id="popovers"></div>
+  <div id="tour" hidden></div>
+  <div id="toasts" aria-live="polite"></div>
+  <div id="errorbanner" role="alert" hidden><span class="eb-text"></span><button class="btn small" onclick="location.reload()">Reload</button><button class="btn small" onclick="try{localStorage.removeItem('wm2proto.layout.v1')}catch(e){};location.reload()">Reset layout</button></div>
+</div>
+<noscript><p style="padding:16px;color:#E8EDF5">The WARMAPS v2 prototype needs JavaScript. PROTOTYPE SAMPLE - NOT REAL DATA.</p></noscript>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<script src="js/core/time.js"></script>
+<script src="js/core/attribution.js"></script>
+<script src="js/core/theme-check.js"></script>
+<script src="js/core/store.js"></script>
+<script src="js/data/sample-data.js"></script>
+<script src="js/core/selectors.js"></script>
+<script src="js/ui/strings.js"></script>
+<script src="js/ui/dom.js"></script>
+<script src="js/core/detail.js"></script>
+<script src="js/views/marks.js"></script>
+<script src="js/ui/theme.js"></script>
+<script src="js/views/view2d.js"></script>
+<script src="js/ui/cards.js"></script>
+<script src="js/ui/layout.js"></script>
+<script src="js/ui/timeline.js"></script>
+<script src="js/ui/controls.js"></script>
+<script src="js/ui/panels.js"></script>
+<script src="js/ui/tour.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
