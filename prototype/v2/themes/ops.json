@@ -1,0 +1,21 @@
+{
+  "format": "warmaps-theme",
+  "formatVersion": 1,
+  "id": "ops",
+  "name": "Ops",
+  "base": "dark",
+  "colors": {
+    "bg-base": "#070B10", "bg-surface": "#0E1620", "bg-raised": "#162230",
+    "border-hairline": "#33475F", "border-control": "#5F7896",
+    "text-primary": "#E8EDF5", "text-secondary": "#A9B6C8", "text-muted": "#8494AA",
+    "accent": "#E8EDF5", "focus": "#FFFFFF", "selected": "#FFFFFF", "lens": "#FFFFFF",
+    "theater-iran": "#E6B43C", "theater-ru": "#56ACE3", "theater-ea": "#7EEDCE", "theater-cb": "#DF7781",
+    "link": "#F0E442", "track": "#9FB3C8",
+    "compare-a": "#B9A6F5", "compare-b": "#D8B4A0",
+    "state-error": "#FF7A33", "state-ok": "#2BB894"
+  },
+  "fonts": { "display": "plex-condensed", "ui": "plex-sans", "data": "plex-mono" },
+  "iconStroke": 1.75, "iconStyle": "outline", "radius": "standard", "glow": 0,
+  "density": "auto", "motion": "standard", "panelOpacity": 0.88,
+  "mapStyle": "tactical-dark"
+}

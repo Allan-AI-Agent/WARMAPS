@@ -1,7 +1,7 @@
 ---
 doc_id: WM-KNOWN-FAILURES
 title: WarMaps Known Failure Register
-version: v1.0
+version: v1.1 (2026-11-12: F-010 verifier drift added)
 date: 2026-08-31
 author: Claude Opus 5 (drafted); Allan Sanceau (commissioned)
 status: ACTIVE — load at every session bootstrap
@@ -37,7 +37,8 @@ diagnosis is already done. Do not re-derive it.
 doc_id: WM-KNOWN-FAILURES
 keywords: [known-failure, recurring-bug, init-exception, blank-panels, maxDay, TDZ,
   version-badge, red-herring, service-worker, regression, style-boundary, backtick,
-  case-sensitive, mirror-rule, array-anchor, phase-isolated-init, error-reporter]
+  case-sensitive, mirror-rule, array-anchor, phase-isolated-init, error-reporter,
+  verifier-drift, editorial-charter, attribution, truth-grade]
 entities: [parseWarDay, strikeDays, _rebuildOriginIcons, minDay, maxDay, tl-min, tl-max,
   wm-version, wm-js-error, index.html, warmaps-data.js, BUGNOTE_v3.1, STATE.md]
 anchors:
@@ -50,10 +51,12 @@ anchors:
   - {sec: "F-007", title: "Service worker serves stale builds"}
   - {sec: "F-008", title: "CSS appended into the wrong container"}
   - {sec: "F-009", title: "URL case sensitivity"}
+  - {sec: "F-010", title: "Verifier drift: the site starts grading truth"}
 claims:
   - "Blank panels + dead clock = a JS exception, never a cache problem (F-001)"
   - "maxDay must be changed in BOTH config and slider attributes (F-002)"
   - "A status display that falls back to a stale plausible value costs more than a blank one (F-003)"
+  - "WARMAPS reports who said what with sources; any field, badge or colour that grades truth is a defect (F-010)"
 ```
 
 ---
@@ -96,6 +99,19 @@ why it loads at bootstrap.
   2026-08-31 after two broken builds went live. A runtime smoke test in a real browser is
   the only thing that proves the app works — this is the argument for the headless-browser
   pre-push gate requested of OSIRIS in COLLAB-REQ-002.
+
+## F-010 — Verifier drift: the site starts grading truth · **recurred 3+ times** · DESIGN-LEVEL
+
+| | |
+|---|---|
+| **Symptom** | A design, schema, prompt, review or data field says how true a claim is: `confirmed`, `verified`, `documented`, `credible`, `debunked`, "confidence", "fill = confidence", "Direct combat link confirmed", or the site calling something disinformation on its own authority |
+| **This is NOT** | Checking that a claim was really made, by whom, and that the source says what we say (charter rule 5: the record is authentic). Fog of war (rule 4). An attributed dispute: "X calls this disinformation", with X's source (rule 8). Allan's own internal decision cards, which grade *our* decisions, not claims |
+| **Root cause** | The rule said what to collect (all sides, attributed) but not what the site must not do, so "balance" was read as "grade every side the same way". AI models lean toward fact-checking because most news tools do it (INFERRED). Each later document inherits the vocabulary of the one before |
+| **Fix** | Editorial charter in `STATE.md` (Allan, 2026-11-12): record attribution, not truth: claimed by, denied by, acknowledged by, carried by, sides heard, sides missing, each with a source |
+| **Test** | The v2 validator rejects truth-grade field names and values, mutation-tested (slice 1). Every v2 session ends with a charter check; the independent checker repeats it |
+| **History** | 2026-09-28 figures policy let the site flag "detected disinformation" (superseded by rule 8). 2026-11-10/11 ARCHITECTURE v1.0/v1.1: event `claimStatus: confirmed`, link confidence documented/reported/alleged, tripwire `confirmed`, "fill = confidence". 2026-11-11 R1 review accepted the grading as given and proposed stricter grading. 2026-11-12 Allan: "we keep dropping this to become the verifier of fact" |
+
+> **If a change makes the site say how true something is: stop. Record who said it, who denied it, and where.**
 
 ## F-002 — Timeline bounds live in two places · recurred 2 times
 

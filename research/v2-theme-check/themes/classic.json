@@ -1,0 +1,21 @@
+{
+  "format": "warmaps-theme",
+  "formatVersion": 1,
+  "id": "classic",
+  "name": "Classic",
+  "base": "dark",
+  "colors": {
+    "bg-base": "#060A0F", "bg-surface": "#0B1118", "bg-raised": "#121B27",
+    "border-hairline": "#1A2535", "border-control": "#5C7A9C",
+    "text-primary": "#E8EDF5", "text-secondary": "#7EC8E3", "text-muted": "#7F93AD",
+    "accent": "#7EC8E3", "focus": "#FFFFFF", "selected": "#FFFFFF", "lens": "#FFFFFF",
+    "theater-iran": "#FFAA00", "theater-ru": "#2AA4FF", "theater-ea": "#7DFFB0", "theater-cb": "#FF5C8A",
+    "link": "#FFEE00", "track": "#8FA8C8",
+    "compare-a": "#B9A6F5", "compare-b": "#D8B4A0",
+    "state-error": "#FF4444", "state-ok": "#22CC55"
+  },
+  "fonts": { "display": "oswald", "ui": "plex-sans", "data": "share-tech-mono" },
+  "iconStroke": 1.75, "iconStyle": "outline", "radius": "sharp", "glow": 2,
+  "density": "auto", "motion": "standard", "panelOpacity": 0.92,
+  "mapStyle": "tactical-dark"
+}
