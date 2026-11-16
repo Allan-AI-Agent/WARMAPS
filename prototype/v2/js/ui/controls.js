@@ -35,10 +35,10 @@ function renderTop() {
     `<button data-act="theater-all" aria-pressed="${s.theaters.length === d.theaters.length}">All</button>`;
   $('#topbar').innerHTML = `<button class="brand" data-act="about" title="About this prototype" aria-label="WARMAPS version 2 prototype: about">W<span class="v">M</span><span class="full tb-pc">&nbsp;WARMAPS <span class="v">v2</span></span></button>
     <span class="chip stamp hdr-stamp tb-pc">${esc(STR.stamp)}</span>
-    <button class="btn tb-narrow" data-act="theater-menu" aria-haspopup="true" data-tour="theaters">${esc(thChip)}${icon('chevron', 14)}</button>
+    <button class="btn tb-narrow" data-act="theater-menu" aria-haspopup="true" data-tour="theaters"><span class="lbl">${esc(thChip)}</span>${icon('chevron', 14)}</button>
     <div class="seg theater-seg tb-wide" role="group" aria-label="Theaters" data-tour="theaters">${seg}</div>
     <button class="iconbtn lensbtn tb-narrow${lensOn ? ' on' : ''}" data-act="lens" aria-label="${esc(lensButtonText())}" aria-haspopup="true" data-tour="lens" style="position:relative">${icon('lens')}<i class="dot" style="position:absolute;top:8px;right:8px"></i></button>
-    <button class="btn lensbtn tb-wide${lensOn ? ' on' : ''}" data-act="lens" aria-haspopup="true" data-tour="lens"><i class="dot"></i>${esc(lensButtonText())}${icon('chevron', 14)}</button>
+    <button class="btn lensbtn tb-wide${lensOn ? ' on' : ''}" data-act="lens" aria-haspopup="true" data-tour="lens"><i class="dot"></i><span class="lbl">${esc(lensButtonText())}</span>${icon('chevron', 14)}</button>
     <span class="spacer"></span>
     <input class="tb-pc" type="search" id="search" placeholder="Search events ( / )" aria-label="Search events" style="max-width:200px" value="${esc(s.search || '')}">
     <span class="tb-pc mono sec" style="font-size:var(--t-data);white-space:nowrap;padding:0 var(--s2)">${esc(T.fmt(s.time.cursor))}</span>
@@ -147,7 +147,7 @@ function legendHtml(scope) {
 }
 function renderLegendChip() {
   const el = $('#legendchip'), cls = S().layout.cls; if (legendOpen === null) legendOpen = cls === 'pc' && $('#stage').clientWidth > 1000;
-  el.innerHTML = `<button class="row" data-act="legend-toggle" aria-expanded="${legendOpen}" style="min-height:36px;padding:0 var(--s3)">${icon('info', 18)}<span class="grow">Legend</span>${icon(legendOpen ? 'chevron' : 'up', 16)}</button>${legendOpen ? `<div class="lg-body">${legendHtml('view')}</div>` : ''}`;
+  el.innerHTML = `<button class="row" data-act="legend-toggle" aria-expanded="${legendOpen}" style="padding:0 var(--s3)">${icon('info', 18)}<span class="grow">Legend</span>${icon(legendOpen ? 'chevron' : 'up', 16)}</button>${legendOpen ? `<div class="lg-body">${legendHtml('view')}</div>` : ''}`;
 }
 
 /* ---- layers menu (a popover on tablet and PC; the Layers sheet on phones) ------------------------------------------- */

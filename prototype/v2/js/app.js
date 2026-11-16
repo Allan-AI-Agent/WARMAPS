@@ -305,3 +305,13 @@ async function boot() {
 }
 window.addEventListener('DOMContentLoaded', () => boot().catch(e => WM.dom.reportError('start-up', e)));
 })();
+
+/* ---- author credit wave, carried over from v1 (index.html "AUTHOR NAME WAVE"): every 60 s, 0.5 s a letter. No wave under reduced or calm motion. ---- */
+(function () {
+  const el = document.getElementById('author-name'); if (!el) return;
+  el.innerHTML = [...'Allan Sanceau'].map(ch => ch === ' ' ? '<span style="display:inline-block;width:.5em"></span>' : '<span class="aw">' + ch + '</span>').join('');
+  const spans = el.querySelectorAll('.aw');
+  const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'calm' || document.hidden;
+  function wave() { if (still()) return; let i = 0; (function step() { if (i > 0) spans[i - 1].classList.remove('hi'); if (i >= spans.length) return; spans[i++].classList.add('hi'); setTimeout(step, 500); })(); }
+  setTimeout(wave, 2500); setInterval(wave, 60000); WM.authorWave = wave;
+})();

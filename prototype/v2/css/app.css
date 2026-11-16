@@ -335,3 +335,38 @@ html[data-layout="tablet-portrait"] .theater-seg button .dim, html[data-layout="
 html[data-layout="tablet-portrait"] .theater-seg button { padding: 0 var(--s2); }
 html[data-layout="tablet-portrait"] .brand { display: none; }
 html[data-layout="tablet-portrait"] .theater-seg button, html[data-layout="tablet-portrait"] #topbar .btn { padding: 0 var(--s2); }
+
+/* ---------- sitting 2 (2026-11-16): fixes from the five-form-factor review ---------- */
+/* check 2: every control 48 x 48 on the touch classes (sitting 1 had kept v1's 44 and 36 in places) */
+html:not([data-layout="pc"]) .ph .iconbtn, html:not([data-layout="pc"]) #timeline .iconbtn { width: 48px; height: 48px; }
+html:not([data-layout="pc"]) .seg button { min-width: 48px; min-height: 48px; }
+html:not([data-layout="pc"]) .brand { min-height: 48px; min-width: 48px; justify-content: center; }
+html:not([data-layout="pc"]) .btn.small, html:not([data-layout="pc"]) .toast .btn, html:not([data-layout="pc"]) .stage-msg button, html:not([data-layout="pc"]) .wl-row details summary,
+html:not([data-layout="pc"]) #legendchip button, html:not([data-layout="pc"]) .swatches button { min-height: 48px; min-width: 48px; }
+html:not([data-layout="pc"]) #timeline .tl-ctl { height: 48px; }
+html:not([data-layout="pc"]) #timeline .seg button, html:not([data-layout="pc"]) #timeline .recseg button, html:not([data-layout="pc"]) #timeline .tl-read,
+html:not([data-layout="pc"]) #timeline .tl-ctl .rangechip, html:not([data-layout="pc"]) #timeline .tl-ctl .btn { min-height: 48px; min-width: 48px; }
+html[data-layout="phone-landscape"] #app { grid-template-rows: minmax(0, 1fr) 48px; }       /* the spec's 44 px slim timeline cannot hold 48 px targets: NOTES_FOR_F2 A7 */
+html[data-layout="phone-landscape"] #timeline .tl-track { height: 48px; }
+/* where the drawn control has to stay small, the touch area is still 48 px (design system 8: an invisible hit area) */
+html:not([data-layout="pc"]) #lenstag, html:not([data-layout="pc"]) #lensbanner button, html:not([data-layout="pc"]) .tl-orow .rangechip, html:not([data-layout="pc"]) .tl-orow .btn { position: relative; }
+html:not([data-layout="pc"]) #lenstag::after, html:not([data-layout="pc"]) #lensbanner button::after, html:not([data-layout="pc"]) .tl-orow .rangechip::after, html:not([data-layout="pc"]) .tl-orow .btn::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 48px); height: max(100%, 48px); transform: translate(-50%, -50%); }
+/* check 1: nothing in the top bar is pushed off screen; the theater and lens buttons give way and shorten their text */
+#topbar .btn .lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+#topbar .btn.tb-narrow[data-act="theater-menu"], #topbar .btn.lensbtn { flex: 0 1 auto; min-width: 72px; overflow: hidden; }
+#topbar #search { flex: 0 4 180px; min-width: 96px; }
+html[data-layout="phone-portrait"] #topbar { gap: 2px; padding: 0 2px; overflow: hidden; }
+html[data-layout="phone-portrait"] .brand { padding: 0 var(--s1); }
+/* author credit, carried over from v1 (Allan's request, 2026-11-16): lower left of the stage, a red letter-by-letter wave once a minute */
+#authorcredit { font-family: var(--font-data); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-muted); padding: 2px 6px; background: rgba(var(--bg-base-rgb), .55); border-radius: var(--r-control); white-space: nowrap; pointer-events: none; }
+#authorcredit #author-name { color: var(--accent); font-size: 12px; font-weight: 600; text-transform: none; }
+#authorcredit .aw { display: inline-block; transition: color .3s, transform .3s, text-shadow .3s; }
+#authorcredit .aw.hi { color: #FF1A1A; transform: scale(1.22); text-shadow: 0 0 8px #FF2222, 0 0 18px rgba(255,0,0,.55); }
+html[data-base="light"] #authorcredit .aw.hi { color: #C40000; text-shadow: none; }
+html[data-clean="1"] #authorcredit { display: none; }                                         /* clean view shows only what check 18 lists; question for Allan in REVIEW.md */
+html[data-layout="phone-landscape"] #authorcredit .ac-k { display: none; }
+#legendchip button.row { min-height: 36px; } html:not([data-layout="pc"]) #legendchip button.row { min-height: 48px; }
+html:not([data-layout="pc"]) #lensbanner .txt[role="button"] { position: relative; display: inline-block; }
+html:not([data-layout="pc"]) #lensbanner .txt[role="button"]::after { content: ""; position: absolute; left: 0; top: 50%; width: 100%; height: 48px; transform: translateY(-50%); }
+html:not([data-layout="pc"]) #timeline .tl-track, html:not([data-layout="pc"]) #timeline.stack .tl-track, html[data-layout="phone-portrait"] #timeline .tl-track { height: 48px; }
