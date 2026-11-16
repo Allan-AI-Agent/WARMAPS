@@ -370,3 +370,11 @@ html[data-layout="phone-landscape"] #authorcredit .ac-k { display: none; }
 html:not([data-layout="pc"]) #lensbanner .txt[role="button"] { position: relative; display: inline-block; }
 html:not([data-layout="pc"]) #lensbanner .txt[role="button"]::after { content: ""; position: absolute; left: 0; top: 50%; width: 100%; height: 48px; transform: translateY(-50%); }
 html:not([data-layout="pc"]) #timeline .tl-track, html:not([data-layout="pc"]) #timeline.stack .tl-track, html[data-layout="phone-portrait"] #timeline .tl-track { height: 48px; }
+#topbar .lensbtn .l-short { display: none; }
+html[data-layout="tablet-portrait"] #topbar .lensbtn .l-full { display: none; } html[data-layout="tablet-portrait"] #topbar .lensbtn .l-short { display: inline; }   /* 800 px cannot hold "Compare: Iran | Israel"; the banner and the tag carry the names */
+html[data-layout="phone-landscape"] #toasts { bottom: 56px; }                                  /* was mid-stage at 320 px tall */
+/* check 7: at 200% text nothing is cut off */
+.pb .seg { flex-wrap: wrap; max-width: 100%; } .pb .seg button { white-space: normal; flex: 1 1 auto; }
+html[data-layout="phone-portrait"] #topbar .seg button { padding: 0 var(--s1); }
+html[data-layout="phone-portrait"] #timeline .tl-ctl { flex-wrap: wrap; height: auto; min-height: 48px; }
+.panel:not(.is-card) .pb .chip { white-space: normal; max-width: 100%; }

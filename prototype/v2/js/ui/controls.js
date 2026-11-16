@@ -38,7 +38,7 @@ function renderTop() {
     <button class="btn tb-narrow" data-act="theater-menu" aria-haspopup="true" data-tour="theaters"><span class="lbl">${esc(thChip)}</span>${icon('chevron', 14)}</button>
     <div class="seg theater-seg tb-wide" role="group" aria-label="Theaters" data-tour="theaters">${seg}</div>
     <button class="iconbtn lensbtn tb-narrow${lensOn ? ' on' : ''}" data-act="lens" aria-label="${esc(lensButtonText())}" aria-haspopup="true" data-tour="lens" style="position:relative">${icon('lens')}<i class="dot" style="position:absolute;top:8px;right:8px"></i></button>
-    <button class="btn lensbtn tb-wide${lensOn ? ' on' : ''}" data-act="lens" aria-haspopup="true" data-tour="lens"><i class="dot"></i><span class="lbl">${esc(lensButtonText())}</span>${icon('chevron', 14)}</button>
+    <button class="btn lensbtn tb-wide${lensOn ? ' on' : ''}" data-act="lens" aria-haspopup="true" aria-label="${esc(lensButtonText())}" data-tour="lens"><i class="dot"></i><span class="lbl"><span class="l-full">${esc(lensButtonText())}</span><span class="l-short">${s.lens.mode === 'all' ? 'Lens: All' : s.lens.mode === 'compare' ? 'Compare' : 'Lens on'}</span></span>${icon('chevron', 14)}</button>
     <span class="spacer"></span>
     <input class="tb-pc" type="search" id="search" placeholder="Search events ( / )" aria-label="Search events" style="max-width:200px" value="${esc(s.search || '')}">
     <span class="tb-pc mono sec" style="font-size:var(--t-data);white-space:nowrap;padding:0 var(--s2)">${esc(T.fmt(s.time.cursor))}</span>

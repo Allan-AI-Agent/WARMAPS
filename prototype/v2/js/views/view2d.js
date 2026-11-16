@@ -166,7 +166,7 @@ WM.createView2D = function () {
     for (const i of items) { const has = map.hasLayer(i.mk); if (grouped.has(i.key)) { if (has) map.removeLayer(i.mk); } else { if (!has) i.mk.addTo(map); drawn++; } }
     for (const g of groups) {
       const th = g.members[0].m.theater, oneSided = g.members.filter(i => i.m.look === 'ghost' || i.m.look === 'faded').length;
-      const b = M.badge({ count: g.members.length, color: C[M.TOKEN[th]], bg: C['bg-base'], shape: M.SHAPE[th], allGhost: oneSided === g.members.length, oneSided: opts.badgeCount && oneSided && oneSided < g.members.length ? oneSided : null });
+      const b = M.badge({ imagery: !!style.imagery, count: g.members.length, color: C[M.TOKEN[th]], bg: C['bg-base'], shape: M.SHAPE[th], allGhost: oneSided === g.members.length, oneSided: opts.badgeCount && oneSided && oneSided < g.members.length ? oneSided : null });
       const ll = map.containerPointToLatLng([g.x, g.y]), ids = [...new Set(g.members.map(i => i.m.id))];
       const mk = L.marker(ll, { pane: 'wm-events', zIndexOffset: 300, keyboard: true, title: ids.length + ' events here', alt: ids.length + ' events here',
         icon: L.divIcon({ className: 'wm-mk wm-group', html: b.html, iconSize: [48, 48], iconAnchor: [24, 24] }) });

@@ -74,7 +74,7 @@ const dataUri = html => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent
 function badge(o) {
   const text = String(o.count) + (o.oneSided != null ? '·' + o.oneSided : ''), w = Math.max(24, 12 + text.length * 7), h = 24;
   const fill = o.allGhost ? 'none' : o.color, ink = o.allGhost ? o.color : o.bg;
-  return { w, h, html: `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${o.shape === 'circle' ? 11 : 3}" fill="${fill}" stroke="${o.allGhost ? o.color : KEY}" stroke-width="${o.allGhost ? 1.25 : 1}"/><text x="${w / 2}" y="16.5" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" font-weight="600" fill="${ink}">${text}</text></svg>` };
+  return { w, h, html: `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true">${o.allGhost && o.imagery ? `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${o.shape === 'circle' ? 11 : 3}" fill="${KEY}" fill-opacity="0.55" stroke="${KEY}" stroke-opacity="0.8" stroke-width="3.25"/>` : ''}<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="${o.shape === 'circle' ? 11 : 3}" fill="${fill}" stroke="${o.allGhost ? o.color : KEY}" stroke-width="${o.allGhost ? 1.25 : 1}"/><text x="${w / 2}" y="16.5" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" font-weight="600" fill="${ink}">${text}</text></svg>` };
 }
 
 /* OBSERVED tracks: their own shapes, one neutral colour, a dark keyline. Never a ghost or solid look. */

@@ -241,6 +241,7 @@ function closeTop(fromUi) {
   if (WM.tour && WM.tour.active()) { WM.tour.end(); return true; }
   if (popState) { closePopover(!fromUi ? true : false); if (!fromUi) syncHistory(); return true; }
   if (s.selection) { app.select(null); return true; }
+  if (s.cleanView) { app.store.set({ cleanView: false }); return true; }      // sitting 2: clean view is the top surface, so Back or Escape restores the panels that were open (check 18) instead of closing one of them unseen
   const c = s.layout.cls, p = P(), ids = openPanels();
   if (ids.length) { const transient = slotsFor(c).map(k => p.slots[k]).filter(x => x.panel && !x.pinned).map(x => x.panel).pop(); close(transient || ids[ids.length - 1]); return true; }
   if (s.cleanView) { app.store.set({ cleanView: false }); return true; }
