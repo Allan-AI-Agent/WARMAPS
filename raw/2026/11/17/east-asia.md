@@ -1,0 +1,144 @@
+# WARMAPS DAILY INTAKE - GEO-POLITICS - EAST ASIA
+
+**Run:** 2026-11-17 14:45 MST (21:45 UTC) | **War Day 263** (Feb 28, 2026 = Day 1) | **Window:** last 24 h | **Items:** 46
+
+> **RAW INTAKE, NOT VERIFIED.** Headlines as each outlet published them, sorted by keyword rules (no AI judgment). Nothing here is a WARMAPS event until curated. `origin` is provenance, never credibility.
+
+- **11-17 14:30 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Spy or not, Alice Huang was a useful pawn](https://www.scmp.com/opinion/china-opinion/article/3374470/spy-or-not-alice-huang-was-useful-pawn)  
+  She might not be a spy after all, but she could have been. That, apparently, is US intelligence’s current assessment of Alice Huang, the microchip siren blamed for bringing down AI titan Jensen Huang. “The US intelligence community is...
+- **11-17 13:11 MST | Al Jazeera** (intl-broadcaster (Qatar))  
+  [China, Canada expand tariff relief after Carney-Xi meeting](https://www.aljazeera.com/economy/2026/11/17/china-canada-expand-tariff-relief-after-carney-xi-meeting?traffic_source=rss)  
+  China offers tariff cuts on Canadian pork and seafood, as Canada extends exemptions for Chinese steel and aluminium.
+- **11-17 12:45 MST | TASS** (russia-state) | also: russia-ukraine  
+  [Putin arrives in China’s Shenzhen — correspondent](https://tass.com/politics/2219925)  
+  Russian President will have a packed schedule as he takes part in events at the APEC summit and will hold bilateral talks with his Chinese counterpart and friend, Xi Jinping
+- **11-17 11:58 MST | BBC World** (intl-broadcaster (UK))  
+  [Carney looks to China as Trump tariffs squeeze Canada's car industry](https://www.bbc.co.uk/news/articles/cq98xlz09ye0o?at_medium=RSS&at_campaign=rss)  
+  The PM has suggested Chinese automakers could replace American ones in Canada - but some say that would not be easy.
+- **11-17 10:58 MST | The Guardian World** (europe (UK press))  
+  [Jensen Huang to testify before Congress on ‘potential breach of national security’](https://www.theguardian.com/technology/2026/nov/17/jensen-huang-testify-congress-nvidia-affair-spy)  
+  High-stakes hearing comes in wake of resignation from Nvidia after alleged affair with suspected Chinese spy Nvidia’s former CEO Jensen Huang will testify before several congressional committees on 1 December, setting the stage for a...
+- **11-17 10:20 MST | Dawn (Pakistan)** (pakistan)  
+  [Jensen Huang says willing to return as Nvidia CEO, 'owns mistakes'](https://www.dawn.com/news/2045205/jensen-huang-says-willing-to-return-as-nvidia-ceo-owns-mistakes)  
+  Former Nvidia CEO Jensen Huang said on Tuesday that he would be willing to return to the post due to an “outpouring of calls” for his reinstatement after he quit last week over an affair with an alleged Chinese spy . “If the Board of...
+- **11-17 10:12 MST | Yonhap** (south-korea (state-funded wire))  
+  [Lee arrives in Shenzhen for APEC summit](https://en.yna.co.kr/view/AEN20261117010600315)  
+  SHENZHEN, China, Nov. 18 (Yonhap) -- South Korean President Lee Jae Myung arrive...
+- **11-17 08:00 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Planes, trains and automobiles: what we know about Kim Jong-un’s foreign travels](https://www.scmp.com/news/china/diplomacy/article/3374779/planes-trains-and-automobiles-what-we-know-about-kim-jong-uns-foreign-travels)  
+  US President Donald Trump’s suggestion on Monday that he might meet North Korean leader Kim Jong-un in China this week has thrown up a logistical challenge. According to the White House’s schedule, Trump is due to arrive in Shenzhen on...
+- **11-17 07:49 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [A trade deal, rare earths and a Quad revival: day 1 of Trump’s Asia trip](https://www.scmp.com/news/china/diplomacy/article/3374794/trade-deal-rare-earths-and-quad-revival-day-1-trumps-asia-trip)  
+  US President Donald Trump arrived in Manila on Tuesday to start a three-day Asian swing, seeking to deepen ties with the region just weeks after his Republican Party suffered heavy losses in the midterm elections. In the Philippine...
+- **11-17 07:40 MST | Yonhap** (south-korea (state-funded wire))  
+  [Lee departs for China for APEC summit after wrapping up ASEAN summit](https://en.yna.co.kr/view/AEN20261117010400315)  
+  MANILA, Nov. 17 (Yonhap) -- South Korean President Lee Jae Myung departed for Ch...
+- **11-17 07:15 MST | Yonhap** (south-korea (state-funded wire))  
+  [(LEAD) Trump says N. Korean leader 'would like to' attend APEC summit in China](https://en.yna.co.kr/view/AEN20261117010151315)  
+  MANILA, Nov. 17 (Yonhap) -- U.S. President Donald Trump said Tuesday that North ...
+- **11-17 07:00 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [A handshake but no smile, is this the best that Takaichi can hope for in China?](https://www.scmp.com/news/china/diplomacy/article/3374734/handshake-no-smile-best-takaichi-can-hope-china)  
+  In Beijing’s diplomatic protocols, choreography can carry the same weight as a communique. When Chinese President Xi Jinping takes his place at the end of the red carpet to welcome visitors to the Apec summit on Thursday, many eyes will...
+- **11-17 06:39 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Singapore will be Asean chair. What’s its biggest challenge?](https://www.scmp.com/week-asia/politics/article/3374788/singapore-will-be-asean-chair-whats-its-biggest-challenge)  
+  As the Philippines handed over Asean’s chairmanship gavel to Singapore on Tuesday, analysts expect the city state to make progress on digital economic integration, AI governance and trade expansion as the bloc marks its 60th anniversary...
+- **11-17 06:27 MST | Yonhap** (south-korea (state-funded wire))  
+  [President Lee calls for thorough crackdown against AI-assisted cheating during CSAT](https://en.yna.co.kr/view/AEN20261117010500320)  
+  SEOUL, Nov. 17 (Yonhap) -- South Korean President Lee Jae Myung called on offici...
+- **11-17 06:23 MST | Japan Times** (japan-independent)  
+  [Trump joins ‘Quad’ summit for first leaders’ meeting in two years](https://www.japantimes.co.jp/news/2026/11/17/japan/politics/quad-leaders-summit-takaichi-trump/)  
+  In a win for Japan, the grouping expressed "grave concerns" about economic coercion, including arbitrary export restrictions.
+- **11-17 06:20 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Hong Kong partners with Qingdao port as think tank urges maritime resilience](https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3374784/hong-kong-partners-qingdao-port-think-tank-urges-maritime-resilience)  
+  Hong Kong has established a port partnership with Qingdao in mainland China as part of efforts to broaden international collaboration on shipping logistics, smart ports and green corridors. The news of the partnership came as local think...
+- **11-17 06:08 MST | TASS** (russia-state) | also: russia-ukraine  
+  [Military drills near North Korea fuel tensions on Korean Peninsula — Lavrov](https://tass.com/politics/2219725)  
+  The Russian top diplomat stressed that the main drivers of the rising risk of conflict on the Korean Peninsula are also sanctions and military pressure on the Democratic People’s Republic of Korea
+- **11-17 06:06 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Hong Kong plans first sustainable aviation fuel facility to meet 2030 goal](https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3374782/hong-kong-plans-first-sustainable-aviation-fuel-facility-meet-2030-goal)  
+  Hong Kong has taken a major step towards building a cross-border supply chain for sustainable aviation fuel with the establishment of the city’s first blending facility in Tuen Mun, as it seeks to meet a clean-fuel target by 2030. The...
+- **11-17 06:03 MST | Kyiv Post** (ukraine-independent) | also: russia-ukraine  
+  [Japan Scrambles Fighters as Taiwan Tracks 2 Russian Planes](https://www.kyivpost.com/post/90360)  
+  Japan said two suspected Russian aircraft violated its territorial airspace on Nov. 17, prompting scramble of fighter aircraft and a diplomatic protest to Moscow. Taiwan separately reported Russian military aircraft entering its air...
+- **11-17 05:59 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Can Xi-Trump talks at Apec turn China’s pledge to buy 200 Boeing jets into firm orders?](https://www.scmp.com/economy/china-economy/article/3374781/can-xi-trump-talks-apec-turn-chinas-pledge-buy-200-boeing-jets-firm-orders)  
+  China’s expanding air links, a proposed Asia-Pacific free-trade agreement and an expected meeting between the US and Chinese presidents are creating a more favourable backdrop for regional business, a top Boeing executive said. But he...
+- **11-17 04:36 MST | Yonhap** (south-korea (state-funded wire))  
+  [(LEAD) Lee holds summit with Takaichi; hails best-ever sentiment between S. Koreans, Japanese](https://en.yna.co.kr/view/AEN20261117010051315)  
+  MANILA, Nov. 17 (Yonhap) -- South Korean President Lee Jae Myung held a summit w...
+- **11-17 04:30 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [What Philippine KC-390 aircraft deal could mean for Brazil’s ambitions in Southeast Asia](https://www.scmp.com/week-asia/economics/article/3374772/what-philippine-kc-390-aircraft-deal-could-mean-brazils-ambitions-asean)  
+  The Philippines could become an important showcase for Brazil’s growing defence industry in Southeast Asia, as Manila considers acquiring Brazilian military transport aircraft. But analysts say that winning over Southeast Asian buyers...
+- **11-17 04:27 MST | Yonhap** (south-korea (state-funded wire))  
+  [Trump says N. Korean leader 'would like to' attend APEC summit in China](https://en.yna.co.kr/view/AEN20261117010100315)  
+  MANILA, Nov. 17 (Yonhap) -- U.S. President Donald Trump said Tuesday that North ...
+- **11-17 04:18 MST | The Guardian World** (europe (UK press))  
+  [Hi-tech Shenzhen takes centre stage as Xi sends ‘Chinamaxxing’ message at Apec summit](https://www.theguardian.com/world/2026/nov/17/hi-tech-shenzhen-chinamaxxing-xi-apec-summit)  
+  Host city offers showcase of China’s rise into a confident and innovative power central to global economy In a Shenzhen square on a balmy evening, locals and tourists watched the dozens of glinting towers that make up the city’s skyline...
+- **11-17 04:04 MST | TASS** (russia-state)  
+  [Gazprom, China’s CNPC discuss gas cooperation at APEC summit](https://tass.com/economy/2219635)  
+  During the meeting, the parties reviewed current issues of cooperation in the gas sector
+- **11-17 04:00 MST | SCMP** (hong-kong (Alibaba-owned)) | also: russia-ukraine  
+  [Taiwan tracks 2 Russian warplanes off eastern coast ahead of Apec summit](https://www.scmp.com/news/china/politics/article/3374750/taiwan-tracks-2-russian-warplanes-eastern-coast-ahead-apec-summit)  
+  Taiwan’s military said it closely monitored two Russian warplanes flying near the island on Tuesday, the same day that Moscow’s military aviation activity prompted fighter jet scrambles in Japan and South Korea. The aircraft were detected...
+- **11-17 03:54 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [China and Canada agree on fresh tariff relief as Xi and Carney continue thaw](https://www.scmp.com/news/china/diplomacy/article/3374769/china-and-canada-agree-fresh-tariff-reliefs-thaw-continues-xi-carney-meeting)  
+  Chinese President Xi Jinping and Canadian Prime Minister Mark Carney have agreed on broader trade concessions as Ottawa seeks to reset relations with Beijing amid growing trade tensions with the United States. The two leaders met ahead of...
+- **11-17 03:23 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [China and Vietnam should ‘weather the storm together’, Xi tells Lam in Shenzhen](https://www.scmp.com/news/china/diplomacy/article/3374763/china-and-vietnam-should-weather-storm-together-xi-tells-lam-shenzhen)  
+  Chinese President Xi Jinping has pledged to deepen connectivity between China and Vietnam and better integrate their shared interests in a meeting with his Vietnamese counterpart To Lam. President Lam arrived in Shenzhen earlier on...
+- **11-17 03:17 MST | NK News** (korea-specialist-independent)  
+  [North Korea content vanishes from Chinese social media in apparent crackdown](https://www.nknews.org/2026/11/north-korea-content-vanishes-from-chinese-social-media-in-apparent-crackdown/)  
+  Social media posts about North Korea have quietly disappeared from major Chinese platforms in recent weeks, NK News has found, suggesting heightened government censorship due to burgeoning bilateral ties and possibly a trip by Kim Jong Un...
+- **11-17 03:15 MST | Yonhap** (south-korea (state-funded wire))  
+  [Lee holds summit with Takaichi; hails best-ever sentiment between S. Koreans, Japanese](https://en.yna.co.kr/view/AEN20261117010000315)  
+  MANILA, Nov. 17 (Yonhap) -- South Korean President Lee Jae Myung held a summit w...
+- **11-17 03:01 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [China charges veteran nuclear expert Gu Jun with taking ‘huge’ bribes](https://www.scmp.com/news/china/politics/article/3374749/china-charges-veteran-nuclear-expert-gu-jun-taking-huge-bribes)  
+  China has charged a former senior nuclear industry executive with bribery, marking the latest downfall in its sweeping anti-corruption crackdown targeting the military and defence sectors. Gu Jun, former general manager of state-owned...
+- **11-17 02:14 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Japanese city shuts schools amid hunt for mother bear on the loose](https://www.scmp.com/news/asia/east-asia/article/3374732/japanese-city-shuts-schools-amid-hunt-mother-bear-loose)  
+  Authorities in Japan’s Maebashi city ordered school closures as officials were looking for a bear on the loose on Tuesday, after media reports said at least one person had been attacked. Officials in the city north of Tokyo have captured...
+- **11-17 02:12 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [‘Nobody wins the future alone’: John Lee calls for collaboration at Apec](https://www.scmp.com/news/hong-kong/politics/article/3374730/nobody-wins-future-alone-john-lee-calls-collaboration-apec)  
+  Hong Kong’s leader has called on Apec delegates to “prosper and win together” to thrive in an increasingly complex global environment as he offered the city as a springboard for businesses seeking to enter the mainland Chinese market....
+- **11-17 01:13 MST | Japan Times** (japan-independent)  
+  [New biography of WWII admiral sets out to show his life story as a whole](https://www.japantimes.co.jp/culture/2026/11/17/books/admiral-yamamoto-book/)  
+  Ronald Drabkin's biography of Japanese World War II admiral Isoroku Yamamoto, which came out in print on Nov. 17, examines his strategy, as well as his background, which influenced it.
+- **11-17 01:10 MST | Yonhap** (south-korea (state-funded wire))  
+  [Court grants LIG D&A's request to suspend 2-yr bidding ban](https://en.yna.co.kr/view/AEN20261117008800320)  
+  SEOUL, Nov. 17 (Yonhap) -- LIG Defense & Aerospace Co. (LIG D&A) said Tu...
+- **11-17 01:06 MST | SCMP** (hong-kong (Alibaba-owned))  
+  [Ahead of Apec, Beijing’s Hong Kong envoy says party discipline removes ‘serious dangers’](https://www.scmp.com/news/china/politics/article/3374719/ahead-apec-beijings-hong-kong-envoy-says-party-discipline-removes-serious-dangers)  
+  Tightening Communist Party discipline is vital for stability and development, Beijing’s top foreign ministry envoy in Hong Kong said as he briefed the city’s diplomatic community on the outcomes of the party’s latest plenum. Cui Jianchun,...
+- **11-17 00:44 MST | BBC Europe** (intl-broadcaster (UK)) | also: russia-ukraine  
+  [Japan sends up jets after alleged Russian incursion of its airspace](https://www.bbc.co.uk/news/articles/c60evw20qe47o?at_medium=RSS&at_campaign=rss)  
+  Taiwan and South Korea also responded to Russian military aircraft detected near their airspaces.
+- **11-17 00:31 MST | Yonhap** (south-korea (state-funded wire))  
+  [S. Korea joins NATO-led Starlift space initiative to boost launch capabilities](https://en.yna.co.kr/view/AEN20261117008000315)  
+  SEOUL, Nov. 17 (Yonhap) -- South Korea has joined a space initiative led by the ...
+- **11-16 23:48 MST | NK News** (korea-specialist-independent)  
+  [Remains of two ROK soldiers killed in Korean War returned to families](https://www.nknews.org/2026/11/remains-of-two-rok-soldiers-killed-in-korean-war-returned-to-families/)  
+  The remains of two South Korean soldiers who were killed fighting North Korean forces during the 1950-53 Korean War have been identified and transferred to next of kin, the ROK military said this week. The Defense Ministry’s Agency for...
+- **11-16 23:23 MST | BBC World** (intl-broadcaster (UK))  
+  [Inside the Chinese 'AI wonderland' where Xi will host Trump](https://www.bbc.co.uk/news/videos/ckjwjl6ywgn9o?at_medium=RSS&at_campaign=rss)  
+  The meeting will take place as Trump attends the Asia-Pacific Economic Co-operation (Apec) summit in the southern city of Shenzhen.
+- **11-16 21:18 MST | NK News** (korea-specialist-independent)  
+  [Kim Jong Un visits new ski resort on China border, calls for more tourism](https://www.nknews.org/2026/11/kim-jong-un-visits-new-ski-resort-on-china-border-calls-for-more-tourism/)  
+  North Korean leader Kim Jong Un inspected a new ski resort located close to the Chinese border in recent days, where he called for making “tourism a major stimulant to regional development,” according to state media. The Korean Central...
+- **11-16 21:09 MST | Japan Times** (japan-independent)  
+  [Horns and drones banned as Shenzhen hushes for Trump and APEC](https://www.japantimes.co.jp/news/2026/11/17/asia-pacific/politics/horns-drones-shenzhen-trump-apec/)  
+  The summit is a chance for the Chinese city to show off its transformation from an agricultural backwater into the high-tech metropolis it is today.
+- **11-16 20:14 MST | Japan Times** (japan-independent)  
+  [U.S. $14 billion arms sale ‘up to’ Trump, Taiwan official says](https://www.japantimes.co.jp/news/2026/11/17/asia-pacific/politics/us-14-billion-arms-sale-taiwan-trump/)  
+  The deal will not be affected by the U.S. midterm results, according to Taiwanese Deputy Foreign Minister Chen Ming-chi.
+- **11-16 19:25 MST | Yonhap** (south-korea (state-funded wire))  
+  [(LEAD) Senior S. Korean, U.S. diplomats discuss AI cooperation, strategic investment](https://en.yna.co.kr/view/AEN20261117001351315)  
+  SEOUL, Nov. 17 (Yonhap) -- Second Vice Foreign Minister Kim Jina has met with a ...
+- **11-16 17:02 MST | Yonhap** (south-korea (state-funded wire))  
+  [Military toughens screening of smart wearables amid scrutiny over AI cheating](https://en.yna.co.kr/view/AEN20261117001700315)  
+  SEOUL, Nov. 17 (Yonhap) -- Military authorities have stepped up screening of wea...
+- **11-16 16:17 MST | Yonhap** (south-korea (state-funded wire))  
+  [Senior S. Korean, U.S. diplomats discuss AI cooperation, strategic investment](https://en.yna.co.kr/view/AEN20261117001300315)  
+  SEOUL, Nov. 17 (Yonhap) -- Second Vice Foreign Minister Kim Jina has met with a ...
