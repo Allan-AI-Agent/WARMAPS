@@ -1,0 +1,21 @@
+{
+  "format": "warmaps-theme",
+  "formatVersion": 1,
+  "id": "paper",
+  "name": "Paper",
+  "base": "light",
+  "colors": {
+    "bg-base": "#F4F1EA", "bg-surface": "#FFFFFF", "bg-raised": "#ECE8DF",
+    "border-hairline": "#C9C3B6", "border-control": "#6E7C8F",
+    "text-primary": "#14202E", "text-secondary": "#44546A", "text-muted": "#566579",
+    "accent": "#14202E", "focus": "#14202E", "selected": "#14202E", "lens": "#14202E",
+    "theater-iran": "#9A4D00", "theater-ru": "#1F5FCC", "theater-ea": "#14401A", "theater-cb": "#7A2E5C",
+    "link": "#5F5400", "track": "#4A5D73",
+    "compare-a": "#5B3FB5", "compare-b": "#5E5A4A",
+    "state-error": "#C62828", "state-ok": "#2E7D32"
+  },
+  "fonts": { "display": "plex-condensed", "ui": "plex-sans", "data": "plex-mono" },
+  "iconStroke": 1.75, "iconStyle": "outline", "radius": "standard", "glow": 0,
+  "density": "auto", "motion": "standard", "panelOpacity": 1.0,
+  "mapStyle": "light-gray"
+}
